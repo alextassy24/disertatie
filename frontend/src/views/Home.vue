@@ -3,7 +3,7 @@
 		<!-- Hero Section -->
 		<section class="px-10 py-16 text-white bg-black">
 			<div class="container z-10 mx-auto text-justify">
-				<h1 class="mb-8 text-4xl font-semibold text-center">
+				<h1 class="mb-10 text-4xl font-semibold text-center">
 					Welcome to the Monitoring Bracelet Project
 				</h1>
 				<p class="mb-8 text-lg">
@@ -15,7 +15,7 @@
 
 		<section class="px-10 py-16 overflow-hidden bg-white">
 			<div class="container z-10 mx-auto text-justify">
-				<h2 class="mb-4 text-3xl font-semibold text-center">Our Mission</h2>
+				<h2 class="mb-10 text-3xl font-semibold text-center">Our Mission</h2>
 				<p class="mb-8 text-lg">
 					We are on a mission to provide a reliable and user-friendly monitoring solution
 					that enhances the quality of life for individuals with special needs and their
@@ -38,7 +38,7 @@
 		<!-- Technology Section -->
 		<section class="px-10 py-16 bg-black">
 			<div class="container mx-auto text-center">
-				<h2 class="mb-4 text-3xl font-semibold text-white">Technology Stack</h2>
+				<h2 class="mb-10 text-3xl font-semibold text-white">Technology Stack</h2>
 				<div class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2">
 					<div class="p-6 bg-white rounded-lg shadow-md">
 						<h3 class="mb-2 text-xl font-semibold">Frontend Technologies</h3>
@@ -64,39 +64,39 @@
 
 		<section class="px-10 py-16 bg-white">
 			<div class="container mx-auto text-center">
-				<h2 class="mb-4 text-3xl font-semibold">Web App Components</h2>
+				<h2 class="mb-10 text-3xl font-semibold">Web App Components</h2>
 				<div class="grid grid-cols-1 gap-4 text-left md:grid-cols-2">
 					<div
 						v-for="component in webComponents"
-						class="flex flex-col items-center gap-2 p-6 bg-gray-100 rounded-lg shadow-md md:flex-row"
+						class="p-6 bg-gray-100 rounded-lg shadow-md card-hover"
 					>
 						<a :href="component.link" target="_blank">
-							<img
-								:src="component.icon"
-								alt="Logo"
-								class="object-contain w-24 h-24 mb-4"
-							/>
+							<div class="flex flex-col items-center gap-2 md:flex-row">
+								<img
+									:src="component.icon"
+									alt="Logo"
+									class="object-contain w-24 h-24 mb-4"
+								/>
+								<div>
+									<h3 class="mb-2 text-xl font-semibold">{{ component.name }}</h3>
+									<p class="mb-4">
+										{{ component.text }}
+									</p>
+									<p><strong>Usage:</strong> {{ component.usage }}</p>
+								</div>
+							</div>
 						</a>
-						<div>
-							<h3 class="mb-2 text-xl font-semibold">{{ component.name }}</h3>
-							<p class="mb-4">
-								{{ component.text }}
-							</p>
-							<p><strong>Usage:</strong> {{ component.usage }}</p>
-						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- Components Section -->
 		<section class="px-10 py-16 bg-gradient-to-r from-green-500 to-green-300">
 			<div class="container mx-auto text-center">
-				<h2 class="mb-4 text-3xl font-bold text-white">Key Components</h2>
-				<div class="grid grid-cols-1 gap-4 text-left md:grid-cols-3">
-					<!-- Server Component -->
+				<h2 class="mb-10 text-3xl font-bold text-white">Key Components</h2>
+				<div class="grid grid-cols-1 gap-4 text-left md:grid-cols-2 lg:grid-cols-3">
 					<div
 						v-for="component in keyComponents"
-						class="p-6 bg-white rounded-lg shadow-xl"
+						class="p-6 bg-white rounded-lg shadow-xl card-hover"
 					>
 						<h3 class="mb-2 text-xl font-semibold">{{ component.name }}</h3>
 						<p class="mb-4">
@@ -178,6 +178,12 @@ const webComponents = ref([
 
 const keyComponents = ref([
 	{
+		name: "Microcontroller / Single-Board Computer (SBC)",
+		content:
+			"The microcontroller or single-board computer (SBC) serves as the brain of the monitoring bracelet system. It controls the various hardware components, processes data, and executes the software logic. The choice between a microcontroller and an SBC depends on the system's computational requirements and form factor.",
+		usage: "System control and data processing.",
+	},
+	{
 		name: "Server",
 		content:
 			"The server component is the backbone of our system. It handles data storage, communication with the bracelet, and database operations. It's used for storing and retrieving vital data collected by the monitoring bracelet.",
@@ -215,3 +221,8 @@ const keyComponents = ref([
 	},
 ]);
 </script>
+<style scoped>
+.card-hover {
+	@apply hover:ring-2 hover:ring-black transition duration-300 ease-in-out transform hover:scale-90 cursor-pointer;
+}
+</style>
