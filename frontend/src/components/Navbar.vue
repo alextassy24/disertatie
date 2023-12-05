@@ -28,7 +28,7 @@
 				</ul>
 			</div>
 		</div>
-		<div v-if="collapseMenu">
+		<div v-if="collapseMenu" class="block md:hidden">
 			<ul class="flex flex-col gap-5">
 				<li v-for="item in navigationItems" :key="item.text">
 					<router-link :to="item.to" @click="closeMenu">{{ item.text }}</router-link>

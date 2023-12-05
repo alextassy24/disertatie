@@ -36,12 +36,12 @@
 					</div>
 					<div>
 						<h1 class="text-2xl font-bold">Profesor Coordonator</h1>
-						<p class="mb-3 md:mb-0">Prof. Dr. Ing. Nicolae Ionescu</p>
+						<p class="mb-3 md:mb-2">Prof. Dr. Ing. Nicolae Ionescu</p>
 						<h1 class="text-2xl font-bold">Studenti</h1>
 						<ul class="list-none list-inside">
-							<li>ing. Tanase Alexandru</li>
 							<li>Gabriela Bucur</li>
 							<li>Andrei Drimba</li>
+							<li>ing. Tanase Alexandru</li>
 						</ul>
 					</div>
 				</div>
