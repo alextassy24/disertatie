@@ -12,9 +12,11 @@
 							class="object-contain w-24 h-24 mb-4"
 						/>
 					</a>
-					<div>
-						<h2 class="text-2xl font-bold">Universitatea Politehnica din București</h2>
+					<div class="text-center">
 						<h2 class="text-2xl font-bold">
+							Universitatea Națională de Știință și Tehnologie POLITEHNICA București
+						</h2>
+						<h2 class="mb-3 text-2xl font-bold">
 							Facultatea de Inginerie Industrială și Robotică
 						</h2>
 						<p class="font-bold text-center">2022-2024</p>
@@ -32,7 +34,7 @@
 				<div class="grid grid-cols-1 mx-5 lg:grid-cols-2">
 					<div class="mb-3 lg:mb-0">
 						<h1 class="text-2xl font-bold">Titlul lucrării</h1>
-						<p>Dispozitiv pentru localizarea persoanelor cu nevoi speciale</p>
+						<p>Dispozitiv pentru monitorizarea și localizarea persoanelor cu nevoi</p>
 					</div>
 					<div>
 						<h1 class="text-2xl font-bold">Profesor Coordonator</h1>
@@ -40,14 +42,14 @@
 						<h1 class="text-2xl font-bold">Studenti</h1>
 						<ul class="list-none list-inside">
 							<li>Gabriela Bucur</li>
-							<li>Andrei Drimba</li>
-							<li>ing. Tanase Alexandru</li>
+							<li>Andrei-Nicolae Drîmbă</li>
+							<li>Ing. Tănase Alexandru</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="mt-4">
-				<p>&copy; {{ currentYear }} Monitoring Bracelet Project</p>
+				<p>&copy; {{ currentYear }} FIND-ER® Project</p>
 			</div>
 		</div>
 	</footer>

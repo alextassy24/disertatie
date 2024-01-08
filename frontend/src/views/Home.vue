@@ -1,38 +1,37 @@
 <template>
 	<div class="mt-28">
 		<!-- Hero Section -->
-		<Hero :title="title" :subtitle="subtitle" />
+		<Hero :title="translatedValues.title" :subtitle="translatedValues.subtitle" />
 
 		<!-- Mission section -->
 		<section class="px-10 py-16 overflow-hidden bg-white">
 			<div class="container z-10 mx-auto text-justify">
-				<h2 class="mb-10 text-3xl font-semibold text-center">Our Mission</h2>
+				<h2 class="mb-10 text-3xl font-semibold text-center">
+					{{ translatedValues.missionTitle }}
+				</h2>
 				<p class="mb-8 text-lg">
-					We are on a mission to provide a reliable and user-friendly monitoring solution
-					that enhances the quality of life for individuals with special needs and their
-					caregivers.
-				</p>
-				<p class="mb-8 text-lg">
-					Our mission is driven by a commitment to innovation, accessibility, and
-					inclusivity. Through cutting-edge technology, we aim to empower individuals with
-					special needs and provide peace of mind to their caregivers.
+					{{ translatedValues.missionText }}
 				</p>
 				<router-link
 					to="/about"
 					class="px-6 py-3 text-lg font-semibold text-white transition-colors duration-300 ease-in-out bg-green-500 rounded-lg hover:bg-green-700"
 				>
-					Learn More
+					{{ translatedValues.missionBtn }}
 				</router-link>
 			</div>
 		</section>
 
 		<!-- Technology Section -->
-		<section class="px-10 py-16 bg-black">
+		<section class="px-10 py-16 bg-gradient-to-r from-green-500 to-green-300">
 			<div class="container mx-auto text-center">
-				<h2 class="mb-10 text-3xl font-semibold text-white">Technology Stack</h2>
+				<h2 class="mb-10 text-3xl font-semibold text-white">
+					{{ translatedValues.technologyTitle }}
+				</h2>
 				<div class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2">
 					<div class="p-6 bg-white rounded-lg shadow-md">
-						<h3 class="mb-2 text-xl font-semibold">Frontend Technologies</h3>
+						<h3 class="mb-2 text-xl font-semibold">
+							{{ translatedValues.technologyFrontend }}
+						</h3>
 						<ul class="pl-6 list-disc">
 							<li>Vite</li>
 							<li>Vue.js</li>
@@ -43,7 +42,9 @@
 						</ul>
 					</div>
 					<div class="p-6 bg-white rounded-lg shadow-md">
-						<h3 class="mb-2 text-xl font-semibold">Backend Technologies</h3>
+						<h3 class="mb-2 text-xl font-semibold">
+							{{ translatedValues.technologyBackend }}
+						</h3>
 						<ul class="pl-6 list-disc">
 							<li>ASP.NET Core 8.0</li>
 							<li>Entity Framework</li>
@@ -58,7 +59,9 @@
 		<!-- Web app components section -->
 		<section class="px-10 py-16 bg-white">
 			<div class="container mx-auto text-center">
-				<h2 class="mb-10 text-3xl font-semibold">Web App Components</h2>
+				<h2 class="mb-10 text-3xl font-semibold">
+					{{ translatedValues.appComponentsTitle }}
+				</h2>
 				<div class="mb-5">
 					<button
 						class="btn me-5"
@@ -98,7 +101,9 @@
 
 		<section class="px-10 py-16 bg-gradient-to-r from-green-500 to-green-300">
 			<div class="container mx-auto text-center">
-				<h2 class="mb-10 text-3xl font-bold text-white">Key Components</h2>
+				<h2 class="mb-10 text-3xl font-bold text-white">
+					{{ translatedValues.physicalComponentsTitle }}
+				</h2>
 				<div class="grid grid-cols-1 gap-4 text-left md:grid-cols-2 lg:grid-cols-3">
 					<div
 						v-for="component in keyComponents"
@@ -113,14 +118,27 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import ComponentCard from "../components/ComponentCard.vue";
 import Hero from "../components/Hero.vue";
 
-const title = ref("Welcome to the Monitoring Bracelet Project");
-const subtitle = ref(
-	"Dedicated to improving the lives of individuals with special needs through innovative technology."
-);
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
+const translatedValues = computed(() => {
+	return {
+		title: t("home.Title"),
+		subtitle: t("home.Subtitle"),
+		missionTitle: t("home.MissionTitle"),
+		missionText: t("home.MissionText"),
+		missionBtn: t("home.MissionBtn"),
+		technologyTitle: t("home.TechnologyTitle"),
+		technologyFrontend: t("home.TechnologyFrontend"),
+		technologyBackend: t("home.TechnologyBackend"),
+		appComponentsTitle: t("home.AppComponentsTitle"),
+		physicalComponentsTitle: t("home.PhysicalComponentsTitle"),
+	};
+});
 
 const switchComponents = ref(false);
 
@@ -128,117 +146,117 @@ const getImageURL = (name) => {
 	return new URL(`../assets/${name}.png`, import.meta.url).href;
 };
 
-const frontendComponents = ref([
+const frontendComponents = computed(() => [
 	{
 		icon: getImageURL("vite"),
 		name: "Vite",
-		text: "Vite is our build tool of choice for the web app. It provides fast development and optimized production builds, making our app load quickly and efficiently.",
-		usage: "Build tool for web app.",
+		text: t("home.ViteText"),
+		usage: t("home.ViteUsage"),
 		link: "https://vitejs.dev/",
 	},
 	{
 		icon: getImageURL("vue"),
 		name: "Vue",
-		text: "Vue.js is the core framework for building our web app's user interface. It enables us to create dynamic and interactive components with ease.",
-		usage: "User interface development.",
+		text: t("home.VueText"),
+		usage: t("home.VueUsage"),
 		link: "https://vuejs.org/",
 	},
 	{
 		icon: getImageURL("vue-router"),
 		name: "Vue-Router",
-		text: "Vue Router is used for client-side routing in our web app. It enables seamless navigation between different views and pages.",
-		usage: "Client-side routing.",
+		text: t("home.RouterText"),
+		usage: t("home.RouterUsage"),
 		link: "https://router.vuejs.org/",
 	},
 	{
 		icon: getImageURL("pinia"),
 		name: "Pinia",
-		text: "Pinia is our state management library for Vue.js. It helps us manage and share application-level state across components.",
-		usage: "State management.",
+		text: t("home.PiniaText"),
+		usage: t("home.PiniaUsage"),
 		link: "https://pinia.vuejs.org/",
 	},
 	{
 		icon: getImageURL("axios"),
 		name: "Axios",
-		text: "Axios is used for making HTTP requests from our web app to the backend server, enabling data retrieval and updates.",
-		usage: "HTTP requests and data communication.",
+		text: t("home.AxiosText"),
+		usage: t("home.AxiosUsage"),
 		link: "https://axios-http.com/",
 	},
 	{
 		icon: getImageURL("tailwind"),
 		name: "Tailwind CSS",
-		text: "Tailwind CSS provides a utility-first CSS framework that streamlines styling and ensures a consistent design across our web app.",
-		usage: "Styling and design.",
+		text: t("home.TailwindText"),
+		usage: t("home.TailwindUsage"),
 		link: "https://tailwindcss.com/",
 	},
 ]);
 
-const backendComponents = ref([
+const backendComponents = computed(() => [
 	{
 		icon: getImageURL("aspnet"),
 		name: "ASP.NET Core API",
-		text: "ASP.NET Core is the framework chosen for building the backend API of our application. It provides a robust and scalable platform for developing web APIs.",
-		usage: "Backend API development.",
+		text: t("home.NetCoreText"),
+		usage: t("home.NetCoreUsage"),
 		link: "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0",
 	},
 	{
 		icon: getImageURL("entity-framework"),
 		name: "Entity Framework",
-		text: "Entity Framework is an object-relational mapping (ORM) framework used in .NET applications, it enables developers to work with databases using .NET objects, eliminating the need to write raw SQL queries.",
-		usage: "Data modeling, mapping, and interacting with database",
+		text: t("home.EFText"),
+		usage: t("home.EFUsage"),
 		link: "https://docs.microsoft.com/en-us/ef/",
 	},
 	{
 		icon: getImageURL("signalr"),
 		name: "SignalR",
-		text: "SignalR is a real-time web communication library for ASP.NET applications, it facilitates bi-directional communication between clients and servers in real-time, allowing server-side code to push content instantly to connected clients.",
-		usage: "Real-time functionality",
+		text: t("home.SignalRText"),
+		usage: t("home.SignalRUsage"),
 		link: "https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-8.0",
 	},
 	{
 		icon: getImageURL("postgres"),
 		name: "PostgreSQL",
-		text: "PostgreSQL is the chosen relational database management system (RDBMS) for storing and managing the data used by our application.",
-		usage: "Data storage and management.",
+		text: t("home.PostgresText"),
+		usage: t("home.PostgresUsage"),
 		link: "https://www.postgresql.org/",
 	},
 ]);
 
-const keyComponents = ref([
+const keyComponents = computed(() => [
 	{
 		name: "Microcontroller / Single-Board Computer (SBC)",
-		text: "The microcontroller or single-board computer (SBC) serves as the brain of the monitoring bracelet system. It controls the various hardware components, processes data, and executes the software logic. The choice between a microcontroller and an SBC depends on the system's computational requirements and form factor.",
-		usage: "System control and data processing.",
+		text: t("home.MicrocontrollerText"),
+		usage: t("home.MicrocontrollerUsage"),
 	},
 	{
 		name: "Server",
-		text: "The server component is the backbone of our system. It handles data storage, communication with the bracelet, and database operations. It's used for storing and retrieving vital data collected by the monitoring bracelet.",
-		usage: "Data storage, communication hub.",
+		text: t("home.ServerText"),
+		usage: t("home.ServerUsage"),
 	},
 	{
-		name: "Case",
-		text: "The case is the physical enclosure that houses the electronic components of the monitoring bracelet. It's designed to be durable and comfortable for the wearer, ensuring the safety of the components.",
-		usage: "Protection and comfort for components.",
+		name: t("home.CaseTitle"),
+		text: t("home.CaseText"),
+		usage: t("home.CaseUsage"),
 	},
 	{
-		name: "GSM Module",
-		text: "The GSM module enables communication between the bracelet and the app's backend server. It allows for real-time data transmission and remote control features.",
-		usage: "Real-time data transmission, remote control.",
+		name: t("home.GSMTitle"),
+		text: t("home.GSMText"),
+		usage: t("home.GSMUsage"),
 	},
 	{
-		name: "GPS Module",
-		text: "The GPS module provides location tracking capabilities for the monitoring bracelet. It helps caregivers and users keep track of the wearer's whereabouts.",
-		usage: "Location tracking.",
+		name: t("home.GPSTitle"),
+		text: t("home.GPSText"),
+		usage: t("home.GPSUsage"),
 	},
 	{
-		name: "Bluetooth Module",
-		text: "The Bluetooth module, if integrated, enables connectivity with other devices, such as smartphones or tablets, for data synchronization and control.",
-		usage: "Device connectivity and data synchronization (optional).",
+		name: t("home.BTTitle"),
+		text: t("home.BTText"),
+		usage: t("home.BTUsage"),
 	},
 	{
-		name: "Battery",
-		text: "The battery is the power source for the monitoring bracelet. It provides the necessary energy to keep the bracelet functioning for extended periods.",
-		usage: "Power source for the bracelet.",
+		name: t("home.BatteryTitle"),
+		text: t("home.BatteryText"),
+		usage: t("home.BatteryUsage"),
 	},
 ]);
 </script>

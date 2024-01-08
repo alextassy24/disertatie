@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { defineProps } from "vue";
 
 const props = defineProps({
 	title: {
@@ -24,9 +24,4 @@ const props = defineProps({
 		required: true,
 	},
 });
-
-const title = ref(props.title);
-const subtitle = ref(props.subtitle);
 </script>
-
-<style lang="scss" scoped></style>
