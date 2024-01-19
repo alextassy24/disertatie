@@ -85,7 +85,7 @@ function closeMenu() {
 	@apply bg-black text-white py-2 shadow rounded focus:ring-blue-400 hover:ring-blue-400 hover:ring-4 hover:text-blue-400 transition duration-500 ease-in-out transform px-5;
 }
 .nav-link {
-	@apply relative text-black;
+	@apply relative text-black hover:text-white transition duration-300 ease-in-out transform;
 }
 
 .nav-link:before {
@@ -95,6 +95,7 @@ function closeMenu() {
 	left: 0;
 	right: 0;
 	height: 2px;
+	margin-bottom: -2px;
 	background: transparent;
 	transform: scaleX(0);
 	transform-origin: 0 50%;
@@ -102,7 +103,7 @@ function closeMenu() {
 }
 
 .nav-link:hover:before {
-	background: #42a5f5;
+	background: white;
 	transform: scaleX(1);
 }
 </style>

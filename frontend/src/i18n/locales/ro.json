@@ -23,6 +23,7 @@
 		"TechnologyFrontend": "Tehnologii de frontend",
 		"TechnologyBackend": "Tehnologii de backend",
 		"AppComponentsTitle": "Componentele pachetului tehnologic pentru aplicația WEB",
+		"Usage": "Utilizare",
 		"ViteText": "Vite este instrumentul nostru de construcție preferat pentru aplicația web. Oferă dezvoltare rapidă și crează build-uri optimizate pentru producție, făcând ca aplicația noastră să se încarce rapid și eficient.",
 		"ViteUsage": "Instrument de construcție pentru aplicație web.",
 		"VueText": "Vue.js este framework-ul principal pentru construirea interfeței utilizator a aplicației noastre web. Ne permite să creăm componente dinamice și interactive cu ușurință.",
@@ -108,7 +109,36 @@
 		"Password": "Parolă",
 		"ConfirmPassword": "Confirmarea Parolei",
 		"Btn": "Trimite",
-		"LogInHere": "Ai deja un cont? Te poți autentifica aici!"
+		"LogInHere": "Ai deja un cont? Te poți autentifica aici!",
+		"FirstNameError": {
+			"Required":"Prenumele este obligatoriu!",
+			"LettersOnly":"Prenumele poate conține doar litere!"
+		},
+		"LastNameError": {
+			"Required":"Numele este obligatoriu!",
+			"LettersOnly":"Numele poate conține doar litere!"
+		},
+		"EmailError":{
+			"Required":"Email-ul este obligatoriu!",
+			"Format":"Email-ul nu corespunde unui format valid!"
+		},
+		"PhoneNumberError": {
+			"Required":"Numărul de telefon este obligatoriu!",
+			"Format":"Numărul de telefon nu corespunde unui format valid!"
+		},
+		"PasswordError": {
+			"Required":"Parola este obligatorie!",
+			"Length":"Parola trebuie să aibă minim 6 caractere lungime!",
+			"UpperCase":"Parola trebuie să conțină minim o literă mare !",
+			"LowerCase":"Parola trebuie să conțină minim o literă mică !",
+			"Number":"Parola trebuie să conțină minim o cifră!",
+			"Special":"Parola trebuie să conțină minim un caracter special!"
+		},
+		"ConfirmPasswordError":{
+			"Required":"Confirmarea parolei este obligatorie!",
+			"Match":"Parolele nu corespund!"
+		},
+		"SuccessMessage":"Înergistrarea a fost realizată cu succes!"
 	},
 	"forgot-password": {
 		"Title": "Ți-ai uitat parola?",

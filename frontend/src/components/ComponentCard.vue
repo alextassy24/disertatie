@@ -10,13 +10,24 @@
 			<div>
 				<h3 class="mb-2 text-xl font-semibold">{{ component.name }}</h3>
 				<p class="mb-4">{{ component.text }}</p>
-				<p><strong>Usage:</strong> {{ component.usage }}</p>
+				<p><strong>{{ translatedValues.usage }}:</strong> {{ component.usage }}</p>
 			</div>
 		</div>
 	</a>
 </template>
 
 <script setup>
+import { ref, computed } from "vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
+const translatedValues = computed(() => {
+	return {
+		usage: t("home.Usage"),
+	};
+});
+
+
 const props = defineProps({
 	component: {
 		type: Object,

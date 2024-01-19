@@ -23,6 +23,7 @@
 		"TechnologyFrontend": "Frontend Technologies",
 		"TechnologyBackend": "Backend Technologies",
 		"AppComponentsTitle": "Technology Stack - WEB App Components",
+		"Usage": "Usage",
 		"ViteText": "Vite is our build tool of choice for the web app. It provides fast development and optimized production builds, making our app load quickly and efficiently.",
 		"ViteUsage": "Build tool for web app.",
 		"VueText": "Vue.js is the core framework for building our web app's user interface. It enables us to create dynamic and interactive components with ease.",
@@ -108,7 +109,36 @@
 		"Password": "Password",
 		"ConfirmPassword": "Confirm Password",
 		"Btn": "Send",
-		"LogInHere": "Already have an account? Log in here!"
+		"LogInHere": "Already have an account? Log in here!",
+		"FirstNameError": {
+			"Required":"The First Name is required!",
+			"LettersOnly":"The First Name can contain only letters!"
+		},
+		"LastNameError": {
+			"Required":"The Last Name is required!",
+			"LettersOnly":"The Last Name can contain only letters!"
+		},
+		"EmailError":{
+			"Required":"The Email is required!",
+			"Format":"The Email is not valid!"
+		},
+		"PhoneNumberError": {
+			"Required":"The Phone Number is required!",
+			"Format":"The Phone Number is not valid!"
+		},
+		"PasswordError": {
+			"Required":"The Password is required!",
+			"Length":"The Password must be at least 6 characters long!",
+			"UpperCase":"The Password must contain at least one upper case letter!",
+			"LowerCase":"The Password must contain at least one lower case letter!",
+			"Number":"The Password must contain at least one number!",
+			"Special":"The Password must contain at least one special character!"
+		},
+		"ConfirmPasswordError":{
+			"Required":"The Password Confirmation is required!",
+			"Match":"The passwords do not match!"
+		},
+		"SuccessMessage":"Registration succesful!"
 	},
 	"forgot-password": {
 		"Title": "Forgot your password?",
