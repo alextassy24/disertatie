@@ -1,10 +1,8 @@
 <template>
-	<div class="mt-28">
+	<div v-if="authStore.isAuthenticated" class="mt-28">
 		<Hero :title="translatedValues.title" />
 		<section class="px-10 py-16 bg-gray-100">
-			<div
-				class="flex flex-col items-center gap-20 lg:flex-row lg:justify-center lg:items-start"
-			>
+			<div class="flex flex-col items-center gap-20 lg:flex-row lg:justify-center lg:items-start">
 				<div>
 					<div class="flex items-center justify-between">
 						<h1 class="mb-5 text-2xl font-bold">
@@ -132,25 +130,25 @@
 					</h1>
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.56423417012!2d26.071485650230564!3d44.462606007630896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b202196f208795%3A0x1c10b3b1f9755fe1!2sInstitutul%20Na%C8%9Bional%20de%20Cercetare-Dezvoltare%20%C3%AEn%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1654581572288!5m2!1sro!2sro"
-						frameborder="0"
-						scrolling="no"
-						marginheight="0"
-						marginwidth="0"
-						style="width: 100%; border-radius: 20px; height: 360px"
-						allowfullscreen=""
-					></iframe>
+						frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+						style="width: 100%; border-radius: 20px; height: 360px" allowfullscreen=""></iframe>
 				</div>
 			</div>
 		</section>
 	</div>
+	<NotAuthenticated class="mt-36" v-else />
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
-import Hero from "../components/Hero.vue";
-
 import { useI18n } from "vue-i18n";
+import { useAuthStore } from "../store/auth";
+
+import Hero from "../components/Hero.vue";
+import NotAuthenticated from "../components/NotAuthenticated.vue";
+
 const { t } = useI18n();
+const authStore = useAuthStore();
 
 const translatedValues = computed(() => {
 	return {
@@ -179,17 +177,21 @@ const translatedValues = computed(() => {
 
 <style scoped>
 .view-btn {
-	@apply bg-green-500 text-white py-2 shadow rounded focus:ring-green-300 hover:ring-green-300 hover:ring-4  transition duration-500 ease-in-out transform px-5;
+	@apply bg-green-500 text-white py-2 shadow rounded focus:ring-green-300 hover:ring-green-300 hover:ring-4 transition duration-500 ease-in-out transform px-5;
 }
+
 .pagination-btn {
 	@apply bg-black text-white py-2 shadow rounded focus:ring-green-300 hover:ring-green-300 hover:text-green-300 hover:ring-4 transition duration-500 ease-in-out transform px-5;
 }
+
 .table-header {
 	@apply px-6 py-3 text-xs font-medium leading-4 tracking-wider text-gray-500 uppercase bg-gray-50;
 }
+
 .table-data {
 	@apply px-6 py-4;
 }
+
 tr:hover {
 	@apply opacity-90;
 }

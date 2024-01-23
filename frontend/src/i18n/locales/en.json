@@ -99,7 +99,9 @@
 		"Password": "Password",
 		"Btn": "Send",
 		"ForgotPassword": "Forgot your password?",
-		"NoAccount": "Don't have an account? Create one here!"
+		"NoAccount": "Don't have an account? Create one here!",
+		"Redirect": "Loading new features",
+		"SuccessMessage": "Authenticated successfully!"
 	},
 	"register": {
 		"Title": "Register",
@@ -110,6 +112,7 @@
 		"ConfirmPassword": "Confirm Password",
 		"Btn": "Send",
 		"LogInHere": "Already have an account? Log in here!",
+		"Redirect":"You will be redirected soon",
 		"FirstNameError": {
 			"Required":"The First Name is required!",
 			"LettersOnly":"The First Name can contain only letters!"
@@ -161,5 +164,9 @@
 		"A2": "The web app platform acts as a comprehensive dashboard for users: Displays detailed health metrics recorded by the bracelet in an easily accessible format. Allows users to set health goals and track progress over time. Provides personalized insights and recommendations based on the gathered data. Enables data sharing with healthcare professionals or family members for remote monitoring and support.",		
 		"Q3": "How is the privacy and security of user data ensured on the web app platform?",
   		"A3": "The web app platform prioritizes user data privacy and security: Implements end-to-end encryption to safeguard sensitive health information. Adheres to strict industry standards and regulations (such as HIPAA or GDPR) for data protection. Requires secure authentication methods (like two-factor authentication) to access user accounts. Regularly undergoes security audits and updates to address potential vulnerabilities and ensure robust protection against unauthorized access or data breaches."
+	},
+	"utils":{
+	  "AlreadyAuthenticated": "You are already authenticated!",
+	  "NotAuthenticated": "You are not authenticated!"
 	}
 }

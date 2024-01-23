@@ -4,9 +4,25 @@
       {{ translatedValues.title }}
     </h1>
     <div
-      class="flex flex-col items-center justify-center py-10 mx-auto bg-gray-200 shadow-lg md:w-3/4 lg:w-1/4 rounded-xl">
-      <div v-if="successMessage" class="p-3 mb-3 font-bold text-green-600 bg-green-200 rounded-lg shadow">{{
-        successMessage }}</div>
+      class="flex flex-col items-center justify-center py-10 mx-auto bg-gray-200 shadow-lg md:w-3/4 lg:w-2/4 xl:w-1/4 rounded-xl">
+
+      <div v-if="successMessage" class="m-5">
+        <div v-if="successMessage" class="p-3 mb-10 font-bold text-center text-green-600 bg-green-200 rounded-lg shadow">{{
+          successMessage }}
+        </div>
+        <div class="flex flex-col items-center justify-center gap-5 md:flex-row">
+          <div
+            class="text-green-400 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            role="status">
+            <span
+              class="!overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+          </div>
+          <div class="text-center md:text-start">
+            {{ translatedValues.redirect }}...
+          </div>
+        </div>
+      </div>
+
       <div v-if="errorMessage" class="p-3 mb-3 font-bold text-red-600 bg-red-300 rounded-lg shadow">{{ errorMessage }}
       </div>
       <Form v-if="!successMessage" :validation-schema="validationSchema" @submit="onSubmit" class="mb-3">
@@ -44,11 +60,11 @@
           <ErrorMessage name="confirmPassword" class="error-message" />
         </div>
         <div class="flex justify-center mb-3">
-          <button v-if="!successMessage" type="submit" class="btn">{{ translatedValues.btn }}</button>
+          <button type="submit" class="btn">{{ translatedValues.btn }}</button>
         </div>
       </Form>
 
-      <router-link class="login-link" to="/login">
+      <router-link v-if="!successMessage" class="login-link" to="/login">
         {{ translatedValues.logInHere }}
       </router-link>
     </div>
@@ -77,6 +93,7 @@ const translatedValues = computed(() => {
     confirmPassword: t("register.ConfirmPassword"),
     btn: t("register.Btn"),
     logInHere: t("register.LogInHere"),
+    redirect: t("register.Redirect"),
     firstNameError: {
       required: t("register.FirstNameError.Required"),
       lettersOnly: t("register.FirstNameError.LettersOnly"),
@@ -199,19 +216,22 @@ function onSubmit() {
   axios
     .post("http://127.0.0.1:5088/api/account/register", formData)
     .then((response) => {
-      if (response.data && response.data.message === "Registration successful") {
+      if (response.data && response.data.succeeded === true) {
+
         successMessage.value = translatedValues.value.successMessage;
+
         clearFields();
+
         setTimeout(() => {
           router.push('/login');
-        }, 1500);
+        }, 2000);
       }
       else {
         errorMessage.value = `Unexpected response format: ${response.data.message}`;
       }
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
       if (error.response) {
         errorMessage.value = `Status code: ${error.response.status} - ${error.response.data.errors}`;
       } else if (error.request) {
@@ -223,46 +243,3 @@ function onSubmit() {
 }
 </script>
 
-<style scoped>
-.form-label {
-  @apply mb-2;
-}
-
-.form-field {
-  @apply p-2 px-5 rounded focus:outline-none bg-gray-100 focus:ring-2 focus:ring-green-400 hover:shadow focus:shadow-lg transition duration-300 ease-in-out cursor-pointer w-full;
-}
-
-.form-field-error {
-  @apply p-2 px-5 rounded focus:outline-none bg-gray-100 ring-2 ring-red-300 focus:ring-2 focus:ring-red-500 hover:shadow focus:shadow-lg transition duration-300 ease-in-out cursor-pointer w-full;
-}
-
-.btn {
-  @apply bg-black text-white py-2 shadow rounded focus:ring-green-400 hover:ring-green-400 hover:ring-4 hover:text-green-400 transition duration-500 ease-in-out transform px-5;
-}
-
-.login-link {
-  @apply text-black transition duration-300 ease-in-out transform;
-}
-
-.error-message {
-  @apply text-red-500 bg-red-200 font-bold mt-2 rounded-lg p-1 whitespace-pre-line;
-}
-
-.login-link:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: transparent;
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  transition: transform 0.3s ease-in-out;
-}
-
-.login-link:hover:before {
-  background: #66bb6a;
-  transform: scaleX(1);
-}
-</style>

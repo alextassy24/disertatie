@@ -1,5 +1,5 @@
 <template>
-	<div class="mt-28">
+	<div v-if="authStore.isAuthenticated" class="mt-28">
 		<Hero :title="translatedValues.title" />
 		<section class="px-10 py-16">
 			<div
@@ -29,14 +29,19 @@
 			</div>
 		</section>
 	</div>
+	<NotAuthenticated class="mt-36" v-else />
+
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
-import Hero from "../components/Hero.vue";
-
 import { useI18n } from "vue-i18n";
+import { useAuthStore } from "../store/auth";
+import Hero from "../components/Hero.vue";
+import NotAuthenticated from "../components/NotAuthenticated.vue";
+
 const { t } = useI18n();
+const authStore = useAuthStore();
 
 const translatedValues = computed(() => {
 	return {

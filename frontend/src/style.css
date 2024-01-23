@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.error-message {
+    @apply p-1 mt-2 font-bold text-red-500 whitespace-pre-line bg-red-200 rounded-lg;
+  }
+.form-label {
+  @apply mb-2;
+}
+
+.form-field {
+  @apply w-full p-2 px-5 transition duration-300 ease-in-out bg-gray-100 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-400 hover:shadow focus:shadow-lg;
+}
+
+.form-field-error {
+  @apply w-full p-2 px-5 transition duration-300 ease-in-out bg-gray-100 rounded cursor-pointer focus:outline-none ring-2 ring-red-300 focus:ring-2 focus:ring-red-500 hover:shadow focus:shadow-lg;
+}
+
+.btn {
+  @apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-black rounded shadow focus:ring-green-400 hover:ring-green-400 hover:ring-4 hover:text-green-400;
+}
+
+.login-link {
+  @apply text-black transition duration-300 ease-in-out transform;
+}
+
+.login-link:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-link:hover:before {
+  background: #66bb6a;
+  transform: scaleX(1);
+}
