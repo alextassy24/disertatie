@@ -9,6 +9,10 @@
     "Home": "Acasă",
     "About": "Despre noi",
     "FAQ": "FAQ",
+    "Profile": "Profilul meu",
+    "Products": "Produsele mele",
+    "Wearers": "Persoanele mele",
+    "ChangePassword": "Schimbă parola",
     "ViewData": "Vezi datele",
     "RegisterProduct": "Înregistrează produs",
     "Login": "Autentificare"
@@ -102,7 +106,6 @@
     "NoAccount": "Nu ai cont? Crează unul aici!",
     "Redirect": "Se încarcă noile funcționalități",
     "SuccessMessage": "Autentificarea a fost realizată cu succes!"
-
   },
   "register": {
     "Title": "Înregistrează-te",
@@ -166,9 +169,23 @@
     "Q3": "Cum este asigurată confidențialitatea și securitatea datelor utilizatorului pe platforma aplicației web?",
     "A3": "Platforma aplicației web acordă prioritate confidențialității și securității datelor utilizatorului: Implementează criptarea de la un capăt la altul pentru a proteja informațiile sensibile de sănătate. Respectă standardele și reglementările industriale stricte (cum ar fi HIPAA sau GDPR) pentru protecția datelor. Necesită metode de autentificare sigure (cum ar fi autentificarea cu doi factori) pentru a accesa conturile utilizatorilor. Este supusă în mod regulat unor audituri de securitate și actualizări pentru a aborda vulnerabilitățile potențiale și pentru a asigura o protecție solidă împotriva accesului neautorizat sau a încălcărilor de date."
   },
-  "utils":{
+  "change-password": {
+    "Title": "Schimbarea parolei",
+    "OldPassword": "Parola curentă",
+    "NewPassword": "Noua parolă",
+    "ConfirmPassword": "Confirmă noua parolă",
+    "Btn":"Trimite",
+    "OldPasswordError":{
+      "Required":"Parola curentă este obligatorie!"
+    },
+    "NewPasswordError":{
+      "Required":"Noua parolă este obligatorie!"
+    },
+    "SuccessMessage": "Parola a fost schimbată cu succes!",
+    "Redirect":"Veți fi redirecționat în momentele ce urmează"
+  },
+  "utils": {
     "AlreadyAuthenticated": "Sunteți deja autentificat!",
     "NotAuthenticated": "Nu sunteți autentificat!"
   }
-
 }

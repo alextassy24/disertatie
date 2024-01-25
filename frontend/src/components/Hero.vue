@@ -1,10 +1,10 @@
 <template>
-	<section class="px-10 py-16 text-white bg-black">
-		<div class="container z-10 mx-auto text-justify">
-			<h1 class="mb-10 text-4xl font-semibold text-center">
+	<section class="px-10 py-10 text-white bg-black">
+		<div class="container mx-auto text-justify">
+			<h1 class="text-4xl font-semibold text-center align-middle" :class="{'mb-8':subtitle}">
 				{{ title }}
 			</h1>
-			<p class="mb-8 text-center text-md">
+			<p class="mb-6 text-center text-md">
 				<i>{{ subtitle }}</i>
 			</p>
 		</div>
@@ -21,7 +21,7 @@ const props = defineProps({
 	},
 	subtitle: {
 		type: String,
-		required: true,
+		required: false,
 	},
 });
 </script>

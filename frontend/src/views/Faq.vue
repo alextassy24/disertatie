@@ -2,13 +2,13 @@
 	<div class="mt-28">
 	  <Hero :title="translatedValues.title" />
 	  <section class="px-10 py-16">
-		<div v-for="(faq, index) in faqElements" :key="index" class="bg-gray-200 rounded shadow-lg my-5 p-5 w-2/4 mx-auto">
-		  <div class="flex flex-row justify-between items-start cursor-pointer" @click="toggleAnswer(faqElementsShow[index])">
-			<p class="font-bold text-xl mb-5">{{ faq.question }}</p>
+		<div v-for="(faq, index) in faqElements" :key="index" class="w-full p-5 mx-auto my-5 bg-gray-200 rounded shadow-lg md:w-2/4">
+		  <div class="flex flex-row items-start justify-between cursor-pointer" @click="toggleAnswer(faqElementsShow[index])">
+			<p class="mb-5 text-xl font-bold">{{ faq.question }}</p>
 			<i v-if="!faqElementsShow[index].show" class="fa-solid fa-chevron-down"></i>
 			<i v-else class="fa-solid fa-x"></i>
 		  </div>
-		  <p v-if="faqElementsShow[index].show" :class="{ 'animate__animated': faqElementsShow[index].show, 'animate__slideInDown': faqElementsShow[index].show, 'animate__slideOutUp': !faqElementsShow[index].show }" class="text-gray-500 text-justify text-xl">
+		  <p v-if="faqElementsShow[index].show" :class="{ 'animate__animated': faqElementsShow[index].show, 'animate__fadeIn': faqElementsShow[index].show }" class="text-xl text-justify text-gray-500">
           {{ faq.answer }}
         </p>
 		</div>

@@ -34,21 +34,21 @@
 		</div>
 		<div v-else>
 			<div v-if="successMessage" class="w-3/4 m-5 mx-auto md:w-2/4">
-					<div v-if="successMessage"
-						class="p-3 mb-10 font-bold text-center text-green-600 bg-green-200 rounded-lg shadow">{{
-							successMessage }}
+				<div v-if="successMessage"
+					class="p-3 mb-10 font-bold text-center text-green-600 bg-green-200 rounded-lg shadow">{{
+						successMessage }}
+				</div>
+				<div class="flex flex-col items-center justify-center gap-5 md:flex-row">
+					<div class="text-green-400 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]"
+						role="status">
+						<span class="!overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
 					</div>
-					<div class="flex flex-col items-center justify-center gap-5 md:flex-row">
-						<div class="text-green-400 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]"
-							role="status">
-							<span class="!overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
-						</div>
-						<div class="text-center md:text-start">
-							{{ translatedValues.redirect }}...
-						</div>
+					<div class="text-center md:text-start">
+						{{ translatedValues.redirect }}...
 					</div>
 				</div>
-			<AlreadyAuthenticated v-else/>
+			</div>
+			<AlreadyAuthenticated v-else />
 		</div>
 	</section>
 </template>
@@ -134,36 +134,51 @@ function onSubmit() {
 	const formData = {
 		email: email.value,
 		password: password.value,
+		twoFactorCode: null,
+		twoFactorRecoveryCode: null
 	};
 
 	axios
-		.post("http://127.0.0.1:5088/api/account/login", formData)
+		.post("http://127.0.0.1:5088/login", formData)
 		.then((response) => {
-			if (response.data && response.data.succeeded === true) {
+			// console.log(response);
+			if (response.data && response.status == 200) {
 
-				const token = response.data.token;
-				const user = response.data.user;
-				
-				console.log("token: ",token);
-				console.log("user: ",user);
-				//{
-					// firstName: response.data.user.firstName,
-					// lastName: response.data.user.lastName,
-					// age: response.data.user.age,
-					// email: response.data.user.email,
-					// emailCofirmed: response.data.user.emailCofirmed,
-					// phoneNumber: response.data.user.phoneNumber,
-					// wearers: response.data.user.wearers,
-					// products: response.data.user.products,
-				//};
-				
-				authStore.login(user, token);
+				const token = {
+					type: response.data.tokenType,
+					access: response.data.accessToken,
+					refresh: response.data.refreshToken,
+					expiresIn: response.data.expiresIn
+				};
 
-				successMessage.value = translatedValues.value.successMessage;
+				console.log(token);
 
-				setTimeout(() => {
-					router.push('/');
-				}, 2000);
+				axios
+					.get("http://127.0.0.1:5088/manage/info", {
+						headers: {
+							Authorization: `${token.type} ${token.access}`,
+							'Content-Type': 'application/json',
+						},
+					})
+					.then((response) => {
+
+						const user = {
+							email: response.data.email,
+							isEmailConfirmed: response.data.isEmailConfirmed
+						}
+						// console.log(response);
+						authStore.login(user, token);
+
+						successMessage.value = translatedValues.value.successMessage;
+
+						setTimeout(() => {
+							router.push('/');
+						}, 2000);
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+
 			}
 			else {
 				errorMessage.value = `Unexpected response format: ${response.data.message}`;
