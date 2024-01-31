@@ -5,6 +5,7 @@
 .error-message {
     @apply p-1 mt-2 font-bold text-red-500 whitespace-pre-line bg-red-200 rounded-lg;
   }
+  
 .form-label {
   @apply mb-2;
 }

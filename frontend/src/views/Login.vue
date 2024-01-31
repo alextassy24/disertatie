@@ -139,46 +139,25 @@ function onSubmit() {
 	};
 
 	axios
-		.post("http://127.0.0.1:5088/login", formData)
+		.post("http://127.0.0.1:5088/api/account/login", formData)
 		.then((response) => {
-			// console.log(response);
+			console.log(response);
 			if (response.data && response.status == 200) {
 
 				const token = {
-					type: response.data.tokenType,
-					access: response.data.accessToken,
-					refresh: response.data.refreshToken,
-					expiresIn: response.data.expiresIn
-				};
+					access: response.data.token,
+					expiresIn: 3600,
+					createdAt: new Date()
+				}
+				const user = response.data.user;
 
-				console.log(token);
+				authStore.login(user, token);
 
-				axios
-					.get("http://127.0.0.1:5088/manage/info", {
-						headers: {
-							Authorization: `${token.type} ${token.access}`,
-							'Content-Type': 'application/json',
-						},
-					})
-					.then((response) => {
+				successMessage.value = translatedValues.value.successMessage;
 
-						const user = {
-							email: response.data.email,
-							isEmailConfirmed: response.data.isEmailConfirmed
-						}
-						// console.log(response);
-						authStore.login(user, token);
-
-						successMessage.value = translatedValues.value.successMessage;
-
-						setTimeout(() => {
-							router.push('/');
-						}, 2000);
-					})
-					.catch((error) => {
-						console.log(error);
-					});
-
+				setTimeout(() => {
+					router.push('/');
+				}, 2000);
 			}
 			else {
 				errorMessage.value = `Unexpected response format: ${response.data.message}`;
@@ -191,7 +170,7 @@ function onSubmit() {
 			} else if (error.request) {
 				errorMessage.value = `No response received from the server`;
 			} else {
-				errorMessage.value = `Error setting up the registration request: ${error.message}`;
+				errorMessage.value = `Error setting up the registration request: ${error.response.data.message}`;
 			}
 		});
 }

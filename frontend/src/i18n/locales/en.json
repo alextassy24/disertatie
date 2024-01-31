@@ -174,15 +174,28 @@
     "OldPassword": "Current password",
     "NewPassword": "New passowrd",
     "ConfirmPassword": "Confirm your password",
-    "Btn":"Send",
-    "OldPasswordError":{
-      "Required":"The Current password is required!"
+    "Btn": "Send",
+    "OldPasswordError": {
+      "Required": "The Current password is required!"
     },
-    "NewPasswordError":{
-      "Required":"The New passowrd is required!"
+    "NewPasswordError": {
+      "Required": "The New passowrd is required!"
     },
     "SuccessMessage": "You password has been changed!",
     "Redirect": "You will be redirected soon"
+  },
+  "profile": {
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "PhoneNumber": "Phone Number"
+  },
+  "confirm-email": {
+    "Success": "Your email was confirmed successfuly, in order to use the platform you must log in!",
+    "TokenNotFound": "Your token is wrong or it does not exist!",
+    "TokenInvalid": "Your token is invalid!",
+    "TokenExpired": "Your token has expired!",
+    "UserNotFound": "Your token does not correspond to an existing user!",
+    "Failed": "Something went wrong during the confirmation of your email!"
   },
   "utils": {
     "AlreadyAuthenticated": "You are already authenticated!",

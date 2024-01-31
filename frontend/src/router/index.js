@@ -6,6 +6,7 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import ChangePassword from "../views/ChangePassword.vue";
+import ConfirmEmail from "../views/ConfirmEmail.vue";
 import ViewData from "../views/ViewData.vue";
 import RegisterProduct from "../views/RegisterProduct.vue";
 import MyProducts from "../views/MyProducts.vue";
@@ -73,6 +74,12 @@ const routes = [
         name: "my-wearers",
         component: MyWearers,
     },
+    {
+        path:"/confirm-email",
+        name:"confirm-email",
+        component:ConfirmEmail,
+        props:(route)=>({token:route.query.token})
+    }
 ];
 
 const router = createRouter({

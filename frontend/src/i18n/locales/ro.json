@@ -184,6 +184,19 @@
     "SuccessMessage": "Parola a fost schimbată cu succes!",
     "Redirect":"Veți fi redirecționat în momentele ce urmează"
   },
+  "profile":{
+    "FirstName":"Prenume",
+    "LastName":"Nume",
+    "PhoneNumber":"Număr de telefon"
+  },
+  "confirm-email": {
+    "Success": "Email-ul dumneavoastră a fost confirmat cu succes, vă puteți autentifica pentru a folosi platforma!",
+    "TokenNotFound": "Token-ul dumneavoastră nu există sau este greșit!",
+    "TokenInvalid": "Token-ul dumneavoastră este invalid!",
+    "TokenExpired": "Token-ul dumneavoastră a expirat!",
+    "UserNotFound": "Token-ul dumneavoastră nu corespunde unui utilizator existent!",
+    "Failed": "A apărut o problemă la confirmarea email-ului dumneavoastră!"
+  },
   "utils": {
     "AlreadyAuthenticated": "Sunteți deja autentificat!",
     "NotAuthenticated": "Nu sunteți autentificat!"

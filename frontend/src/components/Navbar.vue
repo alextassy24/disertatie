@@ -118,7 +118,7 @@ const dropdownMenu = ref(false);
 const navigationItemsData = [
 	{ text: "Home", to: "/", requireAuth: false, icon: "fa-solid fa-house" },
 	{ text: "About", to: "/about", requireAuth: false, icon: "fa-solid fa-people-group" },
-	{ text: "FAQ", to: "/faq", requireAuth: false, icon: "fa-solid fa-question" },
+	{ text: "FAQ", to: "/faq", requireAuth: false, icon: "fa-regular fa-circle-question" },
 	{ text: "Profile", to: "/profile", requireAuth: true, icon: "fa-solid fa-address-card" },
 	{ text: "Products", to: "/my-products", requireAuth: true, icon: "fa-solid fa-table-list" },
 	{ text: "Wearers", to: "/my-wearers", requireAuth: true, icon: "fa-solid fa-person-cane" },
