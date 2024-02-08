@@ -1,15 +1,17 @@
 <template>
-    <div v-if="!isAuthenticated">
+    <div v-if="!authStore.isAuthenticated">
         <slot />
     </div>
-    <AlreadyAuthenticated v-else />
+    <div v-else>
+        <AlreadyAuthenticated />
+    </div>
 </template>
 
 <script setup>
 import { useAuthStore } from "../store/auth";
 
-import AlreadyAuthenticated from "../components/AlreadyAuthentid.vue";
+import AlreadyAuthenticated from "./AlreadyAuthenticated.vue";
 
-const { isAuthenticated } = useAuthStore();
+const authStore = useAuthStore();
 
 </script>                                                 

@@ -17,7 +17,3 @@ const translatedValues = computed(() => {
 });
 
 </script>
-
-<style scoped>
-
-</style>

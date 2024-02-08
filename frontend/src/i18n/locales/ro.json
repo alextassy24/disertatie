@@ -95,15 +95,14 @@
     "DeviceSerialNumber": "Număr de serie al dispozitivului",
     "DeviceGUID": "GUID-ul dispozitivului",
     "FullName": "Numele complet al persoanei purtătoare",
-    "Age": "Vârsta persoanei purtătoare",
-    "Btn": "Trimite"
+    "Age": "Vârsta persoanei purtătoare"
   },
   "login": {
     "Title": "Autentificare",
     "Password": "Parolă",
-    "Btn": "Trimite",
     "ForgotPassword": "Ți-ai uitat parola?",
     "NoAccount": "Nu ai cont? Crează unul aici!",
+    "ResendEmailConfirmation": "Retrimite mail-ul de confirmare a contului",
     "Redirect": "Se încarcă noile funcționalități",
     "SuccessMessage": "Autentificarea a fost realizată cu succes!"
   },
@@ -114,7 +113,6 @@
     "PhoneNumber": "Număr de telefon",
     "Password": "Parolă",
     "ConfirmPassword": "Confirmarea Parolei",
-    "Btn": "Trimite",
     "LogInHere": "Ai deja un cont? Te poți autentifica aici!",
     "Redirect": "Veți fi redirecționat în momentele ce urmează",
     "FirstNameError": {
@@ -150,7 +148,7 @@
   "forgot-password": {
     "Title": "Ți-ai uitat parola?",
     "Email": "Introduceți adresa de email",
-    "Btn": "Trimite"
+    "SuccessMessage": "Un email de schimbare a parolei a fost trimis către dumneavoastră!"
   },
   "about": {
     "Title": "Despre noi",
@@ -174,20 +172,24 @@
     "OldPassword": "Parola curentă",
     "NewPassword": "Noua parolă",
     "ConfirmPassword": "Confirmă noua parolă",
-    "Btn":"Trimite",
-    "OldPasswordError":{
-      "Required":"Parola curentă este obligatorie!"
+    "OldPasswordError": {
+      "Required": "Parola curentă este obligatorie!"
     },
-    "NewPasswordError":{
-      "Required":"Noua parolă este obligatorie!"
+    "NewPasswordError": {
+      "Required": "Noua parolă este obligatorie!"
     },
     "SuccessMessage": "Parola a fost schimbată cu succes!",
-    "Redirect":"Veți fi redirecționat în momentele ce urmează"
+    "Redirect": "Veți fi redirecționat în momentele ce urmează",
+    "Unauthorized": "Nu sunteți autorizat pentru această operațiune!",
+    "SamePasswords": "Parola nouă nu poate fi identică cu cea veche!",
+    "FailedToChange": "A apărut o problemă la schimbarea parolei dumneavoastră, vă rugăm încercați din nou!",
+    "IncorrectPassword": "Parola curentă este greșită!",
+    "ModelFailed": "Datele introduse nu sunt corecte, vă rugăm încercați din nou!"
   },
-  "profile":{
-    "FirstName":"Prenume",
-    "LastName":"Nume",
-    "PhoneNumber":"Număr de telefon"
+  "profile": {
+    "FirstName": "Prenume",
+    "LastName": "Nume",
+    "PhoneNumber": "Număr de telefon"
   },
   "confirm-email": {
     "Success": "Email-ul dumneavoastră a fost confirmat cu succes, vă puteți autentifica pentru a folosi platforma!",
@@ -197,8 +199,16 @@
     "UserNotFound": "Token-ul dumneavoastră nu corespunde unui utilizator existent!",
     "Failed": "A apărut o problemă la confirmarea email-ului dumneavoastră!"
   },
+  "resend-email-confirmation": {
+    "Title": "Retrimite email-ul de confirmare a contului",
+    "Succes": "Email-ul de confirmare a fost trimis cu succes!",
+    "NotFound": "Adresa de email nu a putut fi găsită!",
+    "AlreadySent": "Un email a fost deja trimis! Trebuie să aștepați 2 minute!"
+  },
   "utils": {
     "AlreadyAuthenticated": "Sunteți deja autentificat!",
-    "NotAuthenticated": "Nu sunteți autentificat!"
+    "NotAuthenticated": "Nu sunteți autentificat!",
+    "Btn": "Trimite",
+    "BtnLoading": "Se încarcă..."
   }
 }

@@ -95,15 +95,14 @@
     "DeviceSerialNumber": "Device Serial Number",
     "DeviceGUID": "Device GUID",
     "FullName": "Full Name of the wearer",
-    "Age": "Age of the wearer",
-    "Btn": "Send"
+    "Age": "Age of the wearer"
   },
   "login": {
     "Title": "Login",
     "Password": "Password",
-    "Btn": "Send",
     "ForgotPassword": "Forgot your password?",
     "NoAccount": "Don't have an account? Create one here!",
+    "ResendEmailConfirmation": "Resend the email confirmation",
     "Redirect": "Loading new features",
     "SuccessMessage": "Authenticated successfully!"
   },
@@ -114,7 +113,6 @@
     "PhoneNumber": "Phone Number",
     "Password": "Password",
     "ConfirmPassword": "Confirm Password",
-    "Btn": "Send",
     "LogInHere": "Already have an account? Log in here!",
     "Redirect": "You will be redirected soon",
     "FirstNameError": {
@@ -150,7 +148,7 @@
   "forgot-password": {
     "Title": "Forgot your password?",
     "Email": "Type in your Email",
-    "Btn": "Send"
+    "SuccessMessage": "An email for password reset has been sent to you!"
   },
   "about": {
     "Title": "About us",
@@ -170,19 +168,23 @@
     "A3": "The web app platform prioritizes user data privacy and security: Implements end-to-end encryption to safeguard sensitive health information. Adheres to strict industry standards and regulations (such as HIPAA or GDPR) for data protection. Requires secure authentication methods (like two-factor authentication) to access user accounts. Regularly undergoes security audits and updates to address potential vulnerabilities and ensure robust protection against unauthorized access or data breaches."
   },
   "change-password": {
-    "Title": "Change your passowrd",
+    "Title": "Change your password",
     "OldPassword": "Current password",
-    "NewPassword": "New passowrd",
+    "NewPassword": "New password",
     "ConfirmPassword": "Confirm your password",
-    "Btn": "Send",
     "OldPasswordError": {
       "Required": "The Current password is required!"
     },
     "NewPasswordError": {
-      "Required": "The New passowrd is required!"
+      "Required": "The New password is required!"
     },
     "SuccessMessage": "You password has been changed!",
-    "Redirect": "You will be redirected soon"
+    "Redirect": "You will be redirected soon",
+    "Unauthorized": "You are not authorized to perform this action!",
+    "SamePasswords": "The new password can not be the same as the current one!",
+    "FailedToChange": "Something went wrong, please try again!",
+    "IncorrectPassword": "Current password is incorrect!",
+    "ModelFailed": "The data entered is incorrect, please try again!"
   },
   "profile": {
     "FirstName": "First Name",
@@ -197,8 +199,16 @@
     "UserNotFound": "Your token does not correspond to an existing user!",
     "Failed": "Something went wrong during the confirmation of your email!"
   },
+  "resend-email-confirmation": {
+    "Title": "Resend account confirmation email",
+    "Succes": "The confirmation email was sent successfully!",
+    "NotFound": "The email can not be found!",
+    "AlreadySent": "A mail was already sent! You must wait 2 minutes!"
+  },
   "utils": {
     "AlreadyAuthenticated": "You are already authenticated!",
-    "NotAuthenticated": "You are not authenticated!"
+    "NotAuthenticated": "You are not authenticated!",
+    "Btn": "Send",
+    "BtnLoading": "Loading..."
   }
 }

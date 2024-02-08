@@ -30,8 +30,8 @@
 						<span class="flex flex-col items-center cursor-pointer nav-link">
 							<i class="fa-solid fa-user"></i>
 							<span class="flex flex-row items-center gap-1 mt-1">
-								<span>{{ authStore.user.email }}</span>
-								<i class="fa-solid fa-chevron-down"></i>
+								<span>{{ truncatedEmail }}</span>
+								<i class="pb-1 fa-solid fa-chevron-down"></i>
 							</span>
 						</span>
 						<div v-if="dropdownMenu" @pointerleave="closeDropdown" class="dropdown">
@@ -65,11 +65,11 @@
 				</li>
 				<li @click="toggleDropdown" v-if="authStore.isAuthenticated">
 					<span class="flex flex-row items-center gap-2 cursor-pointer nav-link">
-						<i class="fa-solid fa-user"></i>						
+						<i class="fa-solid fa-user"></i>
 						<span class="flex flex-row items-center gap-1 mt-1">
-								<span>{{ authStore.user.email }}</span>
-								<i class="fa-solid fa-chevron-down"></i>
-							</span>
+							<span>{{ truncatedEmail }}</span>
+							<i class="fa-solid fa-chevron-down"></i>
+						</span>
 					</span>
 					<div v-if="dropdownMenu" class="p-2 mt-3 space-y-2 bg-white border rounded-lg shadow-lg top-full">
 						<router-link v-for="item in authNavigationItems"
@@ -111,6 +111,14 @@ const isAuthenticated = computed(() => {
 	};
 });
 
+const truncatedEmail = computed(() => {
+	if (authStore.user.length > 15) {
+		const value = authStore.user.substring(0, 15) + '...' 
+		return value;
+	}
+	return authStore.user;
+});
+
 const { t } = useI18n();
 const collapseMenu = ref(false);
 const dropdownMenu = ref(false);
@@ -122,7 +130,6 @@ const navigationItemsData = [
 	{ text: "Profile", to: "/profile", requireAuth: true, icon: "fa-solid fa-address-card" },
 	{ text: "Products", to: "/my-products", requireAuth: true, icon: "fa-solid fa-table-list" },
 	{ text: "Wearers", to: "/my-wearers", requireAuth: true, icon: "fa-solid fa-person-cane" },
-	//{ text: "ViewData", to: "/view-data", requireAuth: true, icon: "fa-solid fa-eye" },
 	{ text: "RegisterProduct", to: "/register-product", requireAuth: true, icon: "fa-solid fa-plus" },
 	{ text: "ChangePassword", to: "/change-password", requireAuth: true, icon: "fa-solid fa-key" },
 ];
@@ -175,7 +182,7 @@ function closeDropdown() {
 	}
 
 	.nav-link {
-		@apply relative text-black hover:text-white  p-1 rounded transition duration-300 ease-in-out transform;
+		@apply relative text-black hover:text-white p-1 rounded transition duration-300 ease-in-out transform;
 	}
 
 	.dropdown {

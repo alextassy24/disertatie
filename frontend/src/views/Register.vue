@@ -60,7 +60,9 @@
           <ErrorMessage name="confirmPassword" class="error-message" />
         </div>
         <div class="flex justify-center mb-3">
-          <button type="submit" class="btn">{{ translatedValues.btn }}</button>
+          <button type="submit" :class="isLoading ? 'btn-loading' : 'btn'" :disabled="isLoading">
+							{{ isLoading ? translatedValues.btnLoading : translatedValues.btn }}	
+						</button>
         </div>
       </Form>
 
@@ -91,7 +93,8 @@ const translatedValues = computed(() => {
     phoneNumber: t("register.PhoneNumber"),
     password: t("register.Password"),
     confirmPassword: t("register.ConfirmPassword"),
-    btn: t("register.Btn"),
+		btn: t("utils.Btn"),
+		btnLoading: t("utils.BtnLoading"),
     logInHere: t("register.LogInHere"),
     redirect: t("register.Redirect"),
     firstNameError: {
@@ -127,7 +130,6 @@ const translatedValues = computed(() => {
 });
 
 // Variables
-// const isValid = ref(false);
 const firstName = ref("");
 const lastName = ref("");
 const email = ref("");
@@ -136,7 +138,7 @@ const password = ref("");
 const confirmPassword = ref("");
 const successMessage = ref("");
 const errorMessage = ref("");
-
+const isLoading = ref(false);
 
 const validationSchema = toTypedSchema(
   z.object({
@@ -204,6 +206,7 @@ function clearFields() {
 function onSubmit() {
 
   clearErrors();
+	isLoading.value = true;
 
   const formData = {
     firstName: firstName.value,
@@ -211,33 +214,29 @@ function onSubmit() {
     email: email.value,
     phoneNumber: phoneNumber.value,
     password: password.value,
+    confirmPassword: confirmPassword.value
   };
 
   axios
     .post("http://127.0.0.1:5088/api/account/register", formData)
     .then((response) => {
-      if (response.data && response.data.succeeded === true) {
+      // console.log(response)
+      if (response.status == 200) {
 
         successMessage.value = translatedValues.value.successMessage;
 
-        clearFields();
+        clearFields(); 
 
         setTimeout(() => {
           router.push('/login');
-        }, 2000);
-      }
-      else {
-        errorMessage.value = `Unexpected response format: ${response.data.message}`;
+        }, 2000); 
       }
     })
     .catch((error) => {
-      console.log(error);
-      if (error.response) {
-        errorMessage.value = `Status code: ${error.response.status} - ${error.response.data.errors}`;
-      } else if (error.request) {
-        errorMessage.value = `No response received from the server`;
-      } else {
-        errorMessage.value = `Error setting up the registration request: ${error.message}`;
+			isLoading.value = false;
+      // console.error(error);
+      if (error.response.data) {
+        errorMessage.value = `Status code: ${error.response.status} - ${error.response.data.title}`;
       }
     });
 }

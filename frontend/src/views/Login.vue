@@ -3,7 +3,7 @@
 		<div v-if="!authStore.isAuthenticated">
 			<h1 class="mb-10 text-4xl font-bold text-center">{{ translatedValues.title }}</h1>
 			<div
-				class="flex flex-col items-center justify-center py-10 mx-auto bg-gray-200 shadow-lg md:w-3/4 lg:w-1/4 rounded-xl">
+				class="flex flex-col items-center justify-center py-10 mx-auto bg-gray-200 shadow-lg md:w-3/4 lg:w-2/4 xl:w-1/4 rounded-xl">
 				<div v-if="errorMessage" class="p-3 mb-3 font-bold text-red-600 bg-red-300 rounded-lg shadow">{{
 					errorMessage }}
 				</div>
@@ -19,12 +19,17 @@
 						<ErrorMessage name="password" class="error-message" />
 					</div>
 					<div class="flex justify-center mb-3">
-						<button type="submit" class="btn">{{ translatedValues.btn }}</button>
+						<button type="submit" :class="isLoading ? 'btn-loading' : 'btn'" :disabled="isLoading">
+							{{ isLoading ? translatedValues.btnLoading : translatedValues.btn }}
+						</button>
 					</div>
 				</Form>
 				<div v-if="!successMessage" class="flex flex-col items-center gap-2">
 					<router-link class="login-link" to="/forgot-password">
 						{{ translatedValues.forgotPassword }}
+					</router-link>
+					<router-link class="login-link" to="/resend-email-confirmation">
+						{{ translatedValues.resendEmailConfirmation }}
 					</router-link>
 					<router-link class="login-link" to="/register">
 						{{ translatedValues.noAccount }}
@@ -72,9 +77,11 @@ const translatedValues = computed(() => {
 	return {
 		title: t("login.Title"),
 		password: t("login.Password"),
-		btn: t("login.Btn"),
+		btn: t("utils.Btn"),
+		btnLoading: t("utils.BtnLoading"),
 		forgotPassword: t("login.ForgotPassword"),
 		noAccount: t("login.NoAccount"),
+		resendEmailConfirmation: t("login.ResendEmailConfirmation"),
 		redirect: t("login.Redirect"),
 		emailError: {
 			required: t("register.EmailError.Required"),
@@ -88,7 +95,8 @@ const translatedValues = computed(() => {
 			number: t("register.PasswordError.Number"),
 			special: t("register.PasswordError.Special"),
 		},
-		successMessage: t("login.SuccessMessage")
+		successMessage: t("login.SuccessMessage"),
+		modelFailed: t("change-password.ModelFailed")
 	};
 });
 
@@ -96,6 +104,7 @@ const email = ref("");
 const password = ref("");
 const successMessage = ref("");
 const errorMessage = ref("");
+const isLoading = ref(false);
 
 const validationSchema = toTypedSchema(
 	z.object({
@@ -131,27 +140,23 @@ function onSubmit() {
 
 	clearErrors();
 
+	isLoading.value = true;
+
 	const formData = {
 		email: email.value,
-		password: password.value,
-		twoFactorCode: null,
-		twoFactorRecoveryCode: null
+		password: password.value
 	};
 
 	axios
 		.post("http://127.0.0.1:5088/api/account/login", formData)
 		.then((response) => {
-			console.log(response);
-			if (response.data && response.status == 200) {
-
-				const token = {
-					access: response.data.token,
-					expiresIn: 3600,
-					createdAt: new Date()
-				}
-				const user = response.data.user;
-
-				authStore.login(user, token);
+			// console.log(response);
+			if (response.status == 200) {
+				const user = {
+					token: response.data.token,
+					email: email.value
+				};
+				authStore.login(user);
 
 				successMessage.value = translatedValues.value.successMessage;
 
@@ -159,56 +164,14 @@ function onSubmit() {
 					router.push('/');
 				}, 2000);
 			}
-			else {
-				errorMessage.value = `Unexpected response format: ${response.data.message}`;
-			}
 		})
 		.catch((error) => {
-			console.log(error)
-			if (error.response) {
-				errorMessage.value = `Status code: ${error.response.status} - ${error.response.data.errors}`;
-			} else if (error.request) {
-				errorMessage.value = `No response received from the server`;
-			} else {
-				errorMessage.value = `Error setting up the registration request: ${error.response.data.message}`;
+			isLoading.value = false;
+			// console.log(error)
+			if (error.response.status === 404 || error.response.status === 400) {
+				errorMessage.value = translatedValues.value.modelFailed;
 			}
 		});
 }
 
 </script>
-
-<style scoped>
-.form-label {
-	@apply mb-2;
-}
-
-.form-field {
-	@apply p-2 px-5 rounded focus:outline-none bg-gray-100 focus:ring-2 focus:ring-green-400 focus:shadow-lg hover:shadow transition duration-300 ease-in-out cursor-pointer w-full;
-}
-
-.btn {
-	@apply bg-black text-white py-2 shadow rounded focus:ring-green-400 hover:ring-green-400 hover:ring-4 hover:text-green-400 transition duration-500 ease-in-out transform px-5;
-}
-
-.login-link {
-	@apply relative text-black;
-}
-
-.login-link:before {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 2px;
-	background: transparent;
-	transform: scaleX(0);
-	transform-origin: 0 50%;
-	transition: transform 0.3s ease-in-out;
-}
-
-.login-link:hover:before {
-	background: #66bb6a;
-	transform: scaleX(1);
-}
-</style>

@@ -6,7 +6,9 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import ChangePassword from "../views/ChangePassword.vue";
+import RecoverPassword from "../views/RecoverPassword.vue";
 import ConfirmEmail from "../views/ConfirmEmail.vue";
+import ResendEmailConfirmation from "../views/ResendEmailConfirmation.vue";
 import ViewData from "../views/ViewData.vue";
 import RegisterProduct from "../views/RegisterProduct.vue";
 import MyProducts from "../views/MyProducts.vue";
@@ -79,6 +81,17 @@ const routes = [
         name:"confirm-email",
         component:ConfirmEmail,
         props:(route)=>({token:route.query.token})
+    },
+    {
+        path:"/recover-password",
+        name:"recover-password",
+        component:RecoverPassword,
+        props:(route)=>({token:route.query.token})
+    },
+    {
+        path:"/resend-email-confirmation",
+        name:"resend-email-confirmation",
+        component:ResendEmailConfirmation,
     }
 ];
 

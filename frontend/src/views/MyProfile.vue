@@ -1,21 +1,21 @@
 <template>
     <AuthenticatedWrapper>
         <div class="mt-28">
-            <Hero :title="user.email" />
+            <Hero :title="user" />
             <section class="px-10 py-16 ">
                 <div>
-                    <table class="mx-auto bg-gray-100 rounded-lg shadow-lg ">
+                    <table class="mx-auto bg-gray-100 rounded-lg shadow-lg">
                         <tr>
                             <td>{{ translatedValues.firstName }}</td>
-                            <td>{{ user.firstName }}</td>
+                            <!-- <td>{{ user.firstName }}</td> -->
                         </tr>
                         <tr>
                             <td>{{ translatedValues.lastName }}</td>
-                            <td>{{ user.lastName }}</td>
+                            <!-- <td>{{ user.lastName }}</td> -->
                         </tr>
                         <tr>
                             <td>{{ translatedValues.phoneNumber }}</td>
-                            <td>{{ user.phoneNumber }}</td>
+                            <!-- <td>{{ user.phoneNumber }}</td> -->
                         </tr>
                     </table>
                 </div>

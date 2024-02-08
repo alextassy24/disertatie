@@ -1,15 +1,17 @@
 <template>
-    <div class="mt-28">
-        <section class="px-10 py-16">
-            <div v-if="isValid"
-                class="w-2/4 p-5 mx-auto text-xl font-bold text-center text-green-500 bg-green-200 rounded shadow">
-                {{ successMessage }}
-            </div>
-            <div v-else class="w-2/4 p-5 mx-auto text-xl font-bold text-center text-red-500 bg-red-200 rounded shadow">
-                {{ errorMessage }}
-            </div>
-        </section>
-    </div>
+    <NotAuthenticatedWrapper>
+        <div class="mt-28">
+            <section class="px-10 py-16">
+                <div v-if="isValid"
+                    class="w-2/4 p-5 mx-auto text-xl font-bold text-center text-green-500 bg-green-200 rounded shadow">
+                    {{ successMessage }}
+                </div>
+                <div v-else class="w-2/4 p-5 mx-auto text-xl font-bold text-center text-red-500 bg-red-200 rounded shadow">
+                    {{ errorMessage }}
+                </div>
+            </section>
+        </div>
+    </NotAuthenticatedWrapper>
 </template>
   
 <script setup>
@@ -17,6 +19,7 @@ import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
+import NotAuthenticatedWrapper from '../components/NotAuthenticatedWrapper.vue';
 import axios from 'axios';
 
 const route = useRoute();

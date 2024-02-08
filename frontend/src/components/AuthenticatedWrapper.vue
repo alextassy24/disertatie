@@ -8,7 +8,7 @@
 <script setup>
 import { useAuthStore } from "../store/auth";
 
-import NotAuthenticated from "../components/NotAuthenticated.vue";
+import NotAuthenticated from "./NotAuthenticated.vue";
 
 const { isAuthenticated } = useAuthStore();
 

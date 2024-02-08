@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { jwtDecode } from "jwt-decode";
 
 export const useAuthStore = defineStore({
   id: "auth",
@@ -11,32 +12,32 @@ export const useAuthStore = defineStore({
   },
   actions: {
     initializeAuthState() {
-      const token = localStorage.getItem("token");
-      const userString = localStorage.getItem("user");
-
-      if (token && userString) {
+      if (localStorage.getItem("token") && localStorage.getItem("user")) {
         this.isAuthenticated = true;
-        this.user = JSON.parse(userString);
+        this.token = localStorage.getItem("token");
+        this.user = localStorage.getItem("user");
+      }
+      if(this.token){
+        // console.log("token = ",this.token);
+        const decodedToken = jwtDecode(this.token);
+        // console.log("decoded token = ",decodedToken);
+        const expirationTime = decodedToken.exp * 1000;
+        // console.log("exp time: ", expirationTime);
+        const currentTime = Date.now();
+        // console.log("current time: ", currentTime);
 
-        if (this.isTokenExpired(token)) {
+        if(currentTime > expirationTime){
           this.logout();
-        } else {
-          this.token = token;
         }
       }
     },
-    login(user, token) {
-      this.user = user;
-      this.token = token;
+    login(user) {
+      this.user = user.email;
+      this.token = user.token;
       this.isAuthenticated = true;
 
-      localStorage.setItem("token", token.access);
-      localStorage.setItem("user", JSON.stringify(user));
-
-      const expiresIn = token.expiresIn * 1000;
-      setTimeout(() => {
-        this.logout();
-      }, expiresIn);
+      localStorage.setItem("token", user.token);
+      localStorage.setItem("user", user.email);
     },
     logout() {
       this.user = null;
@@ -45,10 +46,6 @@ export const useAuthStore = defineStore({
 
       localStorage.removeItem("token");
       localStorage.removeItem("user");
-    },
-    isTokenExpired(token) {
-      const now = Date.now() / 1000;
-      return now >= token.expiresIn;
     },
   },
 });

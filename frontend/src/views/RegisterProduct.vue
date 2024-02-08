@@ -50,7 +50,8 @@ const translatedValues = computed(() => {
 		deviceGUID: t("register-product.DeviceGUID"),
 		fullName: t("register-product.FullName"),
 		age: t("register-product.Age"),
-		btn: t("register-product.Btn"),
+		btn: t("utils.Btn"),
+		btnLoading: t("utils.BtnLoading"),
 	};
 });
 </script>
