@@ -113,7 +113,7 @@ const isAuthenticated = computed(() => {
 
 const truncatedEmail = computed(() => {
 	if (authStore.user.length > 15) {
-		const value = authStore.user.substring(0, 15) + '...' 
+		const value = authStore.user.substring(0, 15) + '...'
 		return value;
 	}
 	return authStore.user;
@@ -128,9 +128,8 @@ const navigationItemsData = [
 	{ text: "About", to: "/about", requireAuth: false, icon: "fa-solid fa-people-group" },
 	{ text: "FAQ", to: "/faq", requireAuth: false, icon: "fa-regular fa-circle-question" },
 	{ text: "Profile", to: "/profile", requireAuth: true, icon: "fa-solid fa-address-card" },
-	{ text: "Products", to: "/my-products", requireAuth: true, icon: "fa-solid fa-table-list" },
 	{ text: "Wearers", to: "/my-wearers", requireAuth: true, icon: "fa-solid fa-person-cane" },
-	{ text: "RegisterProduct", to: "/register-product", requireAuth: true, icon: "fa-solid fa-plus" },
+	{ text: "Products", to: "/my-products", requireAuth: true, icon: "fa-solid fa-table-list" },
 	{ text: "ChangePassword", to: "/change-password", requireAuth: true, icon: "fa-solid fa-key" },
 ];
 
@@ -169,8 +168,9 @@ function closeDropdown() {
 
 </script>
 
-<style scoped>	.navbar-brand {
-		@apply flex items-center gap-2 px-2 shadow transition duration-300 ease-in-out transform bg-white rounded-xl hover:ring-blue-400 hover:ring-4 hover:scale-110 hover:shadow-xl;
+<style scoped>	
+	.navbar-brand {
+		@apply flex items-center gap-2 px-2 shadow transition duration-300 ease-in-out transform bg-white rounded-xl hover:ring-green-500 hover:ring-2 hover:shadow-xl;
 	}
 
 	.btn {
@@ -182,7 +182,7 @@ function closeDropdown() {
 	}
 
 	.nav-link {
-		@apply relative text-black hover:text-white p-1 rounded transition duration-300 ease-in-out transform;
+		@apply relative text-black hover:scale-110 p-1 rounded transition duration-300 ease-in-out transform;
 	}
 
 	.dropdown {

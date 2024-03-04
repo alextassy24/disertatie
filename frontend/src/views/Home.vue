@@ -1,10 +1,10 @@
 <template>
-	<div class="mt-28">
+	<div class="mt-28 ">
 		<!-- Hero Section -->
 		<Hero :title="translatedValues.title" :subtitle="translatedValues.subtitle" />
 
 		<!-- Mission section -->
-		<section class="px-10 py-16 overflow-hidden bg-white">
+		<section class="container px-10 py-16 mx-auto overflow-hidden bg-white">
 			<div class="container z-10 mx-auto text-justify">
 				<h2 class="mb-10 text-3xl font-semibold text-center">
 					{{ translatedValues.missionTitle }}
@@ -57,7 +57,7 @@
 		</section>
 
 		<!-- Web app components section -->
-		<section class="px-10 py-16 bg-white">
+		<section class="container px-10 py-16 mx-auto bg-white">
 			<div class="container mx-auto text-center">
 				<h2 class="mb-10 text-3xl font-semibold">
 					{{ translatedValues.appComponentsTitle }}

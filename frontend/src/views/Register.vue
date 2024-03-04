@@ -1,5 +1,5 @@
 <template>
-  <section class="px-10 py-16 mt-28">
+  <section class="container px-10 py-16 mx-auto mt-28">
     <h1 class="mb-10 text-4xl font-bold text-center">
       {{ translatedValues.title }}
     </h1>

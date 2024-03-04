@@ -1,7 +1,7 @@
 <template>
 	<div class="mt-28">
 	  <Hero :title="translatedValues.title" />
-	  <section class="px-10 py-16">
+	  <section class="container px-10 py-16 mx-auto">
 		<div v-for="(faq, index) in faqElements" :key="index" class="w-full p-5 mx-auto my-5 bg-gray-200 rounded shadow-lg md:w-2/4">
 		  <div class="flex flex-row items-start justify-between cursor-pointer" @click="toggleAnswer(faqElementsShow[index])">
 			<p class="mb-5 text-xl font-bold">{{ faq.question }}</p>

@@ -1,23 +1,44 @@
 <template>
     <AuthenticatedWrapper>
         <div class="mt-28">
-            <Hero :title="user" />
-            <section class="px-10 py-16 ">
-                <div>
-                    <table class="mx-auto bg-gray-100 rounded-lg shadow-lg">
-                        <tr>
-                            <td>{{ translatedValues.firstName }}</td>
-                            <!-- <td>{{ user.firstName }}</td> -->
-                        </tr>
-                        <tr>
-                            <td>{{ translatedValues.lastName }}</td>
-                            <!-- <td>{{ user.lastName }}</td> -->
-                        </tr>
-                        <tr>
-                            <td>{{ translatedValues.phoneNumber }}</td>
-                            <!-- <td>{{ user.phoneNumber }}</td> -->
-                        </tr>
-                    </table>
+            <Hero :title="translatedValues.title" />
+            <section v-if="userData" class="container p-10 mx-auto">
+                <div class="mb-8">
+                    <h2 class="subtitle">{{ user.user }}</h2>
+                    <div class="mx-auto overflow-hidden bg-white rounded-lg shadow-lg">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <tbody>
+                                <tr>
+                                    <td>{{ translatedValues.firstName }}</td>
+                                    <td>{{ userData.firstName }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ translatedValues.lastName }}</td>
+                                    <td>{{ userData.lastName }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ translatedValues.phoneNumber }}</td>
+                                    <td>{{ userData.phoneNumber }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <h2 class="subtitle">{{ translatedValues.products }}</h2>
+                    <div v-if="userData.products.length > 0">
+                        {{ translatedValues.you }} <router-link to="/my-products" class="text-green-500">{{
+                            userData.products.length }}</router-link> {{ translatedValues.availableProducts }}
+                    </div>
+                    <div v-else class="font-bold text-red-500">{{ translatedValues.noProducts }}</div>
+                </div>
+                <div class="mb-8">
+                    <h2 class="subtitle">{{ translatedValues.wearers }}</h2>
+                    <div v-if="userData.wearers.length > 0">
+                        {{ translatedValues.you }} <router-link to="/my-wearers" class="text-green-500">{{
+                            userData.wearers.length }}</router-link> {{ translatedValues.availableWearers }}
+                    </div>
+                    <div v-else class="font-bold text-red-500">{{ translatedValues.noWearers }}</div>
                 </div>
             </section>
         </div>
@@ -27,21 +48,50 @@
 <script setup>
 import { useAuthStore } from '../store/auth';
 import { useI18n } from "vue-i18n";
-import { computed } from "vue";
-
+import { ref, computed, onMounted } from "vue";
 import AuthenticatedWrapper from '../components/AuthenticatedWrapper.vue';
 import Hero from '../components/Hero.vue';
-
-const user = useAuthStore().user;
+import axios from 'axios';
 
 const { t } = useI18n();
-
+const user = useAuthStore();
+const userData = ref();
 const translatedValues = computed(() => {
     return {
+        title: t("profile.Title"),
         firstName: t("profile.FirstName"),
         lastName: t("profile.LastName"),
         phoneNumber: t("profile.PhoneNumber"),
+        wearers: t("profile.Wearers"),
+        noWearers: t("profile.NoWearers"),
+        products: t("profile.Products"),
+        you: t("profile.You"),
+        availableProducts: t("profile.AvailableProducts"),
+        availableWearers: t("profile.AvailableWearers"),
+        noProducts: t("profile.NoProducts"),
     };
 });
 
+const getInfo = async () => {
+    if (user.isAuthenticated) {
+        const config = {
+            headers: { Authorization: `Bearer ${user.token}` }
+        };
+
+        await axios.get(`http://localhost:5088/api/account/info`, config)
+            .then((response) => {
+                if (response.status === 200) {
+                    userData.value = response.data.user;
+                }
+            })
+    }
+};
+
+onMounted(getInfo);
 </script>
+
+<style scoped>
+.subtitle {
+    @apply my-5 text-2xl ms-1 font-semibold;
+}
+</style>

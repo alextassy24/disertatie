@@ -83,7 +83,7 @@
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.56423417012!2d26.071485650230564!3d44.462606007630896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b202196f208795%3A0x1c10b3b1f9755fe1!2sInstitutul%20Na%C8%9Bional%20de%20Cercetare-Dezvoltare%20%C3%AEn%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1654581572288!5m2!1sro!2sro"
 							frameborder="0" scrolling="no" marginheight="0" marginwidth="0" loading="async"
 							style="width: 100%; border-radius: 20px; height: 360px" allowfullscreen=""></iframe> -->
-						<div id="map" class="h-10"></div>		
+						<div id="map" class="h-10"></div>
 					</div>
 				</div>
 			</section>
@@ -106,18 +106,18 @@ import { map } from "zod";
 const gpsMap = ref(null);
 const marker = ref(null);
 
-onMounted(()=>{
-	gpsMap.value = L.map('map').setView([0,0],2);
+onMounted(() => {
+	gpsMap.value = L.map('map').setView([0, 0], 2);
 
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ attribution:'@ OpenStreetMap contributors'}).addTo(gpsMap.value);
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '@ OpenStreetMap contributors' }).addTo(gpsMap.value);
 
-	marker.value = L.marker([0,0]).addTo(map.value);
+	marker.value = L.marker([0, 0]).addTo(map.value);
 });
 
-function updateMap(location){
-	marker.value.setLatLng([location.Latitude,location.Longitude]);
+function updateMap(location) {
+	marker.value.setLatLng([location.Latitude, location.Longitude]);
 
-	gpsMap.value.panTo([location.Latitude,location.Longitude])
+	gpsMap.value.panTo([location.Latitude, location.Longitude])
 }
 
 // const authStore = useAuthStore();
@@ -182,10 +182,6 @@ connection.onclose(() => {
 <style scoped>
 .view-btn {
 	@apply bg-green-500 text-white py-2 shadow rounded focus:ring-green-300 hover:ring-green-300 hover:ring-4 transition duration-500 ease-in-out transform px-5;
-}
-
-.pagination-btn {
-	@apply bg-black text-white py-2 shadow rounded focus:ring-green-400 hover:ring-green-400 hover:text-green-400 hover:ring-4 transition duration-500 ease-in-out transform px-5;
 }
 
 .table-header {

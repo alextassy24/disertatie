@@ -94,8 +94,56 @@
     "Title": "Înregistrați-vă produsul",
     "DeviceSerialNumber": "Număr de serie al dispozitivului",
     "DeviceGUID": "GUID-ul dispozitivului",
+    "Wearer": "Alege persoana",
+    "NeedWearers": "Pentru a înregistra un produs aveți nevoie de minim o persoană înregistrată",
+    "DeviceSerialNumberError": {
+      "Required": "Numărul de serie este obligatoriu!"
+    },
+    "DeviceGUIDError": {
+      "Required": "GUID-ul dispozitivului este obligatoriu!",
+      "Format": "GUID-ul nu corespunde unui format valid!"
+    },
+    "WearerError": {
+      "Required": "Persoana este obligatorie"
+    },
+    "SuccessMessage": "Produsul a fost înregistrat cu succes!",
+    "BadRequest": "Datele introduse nu sunt valide",
+    "Unauthorized": "Nu sunteți autorizat pentru această operațiune!",
+    "NotFound": "Persoana aleasă nu este validă!"
+  },
+  "register-wearer": {
+    "Title": "Înregistrați-vă persoana",
     "FullName": "Numele complet al persoanei purtătoare",
-    "Age": "Vârsta persoanei purtătoare"
+    "Age": "Vârsta persoanei purtătoare",
+    "FullNameError": {
+      "Required": "Numele complet este obligatoriu!",
+      "LettersOnly": "Numele complet poate conține doar litere!"
+    },
+    "AgeError": {
+      "Required": "Vârsta este obligatorie!",
+      "NumbersOnly": "Vârsta poate conține doar cifre!"
+    },
+    "SuccessMessage": "Persoana a fost înregistrată cu succes!",
+    "BadRequest": "",
+    "Unauthorized": "",
+    "NotFound": ""
+  },
+  "my-products": {
+    "Title": "Produsele mele",
+    "SerialNumber": "Număr de serie",
+    "Wearer": "Purtător",
+    "DeleteItem": "Sigur doriți să ștergeți produsul nr.",
+    "SuccessMessage": "Produsul a fost șters cu succes!",
+    "PerPage": "produse per pagină"
+  },
+  "my-wearers": {
+    "Title": "Persoanele mele",
+    "AddWearers": "Puteți adăuga folosind butonul alăturat",
+    "FullName": "Nume complet",
+    "Age": "Vârstă",
+    "DeleteItem": "Sigur doriți să ștergeți persoana cu nr.",
+    "SuccessMessage": "Persoana a fost ștearsă cu succes!",
+    "PerPage": "persoane per pagină"
   },
   "login": {
     "Title": "Autentificare",
@@ -187,9 +235,17 @@
     "ModelFailed": "Datele introduse nu sunt corecte, vă rugăm încercați din nou!"
   },
   "profile": {
+    "Title": "Datele tale personale",
     "FirstName": "Prenume",
     "LastName": "Nume",
-    "PhoneNumber": "Număr de telefon"
+    "PhoneNumber": "Număr de telefon",
+    "Wearers": "Persoanele mele",
+    "NoWearers": "Nu aveți persoane înregistrate!",
+    "Products": "Produsele mele",
+    "You": "Aveți",
+    "AvailableProducts": "produse disponibile.",
+    "AvailableWearers": "persoane înregistrate.",
+    "NoProducts": "Nu aveți produse înregistrate!"
   },
   "confirm-email": {
     "Success": "Email-ul dumneavoastră a fost confirmat cu succes, vă puteți autentifica pentru a folosi platforma!",
@@ -205,10 +261,21 @@
     "NotFound": "Adresa de email nu a putut fi găsită!",
     "AlreadySent": "Un email a fost deja trimis! Trebuie să aștepați 2 minute!"
   },
+  "wearer": {
+    "Subtitle": "Datele persoanei purtătoare"
+  },
+  "footer": {
+    "PaperTitle": "Titlul lucrării",
+    "Title": "Dispozitiv pentru monitorizarea și localizarea persoanelor cu nevoi speciale"
+  },
   "utils": {
     "AlreadyAuthenticated": "Sunteți deja autentificat!",
     "NotAuthenticated": "Nu sunteți autentificat!",
     "Btn": "Trimite",
-    "BtnLoading": "Se încarcă..."
+    "BtnLoading": "Se încarcă...",
+    "CloseBtn": "Inchide",
+    "Yes": "Da",
+    "No": "Nu",
+    "Add": "Adaugă"
   }
 }

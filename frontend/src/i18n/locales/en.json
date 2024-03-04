@@ -94,8 +94,52 @@
     "Title": "Register your product",
     "DeviceSerialNumber": "Device Serial Number",
     "DeviceGUID": "Device GUID",
+    "Wearer": "Choose wearer",
+    "NeedWearers": "In order to register a product you need at least one wearer registered",
+    "DeviceSerialNumberError": {
+      "Required": "Serial number is required!"
+    },
+    "DeviceGUIDError": {
+      "Required": "Device's GUID is required!",
+      "Format": "The GUID does not correspond to a valid format!"
+    },
+    "WearerError": {
+      "Required": "The wearer is required"
+    },
+    "SuccessMessage": "The product was registered successfully!"
+  },
+  "register-wearer": {
+    "Title": "Register your wearer",
     "FullName": "Full Name of the wearer",
-    "Age": "Age of the wearer"
+    "Age": "Age of the wearer",
+    "FullNameError": {
+      "Required": "The Full name is required",
+      "LettersOnly": "The First Name can contain only letters!"
+    },
+    "AgeError": {
+      "Required": "The Ages is required!",
+      "NumbersOnly": "The Age can only contain positive numbers!"
+    },
+    "SuccessMessage": "The wearer was registered successfully!"
+
+  },
+  "my-products": {
+    "Title": "My products",
+    "SerialNumber": "Serial Number",
+    "Wearer": "Wearer",
+    "DeleteItem": "Are you sure you want to delete the product no.",
+    "SuccessMessage": "Product deleted successfully!",
+    "PerPage": "products per page"
+
+  },
+  "my-wearers": {
+    "Title": "My wearers",
+    "AddWearers": "Use the follwing button to add one",
+    "FullName": "Full name",
+    "Age": "Age",
+    "DeleteItem": "Are you sure you want to delete the wearer no.",
+    "SuccessMessage": "Wearer deleted successfully!",
+    "PerPage": "wearers per page"
   },
   "login": {
     "Title": "Login",
@@ -187,9 +231,17 @@
     "ModelFailed": "The data entered is incorrect, please try again!"
   },
   "profile": {
+    "Title": "Your personal data",
     "FirstName": "First Name",
     "LastName": "Last Name",
-    "PhoneNumber": "Phone Number"
+    "PhoneNumber": "Phone Number",
+    "Wearers": "My wearers",
+    "NoWearers": "No wearers available!",
+    "Products": "My products",
+    "You": "You have",
+    "AvailableProducts": "available products!",
+    "AvailableWearers": "available wearers!",
+    "NoProducts": "No products available!"
   },
   "confirm-email": {
     "Success": "Your email was confirmed successfuly, in order to use the platform you must log in!",
@@ -205,10 +257,22 @@
     "NotFound": "The email can not be found!",
     "AlreadySent": "A mail was already sent! You must wait 2 minutes!"
   },
+  "wearer": {
+    "Subtitle": "Wearer's personal data"
+  },
+  "footer": {
+    "PaperTitle": "Paper title",
+    "Title":"Device for monitoring and locating people with special needs"
+  },
   "utils": {
     "AlreadyAuthenticated": "You are already authenticated!",
     "NotAuthenticated": "You are not authenticated!",
     "Btn": "Send",
-    "BtnLoading": "Loading..."
+    "BtnLoading": "Loading...",
+    "CloseBtn": "Close",
+    "Yes": "Yes",
+    "No": "No",
+    "Add": "Add"
+
   }
 }

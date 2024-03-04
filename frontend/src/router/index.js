@@ -11,9 +11,12 @@ import ConfirmEmail from "../views/ConfirmEmail.vue";
 import ResendEmailConfirmation from "../views/ResendEmailConfirmation.vue";
 import ViewData from "../views/ViewData.vue";
 import RegisterProduct from "../views/RegisterProduct.vue";
+import RegisterWearer from "../views/RegisterWearer.vue";
 import MyProducts from "../views/MyProducts.vue";
+import Product from "../views/Product.vue";
 import MyProfile from "../views/MyProfile.vue";
 import MyWearers from "../views/MyWearers.vue";
+import Wearer from "../views/Wearer.vue";
 
 const routes = [
     {
@@ -67,14 +70,29 @@ const routes = [
         component: MyProducts,
     },
     {
+        path: "/products/:id",
+        name: "products",
+        component: Product,
+    },
+    {
         path: "/profile",
         name: "profile",
         component: MyProfile,
     },
     {
+        path: "/register-wearer",
+        name: "register-wearer",
+        component: RegisterWearer,
+    },
+    {
         path: "/my-wearers",
         name: "my-wearers",
         component: MyWearers,
+    },
+    {
+        path: "/wearers/:id",
+        name: "wearers",
+        component: Wearer,
     },
     {
         path:"/confirm-email",
