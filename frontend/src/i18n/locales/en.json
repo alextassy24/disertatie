@@ -19,7 +19,7 @@
   },
   "home": {
     "Title": "Welcome to the FIND-ER®,",
-    "Subtitle": "Bracelet for monitoring and locating individuals with special needs. ",
+    "Subtitle": "device for monitoring and locating individuals with special needs. ",
     "MissionTitle": "Our Mission",
     "MissionText": "Our mission is to create an environment where individuals with special needs feel supported, protected, and cared for. We aim to provide a safe, efficient, and personalized solution to enhance the quality of life for these individuals. We are committed to developing innovative technologies that offer safety and independence, facilitate communication, and ensure timely interventions in emergency situations.",
     "MissionBtn": "Learn More",
@@ -49,25 +49,25 @@
     "PostgresText": "PostgreSQL is the chosen relational database management system (RDBMS) for storing and managing the data used by our application.",
     "PostgresUsage": "Data storage and management.",
     "PhysicalComponentsTitle": "Physical Components",
-    "MicrocontrollerText": "The microcontroller or single-board computer (SBC) serves as the brain of the monitoring bracelet system. It controls the various hardware components, processes data, and executes the software logic. The choice between a microcontroller and an SBC depends on the system's computational requirements and form factor.",
+    "MicrocontrollerText": "The microcontroller or single-board computer (SBC) serves as the brain of the monitoring device system. It controls the various hardware components, processes data, and executes the software logic. The choice between a microcontroller and an SBC depends on the system's computational requirements and form factor.",
     "MicrocontrollerUsage": "System control and data processing.",
-    "ServerText": "The server component is the backbone of our system. It handles data storage, communication with the bracelet, and database operations. It's used for storing and retrieving vital data collected by the monitoring bracelet.",
+    "ServerText": "The server component is the backbone of our system. It handles data storage, communication with the device, and database operations. It's used for storing and retrieving vital data collected by the monitoring device.",
     "ServerUsage": "Data storage, communication hub.",
     "CaseTitle": "Case",
-    "CaseText": "The case is the physical enclosure that houses the electronic components of the monitoring bracelet. It's designed to be durable and comfortable for the wearer, ensuring the safety of the components.",
+    "CaseText": "The case is the physical enclosure that houses the electronic components of the monitoring device. It's designed to be durable and comfortable for the wearer, ensuring the safety of the components.",
     "CaseUsage": "Protection and comfort for components.",
-    "GSMTitle": "GSM/ GPRS Module",
-    "GSMText": "The GSM/ GPRS module enables communication between the bracelet and the app's backend server. It allows for real-time data transmission and remote control features.",
+    "GSMTitle": "SIM800L GSM/ GPRS Module ",
+    "GSMText": "The GSM/ GPRS module enables communication between the device and the app's backend server. It allows for real-time data transmission and remote control features.",
     "GSMUsage": "Real-time data transmission, remote control.",
-    "GPSTitle": "GPS Module",
-    "GPSText": "The GPS module provides location tracking capabilities for the monitoring bracelet. It helps caregivers and users keep track of the wearer's whereabouts.",
+    "GPSTitle": "NEO-6M GPS Module with antenna",
+    "GPSText": "The GPS module provides location tracking capabilities for the monitoring device. It helps caregivers and users keep track of the wearer's whereabouts.",
     "GPSUsage": "Location tracking.",
     "BTTitle": "Bluetooth Module",
     "BTText": "The Bluetooth module, if integrated, enables connectivity with other devices, such as smartphones or tablets, for data synchronization and control.",
     "BTUsage": "Device connectivity and data synchronization (optional).",
-    "BatteryTitle": "Battery",
-    "BatteryText": "The battery is the power source for the monitoring bracelet. It provides the necessary energy to keep the bracelet functioning for extended periods.",
-    "BatteryUsage": "Power source for the bracelet."
+    "BatteryTitle": "3.7V Li-Ion Batteries",
+    "BatteryText": "The batteries are the power source for the monitoring device. They provide the necessary energy to keep the device functioning for extended periods.",
+    "BatteryUsage": "Power source for the device."
   },
   "view-data": {
     "Title": "View real time positioning",
@@ -121,7 +121,6 @@
       "NumbersOnly": "The Age can only contain positive numbers!"
     },
     "SuccessMessage": "The wearer was registered successfully!"
-
   },
   "my-products": {
     "Title": "My products",
@@ -130,7 +129,6 @@
     "DeleteItem": "Are you sure you want to delete the product no.",
     "SuccessMessage": "Product deleted successfully!",
     "PerPage": "products per page"
-
   },
   "my-wearers": {
     "Title": "My wearers",
@@ -204,10 +202,10 @@
   },
   "faq": {
     "Title": "Frequently asked questions",
-    "Q1": "What are the key features of the monitoring device bracelet?",
-    "A1": "The monitoring device bracelet offers various features: Real-time health monitoring, including heart rate, blood pressure, and activity tracking. Emergency SOS function for immediate assistance. Sleep tracking and analysis for better sleep management. Waterproof and durable design for everyday use. Long battery life to ensure continuous monitoring without frequent charging.",
-    "Q2": "What functionalities does the web app platform provide for users of the monitoring device bracelet?",
-    "A2": "The web app platform acts as a comprehensive dashboard for users: Displays detailed health metrics recorded by the bracelet in an easily accessible format. Allows users to set health goals and track progress over time. Provides personalized insights and recommendations based on the gathered data. Enables data sharing with healthcare professionals or family members for remote monitoring and support.",
+    "Q1": "What are the key features of the monitoring device device?",
+    "A1": "The monitoring device device offers various features: Real-time health monitoring, including heart rate, blood pressure, and activity tracking. Emergency SOS function for immediate assistance. Sleep tracking and analysis for better sleep management. Waterproof and durable design for everyday use. Long battery life to ensure continuous monitoring without frequent charging.",
+    "Q2": "What functionalities does the web app platform provide for users of the monitoring device device?",
+    "A2": "The web app platform acts as a comprehensive dashboard for users: Displays detailed health metrics recorded by the device in an easily accessible format. Allows users to set health goals and track progress over time. Provides personalized insights and recommendations based on the gathered data. Enables data sharing with healthcare professionals or family members for remote monitoring and support.",
     "Q3": "How is the privacy and security of user data ensured on the web app platform?",
     "A3": "The web app platform prioritizes user data privacy and security: Implements end-to-end encryption to safeguard sensitive health information. Adheres to strict industry standards and regulations (such as HIPAA or GDPR) for data protection. Requires secure authentication methods (like two-factor authentication) to access user accounts. Regularly undergoes security audits and updates to address potential vulnerabilities and ensure robust protection against unauthorized access or data breaches."
   },
@@ -262,7 +260,7 @@
   },
   "footer": {
     "PaperTitle": "Paper title",
-    "Title":"Device for monitoring and locating people with special needs"
+    "Title": "Device for monitoring and locating people with special needs"
   },
   "utils": {
     "AlreadyAuthenticated": "You are already authenticated!",
@@ -273,6 +271,5 @@
     "Yes": "Yes",
     "No": "No",
     "Add": "Add"
-
   }
 }
