@@ -256,7 +256,8 @@
     "AlreadySent": "A mail was already sent! You must wait 2 minutes!"
   },
   "wearer": {
-    "Subtitle": "Wearer's personal data"
+    "Subtitle": "Wearer's personal data",
+    "Products": "Wearer's devices"
   },
   "footer": {
     "PaperTitle": "Paper title",

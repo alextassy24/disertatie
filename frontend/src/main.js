@@ -1,6 +1,7 @@
 import { createApp } from "vue/dist/vue.esm-bundler";
 import { createPinia } from "pinia";
 import { useAuthStore } from "./store/auth";
+import { autoAnimatePlugin } from "@formkit/auto-animate/vue";
 import App from "./App.vue";
 import i18n from "./i18n";
 import router from "./router";
@@ -14,6 +15,7 @@ const pinia = createPinia();
 app.use(router);
 app.use(pinia);
 app.use(i18n);
+app.use(autoAnimatePlugin);
 
 const authStore = useAuthStore();
 authStore.initializeAuthState();

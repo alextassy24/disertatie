@@ -262,7 +262,8 @@
     "AlreadySent": "Un email a fost deja trimis! Trebuie să aștepați 2 minute!"
   },
   "wearer": {
-    "Subtitle": "Datele persoanei purtătoare"
+    "Subtitle": "Datele persoanei purtătoare",
+    "Products": "Dispozitivele atribuite persoanei"
   },
   "footer": {
     "PaperTitle": "Titlul lucrării",
