@@ -19,105 +19,108 @@ import MyWearers from "../views/MyWearers.vue";
 import Wearer from "../views/Wearer.vue";
 
 const routes = [
-    {
-        path: "/",
-        name: "home",
-        component: Home,
-    },
-    {
-        path: "/about",
-        name: "about",
-        component: About,
-    },
-    {
-        path: "/faq",
-        name: "faq",
-        component: Faq,
-    },
-    {
-        path: "/login",
-        name: "login",
-        component: Login,
-    },
-    {
-        path: "/register",
-        name: "register",
-        component: Register,
-    },
-    {
-        path: "/forgot-password",
-        name: "forgot-password",
-        component: ForgotPassword,
-    },
-    {
-        path: "/change-password",
-        name: "change-password",
-        component: ChangePassword,
-    },
-    {
-        path: "/view-data",
-        name: "view-data",
-        component: ViewData,
-    },
-    {
-        path: "/register-product",
-        name: "register-product",
-        component: RegisterProduct,
-    },
-    {
-        path: "/my-products",
-        name: "my-products",
-        component: MyProducts,
-    },
-    {
-        path: "/products/:id",
-        name: "products",
-        component: Product,
-    },
-    {
-        path: "/profile",
-        name: "profile",
-        component: MyProfile,
-    },
-    {
-        path: "/register-wearer",
-        name: "register-wearer",
-        component: RegisterWearer,
-    },
-    {
-        path: "/my-wearers",
-        name: "my-wearers",
-        component: MyWearers,
-    },
-    {
-        path: "/wearers/:id",
-        name: "wearers",
-        component: Wearer,
-    },
-    {
-        path:"/confirm-email",
-        name:"confirm-email",
-        component:ConfirmEmail,
-        props:(route)=>({token:route.query.token})
-    },
-    {
-        path:"/recover-password",
-        name:"recover-password",
-        component:RecoverPassword,
-        props:(route)=>({token:route.query.token})
-    },
-    {
-        path:"/resend-email-confirmation",
-        name:"resend-email-confirmation",
-        component:ResendEmailConfirmation,
-    }
+  {
+    path: "/",
+    name: "home",
+    component: Home,
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: About,
+  },
+  {
+    path: "/faq",
+    name: "faq",
+    component: Faq,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: Register,
+  },
+  {
+    path: "/forgot-password",
+    name: "forgot-password",
+    component: ForgotPassword,
+  },
+  {
+    path: "/change-password",
+    name: "change-password",
+    component: ChangePassword,
+  },
+  {
+    path: "/view-data",
+    name: "view-data",
+    component: ViewData,
+  },
+  {
+    path: "/register-product",
+    name: "register-product",
+    component: RegisterProduct,
+  },
+  {
+    path: "/my-products",
+    name: "my-products",
+    component: MyProducts,
+  },
+  {
+    path: "/products/:id",
+    name: "products",
+    component: Product,
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: MyProfile,
+  },
+  {
+    path: "/register-wearer",
+    name: "register-wearer",
+    component: RegisterWearer,
+  },
+  {
+    path: "/my-wearers",
+    name: "my-wearers",
+    component: MyWearers,
+  },
+  {
+    path: "/wearers/:id",
+    name: "wearers",
+    component: Wearer,
+  },
+  {
+    path: "/confirm-email",
+    name: "confirm-email",
+    component: ConfirmEmail,
+    props: (route) => ({ token: route.query.token }),
+  },
+  {
+    path: "/recover-password",
+    name: "recover-password",
+    component: RecoverPassword,
+    props: (route) => ({ token: route.query.token }),
+  },
+  {
+    path: "/resend-email-confirmation",
+    name: "resend-email-confirmation",
+    component: ResendEmailConfirmation,
+  },
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
-    linkActiveClass: 'active',
-    linkExactActiveClass: 'active'
+  history: createWebHistory(),
+  routes,
+  linkActiveClass: "active",
+  linkExactActiveClass: "active",
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 };
+  },
 });
 
 export default router;
