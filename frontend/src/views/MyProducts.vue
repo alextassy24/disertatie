@@ -3,56 +3,58 @@
     <div class="mt-28">
       <Hero :title="translatedValues.title" />
       <section class="container w-full px-10 py-16 mx-auto md:w-3/4">
-        <div
-          v-if="successMessage"
-          class="success-message animate__animated"
-          :class="{ animate__fadeIn: fadeIn, animate__fadeOut: fadeOut }"
-        >
-          <i class="fa-solid fa-circle-check"></i>
-          <span>{{ translatedValues.successMessage }}</span>
-        </div>
-        <div v-if="products.length > 0">
-          <PaginatedTable
-            :headers="headers"
-            :items="products"
-            :page="page"
-            :action="toggleModal"
-            :link="link"
-            :item-page="itemPage"
-          />
-          <BaseModal
-            :modalActive="modalActive"
-            @close-modal="toggleModal(null)"
-            @submit-modal="submitRequest"
-          >
-            <input type="hidden" v-model="deletedId" />
-            <h1 class="text-lg text-black">
-              {{ translatedValues.deleteItem }} {{ deletedId }}?
-            </h1>
-          </BaseModal>
-        </div>
-        <div v-else>
+        <LoadingWrapper :loading="loading">
           <div
-            class="flex flex-row items-center justify-center w-2/3 gap-3 p-3 mx-auto text-lg font-bold text-red-500 bg-red-200 rounded md:w-1/3"
+            v-if="successMessage"
+            class="success-message animate__animated"
+            :class="{ animate__fadeIn: fadeIn, animate__fadeOut: fadeOut }"
           >
-            <i class="fa-solid fa-circle-xmark"></i>
-            <span>{{ translatedValues.noProducts }}</span>
+            <i class="fa-solid fa-circle-check"></i>
+            <span>{{ translatedValues.successMessage }}</span>
           </div>
-          <div
-            class="flex items-center justify-between w-full gap-3 mx-auto mt-8 md:w-1/2"
-          >
-            <span>{{ translatedValues.addProducts }}</span>
-            <router-link
-              to="/register-product"
-              class="flex items-center gap-2 btn"
+          <div v-if="products.length > 0">
+            <PaginatedTable
+              :headers="headers"
+              :items="products"
+              :page="page"
+              :action="toggleModal"
+              :link="link"
+              :item-page="itemPage"
+            />
+            <BaseModal
+              :modalActive="modalActive"
+              @close-modal="toggleModal(null)"
+              @submit-modal="submitRequest"
             >
-              <i class="fa-solid fa-plus"></i>
-              <span class="hidden lg:block">
-                {{ translatedValues.add }}
-              </span>
-            </router-link>
+              <input type="hidden" v-model="deletedId" />
+              <h1 class="text-lg text-black">
+                {{ translatedValues.deleteItem }} {{ deletedId }}?
+              </h1>
+            </BaseModal>
           </div>
-        </div>
+          <div v-else>
+            <div
+              class="flex flex-row items-center justify-center w-2/3 gap-3 p-3 mx-auto text-lg font-bold text-red-500 bg-red-200 rounded md:w-1/3"
+            >
+              <i class="fa-solid fa-circle-xmark"></i>
+              <span>{{ translatedValues.noProducts }}</span>
+            </div>
+            <div
+              class="flex items-center justify-between w-full gap-3 mx-auto mt-8 md:w-1/2"
+            >
+              <span>{{ translatedValues.addProducts }}</span>
+              <router-link
+                to="/register-product"
+                class="flex items-center gap-2 btn"
+              >
+                <i class="fa-solid fa-plus"></i>
+                <span class="hidden lg:block">
+                  {{ translatedValues.add }}
+                </span>
+              </router-link>
+            </div>
+          </div>
+        </LoadingWrapper>
       </section>
     </div>
   </AuthenticatedWrapper>
@@ -66,6 +68,7 @@ import { useAuthStore } from "../store/auth";
 import Hero from "../components/Hero.vue";
 import PaginatedTable from "../components/PaginatedTable.vue";
 import BaseModal from "../components/BaseModal.vue";
+import LoadingWrapper from "../components/LoadingWrapper.vue";
 import AuthenticatedWrapper from "../components/AuthenticatedWrapper.vue";
 
 const { t } = useI18n();
@@ -79,6 +82,7 @@ const link = ref("/register-product");
 const itemPage = ref("products");
 const fadeIn = ref(true);
 const fadeOut = ref(false);
+const loading = ref(true);
 
 const translatedValues = computed(() => {
   return {
@@ -115,6 +119,7 @@ const getData = async () => {
     await axios
       .get(`${authStore.apiAddress}/api/products/`, config)
       .then((response) => {
+        loading.value = false;
         if (response.status === 200 && response.data.products) {
           products.value = response.data.products;
         }
@@ -127,7 +132,7 @@ const submitRequest = async () => {
     headers: { Authorization: `Bearer ${authStore.token}` },
   };
   await axios
-    .delete(`http://127.0.0.1:5088/api/products/${deletedId.value}`, config)
+    .delete(`${authStore.apiAddress}/api/products/${deletedId.value}`, config)
     .then((response) => {
       if (response.status === 200) {
         successMessage.value = translatedValues.value.successMessage;

@@ -59,7 +59,7 @@
     "GSMTitle": "Modul GSM/GPRS SIM800L",
     "GSMText": "Modulul GSM/GPRS permite comunicarea între dispozitiv și serverul backend al aplicației. Permite transmiterea datelor în timp real și funcționalități de control la distanță.",
     "GSMUsage": "Transmiterea datelor în timp real, control la distanță.",
-    "GPSTitle": "MModul GPS NEO-6M cu antena",
+    "GPSTitle": "Modul GPS NEO-6M cu antena",
     "GPSText": "Modulul GPS oferă capacități de urmărire a localizării pentru dispozitivul de monitorizare. Ajută îngrijitorii și utilizatorii să țină evidența locației purtătorului.",
     "GPSUsage": "Urmărirea localizării.",
     "BTTitle": "Modul Bluetooth",
