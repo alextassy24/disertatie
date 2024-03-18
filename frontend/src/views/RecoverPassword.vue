@@ -171,7 +171,7 @@ function clearErrors() {
 
 const checkToken = async () => {
   await axios
-    .get(`${userStore.apiAddress}api/account/check-token?token=${token}`)
+    .get(`${userStore.apiAddress}/api/account/check-token?token=${token}`)
     .then((response) => {
       // console.log(response);
       if (response.status === 200) {
@@ -212,7 +212,7 @@ const onSubmit = async () => {
   };
 
   await axios
-    .post(`http://localhost:5088/api/account/recover-password`, formData)
+    .post(`${authStore.apiAddress}/api/account/recover-password`, formData)
     .then((response) => {
       // console.log(response);
       if (response.status === 200) {

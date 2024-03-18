@@ -172,7 +172,7 @@ const config = {
 
 const getWearers = () => {
   axios
-    .get(`${authStore.apiAddress}api/wearers/`, config)
+    .get(`${authStore.apiAddress}/api/wearers/`, config)
     .then((response) => {
       if (response.status === 200 && response.data.wearers) {
         wearers.value = response.data.wearers;
@@ -201,7 +201,7 @@ function onSubmit() {
   };
 
   axios
-    .post(`${authStore.apiAddress}api/products/`, formData, config)
+    .post(`${authStore.apiAddress}/api/products/`, formData, config)
     .then((response) => {
       // console.log(response);
       if (response.status === 200) {

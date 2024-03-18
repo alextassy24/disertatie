@@ -219,7 +219,7 @@ function onSubmit() {
   };
 
   axios
-    .post(`${apiAddress}api/account/change-password`, formData, config)
+    .post(`${apiAddress}/api/account/change-password`, formData, config)
     .then((response) => {
       // console.log(response);
       if (response.status === 200) {

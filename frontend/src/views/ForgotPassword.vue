@@ -107,7 +107,7 @@ function onSubmit() {
   };
 
   axios
-    .post(`${userStore.apiAddress}api/account/forgot-password`, formData)
+    .post(`${authStore.apiAddress}/api/account/forgot-password`, formData)
     .then((response) => {
       if (response.status == 200) {
         successMessage.value = translatedValues.value.successMessage;

@@ -109,7 +109,7 @@ function onSubmit() {
 
   axios
     .post(
-      `${authStore.apiAddress}api/account/resend-email-confirmation`,
+      `${authStore.apiAddress}/api/account/resend-email-confirmation`,
       formData
     )
     .then((response) => {

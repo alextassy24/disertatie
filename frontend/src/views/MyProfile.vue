@@ -90,7 +90,7 @@ const getInfo = async () => {
     };
 
     await axios
-      .get(`${authStore.apiAddress}api/account/info`, config)
+      .get(`${authStore.apiAddress}/api/account/info`, config)
       .then((response) => {
         if (response.status === 200) {
           userData.value = response.data.user;

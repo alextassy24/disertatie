@@ -274,7 +274,7 @@ function onSubmit() {
   };
 
   axios
-    .post(`${authStore.apiAddress}api/account/register`, formData)
+    .post(`${authStore.apiAddress}/api/account/register`, formData)
     .then((response) => {
       // console.log(response)
       if (response.status == 200) {

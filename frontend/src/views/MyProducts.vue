@@ -113,7 +113,7 @@ const getData = async () => {
       headers: { Authorization: `Bearer ${authStore.token}` },
     };
     await axios
-      .get(`${authStore.apiAddress}api/products/`, config)
+      .get(`${authStore.apiAddress}/api/products/`, config)
       .then((response) => {
         if (response.status === 200 && response.data.products) {
           products.value = response.data.products;

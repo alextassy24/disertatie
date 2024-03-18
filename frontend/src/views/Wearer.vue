@@ -92,7 +92,7 @@ const config = {
 
 const getData = async () => {
   await axios
-    .get(`${authStore.apiAddress}api/wearers/${id}`, config)
+    .get(`${authStore.apiAddress}/api/wearers/${id}`, config)
     .then((res) => {
       if (res.status === 200) {
         wearerData.value = res.data.wearer;
@@ -112,7 +112,7 @@ const submitRequest = async () => {
     headers: { Authorization: `Bearer ${authStore.token}` },
   };
   await axios
-    .delete(`${authStore.apiAddress}api/products/${deletedId.value}`, config)
+    .delete(`${authStore.apiAddress}/api/products/${deletedId.value}`, config)
     .then((response) => {
       if (response.status === 200) {
         successMessage.value = translatedValues.value.successMessage;

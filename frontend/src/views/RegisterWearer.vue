@@ -139,7 +139,7 @@ function onSubmit() {
   };
 
   axios
-    .post(`${authStore.apiAddress}api/wearers/`, formData, config)
+    .post(`${authStore.apiAddress}/api/wearers/`, formData, config)
     .then((response) => {
       // console.log(response);
       if (response.status === 200) {

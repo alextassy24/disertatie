@@ -122,7 +122,7 @@ const config = {
 const getData = async () => {
   if (authStore.isAuthenticated) {
     await axios
-      .get(`${authStore.apiAddress}api/wearers/`, config)
+      .get(`${authStore.apiAddress}/api/wearers/`, config)
       .then((response) => {
         if (response.status === 200 && response.data.wearers) {
           wearers.value = response.data.wearers;
@@ -133,7 +133,7 @@ const getData = async () => {
 
 const submitRequest = async () => {
   await axios
-    .delete(`http://127.0.0.1:5088/api/wearers/${deletedId.value}`, config)
+    .delete(`${authStore.apiAddress}/api/wearers/${deletedId.value}`, config)
     .then((response) => {
       if (response.status === 200) {
         successMessage.value = translatedValues.value.successMessage;

@@ -49,7 +49,7 @@ const translatedValues = computed(() => {
 
 const confirmEmail = async () => {
   await axios
-    .get(`${authStore.apiAddress}api/account/confirm-email?token=${token}`)
+    .get(`${authStore.apiAddress}/api/account/confirm-email?token=${token}`)
     .then((response) => {
       if (response.status === 200) {
         isValid.value = true;
