@@ -55,7 +55,6 @@ import { useAuthStore } from "../store/auth";
 import { useAutoAnimate } from "@formkit/auto-animate/vue";
 import axios from "axios";
 import AuthenticatedWrapper from "../components/AuthenticatedWrapper.vue";
-import PaginatedTable from "../components/PaginatedTable.vue";
 import BaseModal from "../components/BaseModal.vue";
 
 const { t } = useI18n();
@@ -93,7 +92,7 @@ const config = {
 
 const getData = async () => {
   await axios
-    .get(`http://localhost:5088/api/wearers/${id}`, config)
+    .get(`${authStore.apiAddress}api/wearers/${id}`, config)
     .then((res) => {
       if (res.status === 200) {
         wearerData.value = res.data.wearer;
@@ -113,7 +112,7 @@ const submitRequest = async () => {
     headers: { Authorization: `Bearer ${authStore.token}` },
   };
   await axios
-    .delete(`http://127.0.0.1:5088/api/products/${deletedId.value}`, config)
+    .delete(`${authStore.apiAddress}api/products/${deletedId.value}`, config)
     .then((response) => {
       if (response.status === 200) {
         successMessage.value = translatedValues.value.successMessage;

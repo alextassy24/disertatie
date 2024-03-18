@@ -8,6 +8,8 @@ export const useAuthStore = defineStore({
       isAuthenticated: false,
       user: null,
       token: null,
+      apiAddress: "https://disertatie-api.azurewebsites.net/",
+      // apiAddress: "http://127.0.0.1:5088/"
     };
   },
   actions: {
@@ -17,7 +19,7 @@ export const useAuthStore = defineStore({
         this.token = localStorage.getItem("token");
         this.user = localStorage.getItem("user");
       }
-      if(this.token){
+      if (this.token) {
         // console.log("token = ",this.token);
         const decodedToken = jwtDecode(this.token);
         // console.log("decoded token = ",decodedToken);
@@ -26,7 +28,7 @@ export const useAuthStore = defineStore({
         const currentTime = Date.now();
         // console.log("current time: ", currentTime);
 
-        if(currentTime > expirationTime){
+        if (currentTime > expirationTime) {
           this.logout();
         }
       }

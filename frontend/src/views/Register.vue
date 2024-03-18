@@ -4,18 +4,25 @@
       {{ translatedValues.title }}
     </h1>
     <div
-      class="flex flex-col items-center justify-center py-10 mx-auto bg-gray-200 shadow-lg md:w-3/4 lg:w-2/4 xl:w-1/4 rounded-xl">
-
+      class="flex flex-col items-center justify-center py-10 mx-auto bg-gray-200 shadow-lg md:w-3/4 lg:w-2/4 xl:w-1/4 rounded-xl"
+    >
       <div v-if="successMessage" class="m-5">
-        <div v-if="successMessage" class="p-3 mb-10 font-bold text-center text-green-600 bg-green-200 rounded-lg shadow">{{
-          successMessage }}
+        <div
+          v-if="successMessage"
+          class="p-3 mb-10 font-bold text-center text-green-600 bg-green-200 rounded-lg shadow"
+        >
+          {{ successMessage }}
         </div>
-        <div class="flex flex-col items-center justify-center gap-5 md:flex-row">
+        <div
+          class="flex flex-col items-center justify-center gap-5 md:flex-row"
+        >
           <div
             class="text-green-400 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]"
-            role="status">
+            role="status"
+          >
             <span
-              class="!overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+              class="!overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+            ></span>
           </div>
           <div class="text-center md:text-start">
             {{ translatedValues.redirect }}...
@@ -23,46 +30,94 @@
         </div>
       </div>
 
-      <div v-if="errorMessage" class="p-3 mb-3 font-bold text-red-600 bg-red-300 rounded-lg shadow">{{ errorMessage }}
+      <div
+        v-if="errorMessage"
+        class="p-3 mb-3 font-bold text-red-600 bg-red-300 rounded-lg shadow"
+      >
+        {{ errorMessage }}
       </div>
-      <Form v-if="!successMessage" :validation-schema="validationSchema" @submit="onSubmit" class="mb-3">
+      <Form
+        v-if="!successMessage"
+        :validation-schema="validationSchema"
+        @submit="onSubmit"
+        class="mb-3"
+      >
         <div class="flex flex-col mb-5">
           <label class="form-label">{{ translatedValues.firstName }}</label>
-          <Field id="firstName" type="text" name="firstName" class="form-field" v-model="firstName" />
+          <Field
+            id="firstName"
+            type="text"
+            name="firstName"
+            class="form-field"
+            v-model="firstName"
+          />
           <ErrorMessage name="firstName" class="error-message" />
         </div>
         <div class="flex flex-col mb-5">
           <label class="form-label">{{ translatedValues.lastName }}</label>
-          <Field id="lastName" type="text" name="lastName" class="form-field" v-model="lastName" />
+          <Field
+            id="lastName"
+            type="text"
+            name="lastName"
+            class="form-field"
+            v-model="lastName"
+          />
           <ErrorMessage name="lastName" class="error-message" />
         </div>
         <div class="flex flex-col mb-5">
           <label class="form-label">Email</label>
-          <Field id="email" type="email" name="email" class="form-field" v-model="email" />
+          <Field
+            id="email"
+            type="email"
+            name="email"
+            class="form-field"
+            v-model="email"
+          />
           <ErrorMessage name="email" class="error-message" />
         </div>
         <div class="flex flex-col mb-5">
           <label class="form-label">{{ translatedValues.phoneNumber }}</label>
-          <Field id="phoneNumber" type="tel" name="phoneNumber" class="form-field" v-model="phoneNumber" />
+          <Field
+            id="phoneNumber"
+            type="tel"
+            name="phoneNumber"
+            class="form-field"
+            v-model="phoneNumber"
+          />
           <ErrorMessage name="phoneNumber" class="error-message" />
         </div>
         <div class="flex flex-col mb-5">
           <label class="form-label">{{ translatedValues.password }}</label>
-          <Field id="password" type="password" name="password" class="form-field" v-model="password" />
+          <Field
+            id="password"
+            type="password"
+            name="password"
+            class="form-field"
+            v-model="password"
+          />
           <ErrorMessage name="password" class="error-message" />
         </div>
         <div class="flex flex-col mb-5">
           <label class="form-label">{{
             translatedValues.confirmPassword
           }}</label>
-          <Field id="confirmPassword" type="password" name="confirmPassword" class="form-field"
-            v-model="confirmPassword" />
+          <Field
+            id="confirmPassword"
+            type="password"
+            name="confirmPassword"
+            class="form-field"
+            v-model="confirmPassword"
+          />
           <ErrorMessage name="confirmPassword" class="error-message" />
         </div>
         <div class="flex justify-center mb-3">
-          <button type="submit" :class="isLoading ? 'btn-loading' : 'btn'" :disabled="isLoading">
-							{{ isLoading ? translatedValues.btnLoading : translatedValues.btn }}	
-						</button>
+          <button
+            type="submit"
+            :class="isLoading ? 'btn-loading' : 'btn'"
+            :disabled="isLoading"
+          >
+            {{ isLoading ? translatedValues.btnLoading : translatedValues.btn }}
+          </button>
         </div>
       </Form>
 
@@ -80,8 +135,10 @@ import { z } from "zod";
 import axios from "axios";
 import { ref, computed } from "vue";
 import { useI18n } from "vue-i18n";
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
+import { useAuthStore } from "../store/auth";
 
+const authStore = useAuthStore();
 const { t } = useI18n();
 const router = useRouter();
 
@@ -93,8 +150,8 @@ const translatedValues = computed(() => {
     phoneNumber: t("register.PhoneNumber"),
     password: t("register.Password"),
     confirmPassword: t("register.ConfirmPassword"),
-		btn: t("utils.Btn"),
-		btnLoading: t("utils.BtnLoading"),
+    btn: t("utils.Btn"),
+    btnLoading: t("utils.BtnLoading"),
     logInHere: t("register.LogInHere"),
     redirect: t("register.Redirect"),
     firstNameError: {
@@ -204,9 +261,8 @@ function clearFields() {
 }
 
 function onSubmit() {
-
   clearErrors();
-	isLoading.value = true;
+  isLoading.value = true;
 
   const formData = {
     firstName: firstName.value,
@@ -214,26 +270,25 @@ function onSubmit() {
     email: email.value,
     phoneNumber: phoneNumber.value,
     password: password.value,
-    confirmPassword: confirmPassword.value
+    confirmPassword: confirmPassword.value,
   };
 
   axios
-    .post("http://127.0.0.1:5088/api/account/register", formData)
+    .post(`${authStore.apiAddress}api/account/register`, formData)
     .then((response) => {
       // console.log(response)
       if (response.status == 200) {
-
         successMessage.value = translatedValues.value.successMessage;
 
-        clearFields(); 
+        clearFields();
 
         setTimeout(() => {
-          router.push('/login');
-        }, 2000); 
+          router.push("/login");
+        }, 2000);
       }
     })
     .catch((error) => {
-			isLoading.value = false;
+      isLoading.value = false;
       // console.error(error);
       if (error.response.data) {
         errorMessage.value = `Status code: ${error.response.status} - ${error.response.data.title}`;
@@ -241,4 +296,3 @@ function onSubmit() {
     });
 }
 </script>
-

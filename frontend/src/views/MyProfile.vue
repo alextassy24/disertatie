@@ -59,10 +59,12 @@
 import { useAuthStore } from "../store/auth";
 import { useI18n } from "vue-i18n";
 import { ref, computed, onMounted } from "vue";
+import { useAuthStore } from "../store/auth";
 import AuthenticatedWrapper from "../components/AuthenticatedWrapper.vue";
 import Hero from "../components/Hero.vue";
 import axios from "axios";
 
+const authStore = useAuthStore();
 const { t } = useI18n();
 const user = useAuthStore();
 const userData = ref();
@@ -89,7 +91,7 @@ const getInfo = async () => {
     };
 
     await axios
-      .get(`http://localhost:5088/api/account/info`, config)
+      .get(`${authStore.apiAddress}api/account/info`, config)
       .then((response) => {
         if (response.status === 200) {
           userData.value = response.data.user;

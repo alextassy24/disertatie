@@ -70,16 +70,13 @@ import AuthenticatedWrapper from "../components/AuthenticatedWrapper.vue";
 
 const { t } = useI18n();
 const authStore = useAuthStore();
-
 const successMessage = ref("");
 const modalActive = ref(null);
 const deletedId = ref(null);
-
 const products = ref([]);
 const page = ref("my-products");
 const link = ref("/register-product");
 const itemPage = ref("products");
-
 const fadeIn = ref(true);
 const fadeOut = ref(false);
 
@@ -116,7 +113,7 @@ const getData = async () => {
       headers: { Authorization: `Bearer ${authStore.token}` },
     };
     await axios
-      .get("http://127.0.0.1:5088/api/products/", config)
+      .get(`${authStore.apiAddress}api/products/`, config)
       .then((response) => {
         if (response.status === 200 && response.data.products) {
           products.value = response.data.products;
