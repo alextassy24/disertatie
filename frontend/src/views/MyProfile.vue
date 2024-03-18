@@ -59,7 +59,6 @@
 import { useAuthStore } from "../store/auth";
 import { useI18n } from "vue-i18n";
 import { ref, computed, onMounted } from "vue";
-import { useAuthStore } from "../store/auth";
 import AuthenticatedWrapper from "../components/AuthenticatedWrapper.vue";
 import Hero from "../components/Hero.vue";
 import axios from "axios";

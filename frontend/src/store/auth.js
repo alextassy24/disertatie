@@ -9,7 +9,7 @@ export const useAuthStore = defineStore({
       user: null,
       token: null,
       apiAddress: "https://disertatie-api.azurewebsites.net/",
-      // apiAddress: "http://127.0.0.1:5088/"
+      // apiAddress: "http://127.0.0.1:5088/",
     };
   },
   actions: {
