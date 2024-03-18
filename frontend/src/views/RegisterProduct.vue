@@ -201,7 +201,7 @@ function onSubmit() {
   };
 
   axios
-    .post("http://127.0.0.1:5088/api/products/", formData, config)
+    .post(`${authStore.apiAddress}api/products/`, formData, config)
     .then((response) => {
       // console.log(response);
       if (response.status === 200) {
