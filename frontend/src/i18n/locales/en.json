@@ -1,276 +1,294 @@
 {
-  "locale": {
-    "en": "English",
-    "ro": "Română"
-  },
-  "nav": {
-    "Brand": "FIND-ER®",
-    "Brand2": "Protect. Assist. Take care.",
-    "Home": "Home",
-    "About": "About",
-    "FAQ": "FAQ",
-    "Profile": "My profile",
-    "Products": "My products",
-    "Wearers": "My wearers",
-    "ChangePassword": "Change your password",
-    "ViewData": "View data",
-    "RegisterProduct": "Register Product",
-    "Login": "Login"
-  },
-  "home": {
-    "Title": "Welcome to the FIND-ER®,",
-    "Subtitle": "device for monitoring and locating individuals with special needs. ",
-    "MissionTitle": "Our Mission",
-    "MissionText": "Our mission is to create an environment where individuals with special needs feel supported, protected, and cared for. We aim to provide a safe, efficient, and personalized solution to enhance the quality of life for these individuals. We are committed to developing innovative technologies that offer safety and independence, facilitate communication, and ensure timely interventions in emergency situations.",
-    "MissionBtn": "Learn More",
-    "TechnologyTitle": "Web App Technology Stack",
-    "TechnologyFrontend": "Frontend Technologies",
-    "TechnologyBackend": "Backend Technologies",
-    "AppComponentsTitle": "Technology Stack - WEB App Components",
-    "Usage": "Usage",
-    "ViteText": "Vite is our build tool of choice for the web app. It provides fast development and optimized production builds, making our app load quickly and efficiently.",
-    "ViteUsage": "Build tool for web app.",
-    "VueText": "Vue.js is the core framework for building our web app's user interface. It enables us to create dynamic and interactive components with ease.",
-    "VueUsage": "User interface development.",
-    "RouterText": "Vue Router is used for client-side routing in our web app. It enables seamless navigation between different views and pages.",
-    "RouterUsage": "Client-side routing.",
-    "PiniaText": "Pinia is our state management library for Vue.js. It helps us manage and share application-level state across components.",
-    "PiniaUsage": "State management.",
-    "AxiosText": "Axios is used for making HTTP requests from our web app to the backend server, enabling data retrieval and updates.",
-    "AxiosUsage": "HTTP requests and data communication.",
-    "TailwindText": "Tailwind CSS provides a utility-first CSS framework that streamlines styling and ensures a consistent design across our web app.",
-    "TailwindUsage": "Styling and design.",
-    "NetCoreText": "ASP.NET Core is the framework chosen for building the backend API of our application. It provides a robust and scalable platform for developing web APIs.",
-    "NetCoreUsage": "Backend API development.",
-    "EFText": "Entity Framework is an object-relational mapping (ORM) framework used in .NET applications, it enables developers to work with databases using .NET objects, eliminating the need to write raw SQL queries.",
-    "EFUsage": "Data modeling, mapping, and interacting with database",
-    "SignalRText": "SignalR is a real-time web communication library for ASP.NET applications, it facilitates bi-directional communication between clients and servers in real-time, allowing server-side code to push content instantly to connected clients.",
-    "SignalRUsage": "Real-time functionality",
-    "PostgresText": "PostgreSQL is the chosen relational database management system (RDBMS) for storing and managing the data used by our application.",
-    "PostgresUsage": "Data storage and management.",
-    "PhysicalComponentsTitle": "Physical Components",
-    "MicrocontrollerText": "The microcontroller or single-board computer (SBC) serves as the brain of the monitoring device system. It controls the various hardware components, processes data, and executes the software logic. The choice between a microcontroller and an SBC depends on the system's computational requirements and form factor.",
-    "MicrocontrollerUsage": "System control and data processing.",
-    "ServerText": "The server component is the backbone of our system. It handles data storage, communication with the device, and database operations. It's used for storing and retrieving vital data collected by the monitoring device.",
-    "ServerUsage": "Data storage, communication hub.",
-    "CaseTitle": "Case",
-    "CaseText": "The case is the physical enclosure that houses the electronic components of the monitoring device. It's designed to be durable and comfortable for the wearer, ensuring the safety of the components.",
-    "CaseUsage": "Protection and comfort for components.",
-    "GSMTitle": "SIM800L GSM/ GPRS Module ",
-    "GSMText": "The GSM/ GPRS module enables communication between the device and the app's backend server. It allows for real-time data transmission and remote control features.",
-    "GSMUsage": "Real-time data transmission, remote control.",
-    "GPSTitle": "NEO-6M GPS Module with antenna",
-    "GPSText": "The GPS module provides location tracking capabilities for the monitoring device. It helps caregivers and users keep track of the wearer's whereabouts.",
-    "GPSUsage": "Location tracking.",
-    "BTTitle": "Bluetooth Module",
-    "BTText": "The Bluetooth module, if integrated, enables connectivity with other devices, such as smartphones or tablets, for data synchronization and control.",
-    "BTUsage": "Device connectivity and data synchronization (optional).",
-    "BatteryTitle": "3.7V Li-Ion Batteries",
-    "BatteryText": "The batteries are the power source for the monitoring device. They provide the necessary energy to keep the device functioning for extended periods.",
-    "BatteryUsage": "Power source for the device."
-  },
-  "view-data": {
-    "Title": "View real time positioning",
-    "RealTimePostioning": "Real time positioning",
-    "Refreshing": "refreshing in",
-    "Seconds": "seconds",
-    "KnownPositions": "Last Known Positions",
-    "Show": "Show",
-    "PerPage": "positions per page",
-    "TableDate": "Date",
-    "TableTime": "Time",
-    "TableLatitude": "Latitude",
-    "TableLongitude": "Longitude",
-    "TableActions": "Actions",
-    "TableBtn": "View",
-    "TablePage": "Page",
-    "TableOf": "of",
-    "FirstBtn": "First",
-    "PreviousBtn": "Previous",
-    "NextBtn": "Next",
-    "LastBtn": "Last"
-  },
-  "register-product": {
-    "Title": "Register your product",
-    "DeviceSerialNumber": "Device Serial Number",
-    "DeviceGUID": "Device GUID",
-    "Wearer": "Choose wearer",
-    "NeedWearers": "In order to register a product you need at least one wearer registered",
-    "DeviceSerialNumberError": {
-      "Required": "Serial number is required!"
-    },
-    "DeviceGUIDError": {
-      "Required": "Device's GUID is required!",
-      "Format": "The GUID does not correspond to a valid format!"
-    },
-    "WearerError": {
-      "Required": "The wearer is required"
-    },
-    "SuccessMessage": "The product was registered successfully!"
-  },
-  "register-wearer": {
-    "Title": "Register your wearer",
-    "FullName": "Full Name of the wearer",
-    "Age": "Age of the wearer",
-    "FullNameError": {
-      "Required": "The Full name is required",
-      "LettersOnly": "The First Name can contain only letters!"
-    },
-    "AgeError": {
-      "Required": "The Ages is required!",
-      "NumbersOnly": "The Age can only contain positive numbers!"
-    },
-    "SuccessMessage": "The wearer was registered successfully!"
-  },
-  "my-products": {
-    "Title": "My products",
-    "SerialNumber": "Serial Number",
-    "Wearer": "Wearer",
-    "DeleteItem": "Are you sure you want to delete the product no.",
-    "SuccessMessage": "Product deleted successfully!",
-    "PerPage": "products per page"
-  },
-  "my-wearers": {
-    "Title": "My wearers",
-    "AddWearers": "Use the follwing button to add one",
-    "FullName": "Full name",
-    "Age": "Age",
-    "DeleteItem": "Are you sure you want to delete the wearer no.",
-    "SuccessMessage": "Wearer deleted successfully!",
-    "PerPage": "wearers per page"
-  },
-  "login": {
-    "Title": "Login",
-    "Password": "Password",
-    "ForgotPassword": "Forgot your password?",
-    "NoAccount": "Don't have an account? Create one here!",
-    "ResendEmailConfirmation": "Resend the email confirmation",
-    "Redirect": "Loading new features",
-    "SuccessMessage": "Authenticated successfully!"
-  },
-  "register": {
-    "Title": "Register",
-    "FirstName": "First Name",
-    "LastName": "Last Name",
-    "PhoneNumber": "Phone Number",
-    "Password": "Password",
-    "ConfirmPassword": "Confirm Password",
-    "LogInHere": "Already have an account? Log in here!",
-    "Redirect": "You will be redirected soon",
-    "FirstNameError": {
-      "Required": "The First Name is required!",
-      "LettersOnly": "The First Name can contain only letters!"
-    },
-    "LastNameError": {
-      "Required": "The Last Name is required!",
-      "LettersOnly": "The Last Name can contain only letters!"
-    },
-    "EmailError": {
-      "Required": "The Email is required!",
-      "Format": "The Email is not valid!"
-    },
-    "PhoneNumberError": {
-      "Required": "The Phone Number is required!",
-      "Format": "The Phone Number is not valid!"
-    },
-    "PasswordError": {
-      "Required": "The Password is required!",
-      "Length": "The Password must be at least 6 characters long!",
-      "UpperCase": "The Password must contain at least one upper case letter!",
-      "LowerCase": "The Password must contain at least one lower case letter!",
-      "Number": "The Password must contain at least one number!",
-      "Special": "The Password must contain at least one special character!"
-    },
-    "ConfirmPasswordError": {
-      "Required": "The Password Confirmation is required!",
-      "Match": "The passwords do not match!"
-    },
-    "SuccessMessage": "Registration succesful!"
-  },
-  "forgot-password": {
-    "Title": "Forgot your password?",
-    "Email": "Type in your Email",
-    "SuccessMessage": "An email for password reset has been sent to you!"
-  },
-  "about": {
-    "Title": "About us",
-    "DevelopmentTeam": "Development Team",
-    "Coordinator": "Coordinating Teacher",
-    "Students": "Students",
-    "AboutProject": "About the project",
-    "Description": "In this paper, we aim to examine the importance of intelligent assistive technologies that have the ability of continuous monitoring and real-time localization, as well as how these technologies can contribute to improving the quality of life of people with special needs. "
-  },
-  "faq": {
-    "Title": "Frequently asked questions",
-    "Q1": "What are the key features of the monitoring device device?",
-    "A1": "The monitoring device device offers various features: Real-time health monitoring, including heart rate, blood pressure, and activity tracking. Emergency SOS function for immediate assistance. Sleep tracking and analysis for better sleep management. Waterproof and durable design for everyday use. Long battery life to ensure continuous monitoring without frequent charging.",
-    "Q2": "What functionalities does the web app platform provide for users of the monitoring device device?",
-    "A2": "The web app platform acts as a comprehensive dashboard for users: Displays detailed health metrics recorded by the device in an easily accessible format. Allows users to set health goals and track progress over time. Provides personalized insights and recommendations based on the gathered data. Enables data sharing with healthcare professionals or family members for remote monitoring and support.",
-    "Q3": "How is the privacy and security of user data ensured on the web app platform?",
-    "A3": "The web app platform prioritizes user data privacy and security: Implements end-to-end encryption to safeguard sensitive health information. Adheres to strict industry standards and regulations (such as HIPAA or GDPR) for data protection. Requires secure authentication methods (like two-factor authentication) to access user accounts. Regularly undergoes security audits and updates to address potential vulnerabilities and ensure robust protection against unauthorized access or data breaches."
-  },
-  "change-password": {
-    "Title": "Change your password",
-    "OldPassword": "Current password",
-    "NewPassword": "New password",
-    "ConfirmPassword": "Confirm your password",
-    "OldPasswordError": {
-      "Required": "The Current password is required!"
-    },
-    "NewPasswordError": {
-      "Required": "The New password is required!"
-    },
-    "SuccessMessage": "You password has been changed!",
-    "Redirect": "You will be redirected soon",
-    "Unauthorized": "You are not authorized to perform this action!",
-    "SamePasswords": "The new password can not be the same as the current one!",
-    "FailedToChange": "Something went wrong, please try again!",
-    "IncorrectPassword": "Current password is incorrect!",
-    "ModelFailed": "The data entered is incorrect, please try again!"
-  },
-  "profile": {
-    "Title": "Your personal data",
-    "FirstName": "First Name",
-    "LastName": "Last Name",
-    "PhoneNumber": "Phone Number",
-    "Wearers": "My wearers",
-    "NoWearers": "No wearers available!",
-    "Products": "My products",
-    "You": "You have",
-    "AvailableProducts": "available products!",
-    "AvailableWearers": "available wearers!",
-    "NoProducts": "No products available!"
-  },
-  "confirm-email": {
-    "Success": "Your email was confirmed successfuly, in order to use the platform you must log in!",
-    "TokenNotFound": "Your token is wrong or it does not exist!",
-    "TokenInvalid": "Your token is invalid!",
-    "TokenExpired": "Your token has expired!",
-    "UserNotFound": "Your token does not correspond to an existing user!",
-    "Failed": "Something went wrong during the confirmation of your email!"
-  },
-  "resend-email-confirmation": {
-    "Title": "Resend account confirmation email",
-    "Succes": "The confirmation email was sent successfully!",
-    "NotFound": "The email can not be found!",
-    "AlreadySent": "A mail was already sent! You must wait 2 minutes!"
-  },
-  "wearer": {
-    "Subtitle": "Wearer's personal data",
-    "Products": "Wearer's devices"
-  },
-  "footer": {
-    "PaperTitle": "Paper title",
-    "Title": "Device for monitoring and locating people with special needs"
-  },
-  "utils": {
-    "AlreadyAuthenticated": "You are already authenticated!",
-    "NotAuthenticated": "You are not authenticated!",
-    "Btn": "Send",
-    "BtnLoading": "Loading...",
-    "CloseBtn": "Close",
-    "Yes": "Yes",
-    "No": "No",
-    "Add": "Add"
-  }
+	"locale": {
+		"en": "English",
+		"ro": "Română"
+	},
+	"nav": {
+		"Brand": "FIND-ER®",
+		"Brand2": "Protect. Assist. Take care.",
+		"Home": "Home",
+		"About": "About",
+		"FAQ": "FAQ",
+		"Profile": "My profile",
+		"Products": "My products",
+		"Wearers": "My wearers",
+		"ChangePassword": "Change your password",
+		"ViewData": "View data",
+		"RegisterProduct": "Register Product",
+		"Login": "Login"
+	},
+	"home": {
+		"Title": "Welcome to the FIND-ER®,",
+		"Subtitle": "device for monitoring and locating individuals with special needs. ",
+		"MissionTitle": "Our Mission",
+		"MissionText": "Our mission is to create an environment where individuals with special needs feel supported, protected, and cared for. We aim to provide a safe, efficient, and personalized solution to enhance the quality of life for these individuals. We are committed to developing innovative technologies that offer safety and independence, facilitate communication, and ensure timely interventions in emergency situations.",
+		"MissionBtn": "Learn More",
+		"TechnologyTitle": "Web App Technology Stack",
+		"TechnologyFrontend": "Frontend Technologies",
+		"TechnologyBackend": "Backend Technologies",
+		"AppComponentsTitle": "Technology Stack - WEB App Components",
+		"Usage": "Usage",
+		"ViteText": "Vite is our build tool of choice for the web app. It provides fast development and optimized production builds, making our app load quickly and efficiently.",
+		"ViteUsage": "Build tool for web app.",
+		"VueText": "Vue.js is the core framework for building our web app's user interface. It enables us to create dynamic and interactive components with ease.",
+		"VueUsage": "User interface development.",
+		"RouterText": "Vue Router is used for client-side routing in our web app. It enables seamless navigation between different views and pages.",
+		"RouterUsage": "Client-side routing.",
+		"PiniaText": "Pinia is our state management library for Vue.js. It helps us manage and share application-level state across components.",
+		"PiniaUsage": "State management.",
+		"AxiosText": "Axios is used for making HTTP requests from our web app to the backend server, enabling data retrieval and updates.",
+		"AxiosUsage": "HTTP requests and data communication.",
+		"TailwindText": "Tailwind CSS provides a utility-first CSS framework that streamlines styling and ensures a consistent design across our web app.",
+		"TailwindUsage": "Styling and design.",
+		"NetCoreText": "ASP.NET Core is the framework chosen for building the backend API of our application. It provides a robust and scalable platform for developing web APIs.",
+		"NetCoreUsage": "Backend API development.",
+		"EFText": "Entity Framework is an object-relational mapping (ORM) framework used in .NET applications, it enables developers to work with databases using .NET objects, eliminating the need to write raw SQL queries.",
+		"EFUsage": "Data modeling, mapping, and interacting with database",
+		"SignalRText": "SignalR is a real-time web communication library for ASP.NET applications, it facilitates bi-directional communication between clients and servers in real-time, allowing server-side code to push content instantly to connected clients.",
+		"SignalRUsage": "Real-time functionality",
+		"PostgresText": "PostgreSQL is the chosen relational database management system (RDBMS) for storing and managing the data used by our application.",
+		"PostgresUsage": "Data storage and management.",
+		"PhysicalComponentsTitle": "Physical Components",
+		"MicrocontrollerText": "The microcontroller or single-board computer (SBC) serves as the brain of the monitoring device system. It controls the various hardware components, processes data, and executes the software logic. The choice between a microcontroller and an SBC depends on the system's computational requirements and form factor.",
+		"MicrocontrollerUsage": "System control and data processing.",
+		"ServerText": "The server component is the backbone of our system. It handles data storage, communication with the device, and database operations. It's used for storing and retrieving vital data collected by the monitoring device.",
+		"ServerUsage": "Data storage, communication hub.",
+		"CaseTitle": "Case",
+		"CaseText": "The case is the physical enclosure that houses the electronic components of the monitoring device. It's designed to be durable and comfortable for the wearer, ensuring the safety of the components.",
+		"CaseUsage": "Protection and comfort for components.",
+		"GSMTitle": "SIM800L GSM/ GPRS Module ",
+		"GSMText": "The GSM/ GPRS module enables communication between the device and the app's backend server. It allows for real-time data transmission and remote control features.",
+		"GSMUsage": "Real-time data transmission, remote control.",
+		"GPSTitle": "NEO-6M GPS Module with antenna",
+		"GPSText": "The GPS module provides location tracking capabilities for the monitoring device. It helps caregivers and users keep track of the wearer's whereabouts.",
+		"GPSUsage": "Location tracking.",
+		"BTTitle": "Bluetooth Module",
+		"BTText": "The Bluetooth module, if integrated, enables connectivity with other devices, such as smartphones or tablets, for data synchronization and control.",
+		"BTUsage": "Device connectivity and data synchronization (optional).",
+		"BatteryTitle": "3.7V Li-Ion Batteries",
+		"BatteryText": "The batteries are the power source for the monitoring device. They provide the necessary energy to keep the device functioning for extended periods.",
+		"BatteryUsage": "Power source for the device."
+	},
+	"view-data": {
+		"Title": "View real time positioning",
+		"RealTimePostioning": "Real time positioning",
+		"Refreshing": "refreshing in",
+		"Seconds": "seconds",
+		"KnownPositions": "Last Known Positions",
+		"Show": "Show",
+		"PerPage": "positions per page",
+		"TableDate": "Date",
+		"TableTime": "Time",
+		"TableLatitude": "Latitude",
+		"TableLongitude": "Longitude",
+		"TableActions": "Actions",
+		"TableBtn": "View",
+		"TablePage": "Page",
+		"TableOf": "of",
+		"FirstBtn": "First",
+		"PreviousBtn": "Previous",
+		"NextBtn": "Next",
+		"LastBtn": "Last"
+	},
+	"register-product": {
+		"Title": "Register your product",
+		"DeviceSerialNumber": "Device Serial Number",
+		"DeviceGUID": "Device GUID",
+		"Wearer": "Choose wearer",
+		"NeedWearers": "In order to register a product you need at least one wearer registered",
+		"DeviceSerialNumberError": {
+			"Required": "Serial number is required!"
+		},
+		"DeviceGUIDError": {
+			"Required": "Device's GUID is required!",
+			"Format": "The GUID does not correspond to a valid format!"
+		},
+		"WearerError": {
+			"Required": "The wearer is required"
+		},
+		"SuccessMessage": "The product was registered successfully!"
+	},
+	"register-wearer": {
+		"Title": "Register your wearer",
+		"FullName": "Full Name of the wearer",
+		"Age": "Age of the wearer",
+		"FullNameError": {
+			"Required": "The Full name is required",
+			"LettersOnly": "The First Name can contain only letters!"
+		},
+		"AgeError": {
+			"Required": "The Ages is required!",
+			"NumbersOnly": "The Age can only contain positive numbers!"
+		},
+		"SuccessMessage": "The wearer was registered successfully!"
+	},
+	"my-products": {
+		"Title": "My products",
+		"SerialNumber": "Serial Number",
+		"Wearer": "Wearer",
+		"DeleteItem": "Are you sure you want to delete the product no.",
+		"SuccessMessage": "Product deleted successfully!",
+		"PerPage": "products per page"
+	},
+	"my-wearers": {
+		"Title": "My wearers",
+		"AddWearers": "Use the follwing button to add one",
+		"FullName": "Full name",
+		"Age": "Age",
+		"DeleteItem": "Are you sure you want to delete the wearer no.",
+		"SuccessMessage": "Wearer deleted successfully!",
+		"PerPage": "wearers per page"
+	},
+	"login": {
+		"Title": "Login",
+		"Password": "Password",
+		"ForgotPassword": "Forgot your password?",
+		"NoAccount": "Don't have an account? Create one here!",
+		"ResendEmailConfirmation": "Resend the email confirmation",
+		"Redirect": "Loading new features",
+		"SuccessMessage": "Authenticated successfully!"
+	},
+	"register": {
+		"Title": "Register",
+		"FirstName": "First Name",
+		"LastName": "Last Name",
+		"PhoneNumber": "Phone Number",
+		"Password": "Password",
+		"ConfirmPassword": "Confirm Password",
+		"LogInHere": "Already have an account? Log in here!",
+		"Redirect": "You will be redirected soon",
+		"FirstNameError": {
+			"Required": "The First Name is required!",
+			"LettersOnly": "The First Name can contain only letters!"
+		},
+		"LastNameError": {
+			"Required": "The Last Name is required!",
+			"LettersOnly": "The Last Name can contain only letters!"
+		},
+		"EmailError": {
+			"Required": "The Email is required!",
+			"Format": "The Email is not valid!"
+		},
+		"PhoneNumberError": {
+			"Required": "The Phone Number is required!",
+			"Format": "The Phone Number is not valid!"
+		},
+		"PasswordError": {
+			"Required": "The Password is required!",
+			"Length": "The Password must be at least 6 characters long!",
+			"UpperCase": "The Password must contain at least one upper case letter!",
+			"LowerCase": "The Password must contain at least one lower case letter!",
+			"Number": "The Password must contain at least one number!",
+			"Special": "The Password must contain at least one special character!"
+		},
+		"ConfirmPasswordError": {
+			"Required": "The Password Confirmation is required!",
+			"Match": "The passwords do not match!"
+		},
+		"SuccessMessage": "Registration succesful!"
+	},
+	"forgot-password": {
+		"Title": "Forgot your password?",
+		"Email": "Type in your Email",
+		"SuccessMessage": "An email for password reset has been sent to you!"
+	},
+	"about": {
+		"Title": "About us",
+		"DevelopmentTeam": "Development Team",
+		"Coordinator": "Coordinating Teacher",
+		"Students": "Students",
+		"AboutProject": "About the project",
+		"Description": "In this paper, we aim to examine the importance of intelligent assistive technologies that have the ability of continuous monitoring and real-time localization, as well as how these technologies can contribute to improving the quality of life of people with special needs. "
+	},
+	"faq": {
+		"Title": "Frequently asked questions",
+		"Q1": "What are the key features of the monitoring device device?",
+		"A1": "The monitoring device device offers various features: Real-time health monitoring, including heart rate, blood pressure, and activity tracking. Emergency SOS function for immediate assistance. Sleep tracking and analysis for better sleep management. Waterproof and durable design for everyday use. Long battery life to ensure continuous monitoring without frequent charging.",
+		"Q2": "What functionalities does the web app platform provide for users of the monitoring device device?",
+		"A2": "The web app platform acts as a comprehensive dashboard for users: Displays detailed health metrics recorded by the device in an easily accessible format. Allows users to set health goals and track progress over time. Provides personalized insights and recommendations based on the gathered data. Enables data sharing with healthcare professionals or family members for remote monitoring and support.",
+		"Q3": "How is the privacy and security of user data ensured on the web app platform?",
+		"A3": "The web app platform prioritizes user data privacy and security: Implements end-to-end encryption to safeguard sensitive health information. Adheres to strict industry standards and regulations (such as HIPAA or GDPR) for data protection. Requires secure authentication methods (like two-factor authentication) to access user accounts. Regularly undergoes security audits and updates to address potential vulnerabilities and ensure robust protection against unauthorized access or data breaches."
+	},
+	"change-password": {
+		"Title": "Change your password",
+		"OldPassword": "Current password",
+		"NewPassword": "New password",
+		"ConfirmPassword": "Confirm your password",
+		"OldPasswordError": {
+			"Required": "The Current password is required!"
+		},
+		"NewPasswordError": {
+			"Required": "The New password is required!"
+		},
+		"SuccessMessage": "You password has been changed!",
+		"Redirect": "You will be redirected soon",
+		"Unauthorized": "You are not authorized to perform this action!",
+		"SamePasswords": "The new password can not be the same as the current one!",
+		"FailedToChange": "Something went wrong, please try again!",
+		"IncorrectPassword": "Current password is incorrect!",
+		"ModelFailed": "The data entered is incorrect, please try again!"
+	},
+	"profile": {
+		"Title": "Your personal data",
+		"FirstName": "First Name",
+		"LastName": "Last Name",
+		"PhoneNumber": "Phone Number",
+		"Wearers": "My wearers",
+		"NoWearers": "No wearers available!",
+		"Products": "My products",
+		"You": "You have",
+		"AvailableProducts": "available products!",
+		"AvailableWearers": "available wearers!",
+		"NoProducts": "No products available!"
+	},
+	"confirm-email": {
+		"Success": "Your email was confirmed successfuly, in order to use the platform you must log in!",
+		"TokenNotFound": "Your token is wrong or it does not exist!",
+		"TokenInvalid": "Your token is invalid!",
+		"TokenExpired": "Your token has expired!",
+		"UserNotFound": "Your token does not correspond to an existing user!",
+		"Failed": "Something went wrong during the confirmation of your email!"
+	},
+	"resend-email-confirmation": {
+		"Title": "Resend account confirmation email",
+		"Succes": "The confirmation email was sent successfully!",
+		"NotFound": "The email can not be found!",
+		"AlreadySent": "A mail was already sent! You must wait 2 minutes!"
+	},
+	"wearer": {
+		"NoWearer": "Wearer's personal data is not available",
+		"Subtitle": "Wearer's personal data",
+		"Products": "Wearer's devices",
+		"HttpErrors": {
+			"Unauthorized": "You are not authorized to perform this action!",
+			"NotFound": "The wearer's data could not be found!",
+			"ServerError": "Server connection failed!"
+		}
+	},
+	"product": {
+		"Subtitle": "Device data",
+		"PerPage": "locations per page",
+		"NoProduct": "Device data is not available",
+		"Locations": "Registered locations",
+		"NoLocations": "No locations available for this device",
+		"Latitude": "Latitude",
+		"Longitude": "Longitude",
+		"Date": "Date",
+		"Time": "Time"
+	},
+	"footer": {
+		"PaperTitle": "Paper title",
+		"Title": "Device for monitoring and locating people with special needs"
+	},
+	"utils": {
+		"AlreadyAuthenticated": "You are already authenticated!",
+		"NotAuthenticated": "You are not authenticated!",
+		"Btn": "Send",
+		"BtnLoading": "Loading...",
+		"CloseBtn": "Close",
+		"Yes": "Yes",
+		"No": "No",
+		"Add": "Add",
+		"GoBack": "Go back"
+	}
 }

@@ -4,7 +4,7 @@
   </div>
   <div
     v-else
-    class="flex flex-col items-center justify-center gap-3 md:flex-row"
+    class="flex flex-col items-center justify-center gap-3 mt-10 md:flex-row"
   >
     <svg
       class="w-12 h-12 text-gray-300 animate-spin"

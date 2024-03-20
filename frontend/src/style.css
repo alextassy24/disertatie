@@ -3,77 +3,81 @@
 @tailwind utilities;
 
 .error-message {
-  @apply p-1 mt-2 font-bold text-red-500 whitespace-pre-line bg-red-200 rounded-lg;
+	@apply p-1 mt-2 font-bold text-red-500 whitespace-pre-line bg-red-200 rounded-lg;
 }
 
 .form-label {
-  @apply mb-2;
+	@apply mb-2;
 }
 
 .form-field {
-  @apply p-2 px-5 transition duration-300 ease-in-out bg-gray-100 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-400 hover:shadow focus:shadow-lg;
+	@apply p-2 px-5 transition duration-300 ease-in-out bg-gray-100 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-400 hover:shadow focus:shadow-lg;
 }
 
 .form-field-error {
-  @apply p-2 px-5 transition duration-300 ease-in-out bg-gray-100 rounded cursor-pointer focus:outline-none ring-red-300 focus:ring-2 focus:ring-red-500 hover:shadow focus:shadow-lg;
+	@apply p-2 px-5 transition duration-300 ease-in-out bg-gray-100 rounded cursor-pointer focus:outline-none ring-red-300 focus:ring-2 focus:ring-red-500 hover:shadow focus:shadow-lg;
 }
 
 .btn {
-  @apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-black rounded shadow focus:ring-green-400 focus-visible:ring-green-400 hover:ring-green-400 hover:ring-4 hover:text-green-400;
+	@apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-black rounded shadow focus:ring-green-400 focus-visible:ring-green-400 hover:ring-green-400 hover:ring-4 hover:text-green-400;
 }
 .btn-disabled {
-  @apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-black rounded shadow cursor-not-allowed opacity-70;
+	@apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-black rounded shadow cursor-not-allowed opacity-70;
 }
 .btn-danger {
-  @apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-red-500 rounded shadow focus:ring-red-300 focus-visible:ring-red-300 focus:ring-2 hover:ring-4 hover:ring-red-300;
+	@apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-red-500 rounded shadow focus:ring-red-300 focus-visible:ring-red-300 focus:ring-2 hover:ring-4 hover:ring-red-300;
 }
 
 .btn-primary {
-  @apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-green-500 rounded shadow focus:ring-green-400 focus-visible:ring-green-400 focus:ring-2 hover:ring-4 hover:ring-green-400;
+	@apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-green-500 rounded shadow focus:ring-green-400 focus-visible:ring-green-400 focus:ring-2 hover:ring-4 hover:ring-green-400;
 }
 
 .btn-loading {
-  @apply px-5 py-2 text-white transition duration-500 ease-in-out transform rounded shadow bg-opacity-80 focus:ring-green-400 focus-visible:ring-green-400 hover:ring-green-400 hover:ring-4 hover:text-green-400;
+	@apply px-5 py-2 text-white transition duration-500 ease-in-out transform rounded shadow bg-opacity-80 focus:ring-green-400 focus-visible:ring-green-400 hover:ring-green-400 hover:ring-4 hover:text-green-400;
 }
 
 .pagination-btn {
-  @apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-black rounded shadow focus:ring-green-400 hover:ring-green-400 hover:text-green-400 hover:ring-4;
+	@apply px-5 py-2 text-white transition duration-500 ease-in-out transform bg-black rounded shadow focus:ring-green-400 hover:ring-green-400 hover:text-green-400 hover:ring-4;
 }
 
 .login-link {
-  @apply text-black transition duration-300 ease-in-out transform;
+	@apply text-black transition duration-300 ease-in-out transform;
 }
 
 .login-link:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: transparent;
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  transition: transform 0.3s ease-in-out;
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background: transparent;
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	transition: transform 0.3s ease-in-out;
 }
 
 .login-link:hover:before {
-  background: #66bb6a;
-  transform: scaleX(1);
+	background: #66bb6a;
+	transform: scaleX(1);
 }
 
-tbody tr{
-  @apply hover:bg-gray-200
+tbody tr {
+	@apply hover:bg-gray-200;
 }
 
 tbody tr:nth-child(odd) {
-  @apply bg-gray-100 hover:bg-gray-200;
+	@apply bg-gray-100 hover:bg-gray-200;
 }
 
 tbody tr td:nth-child(odd) {
-  @apply px-6 py-4 font-medium text-gray-700;
+	@apply px-6 py-4 font-medium text-gray-700;
 }
 
 tbody tr td:nth-child(even) {
-  @apply px-6 py-4 text-gray-900;
+	@apply px-6 py-4 text-gray-900;
+}
+
+.subtitle {
+	@apply my-5 text-2xl font-semibold ms-1;
 }

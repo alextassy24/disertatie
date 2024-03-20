@@ -1,7 +1,8 @@
 <template>
   <div v-if="authStore.isAuthenticated" class="mt-28">
     <Hero :title="translatedValues.title" />
-    <section class="container px-10 py-16 mx-auto">
+    <section class="container w-full px-10 py-16 mx-auto md:w-3/4">
+      <BackButton />
       <div
         v-if="wearers.length > 0"
         class="flex flex-col items-center justify-center w-full py-10 mx-auto md:w-3/4 lg:w-2/4 xl:w-1/4"
@@ -107,6 +108,7 @@ import { useAuthStore } from "../store/auth";
 import { useRouter } from "vue-router";
 import Hero from "../components/Hero.vue";
 import NotAuthenticated from "../components/NotAuthenticated.vue";
+import BackButton from "../components/BackButton.vue";
 
 const { t } = useI18n();
 const authStore = useAuthStore();

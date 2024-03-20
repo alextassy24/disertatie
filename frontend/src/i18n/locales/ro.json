@@ -1,282 +1,300 @@
 {
-  "locale": {
-    "en": "English",
-    "ro": "Română"
-  },
-  "nav": {
-    "Brand": "FIND-ER®",
-    "Brand2": "Protejează. Asistă. Îngrijește.",
-    "Home": "Acasă",
-    "About": "Despre noi",
-    "FAQ": "FAQ",
-    "Profile": "Profilul meu",
-    "Products": "Produsele mele",
-    "Wearers": "Persoanele mele",
-    "ChangePassword": "Schimbă parola",
-    "ViewData": "Vezi datele",
-    "RegisterProduct": "Înregistrează produs",
-    "Login": "Autentificare"
-  },
-  "home": {
-    "Title": "Bine ați venit la FIND-ER®,",
-    "Subtitle": "Dispozitiv pentru monitorizarea și localizarea persoanelor cu nevoi speciale.",
-    "MissionTitle": "Misiunea Noastră",
-    "MissionText": "Misiunea noastră este să construim un mediu în care persoanele cu nevoi speciale se simt sprijinite, protejate și îngrijite. Dorim să oferim o soluție sigură, eficientă și personalizată pentru îmbunătățirea calității vieții acestora. Ne angajăm să dezvoltăm tehnologii inovatoare care să ofere siguranță și independență, să facilităm comunicarea și să asigurăm intervenții prompte în situații de urgență.",
-    "MissionBtn": "Află mai multe",
-    "TechnologyTitle": "Pachet tehnologic pentru aplicația WEB",
-    "TechnologyFrontend": "Tehnologii de frontend",
-    "TechnologyBackend": "Tehnologii de backend",
-    "AppComponentsTitle": "Componentele pachetului tehnologic pentru aplicația WEB",
-    "Usage": "Utilizare",
-    "ViteText": "Vite este instrumentul nostru de construcție preferat pentru aplicația web. Oferă dezvoltare rapidă și crează build-uri optimizate pentru producție, făcând ca aplicația noastră să se încarce rapid și eficient.",
-    "ViteUsage": "Instrument de construcție pentru aplicație web.",
-    "VueText": "Vue.js este framework-ul principal pentru construirea interfeței utilizator a aplicației noastre web. Ne permite să creăm componente dinamice și interactive cu ușurință.",
-    "VueUsage": "Dezvoltare a interfeței utilizator.",
-    "RouterText": "Vue Router este folosit pentru rutarea pe partea clientului în aplicația noastră web. Permite navigarea fără probleme între diferite vederi și pagini.",
-    "RouterUsage": "Rutare pe partea clientului.",
-    "PiniaText": "Pinia este librăria noastră de gestionare a stării pentru Vue.js. Ne ajută să gestionăm și să partajăm starea la nivelul aplicației între componente.",
-    "PiniaUsage": "Gestionarea stării.",
-    "AxiosText": "Axios este folosit pentru a face cereri HTTP din aplicația noastră web către serverul backend, permițând preluarea și actualizarea datelor.",
-    "AxiosUsage": "Cererile HTTP și comunicarea datelor.",
-    "TailwindText": "Tailwind CSS oferă un cadru CSS de tip utilitar care optimizează stilizarea și asigură un design consistent în întreaga noastră aplicație web.",
-    "TailwindUsage": "Stilizare și design.",
-    "NetCoreText": "ASP.NET Core este framework-ul ales pentru construirea API-ului backend al aplicației noastre. Furnizează o platformă robustă și scalabilă pentru dezvoltarea de API-uri web.",
-    "NetCoreUsage": "Dezvoltarea API-ului backend.",
-    "EFText": "Entity Framework este un framework de mapare obiect-relațional (ORM) folosit în aplicațiile .NET, care permite dezvoltatorilor să lucreze cu baze de date folosind obiecte .NET, eliminând necesitatea de a scrie interogări SQL brute.",
-    "EFUsage": "Modelarea datelor, maparea și interacțiunea cu baza de date.",
-    "SignalRText": "SignalR este o bibliotecă de comunicare web în timp real pentru aplicațiile ASP.NET, facilitează comunicarea bidirecțională între client și server în timp real, permițând codului de pe server să trimită conținut instantaneu către clienții conectați.",
-    "SignalRUsage": "Funcționalitate în timp real",
-    "PostgresText": "PostgreSQL este sistemul nostru de gestionare a bazelor de date relaționale (RDBMS) ales pentru stocarea și gestionarea datelor utilizate în aplicația noastră.",
-    "PostgresUsage": "Stocarea și gestionarea datelor.",
-    "PhysicalComponentsTitle": "Componentele fizice ale sistmeului",
-    "MicrocontrollerText": "Microcontrollerul sau computerul monocip (SBC) servește ca creierul sistemului de monitorizare. Controlează diversele componente hardware, procesează datele și execută logica software-ului. Alegerea între un microcontroller și un SBC depinde de cerințele computaționale ale sistemului și de factorul de formă.",
-    "MicrocontrollerUsage": "Controlul sistemului și procesarea datelor.",
-    "ServerText": "Componenta server este coloana vertebrală a sistemului nostru. Gestionează stocarea datelor, comunicarea cu dispozitivul și operațiunile de bază de date. Este utilizată pentru stocarea și recuperarea datelor vitale colectate de dispozitiv de monitorizare.",
-    "ServerUsage": "Stocarea datelor, centru de comunicare.",
-    "CaseTitle": "Carcasă",
-    "CaseText": "Carcasa este învelișul fizic care adăpostește componentele electronice ale dispozitivului de monitorizare. Este proiectată pentru a fi durabilă și confortabilă pentru purtător, asigurând siguranța componentelor.",
-    "CaseUsage": "Protecție și confort pentru componente.",
-    "GSMTitle": "Modul GSM/GPRS SIM800L",
-    "GSMText": "Modulul GSM/GPRS permite comunicarea între dispozitiv și serverul backend al aplicației. Permite transmiterea datelor în timp real și funcționalități de control la distanță.",
-    "GSMUsage": "Transmiterea datelor în timp real, control la distanță.",
-    "GPSTitle": "Modul GPS NEO-6M cu antena",
-    "GPSText": "Modulul GPS oferă capacități de urmărire a localizării pentru dispozitivul de monitorizare. Ajută îngrijitorii și utilizatorii să țină evidența locației purtătorului.",
-    "GPSUsage": "Urmărirea localizării.",
-    "BTTitle": "Modul Bluetooth",
-    "BTText": "Modulul Bluetooth, dacă este integrat, permite conectivitatea cu alte dispozitive, cum ar fi smartphone-urile sau tabletele, pentru sincronizare și controlul datelor.",
-    "BTUsage": "Conectivitatea dispozitivelor și sincronizarea datelor (opțional).",
-    "BatteryTitle": "Baterii de 3.7V Li-Ion",
-    "BatteryText": "Bateriile sunt sursa de energie pentru dispozitivul de monitorizare. Furnizează energia necesară pentru a menține funcționarea dispozitivului pentru perioade îndelungate.",
-    "BatteryUsage": "Sursa de energie pentru dispozitiv."
-  },
-  "view-data": {
-    "Title": "Vezi locația în timp real",
-    "KnownPositions": "Ultimele locații",
-    "RealTimePostioning": "Poziția în timp real",
-    "Refreshing": "actualizare în",
-    "Seconds": "secunde",
-    "Show": "Arată",
-    "PerPage": "locații per pagină",
-    "TableDate": "Data",
-    "TableTime": "Ora",
-    "TableLatitude": "Latitudine",
-    "TableLongitude": "Longitudine",
-    "TableActions": "Acțiuni",
-    "TableBtn": "Vizualizează",
-    "TablePage": "Pagina",
-    "TableOf": "din",
-    "FirstBtn": "Prima",
-    "PreviousBtn": "Anterioară",
-    "NextBtn": "Următoarea",
-    "LastBtn": "Ultima"
-  },
-  "register-product": {
-    "Title": "Înregistrați-vă produsul",
-    "DeviceSerialNumber": "Număr de serie al dispozitivului",
-    "DeviceGUID": "GUID-ul dispozitivului",
-    "Wearer": "Alege persoana",
-    "NeedWearers": "Pentru a înregistra un produs aveți nevoie de minim o persoană înregistrată",
-    "DeviceSerialNumberError": {
-      "Required": "Numărul de serie este obligatoriu!"
-    },
-    "DeviceGUIDError": {
-      "Required": "GUID-ul dispozitivului este obligatoriu!",
-      "Format": "GUID-ul nu corespunde unui format valid!"
-    },
-    "WearerError": {
-      "Required": "Persoana este obligatorie"
-    },
-    "SuccessMessage": "Produsul a fost înregistrat cu succes!",
-    "BadRequest": "Datele introduse nu sunt valide",
-    "Unauthorized": "Nu sunteți autorizat pentru această operațiune!",
-    "NotFound": "Persoana aleasă nu este validă!"
-  },
-  "register-wearer": {
-    "Title": "Înregistrați-vă persoana",
-    "FullName": "Numele complet al persoanei purtătoare",
-    "Age": "Vârsta persoanei purtătoare",
-    "FullNameError": {
-      "Required": "Numele complet este obligatoriu!",
-      "LettersOnly": "Numele complet poate conține doar litere!"
-    },
-    "AgeError": {
-      "Required": "Vârsta este obligatorie!",
-      "NumbersOnly": "Vârsta poate conține doar cifre!"
-    },
-    "SuccessMessage": "Persoana a fost înregistrată cu succes!",
-    "BadRequest": "",
-    "Unauthorized": "",
-    "NotFound": ""
-  },
-  "my-products": {
-    "Title": "Produsele mele",
-    "SerialNumber": "Număr de serie",
-    "Wearer": "Purtător",
-    "DeleteItem": "Sigur doriți să ștergeți produsul nr.",
-    "SuccessMessage": "Produsul a fost șters cu succes!",
-    "PerPage": "produse per pagină"
-  },
-  "my-wearers": {
-    "Title": "Persoanele mele",
-    "AddWearers": "Puteți adăuga folosind butonul alăturat",
-    "FullName": "Nume complet",
-    "Age": "Vârstă",
-    "DeleteItem": "Sigur doriți să ștergeți persoana cu nr.",
-    "SuccessMessage": "Persoana a fost ștearsă cu succes!",
-    "PerPage": "persoane per pagină"
-  },
-  "login": {
-    "Title": "Autentificare",
-    "Password": "Parolă",
-    "ForgotPassword": "Ți-ai uitat parola?",
-    "NoAccount": "Nu ai cont? Crează unul aici!",
-    "ResendEmailConfirmation": "Retrimite mail-ul de confirmare a contului",
-    "Redirect": "Se încarcă noile funcționalități",
-    "SuccessMessage": "Autentificarea a fost realizată cu succes!"
-  },
-  "register": {
-    "Title": "Înregistrează-te",
-    "FirstName": "Prenume",
-    "LastName": "Nume",
-    "PhoneNumber": "Număr de telefon",
-    "Password": "Parolă",
-    "ConfirmPassword": "Confirmarea Parolei",
-    "LogInHere": "Ai deja un cont? Te poți autentifica aici!",
-    "Redirect": "Veți fi redirecționat în momentele ce urmează",
-    "FirstNameError": {
-      "Required": "Prenumele este obligatoriu!",
-      "LettersOnly": "Prenumele poate conține doar litere!"
-    },
-    "LastNameError": {
-      "Required": "Numele este obligatoriu!",
-      "LettersOnly": "Numele poate conține doar litere!"
-    },
-    "EmailError": {
-      "Required": "Email-ul este obligatoriu!",
-      "Format": "Email-ul nu corespunde unui format valid!"
-    },
-    "PhoneNumberError": {
-      "Required": "Numărul de telefon este obligatoriu!",
-      "Format": "Numărul de telefon nu corespunde unui format valid!"
-    },
-    "PasswordError": {
-      "Required": "Parola este obligatorie!",
-      "Length": "Parola trebuie să aibă minim 6 caractere lungime!",
-      "UpperCase": "Parola trebuie să conțină minim o literă mare !",
-      "LowerCase": "Parola trebuie să conțină minim o literă mică !",
-      "Number": "Parola trebuie să conțină minim o cifră!",
-      "Special": "Parola trebuie să conțină minim un caracter special!"
-    },
-    "ConfirmPasswordError": {
-      "Required": "Confirmarea parolei este obligatorie!",
-      "Match": "Parolele nu corespund!"
-    },
-    "SuccessMessage": "Înergistrarea a fost realizată cu succes!"
-  },
-  "forgot-password": {
-    "Title": "Ți-ai uitat parola?",
-    "Email": "Introduceți adresa de email",
-    "SuccessMessage": "Un email de schimbare a parolei a fost trimis către dumneavoastră!"
-  },
-  "about": {
-    "Title": "Despre noi",
-    "DevelopmentTeam": "Echipa de dezvoltare",
-    "Coordinator": "Profesor coordonator",
-    "Students": "Studenți",
-    "AboutProject": "Despre proiect",
-    "Description": "În cadrul acestei lucrări, ne propunem să examinăm importanța tehnologiilor inteligente de asistare care au capacitatea de monitorizare continuă și de localizare în timp real, precum și modul în care acecste tehnologii pot contribui la îmbunătățirea calității vieții persoanelor cu nevoi speciale."
-  },
-  "faq": {
-    "Title": "Întrebări frecvente",
-    "Q1": "Care sunt caracteristicile principale ale brățării de monitorizare?",
-    "A1": "Dispozitiv monitorizare oferă diverse caracteristici: monitorizare a sănătății în timp real, inclusiv ritmul cardiac, tensiunea arterială și urmărirea activității. Funcție de urgență SOS pentru asistență imediată. Urmărire și analiză a somnului pentru o gestionare mai bună a somnului. Design rezistent la apă și durabil pentru utilizare zilnică. Durată lungă a bateriei pentru a asigura monitorizarea continuă fără încărcări frecvente.",
-    "Q2": "Ce funcționalități oferă platforma aplicației web pentru utilizatorii brățării de monitorizare?",
-    "A2": "Platforma aplicației web acționează ca un tablou de bord cuprinzător pentru utilizatori: Afișează metrici detaliate de sănătate înregistrate de dispozitiv într-un format ușor accesibil. Permite utilizatorilor să-și stabilească obiective de sănătate și să urmărească progresul în timp. Oferă insule personalizate și recomandări bazate pe datele colectate. Permite partajarea datelor cu profesioniștii din domeniul sănătății sau membrii familiei pentru monitorizare și suport la distanță.",
-    "Q3": "Cum este asigurată confidențialitatea și securitatea datelor utilizatorului pe platforma aplicației web?",
-    "A3": "Platforma aplicației web acordă prioritate confidențialității și securității datelor utilizatorului: Implementează criptarea de la un capăt la altul pentru a proteja informațiile sensibile de sănătate. Respectă standardele și reglementările industriale stricte (cum ar fi HIPAA sau GDPR) pentru protecția datelor. Necesită metode de autentificare sigure (cum ar fi autentificarea cu doi factori) pentru a accesa conturile utilizatorilor. Este supusă în mod regulat unor audituri de securitate și actualizări pentru a aborda vulnerabilitățile potențiale și pentru a asigura o protecție solidă împotriva accesului neautorizat sau a încălcărilor de date."
-  },
-  "change-password": {
-    "Title": "Schimbarea parolei",
-    "OldPassword": "Parola curentă",
-    "NewPassword": "Noua parolă",
-    "ConfirmPassword": "Confirmă noua parolă",
-    "OldPasswordError": {
-      "Required": "Parola curentă este obligatorie!"
-    },
-    "NewPasswordError": {
-      "Required": "Noua parolă este obligatorie!"
-    },
-    "SuccessMessage": "Parola a fost schimbată cu succes!",
-    "Redirect": "Veți fi redirecționat în momentele ce urmează",
-    "Unauthorized": "Nu sunteți autorizat pentru această operațiune!",
-    "SamePasswords": "Parola nouă nu poate fi identică cu cea veche!",
-    "FailedToChange": "A apărut o problemă la schimbarea parolei dumneavoastră, vă rugăm încercați din nou!",
-    "IncorrectPassword": "Parola curentă este greșită!",
-    "ModelFailed": "Datele introduse nu sunt corecte, vă rugăm încercați din nou!"
-  },
-  "profile": {
-    "Title": "Datele tale personale",
-    "FirstName": "Prenume",
-    "LastName": "Nume",
-    "PhoneNumber": "Număr de telefon",
-    "Wearers": "Persoanele mele",
-    "NoWearers": "Nu aveți persoane înregistrate!",
-    "Products": "Produsele mele",
-    "You": "Aveți",
-    "AvailableProducts": "produse disponibile.",
-    "AvailableWearers": "persoane înregistrate.",
-    "NoProducts": "Nu aveți produse înregistrate!"
-  },
-  "confirm-email": {
-    "Success": "Email-ul dumneavoastră a fost confirmat cu succes, vă puteți autentifica pentru a folosi platforma!",
-    "TokenNotFound": "Token-ul dumneavoastră nu există sau este greșit!",
-    "TokenInvalid": "Token-ul dumneavoastră este invalid!",
-    "TokenExpired": "Token-ul dumneavoastră a expirat!",
-    "UserNotFound": "Token-ul dumneavoastră nu corespunde unui utilizator existent!",
-    "Failed": "A apărut o problemă la confirmarea email-ului dumneavoastră!"
-  },
-  "resend-email-confirmation": {
-    "Title": "Retrimite email-ul de confirmare a contului",
-    "Succes": "Email-ul de confirmare a fost trimis cu succes!",
-    "NotFound": "Adresa de email nu a putut fi găsită!",
-    "AlreadySent": "Un email a fost deja trimis! Trebuie să aștepați 2 minute!"
-  },
-  "wearer": {
-    "Subtitle": "Datele persoanei purtătoare",
-    "Products": "Dispozitivele atribuite persoanei"
-  },
-  "footer": {
-    "PaperTitle": "Titlul lucrării",
-    "Title": "Dispozitiv pentru monitorizarea și localizarea persoanelor cu nevoi speciale"
-  },
-  "utils": {
-    "AlreadyAuthenticated": "Sunteți deja autentificat!",
-    "NotAuthenticated": "Nu sunteți autentificat!",
-    "Btn": "Trimite",
-    "BtnLoading": "Se încarcă...",
-    "CloseBtn": "Inchide",
-    "Yes": "Da",
-    "No": "Nu",
-    "Add": "Adaugă"
-  }
+	"locale": {
+		"en": "English",
+		"ro": "Română"
+	},
+	"nav": {
+		"Brand": "FIND-ER®",
+		"Brand2": "Protejează. Asistă. Îngrijește.",
+		"Home": "Acasă",
+		"About": "Despre noi",
+		"FAQ": "FAQ",
+		"Profile": "Profilul meu",
+		"Products": "Produsele mele",
+		"Wearers": "Persoanele mele",
+		"ChangePassword": "Schimbă parola",
+		"ViewData": "Vezi datele",
+		"RegisterProduct": "Înregistrează produs",
+		"Login": "Autentificare"
+	},
+	"home": {
+		"Title": "Bine ați venit la FIND-ER®,",
+		"Subtitle": "Dispozitiv pentru monitorizarea și localizarea persoanelor cu nevoi speciale.",
+		"MissionTitle": "Misiunea Noastră",
+		"MissionText": "Misiunea noastră este să construim un mediu în care persoanele cu nevoi speciale se simt sprijinite, protejate și îngrijite. Dorim să oferim o soluție sigură, eficientă și personalizată pentru îmbunătățirea calității vieții acestora. Ne angajăm să dezvoltăm tehnologii inovatoare care să ofere siguranță și independență, să facilităm comunicarea și să asigurăm intervenții prompte în situații de urgență.",
+		"MissionBtn": "Află mai multe",
+		"TechnologyTitle": "Pachet tehnologic pentru aplicația WEB",
+		"TechnologyFrontend": "Tehnologii de frontend",
+		"TechnologyBackend": "Tehnologii de backend",
+		"AppComponentsTitle": "Componentele pachetului tehnologic pentru aplicația WEB",
+		"Usage": "Utilizare",
+		"ViteText": "Vite este instrumentul nostru de construcție preferat pentru aplicația web. Oferă dezvoltare rapidă și crează build-uri optimizate pentru producție, făcând ca aplicația noastră să se încarce rapid și eficient.",
+		"ViteUsage": "Instrument de construcție pentru aplicație web.",
+		"VueText": "Vue.js este framework-ul principal pentru construirea interfeței utilizator a aplicației noastre web. Ne permite să creăm componente dinamice și interactive cu ușurință.",
+		"VueUsage": "Dezvoltare a interfeței utilizator.",
+		"RouterText": "Vue Router este folosit pentru rutarea pe partea clientului în aplicația noastră web. Permite navigarea fără probleme între diferite vederi și pagini.",
+		"RouterUsage": "Rutare pe partea clientului.",
+		"PiniaText": "Pinia este librăria noastră de gestionare a stării pentru Vue.js. Ne ajută să gestionăm și să partajăm starea la nivelul aplicației între componente.",
+		"PiniaUsage": "Gestionarea stării.",
+		"AxiosText": "Axios este folosit pentru a face cereri HTTP din aplicația noastră web către serverul backend, permițând preluarea și actualizarea datelor.",
+		"AxiosUsage": "Cererile HTTP și comunicarea datelor.",
+		"TailwindText": "Tailwind CSS oferă un cadru CSS de tip utilitar care optimizează stilizarea și asigură un design consistent în întreaga noastră aplicație web.",
+		"TailwindUsage": "Stilizare și design.",
+		"NetCoreText": "ASP.NET Core este framework-ul ales pentru construirea API-ului backend al aplicației noastre. Furnizează o platformă robustă și scalabilă pentru dezvoltarea de API-uri web.",
+		"NetCoreUsage": "Dezvoltarea API-ului backend.",
+		"EFText": "Entity Framework este un framework de mapare obiect-relațional (ORM) folosit în aplicațiile .NET, care permite dezvoltatorilor să lucreze cu baze de date folosind obiecte .NET, eliminând necesitatea de a scrie interogări SQL brute.",
+		"EFUsage": "Modelarea datelor, maparea și interacțiunea cu baza de date.",
+		"SignalRText": "SignalR este o bibliotecă de comunicare web în timp real pentru aplicațiile ASP.NET, facilitează comunicarea bidirecțională între client și server în timp real, permițând codului de pe server să trimită conținut instantaneu către clienții conectați.",
+		"SignalRUsage": "Funcționalitate în timp real",
+		"PostgresText": "PostgreSQL este sistemul nostru de gestionare a bazelor de date relaționale (RDBMS) ales pentru stocarea și gestionarea datelor utilizate în aplicația noastră.",
+		"PostgresUsage": "Stocarea și gestionarea datelor.",
+		"PhysicalComponentsTitle": "Componentele fizice ale sistmeului",
+		"MicrocontrollerText": "Microcontrollerul sau computerul monocip (SBC) servește ca creierul sistemului de monitorizare. Controlează diversele componente hardware, procesează datele și execută logica software-ului. Alegerea între un microcontroller și un SBC depinde de cerințele computaționale ale sistemului și de factorul de formă.",
+		"MicrocontrollerUsage": "Controlul sistemului și procesarea datelor.",
+		"ServerText": "Componenta server este coloana vertebrală a sistemului nostru. Gestionează stocarea datelor, comunicarea cu dispozitivul și operațiunile de bază de date. Este utilizată pentru stocarea și recuperarea datelor vitale colectate de dispozitiv de monitorizare.",
+		"ServerUsage": "Stocarea datelor, centru de comunicare.",
+		"CaseTitle": "Carcasă",
+		"CaseText": "Carcasa este învelișul fizic care adăpostește componentele electronice ale dispozitivului de monitorizare. Este proiectată pentru a fi durabilă și confortabilă pentru purtător, asigurând siguranța componentelor.",
+		"CaseUsage": "Protecție și confort pentru componente.",
+		"GSMTitle": "Modul GSM/GPRS SIM800L",
+		"GSMText": "Modulul GSM/GPRS permite comunicarea între dispozitiv și serverul backend al aplicației. Permite transmiterea datelor în timp real și funcționalități de control la distanță.",
+		"GSMUsage": "Transmiterea datelor în timp real, control la distanță.",
+		"GPSTitle": "Modul GPS NEO-6M cu antena",
+		"GPSText": "Modulul GPS oferă capacități de urmărire a localizării pentru dispozitivul de monitorizare. Ajută îngrijitorii și utilizatorii să țină evidența locației purtătorului.",
+		"GPSUsage": "Urmărirea localizării.",
+		"BTTitle": "Modul Bluetooth",
+		"BTText": "Modulul Bluetooth, dacă este integrat, permite conectivitatea cu alte dispozitive, cum ar fi smartphone-urile sau tabletele, pentru sincronizare și controlul datelor.",
+		"BTUsage": "Conectivitatea dispozitivelor și sincronizarea datelor (opțional).",
+		"BatteryTitle": "Baterii de 3.7V Li-Ion",
+		"BatteryText": "Bateriile sunt sursa de energie pentru dispozitivul de monitorizare. Furnizează energia necesară pentru a menține funcționarea dispozitivului pentru perioade îndelungate.",
+		"BatteryUsage": "Sursa de energie pentru dispozitiv."
+	},
+	"view-data": {
+		"Title": "Vezi locația în timp real",
+		"KnownPositions": "Ultimele locații",
+		"RealTimePostioning": "Poziția în timp real",
+		"Refreshing": "actualizare în",
+		"Seconds": "secunde",
+		"Show": "Arată",
+		"PerPage": "locații per pagină",
+		"TableDate": "Data",
+		"TableTime": "Ora",
+		"TableLatitude": "Latitudine",
+		"TableLongitude": "Longitudine",
+		"TableActions": "Acțiuni",
+		"TableBtn": "Vizualizează",
+		"TablePage": "Pagina",
+		"TableOf": "din",
+		"FirstBtn": "Prima",
+		"PreviousBtn": "Anterioară",
+		"NextBtn": "Următoarea",
+		"LastBtn": "Ultima"
+	},
+	"register-product": {
+		"Title": "Înregistrați-vă produsul",
+		"DeviceSerialNumber": "Număr de serie al dispozitivului",
+		"DeviceGUID": "GUID-ul dispozitivului",
+		"Wearer": "Alege persoana",
+		"NeedWearers": "Pentru a înregistra un produs aveți nevoie de minim o persoană înregistrată",
+		"DeviceSerialNumberError": {
+			"Required": "Numărul de serie este obligatoriu!"
+		},
+		"DeviceGUIDError": {
+			"Required": "GUID-ul dispozitivului este obligatoriu!",
+			"Format": "GUID-ul nu corespunde unui format valid!"
+		},
+		"WearerError": {
+			"Required": "Persoana este obligatorie"
+		},
+		"SuccessMessage": "Produsul a fost înregistrat cu succes!",
+		"BadRequest": "Datele introduse nu sunt valide",
+		"Unauthorized": "Nu sunteți autorizat pentru această operațiune!",
+		"NotFound": "Persoana aleasă nu este validă!"
+	},
+	"register-wearer": {
+		"Title": "Înregistrați-vă persoana",
+		"FullName": "Numele complet al persoanei purtătoare",
+		"Age": "Vârsta persoanei purtătoare",
+		"FullNameError": {
+			"Required": "Numele complet este obligatoriu!",
+			"LettersOnly": "Numele complet poate conține doar litere!"
+		},
+		"AgeError": {
+			"Required": "Vârsta este obligatorie!",
+			"NumbersOnly": "Vârsta poate conține doar cifre!"
+		},
+		"SuccessMessage": "Persoana a fost înregistrată cu succes!",
+		"BadRequest": "",
+		"Unauthorized": "",
+		"NotFound": ""
+	},
+	"my-products": {
+		"Title": "Produsele mele",
+		"SerialNumber": "Număr de serie",
+		"Wearer": "Purtător",
+		"DeleteItem": "Sigur doriți să ștergeți produsul nr.",
+		"SuccessMessage": "Produsul a fost șters cu succes!",
+		"PerPage": "produse per pagină"
+	},
+	"my-wearers": {
+		"Title": "Persoanele mele",
+		"AddWearers": "Puteți adăuga folosind butonul alăturat",
+		"FullName": "Nume complet",
+		"Age": "Vârstă",
+		"DeleteItem": "Sigur doriți să ștergeți persoana cu nr.",
+		"SuccessMessage": "Persoana a fost ștearsă cu succes!",
+		"PerPage": "persoane per pagină"
+	},
+	"login": {
+		"Title": "Autentificare",
+		"Password": "Parolă",
+		"ForgotPassword": "Ți-ai uitat parola?",
+		"NoAccount": "Nu ai cont? Crează unul aici!",
+		"ResendEmailConfirmation": "Retrimite mail-ul de confirmare a contului",
+		"Redirect": "Se încarcă noile funcționalități",
+		"SuccessMessage": "Autentificarea a fost realizată cu succes!"
+	},
+	"register": {
+		"Title": "Înregistrează-te",
+		"FirstName": "Prenume",
+		"LastName": "Nume",
+		"PhoneNumber": "Număr de telefon",
+		"Password": "Parolă",
+		"ConfirmPassword": "Confirmarea Parolei",
+		"LogInHere": "Ai deja un cont? Te poți autentifica aici!",
+		"Redirect": "Veți fi redirecționat în momentele ce urmează",
+		"FirstNameError": {
+			"Required": "Prenumele este obligatoriu!",
+			"LettersOnly": "Prenumele poate conține doar litere!"
+		},
+		"LastNameError": {
+			"Required": "Numele este obligatoriu!",
+			"LettersOnly": "Numele poate conține doar litere!"
+		},
+		"EmailError": {
+			"Required": "Email-ul este obligatoriu!",
+			"Format": "Email-ul nu corespunde unui format valid!"
+		},
+		"PhoneNumberError": {
+			"Required": "Numărul de telefon este obligatoriu!",
+			"Format": "Numărul de telefon nu corespunde unui format valid!"
+		},
+		"PasswordError": {
+			"Required": "Parola este obligatorie!",
+			"Length": "Parola trebuie să aibă minim 6 caractere lungime!",
+			"UpperCase": "Parola trebuie să conțină minim o literă mare !",
+			"LowerCase": "Parola trebuie să conțină minim o literă mică !",
+			"Number": "Parola trebuie să conțină minim o cifră!",
+			"Special": "Parola trebuie să conțină minim un caracter special!"
+		},
+		"ConfirmPasswordError": {
+			"Required": "Confirmarea parolei este obligatorie!",
+			"Match": "Parolele nu corespund!"
+		},
+		"SuccessMessage": "Înergistrarea a fost realizată cu succes!"
+	},
+	"forgot-password": {
+		"Title": "Ți-ai uitat parola?",
+		"Email": "Introduceți adresa de email",
+		"SuccessMessage": "Un email de schimbare a parolei a fost trimis către dumneavoastră!"
+	},
+	"about": {
+		"Title": "Despre noi",
+		"DevelopmentTeam": "Echipa de dezvoltare",
+		"Coordinator": "Profesor coordonator",
+		"Students": "Studenți",
+		"AboutProject": "Despre proiect",
+		"Description": "În cadrul acestei lucrări, ne propunem să examinăm importanța tehnologiilor inteligente de asistare care au capacitatea de monitorizare continuă și de localizare în timp real, precum și modul în care acecste tehnologii pot contribui la îmbunătățirea calității vieții persoanelor cu nevoi speciale."
+	},
+	"faq": {
+		"Title": "Întrebări frecvente",
+		"Q1": "Care sunt caracteristicile principale ale brățării de monitorizare?",
+		"A1": "Dispozitiv monitorizare oferă diverse caracteristici: monitorizare a sănătății în timp real, inclusiv ritmul cardiac, tensiunea arterială și urmărirea activității. Funcție de urgență SOS pentru asistență imediată. Urmărire și analiză a somnului pentru o gestionare mai bună a somnului. Design rezistent la apă și durabil pentru utilizare zilnică. Durată lungă a bateriei pentru a asigura monitorizarea continuă fără încărcări frecvente.",
+		"Q2": "Ce funcționalități oferă platforma aplicației web pentru utilizatorii brățării de monitorizare?",
+		"A2": "Platforma aplicației web acționează ca un tablou de bord cuprinzător pentru utilizatori: Afișează metrici detaliate de sănătate înregistrate de dispozitiv într-un format ușor accesibil. Permite utilizatorilor să-și stabilească obiective de sănătate și să urmărească progresul în timp. Oferă insule personalizate și recomandări bazate pe datele colectate. Permite partajarea datelor cu profesioniștii din domeniul sănătății sau membrii familiei pentru monitorizare și suport la distanță.",
+		"Q3": "Cum este asigurată confidențialitatea și securitatea datelor utilizatorului pe platforma aplicației web?",
+		"A3": "Platforma aplicației web acordă prioritate confidențialității și securității datelor utilizatorului: Implementează criptarea de la un capăt la altul pentru a proteja informațiile sensibile de sănătate. Respectă standardele și reglementările industriale stricte (cum ar fi HIPAA sau GDPR) pentru protecția datelor. Necesită metode de autentificare sigure (cum ar fi autentificarea cu doi factori) pentru a accesa conturile utilizatorilor. Este supusă în mod regulat unor audituri de securitate și actualizări pentru a aborda vulnerabilitățile potențiale și pentru a asigura o protecție solidă împotriva accesului neautorizat sau a încălcărilor de date."
+	},
+	"change-password": {
+		"Title": "Schimbarea parolei",
+		"OldPassword": "Parola curentă",
+		"NewPassword": "Noua parolă",
+		"ConfirmPassword": "Confirmă noua parolă",
+		"OldPasswordError": {
+			"Required": "Parola curentă este obligatorie!"
+		},
+		"NewPasswordError": {
+			"Required": "Noua parolă este obligatorie!"
+		},
+		"SuccessMessage": "Parola a fost schimbată cu succes!",
+		"Redirect": "Veți fi redirecționat în momentele ce urmează",
+		"Unauthorized": "Nu sunteți autorizat pentru această operațiune!",
+		"SamePasswords": "Parola nouă nu poate fi identică cu cea veche!",
+		"FailedToChange": "A apărut o problemă la schimbarea parolei dumneavoastră, vă rugăm încercați din nou!",
+		"IncorrectPassword": "Parola curentă este greșită!",
+		"ModelFailed": "Datele introduse nu sunt corecte, vă rugăm încercați din nou!"
+	},
+	"profile": {
+		"Title": "Datele tale personale",
+		"FirstName": "Prenume",
+		"LastName": "Nume",
+		"PhoneNumber": "Număr de telefon",
+		"Wearers": "Persoanele mele",
+		"NoWearers": "Nu aveți persoane înregistrate!",
+		"Products": "Produsele mele",
+		"You": "Aveți",
+		"AvailableProducts": "produse disponibile.",
+		"AvailableWearers": "persoane înregistrate.",
+		"NoProducts": "Nu aveți produse înregistrate!"
+	},
+	"confirm-email": {
+		"Success": "Email-ul dumneavoastră a fost confirmat cu succes, vă puteți autentifica pentru a folosi platforma!",
+		"TokenNotFound": "Token-ul dumneavoastră nu există sau este greșit!",
+		"TokenInvalid": "Token-ul dumneavoastră este invalid!",
+		"TokenExpired": "Token-ul dumneavoastră a expirat!",
+		"UserNotFound": "Token-ul dumneavoastră nu corespunde unui utilizator existent!",
+		"Failed": "A apărut o problemă la confirmarea email-ului dumneavoastră!"
+	},
+	"resend-email-confirmation": {
+		"Title": "Retrimite email-ul de confirmare a contului",
+		"Succes": "Email-ul de confirmare a fost trimis cu succes!",
+		"NotFound": "Adresa de email nu a putut fi găsită!",
+		"AlreadySent": "Un email a fost deja trimis! Trebuie să aștepați 2 minute!"
+	},
+	"wearer": {
+		"NoWearer": "Datele persoanei purtătoare nu sunt disponibile",
+		"Subtitle": "Datele persoanei purtătoare",
+		"Products": "Dispozitivele atribuite persoanei",
+		"HttpErrors": {
+			"Unauthorized": "Nu sunteți autorizat pentru a vizita această pagină",
+			"NotFound": "Datele persoanei nu au putut fi găsite",
+			"ServerError": "Conexiunea cu serverul nu a putut fi realizată"
+		}
+	},
+	"product": {
+		"Subtitle": "Datele dispozitivului",
+		"Locations": "Locațiile înregistrate",
+		"NoProduct": "Datele dispozitivului nu sunt disponibile",
+		"PerPage": "locații per pagină",
+		"NoLocations": "Pentru acest produs nu există locații înregistrate",
+		"Latitude": "Latitudine",
+		"Longitude": "Longitudine",
+		"Date": "Dată",
+		"Time": "Oră"
+	},
+	"footer": {
+		"PaperTitle": "Titlul lucrării",
+		"Title": "Dispozitiv pentru monitorizarea și localizarea persoanelor cu nevoi speciale"
+	},
+	"utils": {
+		"AlreadyAuthenticated": "Sunteți deja autentificat!",
+		"NotAuthenticated": "Nu sunteți autentificat!",
+		"Btn": "Trimite",
+		"BtnLoading": "Se încarcă...",
+		"CloseBtn": "Inchide",
+		"Yes": "Da",
+		"No": "Nu",
+		"Add": "Adaugă",
+		"GoBack": "Înapoi"
+	}
 }
