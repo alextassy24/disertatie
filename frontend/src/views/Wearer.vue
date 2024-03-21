@@ -37,20 +37,6 @@
 										{{ product.serialNumber }}
 									</li>
 								</ul>
-								<BaseModal
-									:modalActive="modalActive"
-									@close-modal="toggleModal(null)"
-									@submit-modal="submitRequest"
-								>
-									<input
-										type="hidden"
-										v-model="deletedId"
-									/>
-									<h1 class="text-lg text-black">
-										{{ translatedValues.deleteItem }}
-										{{ deletedId }}?
-									</h1>
-								</BaseModal>
 							</div>
 							<div
 								v-else

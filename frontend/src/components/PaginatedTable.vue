@@ -34,8 +34,8 @@
 			<thead>
 				<tr class="text-white bg-black">
 					<th
-						v-for="header in headers"
-						:key="header"
+						v-for="(header, index) in headers"
+						:key="index"
 					>
 						{{ header }}
 					</th>

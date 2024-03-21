@@ -185,7 +185,7 @@
 			"Required": "The Password Confirmation is required!",
 			"Match": "The passwords do not match!"
 		},
-		"SuccessMessage": "Registration succesful!"
+		"SuccessMessage": "Registration successful!"
 	},
 	"forgot-password": {
 		"Title": "Forgot your password?",
@@ -198,6 +198,12 @@
 		"Coordinator": "Coordinating Teacher",
 		"Students": "Students",
 		"AboutProject": "About the project",
+		"ProjectCost": "Project cost",
+		"ItemName": "Product name",
+		"ItemCost": "Product price",
+		"BatterySupport": "3.7V Battery Support",
+		"CurrentCost": "Project approximate cost: ",
+		"TotalCost": "Project total cost: ",
 		"Description": "In this paper, we aim to examine the importance of intelligent assistive technologies that have the ability of continuous monitoring and real-time localization, as well as how these technologies can contribute to improving the quality of life of people with special needs. "
 	},
 	"faq": {

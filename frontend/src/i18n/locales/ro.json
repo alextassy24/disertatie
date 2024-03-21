@@ -204,6 +204,12 @@
 		"Coordinator": "Profesor coordonator",
 		"Students": "Studenți",
 		"AboutProject": "Despre proiect",
+		"ProjectCost": "Costul proiectului",
+		"ItemName": "Numele produsului",
+		"ItemCost": "Prețul produsului",
+		"BatterySupport": "Supprt pentru Bateria de 3.7V",
+		"CurrentCost": "Costul aproximativ al proiectului este: ",
+		"TotalCost": "Costul total al proiectului este: ",
 		"Description": "În cadrul acestei lucrări, ne propunem să examinăm importanța tehnologiilor inteligente de asistare care au capacitatea de monitorizare continuă și de localizare în timp real, precum și modul în care acecste tehnologii pot contribui la îmbunătățirea calității vieții persoanelor cu nevoi speciale."
 	},
 	"faq": {
