@@ -237,6 +237,10 @@
 				match: t("register.ConfirmPasswordError.Match"),
 			},
 			successMessage: t("register.SuccessMessage"),
+			errorMessage: {
+				alreadyExists: t("register.ErrorMessage.AlreadyExists"),
+				emailError: t("register.ErrorMessage.EmailError"),
+			},
 		};
 	});
 
@@ -348,8 +352,18 @@
 			.catch((error) => {
 				isLoading.value = false;
 				// console.error(error);
-				if (error.response.data) {
-					errorMessage.value = `Status code: ${error.response.status} - ${error.response.data.title}`;
+				if (error.response.status === 400) {
+					switch (error.response.data.message) {
+						case 0:
+							errorMessage.value =
+								translatedValues.value.errorMessage.alreadyExists;
+							break;
+						case 1:
+							errorMessage.value =
+								translatedValues.value.errorMessage.emailError;
+							break;
+					}
+					// errorMessage.value = `Status code: ${error.response.status} - ${error.response.data.title}`;
 				}
 			});
 	}

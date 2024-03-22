@@ -185,7 +185,11 @@
 			"Required": "The Password Confirmation is required!",
 			"Match": "The passwords do not match!"
 		},
-		"SuccessMessage": "Registration successful!"
+		"SuccessMessage": "Registration successful!",
+		"ErrorMessage": {
+			"AlreadyExists": "An error has ocurred while trying to create the account!",
+			"EmailError": "An error has ocurred while trying to send the confirmation email!"
+		}
 	},
 	"forgot-password": {
 		"Title": "Forgot your password?",

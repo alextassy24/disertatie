@@ -191,7 +191,11 @@
 			"Required": "Confirmarea parolei este obligatorie!",
 			"Match": "Parolele nu corespund!"
 		},
-		"SuccessMessage": "Înergistrarea a fost realizată cu succes!"
+		"SuccessMessage": "Înergistrarea a fost realizată cu succes!",
+		"ErrorMessage": {
+			"AlreadyExists": "A apărut o eroare la crearea contului!",
+			"EmailError": "A apărut o eroare la trimiterea email-ului de confirmare!"
+		}
 	},
 	"forgot-password": {
 		"Title": "Ți-ai uitat parola?",
