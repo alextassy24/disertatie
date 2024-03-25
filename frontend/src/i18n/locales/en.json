@@ -215,7 +215,9 @@
 		"CableM-T": "40 Wires Mother-Father",
 		"CableT-T": "4- Wires Father-Father",
 		"AABatterySupport": "AA Batteries Support",
+		"BatteriesSupport": "3.7V Batteries Support",
 		"AABatteries": "AA Batteries",
+		"BreadboardCon": "Breadboard connectors",
 		"DevelopmentCost": "Development Products Cost"
 	},
 	"faq": {

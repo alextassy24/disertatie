@@ -326,16 +326,16 @@
 
 	const hardwareComponents = computed(() => [
 		{
-			image: getImageURL("arduino", "png"),
-			name: "Arduino UNO R3",
-			price: 52.96,
-			link: "https://cleste.ro/arduino-uno-r3-atmega328p.html",
+			image: getImageURL("arduinoNano", "png"),
+			name: "Arduino Nano V3",
+			price: 25.12,
+			link: "https://www.emag.ro/placa-nano-cu-usb-c-compatibila-cu-arduino-nano-v3-0-albastru-arduino-nano-328-usbc-n/pd/DSVTTMYBM/?ref=fav_pd-title",
 		},
 		{
-			image: getImageURL("sim800l", "png"),
+			image: getImageURL("sim800l2", "png"),
 			name: t("home.GSMTitle"),
-			price: 57.46,
-			link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-cu-antena.html",
+			price: 36.32,
+			link: "https://www.emag.ro/modul-gsm-ajmaker-sim800l-microsim-ttl-gprs-3-7-4-2v-25x23-mm-z001836/pd/DD1RLHYBM/?ref=fav_pd-title",
 		},
 		{
 			image: getImageURL("neo6m", "png"),
@@ -361,9 +361,27 @@
 			price: 4.17,
 			link: "https://cleste.ro/suport-baterii-18650-1-slot.html",
 		},
+		{
+			image: getImageURL("suportBaterii", "png"),
+			name: t("about.BatteriesSupport"),
+			price: 12,
+			link: "https://www.emag.ro/suport-acumulator-3-7v-18650-x-2-sloturi-s18650-2/pd/DRC49WBBM/?ref=fav_pd-title",
+		},
 	]);
 
 	const developmentComponents = computed(() => [
+		{
+			image: getImageURL("arduino", "png"),
+			name: "Arduino UNO R3",
+			price: 52.96,
+			link: "https://cleste.ro/arduino-uno-r3-atmega328p.html",
+		},
+		{
+			image: getImageURL("sim800l", "png"),
+			name: t("home.GSMTitle"),
+			price: 57.46,
+			link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-cu-antena.html",
+		},
 		{
 			image: getImageURL("bateriiAA", "png"),
 			name: t("about.AABatteries"),
@@ -405,6 +423,18 @@
 			name: "Breadboard 400",
 			price: 7.1,
 			link: "https://www.emag.ro/placa-test-breadboard-400-bb400/pd/D5WBP7MBM/",
+		},
+		{
+			image: getImageURL("breadboard830", "png"),
+			name: "Breadboard 830",
+			price: 15.0,
+			link: "https://www.emag.ro/placa-prototipare-tip-breadboard-830-puncte-oky0008/pd/DW8217MBM/?ref=history-shopping_357018673_2895_1",
+		},
+		{
+			image: getImageURL("breadboardCon", "png"),
+			name: t("about.BreadboardCon"),
+			price: 15.0,
+			link: "https://www.emag.ro/set-conectori-pentru-breadboard-140buc-oky0053/pd/DMG9BKMBM/?ref=history-shopping_357018673_2895_2",
 		},
 	]);
 

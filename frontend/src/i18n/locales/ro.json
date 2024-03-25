@@ -212,7 +212,7 @@
 		"ItemImg": "Imagine",
 		"ItemName": "Numele produsului",
 		"ItemCost": "Prețul produsului",
-		"BatterySupport": "Suport pentru Bateria de 3.7V",
+		"BatterySupport": "Suport pentru o baterie de 3.7V",
 		"CurrentCost": "Costul aproximativ al proiectului este: ",
 		"TotalCost": "Costul total al proiectului este: ",
 		"Description": "În cadrul acestei lucrări, ne propunem să examinăm importanța tehnologiilor inteligente de asistare care au capacitatea de monitorizare continuă și de localizare în timp real, precum și modul în care acecste tehnologii pot contribui la îmbunătățirea calității vieții persoanelor cu nevoi speciale.",
@@ -221,7 +221,9 @@
 		"CableM-T": "40 de Cabluri Mamă-Tată",
 		"CableT-T": "40 de Cabluri Tată-Tată",
 		"AABatterySupport": "Suport pentru baterii AA",
+		"BatteriesSupport": "Suport pentru 2 baterii 3.7V",
 		"AABatteries": "Baterii AA",
+		"BreadboardCon": "Conectori pentru Breadboard",
 		"DevelopmentCost": "Costul produselor din etapa de dezvoltare"
 	},
 	"faq": {
