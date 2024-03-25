@@ -1,7 +1,6 @@
 <template>
 	<div class="mt-28">
 		<Hero :title="translatedValues.title" />
-
 		<section
 			class="px-10 py-16 bg-gradient-to-r from-green-500 to-green-300"
 		>
@@ -252,6 +251,30 @@
 				</div>
 			</div>
 		</section>
+		<section
+			class="px-10 py-16 bg-gradient-to-r from-green-300 to-green-500"
+		>
+			<div class="container mx-auto">
+				<h1 class="mb-5 text-4xl font-bold text-white">
+					{{ translatedValues.photoGalleryTitle }}
+				</h1>
+				<h2 class="mb-10 text-2xl font-bold text-white">
+					{{ translatedValues.photoGallery.gpsTest }}
+				</h2>
+				<div
+					class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+				>
+					<img
+						v-for="(photo, index) in gpsTestPhotos"
+						:key="index"
+						:src="photo.image"
+						alt=""
+						class="transition duration-300 rounded-lg shadow hover:shadow-2xl hover:cursor-pointer hover:scale-105 h-[400px]"
+					/>
+				</div>
+			</div>
+		</section>
+
 		<section class="px-10 py-16 bg-gray-100">
 			<div class="container mx-auto">
 				<div class="grid grid-cols-1 md:grid-cols-2">
@@ -288,7 +311,7 @@
 </template>
 
 <script setup>
-	import { ref, computed, onMounted, onUnmounted, watch } from "vue";
+	import { ref, computed, onMounted, onUnmounted } from "vue";
 	import { useI18n } from "vue-i18n";
 	import Hero from "../components/Hero.vue";
 
@@ -314,9 +337,16 @@
 			cableMM: t("about.CableM-M"),
 			cableMT: t("about.CableM-T"),
 			cableTT: t("about.CableT-T"),
-			aaBatterySupport: t("about.AaBatterySupport"),
+			aaBatterySupport: t("about.AABatterySupport"),
 			aaBatteries: t("about.AABatteries"),
 			developmentCost: t("about.DevelopmentCost"),
+			photoGalleryTitle: t("about.PhotoGalleryTitle"),
+			photoGallery: {
+				gpsTest: t("about.PhotoGallery.gpsTest"),
+				gpsSolder: t("about.PhotoGallery.gpsSolder"),
+				gsmTest: t("about.PhotoGallery.gsmTest"),
+				gsmSolder: t("about.PhotoGallery.gsmSolder"),
+			},
 		};
 	});
 
@@ -438,6 +468,39 @@
 		},
 	]);
 
+	const gpsTestPhotos = computed(() => [
+		{
+			image: getProductImageURL("gpsTest-1", "JPEG"),
+		},
+		{
+			image: getProductImageURL("gpsTest-2", "JPEG"),
+		},
+		{
+			image: getProductImageURL("gpsTest-3", "JPEG"),
+		},
+		{
+			image: getProductImageURL("gpsTest-4", "JPEG"),
+		},
+		{
+			image: getProductImageURL("gpsTest-5", "JPEG"),
+		},
+		{
+			image: getProductImageURL("gpsTest-6", "JPEG"),
+		},
+		{
+			image: getProductImageURL("gpsTest-7", "JPEG"),
+		},
+		{
+			image: getProductImageURL("gpsTest-8", "JPEG"),
+		},
+		{
+			image: getProductImageURL("gpsTest-9", "JPEG"),
+		},
+		{
+			image: getProductImageURL("gpsTest-10", "JPEG"),
+		},
+	]);
+
 	onMounted(() => {
 		hardwareComponents.value.forEach((component) => {
 			approximateCost.value += component.price;
@@ -457,6 +520,13 @@
 
 	const getImageURL = (name, extension) => {
 		return new URL(`../assets/${name}.${extension}`, import.meta.url).href;
+	};
+
+	const getProductImageURL = (name, extension) => {
+		return new URL(
+			`../assets/product/${name}.${extension}`,
+			import.meta.url
+		).href;
 	};
 
 	const gpsPhoto = getImageURL("team", "png");

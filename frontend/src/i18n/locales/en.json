@@ -71,7 +71,7 @@
 	},
 	"view-data": {
 		"Title": "View real time positioning",
-		"RealTimePostioning": "Real time positioning",
+		"RealTimePortioning": "Real time positioning",
 		"Refreshing": "refreshing in",
 		"Seconds": "seconds",
 		"KnownPositions": "Last Known Positions",
@@ -132,7 +132,7 @@
 	},
 	"my-wearers": {
 		"Title": "My wearers",
-		"AddWearers": "Use the follwing button to add one",
+		"AddWearers": "Use the following button to add one",
 		"FullName": "Full name",
 		"Age": "Age",
 		"DeleteItem": "Are you sure you want to delete the wearer no.",
@@ -218,7 +218,14 @@
 		"BatteriesSupport": "3.7V Batteries Support",
 		"AABatteries": "AA Batteries",
 		"BreadboardCon": "Breadboard connectors",
-		"DevelopmentCost": "Development Products Cost"
+		"DevelopmentCost": "Development Products Cost",
+		"PhotoGalleryTitle": "Photo Gallery",
+		"PhotoGallery": {
+			"gpsTest": "GPS Testing",
+			"gpsSolder": "GPS Soldering",
+			"gsmTest": "GSM Testing",
+			"gsmSolder": "GSM Soldering"
+		}
 	},
 	"faq": {
 		"Title": "Frequently asked questions",
@@ -262,7 +269,7 @@
 		"NoProducts": "No products available!"
 	},
 	"confirm-email": {
-		"Success": "Your email was confirmed successfuly, in order to use the platform you must log in!",
+		"Success": "Your email was confirmed successfully, in order to use the platform you must log in!",
 		"TokenNotFound": "Your token is wrong or it does not exist!",
 		"TokenInvalid": "Your token is invalid!",
 		"TokenExpired": "Your token has expired!",
@@ -271,7 +278,7 @@
 	},
 	"resend-email-confirmation": {
 		"Title": "Resend account confirmation email",
-		"Succes": "The confirmation email was sent successfully!",
+		"Success": "The confirmation email was sent successfully!",
 		"NotFound": "The email can not be found!",
 		"AlreadySent": "A mail was already sent! You must wait 2 minutes!"
 	},
