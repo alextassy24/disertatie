@@ -27,228 +27,286 @@
 		<section class="px-10 py-16">
 			<div class="container mx-auto">
 				<h1
-					class="flex flex-col mb-5 text-4xl font-bold sm:items-center sm:flex-row sm:justify-between"
+					class="flex flex-col items-center mb-5 text-3xl font-bold sm:text-4xl sm:flex-row sm:justify-between"
 				>
-					<span class="mb-3 sm:mb-0">
+					<span class="mb-3 sm:mb-0 test-justify">
 						{{ translatedValues.projectCost }}
 					</span>
 					<span>{{ totalCost }} RON</span>
 				</h1>
 				<hr />
-				<h1
-					class="flex flex-col mt-5 mb-10 text-xl font-bold sm:justify-between sm:items-center sm:flex-row"
-				>
-					<span class="mb-3 sm:mb-0">
-						{{ translatedValues.currentCost }}
-					</span>
-					<span>{{ approximateCost }} RON</span>
-				</h1>
 				<div
-					v-if="isMediumScreenOrAbove"
-					class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
+					class="flex flex-col items-center justify-between mt-5 mb-10 md:flex-row"
 				>
-					<table class="min-w-full divide-y divide-gray-200">
-						<thead>
-							<tr class="text-white bg-black">
-								<th>Nr.Crt.</th>
-								<th>{{ translatedValues.itemImg }}</th>
-								<th>{{ translatedValues.itemName }}</th>
-								<th>{{ translatedValues.itemCost }}(RON)</th>
-								<th>Link</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr
+					<h1
+						class="flex flex-col items-center mb-3 text-xl font-bold md:justify-between md:flex-row md:mb-0"
+					>
+						<span class="mb-3 md:mb-0 me-0 md:me-3">
+							{{ translatedValues.currentCost }}
+						</span>
+						<span>{{ approximateCost }} RON</span>
+					</h1>
+					<button
+						class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center mb-5"
+						@click="showApproximateTable = !showApproximateTable"
+					>
+						<i
+							class="fa-solid"
+							:class="{
+								'fa-chevron-up': showApproximateTable,
+								'fa-chevron-down': !showApproximateTable,
+							}"
+						></i>
+						<span>{{
+							showApproximateTable
+								? translatedValues.collapse
+								: translatedValues.show
+						}}</span>
+					</button>
+				</div>
+				<Transition name="fade">
+					<div v-if="showApproximateTable">
+						<div
+							v-if="isMediumScreenOrAbove"
+							class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
+						>
+							<table class="min-w-full divide-y divide-gray-200">
+								<thead>
+									<tr class="text-white bg-black">
+										<th>Nr.Crt.</th>
+										<th>{{ translatedValues.itemImg }}</th>
+										<th>{{ translatedValues.itemName }}</th>
+										<th>
+											{{ translatedValues.itemCost }}(RON)
+										</th>
+										<th>Link</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										v-for="(
+											component, index
+										) in hardwareComponents"
+										:key="index"
+										class="text-center"
+									>
+										<td>{{ index + 1 }}</td>
+										<td>
+											<img
+												:src="component.image"
+												alt=""
+												class="w-1/4 md:w-[100px] md:h-[100px] rounded-xl mx-auto"
+											/>
+										</td>
+										<td>
+											{{ component.name }}
+										</td>
+										<td>{{ component.price }}</td>
+										<td>
+											<a
+												v-if="component.link"
+												:href="component.link"
+												class="btn-primary"
+												target="_blank"
+											>
+												<i class="fa-solid fa-link"></i>
+												<span></span>
+											</a>
+											<span
+												v-else
+												class="cursor-not-allowed opacity-60 btn-primary"
+											>
+												<i class="fa-solid fa-link"></i>
+											</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div
+							v-if="isSmallScreen"
+							class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2"
+						>
+							<div
 								v-for="(component, index) in hardwareComponents"
 								:key="index"
-								class="text-center"
+								class="flex justify-start p-5 text-justify bg-white rounded-lg shadow-xl card-hover"
 							>
-								<td>{{ index + 1 }}</td>
-								<td>
-									<img
-										:src="component.image"
-										alt=""
-										class="w-1/4 md:w-[100px] md:h-[100px] rounded-xl mx-auto"
-									/>
-								</td>
-								<td>
-									{{ component.name }}
-								</td>
-								<td>{{ component.price }}</td>
-								<td>
+								<img
+									:src="component.image"
+									alt=""
+									class="w-[70px] h-[70px] md:w-[100px] md:h-[100px] rounded-xl"
+								/>
+								<div class="ms-5">
+									<h1 class="text-xl font-bold">
+										{{ component.name }}
+									</h1>
+									<h2 class="mb-10">
+										{{ translatedValues.itemCost }}:
+										{{ component.price }} RON
+									</h2>
 									<a
 										v-if="component.link"
 										:href="component.link"
-										class="btn-primary"
+										class="flex items-center gap-1 btn-primary w-[150px]"
 										target="_blank"
 									>
-										<i class="fa-solid fa-link"></i>
-										<span></span>
+										<i class="fa-solid fa-eye"></i>
+										<span class="font-bold">{{
+											translatedValues.btnView
+										}}</span>
 									</a>
 									<span
 										v-else
-										class="cursor-not-allowed opacity-60 btn-primary"
+										class="cursor-not-allowed opacity-60 flex items-center gap-1 btn-primary w-[150px]"
 									>
-										<i class="fa-solid fa-link"></i>
+										<i class="fa-solid fa-eye"></i>
+										<span class="font-bold">{{
+											translatedValues.btnView
+										}}</span>
 									</span>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div
-					v-if="isSmallScreen"
-					class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2"
-				>
-					<div
-						v-for="(component, index) in hardwareComponents"
-						:key="index"
-						class="flex justify-start p-5 text-justify bg-white rounded-lg shadow-xl card-hover"
-					>
-						<img
-							:src="component.image"
-							alt=""
-							class="w-[70px] h-[70px] md:w-[100px] md:h-[100px] rounded-xl"
-						/>
-						<div class="ms-5">
-							<h1 class="text-xl font-bold">
-								{{ component.name }}
-							</h1>
-							<h2 class="mb-10">
-								{{ translatedValues.itemCost }}:
-								{{ component.price }} RON
-							</h2>
-							<a
-								v-if="component.link"
-								:href="component.link"
-								class="flex items-center gap-1 btn-primary w-[150px]"
-								target="_blank"
-							>
-								<i class="fa-solid fa-eye"></i>
-								<span class="font-bold">{{
-									translatedValues.btnView
-								}}</span>
-							</a>
-							<span
-								v-else
-								class="cursor-not-allowed opacity-60 flex items-center gap-1 btn-primary w-[150px]"
-							>
-								<i class="fa-solid fa-eye"></i>
-								<span class="font-bold">{{
-									translatedValues.btnView
-								}}</span>
-							</span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<h1
-					class="flex flex-col my-10 text-xl font-bold sm:flex-row sm:items-center sm:justify-between"
-				>
-					<span class="mb-3 sm:mb-0">
-						{{ translatedValues.developmentCost }}
-					</span>
-					<span>{{ developmentCost }} RON</span>
-				</h1>
+				</Transition>
 				<div
-					v-if="isMediumScreenOrAbove"
-					class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
+					class="flex flex-col items-center justify-between mt-5 mb-10 md:flex-row"
 				>
-					<table class="min-w-full divide-y divide-gray-200">
-						<thead>
-							<tr class="text-white bg-black">
-								<th>Nr.Crt.</th>
-								<th>{{ translatedValues.itemImg }}</th>
-								<th>{{ translatedValues.itemName }}</th>
-								<th>{{ translatedValues.itemCost }}(RON)</th>
-								<th>Link</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr
+					<h1
+						class="flex flex-col items-center mb-3 text-xl font-bold md:justify-between md:flex-row md:mb-0"
+					>
+						<span class="mb-3 md:mb-0 me-0 md:me-3">
+							{{ translatedValues.developmentCost }}
+						</span>
+						<span>{{ developmentCost }} RON</span>
+					</h1>
+					<button
+						class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center mb-5"
+						@click="showDevelopmentTable = !showDevelopmentTable"
+					>
+						<i
+							class="fa-solid"
+							:class="{
+								'fa-chevron-up': showDevelopmentTable,
+								'fa-chevron-down': !showDevelopmentTable,
+							}"
+						></i>
+						<span>{{
+							showDevelopmentTable
+								? translatedValues.collapse
+								: translatedValues.show
+						}}</span>
+					</button>
+				</div>
+				<Transition name="fade">
+					<div v-if="showDevelopmentTable">
+						<div
+							v-if="isMediumScreenOrAbove"
+							class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
+						>
+							<table class="min-w-full divide-y divide-gray-200">
+								<thead>
+									<tr class="text-white bg-black">
+										<th>Nr.Crt.</th>
+										<th>{{ translatedValues.itemImg }}</th>
+										<th>{{ translatedValues.itemName }}</th>
+										<th>
+											{{ translatedValues.itemCost }}(RON)
+										</th>
+										<th>Link</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										v-for="(
+											component, index
+										) in developmentComponents"
+										:key="index"
+										class="text-center"
+									>
+										<td>{{ index + 1 }}</td>
+										<td>
+											<img
+												:src="component.image"
+												alt=""
+												class="w-1/4 md:w-[100px] md:h-[100px] rounded-xl mx-auto"
+											/>
+										</td>
+										<td>
+											{{ component.name }}
+										</td>
+										<td>{{ component.price }}</td>
+										<td>
+											<a
+												v-if="component.link"
+												:href="component.link"
+												class="btn-primary"
+												target="_blank"
+											>
+												<i class="fa-solid fa-link"></i>
+												<span></span>
+											</a>
+											<span
+												v-else
+												class="cursor-not-allowed opacity-60 btn-primary"
+											>
+												<i class="fa-solid fa-link"></i>
+											</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div
+							v-if="isSmallScreen"
+							class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2"
+						>
+							<div
 								v-for="(
 									component, index
 								) in developmentComponents"
 								:key="index"
-								class="text-center"
+								class="flex justify-start p-5 text-justify bg-white rounded-lg shadow-xl card-hover"
 							>
-								<td>{{ index + 1 }}</td>
-								<td>
-									<img
-										:src="component.image"
-										alt=""
-										class="w-1/4 md:w-[100px] md:h-[100px] rounded-xl mx-auto"
-									/>
-								</td>
-								<td>
-									{{ component.name }}
-								</td>
-								<td>{{ component.price }}</td>
-								<td>
+								<img
+									:src="component.image"
+									alt=""
+									class="w-[70px] h-[70px] md:w-[100px] md:h-[100px] rounded-xl"
+								/>
+								<div class="ms-5">
+									<h1 class="text-xl font-bold">
+										{{ component.name }}
+									</h1>
+									<h2 class="mb-10">
+										{{ translatedValues.itemCost }}:
+										{{ component.price }} RON
+									</h2>
 									<a
 										v-if="component.link"
 										:href="component.link"
-										class="btn-primary"
+										class="flex items-center gap-1 btn-primary w-[150px]"
 										target="_blank"
 									>
-										<i class="fa-solid fa-link"></i>
-										<span></span>
+										<i class="fa-solid fa-eye"></i>
+										<span class="font-bold">{{
+											translatedValues.btnView
+										}}</span>
 									</a>
 									<span
 										v-else
-										class="cursor-not-allowed opacity-60 btn-primary"
+										class="cursor-not-allowed opacity-60 flex items-center gap-1 btn-primary w-[150px]"
 									>
-										<i class="fa-solid fa-link"></i>
+										<i class="fa-solid fa-eye"></i>
+										<span class="font-bold">{{
+											translatedValues.btnView
+										}}</span>
 									</span>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div
-					v-if="isSmallScreen"
-					class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2"
-				>
-					<div
-						v-for="(component, index) in developmentComponents"
-						:key="index"
-						class="flex justify-start p-5 text-justify bg-white rounded-lg shadow-xl card-hover"
-					>
-						<img
-							:src="component.image"
-							alt=""
-							class="w-[70px] h-[70px] md:w-[100px] md:h-[100px] rounded-xl"
-						/>
-						<div class="ms-5">
-							<h1 class="text-xl font-bold">
-								{{ component.name }}
-							</h1>
-							<h2 class="mb-10">
-								{{ translatedValues.itemCost }}:
-								{{ component.price }} RON
-							</h2>
-							<a
-								v-if="component.link"
-								:href="component.link"
-								class="flex items-center gap-1 btn-primary w-[150px]"
-								target="_blank"
-							>
-								<i class="fa-solid fa-eye"></i>
-								<span class="font-bold">{{
-									translatedValues.btnView
-								}}</span>
-							</a>
-							<span
-								v-else
-								class="cursor-not-allowed opacity-60 flex items-center gap-1 btn-primary w-[150px]"
-							>
-								<i class="fa-solid fa-eye"></i>
-								<span class="font-bold">{{
-									translatedValues.btnView
-								}}</span>
-							</span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
+				</Transition>
 			</div>
 		</section>
 		<section
@@ -258,23 +316,38 @@
 				<h1 class="mb-5 text-4xl font-bold text-white">
 					{{ translatedValues.photoGalleryTitle }}
 				</h1>
-				<h2 class="mb-10 text-2xl font-bold text-white">
-					{{ translatedValues.photoGallery.gpsTest }}
-				</h2>
 				<div
-					class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+					v-for="(section, index) in photos"
+					:key="index"
+					class="p-5 mb-10 bg-white shadow rounded-2xl"
 				>
-					<img
-						v-for="(photo, index) in gpsTestPhotos"
-						:key="index"
-						:src="photo.image"
-						alt=""
-						class="transition duration-300 rounded-lg shadow hover:shadow-2xl hover:cursor-pointer hover:scale-105 h-[400px]"
-					/>
+					<h2 class="mb-10 text-2xl font-bold text-green-500">
+						{{ section.title }}
+					</h2>
+					<div
+						class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+					>
+						<img
+							v-for="(photo, photoIndex) in section.images"
+							:key="photoIndex"
+							loading="lazy"
+							:src="photo.image"
+							alt=""
+							class="transition duration-300 rounded-lg shadow hover:shadow-2xl hover:cursor-pointer hover:scale-105 h-[400px]"
+							@click="
+								toggleModal(),
+									choosePhoto(photo.image, photoIndex)
+							"
+						/>
+					</div>
 				</div>
 			</div>
+			<PhotoModal
+				:modalActive="modalActive"
+				:modalImage="modalImage"
+				@close-modal="toggleModal(null)"
+			/>
 		</section>
-
 		<section class="px-10 py-16 bg-gray-100">
 			<div class="container mx-auto">
 				<div class="grid grid-cols-1 md:grid-cols-2">
@@ -314,6 +387,7 @@
 	import { ref, computed, onMounted, onUnmounted } from "vue";
 	import { useI18n } from "vue-i18n";
 	import Hero from "../components/Hero.vue";
+	import PhotoModal from "../components/PhotoModal.vue";
 
 	const { t } = useI18n();
 	const translatedValues = computed(() => {
@@ -341,18 +415,17 @@
 			aaBatteries: t("about.AABatteries"),
 			developmentCost: t("about.DevelopmentCost"),
 			photoGalleryTitle: t("about.PhotoGalleryTitle"),
-			photoGallery: {
-				gpsTest: t("about.PhotoGallery.gpsTest"),
-				gpsSolder: t("about.PhotoGallery.gpsSolder"),
-				gsmTest: t("about.PhotoGallery.gsmTest"),
-				gsmSolder: t("about.PhotoGallery.gsmSolder"),
-			},
+			show: t("utils.Show"),
+			collapse: t("utils.Collapse"),
 		};
 	});
 
 	const approximateCost = ref(0);
 	const developmentCost = ref(0);
 	const totalCost = ref(0);
+
+	const showApproximateTable = ref(false);
+	const showDevelopmentTable = ref(false);
 
 	const hardwareComponents = computed(() => [
 		{
@@ -468,38 +541,66 @@
 		},
 	]);
 
-	const gpsTestPhotos = computed(() => [
+	const galleryConfig = [
 		{
-			image: getProductImageURL("gpsTest-1", "JPEG"),
+			title: t("about.PhotoGallery.gpsSolder"),
+			count: 8,
+			prefix: "gpsSolder",
 		},
 		{
-			image: getProductImageURL("gpsTest-2", "JPEG"),
+			title: t("about.PhotoGallery.gpsTest"),
+			count: 10,
+			prefix: "gpsTest",
 		},
 		{
-			image: getProductImageURL("gpsTest-3", "JPEG"),
+			title: t("about.PhotoGallery.gsmSolder"),
+			count: 2,
+			prefix: "gsmSolder",
 		},
 		{
-			image: getProductImageURL("gpsTest-4", "JPEG"),
+			title: t("about.PhotoGallery.gsmTest"),
+			count: 4,
+			prefix: "gsmTest",
 		},
-		{
-			image: getProductImageURL("gpsTest-5", "JPEG"),
-		},
-		{
-			image: getProductImageURL("gpsTest-6", "JPEG"),
-		},
-		{
-			image: getProductImageURL("gpsTest-7", "JPEG"),
-		},
-		{
-			image: getProductImageURL("gpsTest-8", "JPEG"),
-		},
-		{
-			image: getProductImageURL("gpsTest-9", "JPEG"),
-		},
-		{
-			image: getProductImageURL("gpsTest-10", "JPEG"),
-		},
-	]);
+	];
+
+	const photos = computed(() => {
+		const result = [];
+		for (const config of galleryConfig) {
+			const images = [];
+			for (let i = 1; i <= config.count; i++) {
+				images.push({
+					image: getProductImageURL(`${config.prefix}-${i}`, "JPEG"),
+				});
+			}
+			result.push({ title: config.title, images });
+		}
+		return result;
+	});
+
+	const modalImage = ref("");
+	const modalActive = ref(null);
+	const modalImageId = ref(null);
+
+	const choosePhoto = (photo, index) => {
+		modalImage.value = photo;
+		modalImageId.value = index;
+	};
+
+	const toggleModal = () => {
+		modalActive.value = !modalActive.value;
+	};
+
+	const changePhoto = (index) => {
+		console.log(modalImageId.value);
+		console.log(index);
+		console.log(gpsTestPhotos.length);
+		if (index >= 0 && index < gpsTestPhotos.length)
+			modalImageId.value = index;
+		console.log(modalImageId.value);
+		if (modalImageId.value !== null)
+			modalImage.value = gpsTestPhotos[modalImageId.value].image;
+	};
 
 	onMounted(() => {
 		hardwareComponents.value.forEach((component) => {
@@ -562,5 +663,13 @@
 <style scoped>
 	.btn-primary {
 		@apply text-white transition duration-500 ease-in-out transform bg-green-500 rounded shadow focus:ring-green-400 focus-visible:ring-green-400 focus:ring-2 hover:ring-4 hover:ring-green-400;
+	}
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: opacity 0.5s;
+	}
+	.fade-enter,
+	.fade-leave-to {
+		opacity: 0;
 	}
 </style>

@@ -215,6 +215,7 @@
 		"BatterySupport": "Suport pentru o baterie de 3.7V",
 		"CurrentCost": "Costul aproximativ al proiectului este: ",
 		"TotalCost": "Costul total al proiectului este: ",
+		"DevelopmentCost": "Costul produselor din etapa de dezvoltare: ",
 		"Description": "În cadrul acestei lucrări, ne propunem să examinăm importanța tehnologiilor inteligente de asistare care au capacitatea de monitorizare continuă și de localizare în timp real, precum și modul în care acecste tehnologii pot contribui la îmbunătățirea calității vieții persoanelor cu nevoi speciale.",
 		"LedBtn": "Buton cu LED",
 		"CableM-M": "40 de Cabluri Mamă-Mamă",
@@ -224,7 +225,6 @@
 		"BatteriesSupport": "Suport pentru 2 baterii 3.7V",
 		"AABatteries": "Baterii AA",
 		"BreadboardCon": "Conectori pentru Breadboard",
-		"DevelopmentCost": "Costul produselor din etapa de dezvoltare",
 		"PhotoGalleryTitle": "Galerie foto",
 		"PhotoGallery": {
 			"gpsTest": "Testarea GPS-ului",
@@ -323,6 +323,8 @@
 		"Yes": "Da",
 		"No": "Nu",
 		"Add": "Adaugă",
-		"GoBack": "Înapoi"
+		"GoBack": "Înapoi",
+		"Show": "Arată",
+		"Collapse": "Ascunde"
 	}
 }

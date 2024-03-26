@@ -208,6 +208,7 @@
 		"ItemCost": "Product price",
 		"BatterySupport": "3.7V Battery Support",
 		"CurrentCost": "Project approximate cost: ",
+		"DevelopmentCost": "Development products cost: ",
 		"TotalCost": "Project total cost: ",
 		"Description": "In this paper, we aim to examine the importance of intelligent assistive technologies that have the ability of continuous monitoring and real-time localization, as well as how these technologies can contribute to improving the quality of life of people with special needs. ",
 		"LedBtn": "Led Button",
@@ -218,7 +219,6 @@
 		"BatteriesSupport": "3.7V Batteries Support",
 		"AABatteries": "AA Batteries",
 		"BreadboardCon": "Breadboard connectors",
-		"DevelopmentCost": "Development Products Cost",
 		"PhotoGalleryTitle": "Photo Gallery",
 		"PhotoGallery": {
 			"gpsTest": "GPS Testing",
@@ -317,6 +317,8 @@
 		"Yes": "Yes",
 		"No": "No",
 		"Add": "Add",
-		"GoBack": "Go back"
+		"GoBack": "Go back",
+		"Show": "Show",
+		"Collapse": "Collapse"
 	}
 }
