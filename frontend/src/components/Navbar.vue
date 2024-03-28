@@ -1,6 +1,7 @@
 <template>
 	<nav
 		class="fixed top-0 left-0 right-0 p-4 font-bold text-black shadow-lg bg-gradient-to-r from-green-300 to-green-500"
+		:class="{ 'z-30': isModalActive, 'z-50': !isModalActive }"
 	>
 		<div class="container flex items-center justify-between mx-auto">
 			<div class="flex items-center gap-1">
@@ -26,10 +27,6 @@
 							alt="Logo"
 						/>
 					</span>
-					<!-- <div class="hidden lg:flex lg:flex-col">
-            <span class="text-2xl">{{ t("nav.Brand") }}</span>
-            <span>{{ t("nav.Brand2") }}</span>
-          </div> -->
 				</router-link>
 			</div>
 			<div class="flex gap-5 md:hidden me-3">
@@ -183,11 +180,17 @@
 </template>
 
 <script setup>
-	import { ref, computed } from "vue";
+	import { ref, computed, inject } from "vue";
 	import { useI18n } from "vue-i18n";
 	import { useRouter } from "vue-router";
 	import { useAuthStore } from "../store/auth";
 	import LanguageSwitch from "@/components/LanguageSwitch.vue";
+
+	const isModalActive = ref(false);
+	const emitter = inject("emitter");
+	emitter.on("modal-active", (value) => {
+		isModalActive.value = value;
+	});
 
 	const router = useRouter();
 	const authStore = useAuthStore();
@@ -196,12 +199,6 @@
 		authStore.logout();
 		router.push("/login");
 	};
-
-	const isAuthenticated = computed(() => {
-		return {
-			authStore,
-		};
-	});
 
 	const truncatedEmail = computed(() => {
 		if (authStore.user.length > 15) {

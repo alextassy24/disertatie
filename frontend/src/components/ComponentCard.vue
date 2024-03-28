@@ -1,5 +1,8 @@
 <template>
-	<a :href="component.link" target="_blank">
+	<a
+		:href="component.link"
+		target="_blank"
+	>
 		<div class="flex flex-col items-center gap-2 md:flex-row">
 			<img
 				v-if="component.icon"
@@ -10,28 +13,30 @@
 			<div>
 				<h3 class="mb-2 text-xl font-semibold">{{ component.name }}</h3>
 				<p class="mb-4">{{ component.text }}</p>
-				<p><strong>{{ translatedValues.usage }}:</strong> {{ component.usage }}</p>
+				<p>
+					<strong>{{ translatedValues.usage }}:</strong>
+					{{ component.usage }}
+				</p>
 			</div>
 		</div>
 	</a>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
+	import { computed } from "vue";
+	import { useI18n } from "vue-i18n";
+	const { t } = useI18n();
 
-const translatedValues = computed(() => {
-	return {
-		usage: t("home.Usage"),
-	};
-});
+	const translatedValues = computed(() => {
+		return {
+			usage: t("home.Usage"),
+		};
+	});
 
-
-const props = defineProps({
-	component: {
-		type: Object,
-		required: true,
-	},
-});
+	defineProps({
+		component: {
+			type: Object,
+			required: true,
+		},
+	});
 </script>

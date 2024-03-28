@@ -309,9 +309,7 @@
 				</Transition>
 			</div>
 		</section>
-		<section
-			class="px-10 py-16 bg-gradient-to-r from-green-300 to-green-500"
-		>
+		<section class="px-10 py-16 bg-gradient-to-r from-green-300 to-black">
 			<div class="container mx-auto">
 				<h1 class="mb-5 text-4xl font-bold text-white">
 					{{ translatedValues.photoGalleryTitle }}
@@ -319,43 +317,37 @@
 				<div
 					v-for="(section, index) in photos"
 					:key="index"
-					class="p-5 mb-10 bg-white shadow rounded-2xl"
+					class="p-5 bg-white shadow mb-7 rounded-2xl"
 				>
-					<h2 class="mb-10 text-2xl font-bold text-green-500">
-						{{ section.title }}
-					</h2>
-					<div
-						class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
-					>
-						<img
-							v-for="(photo, photoIndex) in section.images"
-							:key="photoIndex"
-							loading="lazy"
-							:src="photo.image"
-							alt=""
-							class="transition duration-300 rounded-lg shadow hover:shadow-2xl hover:cursor-pointer hover:scale-105 h-[400px]"
-							@click="
-								toggleModal(),
-									choosePhoto(photo.image, photoIndex)
-							"
-						/>
-					</div>
+					<PhotoSection
+						:index="index + 1"
+						:title="section.title"
+						:images="section.images"
+						:toggler="section.toggler"
+						:toggle-modal="toggleModal"
+						:choose-photo="choosePhoto"
+					/>
 				</div>
 			</div>
 			<PhotoModal
-				:modalActive="modalActive"
+				:isMediumScreenOrAbove="isMediumScreenOrAbove"
+				:isSmallScreen="isSmallScreen"
+				:modalImages="modalImages"
 				:modalImage="modalImage"
+				:modalImageId="modalImageId"
+				:modalActive="modalActive"
 				@close-modal="toggleModal(null)"
-			/>
+			>
+			</PhotoModal>
 		</section>
 		<section class="px-10 py-16 bg-gray-100">
-			<div class="container mx-auto">
+			<div class="container">
 				<div class="grid grid-cols-1 md:grid-cols-2">
 					<div class="order-1">
 						<img
 							:src="gpsPhoto"
 							alt=""
-							class="w-2/4 md:w-[150px] md:h-[150px] mx-auto mb-5 md:mb-0 rounded-xl"
+							class="w-1/4 mx-auto mb-5 md:mb-0 rounded-xl"
 						/>
 					</div>
 					<div class="order-2">
@@ -384,10 +376,13 @@
 </template>
 
 <script setup>
-	import { ref, computed, onMounted, onUnmounted } from "vue";
+	import { ref, computed, onMounted, onUnmounted, inject } from "vue";
 	import { useI18n } from "vue-i18n";
 	import Hero from "../components/Hero.vue";
 	import PhotoModal from "../components/PhotoModal.vue";
+	import PhotoSection from "../components/PhotoSection.vue";
+
+	const emitter = inject("emitter");
 
 	const { t } = useI18n();
 	const translatedValues = computed(() => {
@@ -423,7 +418,6 @@
 	const approximateCost = ref(0);
 	const developmentCost = ref(0);
 	const totalCost = ref(0);
-
 	const showApproximateTable = ref(false);
 	const showDevelopmentTable = ref(false);
 
@@ -541,76 +535,72 @@
 		},
 	]);
 
-	const galleryConfig = [
+	const galleryConfig = computed(() => [
 		{
 			title: t("about.PhotoGallery.gpsSolder"),
 			count: 8,
 			prefix: "gpsSolder",
+			toggler: false,
 		},
 		{
 			title: t("about.PhotoGallery.gpsTest"),
 			count: 10,
 			prefix: "gpsTest",
+			toggler: false,
 		},
 		{
 			title: t("about.PhotoGallery.gsmSolder"),
 			count: 2,
 			prefix: "gsmSolder",
+			toggler: false,
 		},
 		{
 			title: t("about.PhotoGallery.gsmTest"),
 			count: 4,
 			prefix: "gsmTest",
+			toggler: false,
 		},
-	];
+		{
+			title: t("about.PhotoGallery.productPinout"),
+			count: 1,
+			prefix: "productPinout",
+			toggler: false,
+		},
+	]);
 
 	const photos = computed(() => {
-		const result = [];
-		for (const config of galleryConfig) {
-			const images = [];
-			for (let i = 1; i <= config.count; i++) {
-				images.push({
-					image: getProductImageURL(`${config.prefix}-${i}`, "JPEG"),
-				});
-			}
-			result.push({ title: config.title, images });
-		}
-		return result;
+		return galleryConfig.value.map((config) => ({
+			title: config.title,
+			images: Array.from({ length: config.count }, (_, i) => ({
+				image: getProductImageURL(`${config.prefix}-${i + 1}`, "JPEG"),
+			})),
+			toggler: config.toggler,
+		}));
 	});
 
 	const modalImage = ref("");
-	const modalActive = ref(null);
+	const modalImages = ref([]);
 	const modalImageId = ref(null);
-
-	const choosePhoto = (photo, index) => {
-		modalImage.value = photo;
-		modalImageId.value = index;
-	};
+	const modalActive = ref(false);
 
 	const toggleModal = () => {
 		modalActive.value = !modalActive.value;
+		emitter.emit("modal-active", modalActive.value);
 	};
 
-	const changePhoto = (index) => {
-		console.log(modalImageId.value);
-		console.log(index);
-		console.log(gpsTestPhotos.length);
-		if (index >= 0 && index < gpsTestPhotos.length)
-			modalImageId.value = index;
-		console.log(modalImageId.value);
-		if (modalImageId.value !== null)
-			modalImage.value = gpsTestPhotos[modalImageId.value].image;
+	const choosePhoto = (photo, index, images) => {
+		modalImage.value = photo;
+		modalImageId.value = index;
+		modalImages.value = images;
 	};
 
 	onMounted(() => {
 		hardwareComponents.value.forEach((component) => {
 			approximateCost.value += component.price;
 		});
-
 		developmentComponents.value.forEach((component) => {
 			developmentCost.value += component.price;
 		});
-
 		approximateCost.value = parseFloat(approximateCost.value.toFixed(2));
 		developmentCost.value = parseFloat(developmentCost.value.toFixed(2));
 

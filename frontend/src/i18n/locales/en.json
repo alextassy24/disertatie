@@ -224,7 +224,8 @@
 			"gpsTest": "GPS Testing",
 			"gpsSolder": "GPS Soldering",
 			"gsmTest": "GSM Testing",
-			"gsmSolder": "GSM Soldering"
+			"gsmSolder": "GSM Soldering",
+			"productPinout": "Product Pinout"
 		}
 	},
 	"faq": {
@@ -319,6 +320,7 @@
 		"Add": "Add",
 		"GoBack": "Go back",
 		"Show": "Show",
-		"Collapse": "Collapse"
+		"Collapse": "Collapse",
+		"PageNotFound": "Page not found"
 	}
 }
