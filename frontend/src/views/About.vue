@@ -378,9 +378,13 @@
 <script setup>
 	import { ref, computed, onMounted, onUnmounted, inject } from "vue";
 	import { useI18n } from "vue-i18n";
+	import { defineAsyncComponent } from "vue";
 	import Hero from "../components/Hero.vue";
-	import PhotoModal from "../components/PhotoModal.vue";
 	import PhotoSection from "../components/PhotoSection.vue";
+
+	const PhotoModal = defineAsyncComponent(() =>
+		import("../components/PhotoModal.vue")
+	);
 
 	const emitter = inject("emitter");
 

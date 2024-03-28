@@ -133,7 +133,7 @@
 		() => props.modalImageId,
 		(newValue) => {
 			photoIndex.value = newValue;
-			console.log(photoIndex.value);
+			// console.log(photoIndex.value);
 		}
 	);
 
@@ -141,7 +141,7 @@
 		() => props.modalImage,
 		(newValue) => {
 			photoAddress.value = newValue;
-			console.log(photoAddress.value);
+			// console.log(photoAddress.value);
 		}
 	);
 
@@ -151,11 +151,11 @@
 		} else {
 			photoIndex.value = 0;
 		}
-		console.log("Initial address: " + photoAddress.value);
-		console.log(photoAddress.value);
+		// console.log("Initial address: " + photoAddress.value);
+		// console.log(photoAddress.value);
 		photoAddress.value = props.modalImages[photoIndex.value].image;
-		console.log("Modified address: " + photoAddress.value);
-		console.log(photoAddress.value);
+		// console.log("Modified address: " + photoAddress.value);
+		// console.log(photoAddress.value);
 	};
 
 	const nextImage = () => {
@@ -164,11 +164,11 @@
 		} else {
 			photoIndex.value = props.modalImages.length - 1;
 		}
-		console.log("Initial address: " + photoAddress.value);
-		console.log(photoAddress.value);
+		// console.log("Initial address: " + photoAddress.value);
+		// console.log(photoAddress.value);
 		photoAddress.value = props.modalImages[photoIndex.value].image;
-		console.log("Modified address: " + photoAddress.value);
-		console.log(photoAddress.value);
+		// console.log("Modified address: " + photoAddress.value);
+		// console.log(photoAddress.value);
 	};
 </script>
 
