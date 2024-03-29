@@ -15,7 +15,8 @@
 		"ChangePassword": "Schimbă parola",
 		"ViewData": "Vezi datele",
 		"RegisterProduct": "Înregistrează produs",
-		"Login": "Autentificare"
+		"Login": "Autentificare",
+		"Docs": "Documentație"
 	},
 	"home": {
 		"Title": "Bine ați venit la FIND-ER®,",
@@ -273,7 +274,9 @@
 		"You": "Aveți",
 		"AvailableProducts": "produse disponibile.",
 		"AvailableWearers": "persoane înregistrate.",
-		"NoProducts": "Nu aveți produse înregistrate!"
+		"NoProducts": "Nu aveți produse înregistrate!",
+		"TooltipWearers": "Faceți click aici pentru a vă vedea persoanele",
+		"TooltipProducts": "Faceți click aici pentru a vă vedea produsele"
 	},
 	"confirm-email": {
 		"Success": "Email-ul dumneavoastră a fost confirmat cu succes, vă puteți autentifica pentru a folosi platforma!",
@@ -309,6 +312,17 @@
 		"Longitude": "Longitudine",
 		"Date": "Dată",
 		"Time": "Oră"
+	},
+	"docs": {
+		"Title": "Documentație",
+		"Register": "Înregistrare",
+		"ForgotPassword": "Am uitat parola",
+		"RecoverPassword": "Recuperare parolă",
+		"ChangePassword": "Schimbare parolă",
+		"ResendEmailConfirmation": "Retrimitere email de confirmare",
+		"EmailConfirmation": "Confirmarea email-ului",
+		"ProductRegister": "Înergistrarea unui produs",
+		"WearerRegister": "Înregistrarea unei persoane"
 	},
 	"footer": {
 		"PaperTitle": "Titlul lucrării",

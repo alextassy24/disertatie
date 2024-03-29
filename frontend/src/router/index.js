@@ -9,7 +9,6 @@ import ChangePassword from "../views/ChangePassword.vue";
 import RecoverPassword from "../views/RecoverPassword.vue";
 import ConfirmEmail from "../views/ConfirmEmail.vue";
 import ResendEmailConfirmation from "../views/ResendEmailConfirmation.vue";
-import ViewData from "../views/ViewData.vue";
 import RegisterProduct from "../views/RegisterProduct.vue";
 import RegisterWearer from "../views/RegisterWearer.vue";
 import MyProducts from "../views/MyProducts.vue";
@@ -18,6 +17,7 @@ import MyProfile from "../views/MyProfile.vue";
 import MyWearers from "../views/MyWearers.vue";
 import Wearer from "../views/Wearer.vue";
 import NotFound from "../views/NotFound.vue";
+import Docs from "../views/Docs.vue";
 
 const routes = [
 	{
@@ -42,6 +42,14 @@ const routes = [
 		component: Faq,
 		meta: {
 			title: "FAQ",
+		},
+	},
+	{
+		path: "/docs",
+		name: "docs",
+		component: Docs,
+		meta: {
+			title: "Docs",
 		},
 	},
 	{
@@ -76,11 +84,11 @@ const routes = [
 			title: "Change Password",
 		},
 	},
-	{
-		path: "/view-data",
-		name: "view-data",
-		component: ViewData,
-	},
+	// {
+	// 	path: "/view-data",
+	// 	name: "view-data",
+	// 	component: ViewData,
+	// },
 	{
 		path: "/register-product",
 		name: "register-product",

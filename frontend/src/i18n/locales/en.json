@@ -15,7 +15,8 @@
 		"ChangePassword": "Change your password",
 		"ViewData": "View data",
 		"RegisterProduct": "Register Product",
-		"Login": "Login"
+		"Login": "Login",
+		"Docs": "Documentation"
 	},
 	"home": {
 		"Title": "Welcome to the FIND-ER®,",
@@ -267,7 +268,9 @@
 		"You": "You have",
 		"AvailableProducts": "available products!",
 		"AvailableWearers": "available wearers!",
-		"NoProducts": "No products available!"
+		"NoProducts": "No products available!",
+		"TooltipWearers": "Click here to see your wearers",
+		"TooltipProducts": "Click here to see your products"
 	},
 	"confirm-email": {
 		"Success": "Your email was confirmed successfully, in order to use the platform you must log in!",
@@ -303,6 +306,17 @@
 		"Longitude": "Longitude",
 		"Date": "Date",
 		"Time": "Time"
+	},
+	"docs": {
+		"Title": "Documentation",
+		"Register": "Register",
+		"ForgotPassword": "Forgot password",
+		"RecoverPassword": "Recover your password",
+		"ChangePassword": "Change your password",
+		"ResendEmailConfirmation": "Resend the confirmation email",
+		"EmailConfirmation": "Email confirmation",
+		"ProductRegister": "Product register",
+		"WearerRegister": "Wearer register"
 	},
 	"footer": {
 		"PaperTitle": "Paper title",

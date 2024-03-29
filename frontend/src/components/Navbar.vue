@@ -21,11 +21,11 @@
 							class="block lg:hidden w-auto h-[5rem]"
 							alt="Logo"
 						/>
-						<img
+						<!-- <img
 							src="../assets/logo-name.png"
 							class="hidden sm:block w-[8rem] lg:hidden"
 							alt="Logo"
-						/>
+						/> -->
 					</span>
 				</router-link>
 			</div>
@@ -230,6 +230,12 @@
 			to: "/faq",
 			requireAuth: false,
 			icon: "fa-regular fa-circle-question",
+		},
+		{
+			text: "Docs",
+			to: "/docs",
+			requireAuth: false,
+			icon: "fa-solid fa-book",
 		},
 		{
 			text: "Profile",
