@@ -62,14 +62,14 @@
 		</section>
 
 		<!-- Web app components section -->
-		<section class="container px-10 py-16 mx-auto bg-white">
+		<section class="px-10 py-16 mx-auto bg-white">
 			<div class="container mx-auto text-center">
 				<h2 class="mb-10 text-3xl font-semibold">
 					{{ translatedValues.appComponentsTitle }}
 				</h2>
-				<div class="mb-5">
+				<div class="flex items-center justify-center gap-3 mb-5">
 					<button
-						class="btn me-5"
+						class="btn"
 						:class="{ active: !switchComponents }"
 						@click="switchComponents = false"
 					>
@@ -80,7 +80,7 @@
 						:class="{ active: switchComponents }"
 						@click="switchComponents = true"
 					>
-						Back-end
+						Back-end / Cloud
 					</button>
 				</div>
 				<div class="grid grid-cols-1 gap-4 text-left md:grid-cols-2">
@@ -228,6 +228,20 @@
 			text: t("home.PostgresText"),
 			usage: t("home.PostgresUsage"),
 			link: "https://www.postgresql.org/",
+		},
+		{
+			icon: getImageURL("azure"),
+			name: "Microsoft Azure",
+			text: t("home.Azure"),
+			usage: t("home.AzureUsage"),
+			link: "https://learn.microsoft.com/en-us/azure/?product=popular",
+		},
+		{
+			icon: getImageURL("aws"),
+			name: "Amazon Web Services",
+			text: t("home.AWS"),
+			usage: t("home.AWSUsage"),
+			link: "https://docs.aws.amazon.com/",
 		},
 	]);
 

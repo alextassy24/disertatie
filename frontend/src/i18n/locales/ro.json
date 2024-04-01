@@ -49,6 +49,10 @@
 		"SignalRUsage": "Funcționalitate în timp real",
 		"PostgresText": "PostgreSQL este sistemul nostru de gestionare a bazelor de date relaționale (RDBMS) ales pentru stocarea și gestionarea datelor utilizate în aplicația noastră.",
 		"PostgresUsage": "Stocarea și gestionarea datelor.",
+		"Azure": "Azure este platforma de cloud computing oferită de Microsoft, utilizată pentru implementarea frontend-ului și a API-ului aplicației noastre.",
+		"AzureUsage": "Implementarea și gestionarea frontend-ului și a API-ului în cloud.",
+		"AWS": "AWS este serviciul de cloud computing oferit de Amazon Web Services (AWS), utilizat pentru baza noastră de date.",
+		"AWSUsage": "Găzduirea și gestionarea bazei de date în cloud.",
 		"PhysicalComponentsTitle": "Componentele fizice ale sistmeului",
 		"MicrocontrollerText": "Microcontrollerul sau computerul monocip (SBC) servește ca creierul sistemului de monitorizare. Controlează diversele componente hardware, procesează datele și execută logica software-ului. Alegerea între un microcontroller și un SBC depinde de cerințele computaționale ale sistemului și de factorul de formă.",
 		"MicrocontrollerUsage": "Controlul sistemului și procesarea datelor.",
@@ -315,14 +319,38 @@
 	},
 	"docs": {
 		"Title": "Documentație",
-		"Register": "Înregistrare",
-		"ForgotPassword": "Am uitat parola",
-		"RecoverPassword": "Recuperare parolă",
-		"ChangePassword": "Schimbare parolă",
-		"ResendEmailConfirmation": "Retrimitere email de confirmare",
-		"EmailConfirmation": "Confirmarea email-ului",
-		"ProductRegister": "Înergistrarea unui produs",
-		"WearerRegister": "Înregistrarea unei persoane"
+		"Register": {
+			"Title": "Înregistrare",
+			"Context": {}
+		},
+		"ForgotPassword": {
+			"Title": "Am uitat parola",
+			"Context": {}
+		},
+		"RecoverPassword": {
+			"Title": "Recuperare parolă",
+			"Context": {}
+		},
+		"ChangePassword": {
+			"Title": "Schimbare parolă",
+			"Context": {}
+		},
+		"ResendEmailConfirmation": {
+			"Title": "Retrimitere email de confirmare",
+			"Context": {}
+		},
+		"EmailConfirmation": {
+			"Title": "Confirmarea email-ului",
+			"Context": {}
+		},
+		"ProductRegister": {
+			"Title": "Înergistrarea unui produs",
+			"Context": {}
+		},
+		"WearerRegister": {
+			"Title": "Înregistrarea unei persoane",
+			"Context": {}
+		}
 	},
 	"footer": {
 		"PaperTitle": "Titlul lucrării",

@@ -49,6 +49,10 @@
 		"SignalRUsage": "Real-time functionality",
 		"PostgresText": "PostgreSQL is the chosen relational database management system (RDBMS) for storing and managing the data used by our application.",
 		"PostgresUsage": "Data storage and management.",
+		"Azure": "Azure is Microsoft's cloud computing platform, used to deploy the frontend and API of our application.",
+		"AzureUsage": "Deploy and manage the frontend and API in the cloud.",
+		"AWS": "AWS is Amazon Web Services' cloud computing service, used for our database.",
+		"AWSUsage": "Host and manage the database in the cloud.",
 		"PhysicalComponentsTitle": "Physical Components",
 		"MicrocontrollerText": "The microcontroller or single-board computer (SBC) serves as the brain of the monitoring device system. It controls the various hardware components, processes data, and executes the software logic. The choice between a microcontroller and an SBC depends on the system's computational requirements and form factor.",
 		"MicrocontrollerUsage": "System control and data processing.",
@@ -309,14 +313,38 @@
 	},
 	"docs": {
 		"Title": "Documentation",
-		"Register": "Register",
-		"ForgotPassword": "Forgot password",
-		"RecoverPassword": "Recover your password",
-		"ChangePassword": "Change your password",
-		"ResendEmailConfirmation": "Resend the confirmation email",
-		"EmailConfirmation": "Email confirmation",
-		"ProductRegister": "Product register",
-		"WearerRegister": "Wearer register"
+		"Register": {
+			"Title": "Register",
+			"Context": {}
+		},
+		"ForgotPassword": {
+			"Title": "Forgot password",
+			"Context": {}
+		},
+		"RecoverPassword": {
+			"Title": "Recover your password",
+			"Context": {}
+		},
+		"ChangePassword": {
+			"Title": "Change your password",
+			"Context": {}
+		},
+		"ResendEmailConfirmation": {
+			"Title": "Resend the confirmation email",
+			"Context": {}
+		},
+		"EmailConfirmation": {
+			"Title": "Email confirmation",
+			"Context": {}
+		},
+		"ProductRegister": {
+			"Title": "Product register",
+			"Context": {}
+		},
+		"WearerRegister": {
+			"Title": "Wearer register",
+			"Context": {}
+		}
 	},
 	"footer": {
 		"PaperTitle": "Paper title",

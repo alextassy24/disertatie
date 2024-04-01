@@ -65,7 +65,10 @@
 					</button>
 				</div>
 				<Transition name="fade">
-					<div v-if="showApproximateTable">
+					<div
+						v-if="showApproximateTable"
+						class="px-2 py-10 bg-green-400 shadow-lg md:px-0 rounded-2xl"
+					>
 						<div
 							v-if="isMediumScreenOrAbove"
 							class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
@@ -200,7 +203,10 @@
 					</button>
 				</div>
 				<Transition name="fade">
-					<div v-if="showDevelopmentTable">
+					<div
+						v-if="showDevelopmentTable"
+						class="px-2 py-10 bg-green-400 shadow-lg md:px-0 rounded-2xl"
+					>
 						<div
 							v-if="isMediumScreenOrAbove"
 							class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
