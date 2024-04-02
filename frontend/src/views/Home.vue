@@ -1,5 +1,5 @@
 <template>
-	<div class="mt-28">
+	<div class="overflow-hidden mt-28">
 		<!-- Hero Section -->
 		<Hero
 			:title="translatedValues.title"
@@ -7,20 +7,45 @@
 		/>
 
 		<!-- Mission section -->
-		<section class="container px-10 py-16 mx-auto overflow-hidden bg-white">
+		<section class="container px-10 py-16 mx-auto bg-white">
 			<div class="container z-10 mx-auto text-justify">
-				<h2 class="mb-10 text-3xl font-semibold text-center">
+				<h2
+					class="mb-10 text-3xl font-semibold text-center md:text-start"
+				>
 					{{ translatedValues.missionTitle }}
 				</h2>
-				<p class="mb-8 text-lg">
-					{{ translatedValues.missionText }}
-				</p>
-				<router-link
-					to="/about"
-					class="px-6 py-3 text-lg font-semibold text-white transition-colors duration-300 ease-in-out bg-green-500 rounded-lg hover:bg-green-700"
+				<div
+					class="flex flex-col items-center gap-10 mb-20 md:mb-10 md:items-start md:justify-between md:flex-row"
 				>
-					{{ translatedValues.missionBtn }}
-				</router-link>
+					<p class="text-lg md:w-2/3">
+						{{ translatedValues.missionText }}
+					</p>
+					<router-link
+						to="/about"
+						class="px-6 py-3 text-lg font-semibold text-white transition-colors duration-300 ease-in-out bg-green-500 rounded-lg hover:bg-green-700"
+					>
+						{{ translatedValues.missionBtn }}
+					</router-link>
+				</div>
+				<h2
+					class="mb-10 text-3xl font-semibold text-center md:text-start"
+				>
+					{{ translatedValues.instructionsTitle }}
+				</h2>
+				<div
+					class="flex flex-col items-center gap-10 md:items-start md:justify-between md:flex-row"
+				>
+					<p class="text-lg md:w-2/3">
+						{{ translatedValues.instructionsText }}
+					</p>
+
+					<router-link
+						to="/docs"
+						class="px-6 py-3 text-lg font-semibold text-white transition-colors duration-300 ease-in-out bg-green-500 rounded-lg hover:bg-green-700"
+					>
+						{{ translatedValues.instructionsBtn }}
+					</router-link>
+				</div>
 			</div>
 		</section>
 
@@ -141,6 +166,9 @@
 			missionTitle: t("home.MissionTitle"),
 			missionText: t("home.MissionText"),
 			missionBtn: t("home.MissionBtn"),
+			instructionsTitle: t("home.InstructionsTitle"),
+			instructionsText: t("home.InstructionsText"),
+			instructionsBtn: t("home.InstructionsBtn"),
 			technologyTitle: t("home.TechnologyTitle"),
 			technologyFrontend: t("home.TechnologyFrontend"),
 			technologyBackend: t("home.TechnologyBackend"),
@@ -247,7 +275,7 @@
 
 	const keyComponents = computed(() => [
 		{
-			name: "Arduino UNO R3",
+			name: "Arduino Nano V3",
 			text: t("home.MicrocontrollerText"),
 			usage: t("home.MicrocontrollerUsage"),
 			link: "https://cleste.ro/arduino-uno-r3-atmega328p.html",

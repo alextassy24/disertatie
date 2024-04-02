@@ -87,6 +87,14 @@
 								<i :class="item.icon"></i>
 								<span class="mt-1">{{ item.text }}</span>
 							</router-link>
+							<router-link
+								class="flex items-center gap-2 btn-logout"
+								to="/login"
+								@click="logout"
+							>
+								<i class="fa-solid fa-right-from-bracket"></i>
+								<span>Logout</span>
+							</router-link>
 						</div>
 					</li>
 				</ul>
@@ -99,15 +107,7 @@
 					@click="closeMenu"
 					>Login</router-link
 				>
-				<router-link
-					v-else
-					class="flex items-center gap-2 btn-logout"
-					to="/login"
-					@click="logout"
-				>
-					<i class="fa-solid fa-right-from-bracket"></i>
-					<span>Logout</span>
-				</router-link>
+
 				<LanguageSwitch />
 			</div>
 		</div>

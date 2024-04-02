@@ -16,7 +16,7 @@
 		"ViewData": "Vezi datele",
 		"RegisterProduct": "Înregistrează produs",
 		"Login": "Autentificare",
-		"Docs": "Documentație"
+		"Docs": "Instrucțiuni"
 	},
 	"home": {
 		"Title": "Bine ați venit la FIND-ER®,",
@@ -24,6 +24,9 @@
 		"MissionTitle": "Misiunea Noastră",
 		"MissionText": "Misiunea noastră este să construim un mediu în care persoanele cu nevoi speciale se simt sprijinite, protejate și îngrijite. Dorim să oferim o soluție sigură, eficientă și personalizată pentru îmbunătățirea calității vieții acestora. Ne angajăm să dezvoltăm tehnologii inovatoare care să ofere siguranță și independență, să facilităm comunicarea și să asigurăm intervenții prompte în situații de urgență.",
 		"MissionBtn": "Află mai multe",
+		"InstructionsTitle": "Utilizarea aplicației",
+		"InstructionsText": "Pentru a utiliza platforma web, vă rugăm prima dată să citiți instrucțiunile de utilizare, pentru a vă asigura o experiență cât mai plăcută și lipsită de intâmpinarea erorilor de funcționare.",
+		"InstructionsBtn": "Faceți click aici",
 		"TechnologyTitle": "Pachet tehnologic pentru aplicația WEB",
 		"TechnologyFrontend": "Tehnologii de frontend",
 		"TechnologyBackend": "Tehnologii de backend",
@@ -318,38 +321,65 @@
 		"Time": "Oră"
 	},
 	"docs": {
-		"Title": "Documentație",
+		"Title": "Instrucțiuni de utilizare a aplicației",
 		"Register": {
 			"Title": "Înregistrare",
-			"Context": {}
-		},
-		"ForgotPassword": {
-			"Title": "Am uitat parola",
-			"Context": {}
-		},
-		"RecoverPassword": {
-			"Title": "Recuperare parolă",
-			"Context": {}
-		},
-		"ChangePassword": {
-			"Title": "Schimbare parolă",
-			"Context": {}
-		},
-		"ResendEmailConfirmation": {
-			"Title": "Retrimitere email de confirmare",
-			"Context": {}
+			"Context": {
+				"RequiredData": "Pentru crearea contului este nevoie de următoarele date personale: nume, prenume, adresa de email și număr de telefon.",
+				"Process": "Procesul de înregistrare este compus din 3 pași.",
+				"Step1": "Pasul 1",
+				"Step1Info": "Se completează formularul cu datele menționate mai sus, și se trimite cu ajutorul butonului 'Trimite'.",
+				"Step2": "Pasul 2",
+				"Step2Info": "Dacă datele introduse în cadrul formularului sunt corecte, se va trimite un mail de activare al contului la adresa folosită la înregistrare.",
+				"Step2Warning": "Dacă email-ul nu este confirmat, contul nu va putea fi accesat.",
+				"Step3": "Pasul 3",
+				"Step3Info": "Se deschide mail-ul primit unde se va regăsi link-ul ce trebuie accesat pentru confirmarea contului."
+			}
 		},
 		"EmailConfirmation": {
 			"Title": "Confirmarea email-ului",
-			"Context": {}
+			"Context": {
+				"Process": "Procesul de confirmare a email-ului este compus din 2 pași.",
+				"Step1Info": "La momentul finalizării procesului de înregistrare este trimis un mail de informare către adresa folosită la înregistrare",
+				"Step2Info": "Se deschide mail-ul primit, și se accesează link-ul primit pentru confirmarea email-ului .",
+				"Step2Warning": "Dacă email-ul nu este confirmat, contul nu va putea fi accesat."
+			}
 		},
-		"ProductRegister": {
-			"Title": "Înergistrarea unui produs",
-			"Context": {}
+		"ResendEmailConfirmation": {
+			"Title": "Retrimitere email de confirmare",
+			"Context": {
+				"Process": "Pentru retrimiterea mail-ului de confirmare urmați pașii următori: .",
+				"Step1Info": "Se accesează pagina de retrimitere a mail-ului de confirmare.",
+				"Step2Info": "Se completează formularul cu mail-ul folosit la înregistrare."
+			}
+		},
+		"ForgotPassword": {
+			"Title": "Am uitat parola",
+			"Context": {
+				"Process": "Pentru resetarea parolei urmați pașii de mai jos:",
+				"Step1Info": "Accesați pagina de resetare a parolei.",
+				"Step2Info": "Se completează formularul cu mail-ul folosit la înregistrare.",
+				"Step3Info": "Verificați mail-ul primit și accesați link-ul primit pentru resetarea parolei, acesta vă va redirecționa către pagina unde veți putea schimba parola."
+			}
 		},
 		"WearerRegister": {
 			"Title": "Înregistrarea unei persoane",
-			"Context": {}
+			"Context": {
+				"Process": "Procesul de înregistrare a purtătorului constă în 3 pași.",
+				"Step1Info": "Asigurați-vă că sunteți conectat la contul dumneavoastră.",
+				"Step2Info": "Accesați pagina „Persoanele mele” și apăsați pe butonul „Adăugare”.",
+				"Step3Info": "Completați formularul cu numele complet și vârsta purtătorului și apăsați butonul „Trimite”."
+			}
+		},
+		"ProductRegister": {
+			"Title": "Înregistrarea unui produs",
+			"Context": {
+				"Process": "Procesul de înregistrare a produsului constă în 3 pași.",
+				"Warning": "Trebuie să aveți cel puțin o persoană înregistrată înainte de a înregistra un produs.",
+				"Step1Info": "Asigurați-vă că sunteți conectat la contul dumneavoastră.",
+				"Step2Info": "Accesați pagina „Produsele mele” și apăsați pe butonul „Adăugare”.",
+				"Step3Info": "Completați formularul cu numărul de serie al dispozitivului, GUID-ul și persoana dorită și apăsați „Trimite”."
+			}
 		}
 	},
 	"footer": {

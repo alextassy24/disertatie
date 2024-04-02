@@ -16,7 +16,7 @@
 		"ViewData": "View data",
 		"RegisterProduct": "Register Product",
 		"Login": "Login",
-		"Docs": "Documentation"
+		"Docs": "Instructions"
 	},
 	"home": {
 		"Title": "Welcome to the FIND-ER®,",
@@ -24,6 +24,9 @@
 		"MissionTitle": "Our Mission",
 		"MissionText": "Our mission is to create an environment where individuals with special needs feel supported, protected, and cared for. We aim to provide a safe, efficient, and personalized solution to enhance the quality of life for these individuals. We are committed to developing innovative technologies that offer safety and independence, facilitate communication, and ensure timely interventions in emergency situations.",
 		"MissionBtn": "Learn More",
+		"InstructionsTitle": "Application Usage",
+		"InstructionsText": "To use the web platform, please read the usage instructions first to ensure a pleasant experience and avoid encountering operational errors.",
+		"InstructionsBtn": "Click Here",
 		"TechnologyTitle": "Web App Technology Stack",
 		"TechnologyFrontend": "Frontend Technologies",
 		"TechnologyBackend": "Backend Technologies",
@@ -312,38 +315,65 @@
 		"Time": "Time"
 	},
 	"docs": {
-		"Title": "Documentation",
+		"Title": "Application Usage Instructions",
 		"Register": {
 			"Title": "Register",
-			"Context": {}
+			"Context": {
+				"RequiredData": "To create the account, the following personal data is required: first name, last name, email address, and phone number.",
+				"Process": "The registration process consists of 3 steps.",
+				"Step1": "Step 1",
+				"Step1Info": "Complete the form with the mentioned data above and submit it using the 'Submit' button.",
+				"Step2": "Step 2",
+				"Step2Info": "If the data entered in the form is correct, an account activation email will be sent to the provided email address.",
+				"Step2Warning": "If the email is not confirmed, the account will not be accessible.",
+				"Step3": "Step 3",
+				"Step3Info": "Check the email and access the confirmation email, where you will find the activation link."
+			}
 		},
 		"ForgotPassword": {
 			"Title": "Forgot password",
-			"Context": {}
-		},
-		"RecoverPassword": {
-			"Title": "Recover your password",
-			"Context": {}
-		},
-		"ChangePassword": {
-			"Title": "Change your password",
-			"Context": {}
+			"Context": {
+				"Process": "To reset your password, follow the steps below:",
+				"Step1Info": "Access the page for resetting your password.",
+				"Step2Info": "Fill out the form with the email used for registration.",
+				"Step3Info": "Check the email and access the password reset link, which will redirect you to the page where you can change your password."
+			}
 		},
 		"ResendEmailConfirmation": {
 			"Title": "Resend the confirmation email",
-			"Context": {}
+			"Context": {
+				"Process": "To resend the confirmation email, follow the steps below:",
+				"Step1Info": "Access the page for resending the confirmation email.",
+				"Step2Info": "Fill out the form with the email used for registration."
+			}
 		},
 		"EmailConfirmation": {
 			"Title": "Email confirmation",
-			"Context": {}
-		},
-		"ProductRegister": {
-			"Title": "Product register",
-			"Context": {}
+			"Context": {
+				"Process": "The email confirmation process consists of 2 steps.",
+				"Step1Info": "At the completion of the registration process, an informational email is sent to the provided registration email address.",
+				"Step2Info": "Open the received email and access the link provided to confirm the email.",
+				"Step2Warning": "If the email is not confirmed, the account will not be accessible."
+			}
 		},
 		"WearerRegister": {
 			"Title": "Wearer register",
-			"Context": {}
+			"Context": {
+				"Process": "The wearer register process consists of 3 steps.",
+				"Step1Info": "Assure that you are connected to your account.",
+				"Step2Info": "Access `My Wearers` page and click on the `Add` button",
+				"Step3Info": "Complete the form with the full name and the age of the wearer and press `Submit`"
+			}
+		},
+		"ProductRegister": {
+			"Title": "Product register",
+			"Context": {
+				"Process": "The product register process consists of 3 steps.",
+				"Warning": "You must have at least one wearer registered before registering a product.",
+				"Step1Info": "Assure that you are connected to your account.",
+				"Step2Info": "Access `My Products` page and click on the `Add` button",
+				"Step3Info": "Complete the form with the Device's Serial Number, GUID and the wearer and press `Submit`"
+			}
 		}
 	},
 	"footer": {
