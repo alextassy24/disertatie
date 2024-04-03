@@ -31,7 +31,7 @@
 			</div>
 			<div class="flex gap-5 md:hidden me-3">
 				<LanguageSwitch />
-				<button @click="toggleMenu">
+				<button @click="collapseMenu = !collapseMenu">
 					<i
 						v-show="!collapseMenu"
 						key="menuIcon"
@@ -44,7 +44,7 @@
 					></i>
 				</button>
 			</div>
-			<div class="hidden md:block">
+			<div class="items-center hidden gap-3 md:flex">
 				<ul class="flex gap-4">
 					<li
 						v-for="item in unauthNavigationItems"
@@ -53,14 +53,14 @@
 						<router-link
 							class="flex flex-col items-center nav-link"
 							:to="item.to"
-							@click="closeMenu"
+							@click="collapseMenu = false"
 						>
 							<i :class="item.icon"></i>
 							<span class="mt-1">{{ item.text }}</span>
 						</router-link>
 					</li>
 					<li
-						@click="toggleDropdown"
+						@click="dropdownMenu = !dropdownMenu"
 						v-if="authStore.isAuthenticated"
 					>
 						<span
@@ -74,7 +74,7 @@
 						</span>
 						<div
 							v-if="dropdownMenu"
-							@pointerleave="closeDropdown"
+							@pointerleave="dropdownMenu = false"
 							class="dropdown"
 						>
 							<router-link
@@ -82,7 +82,7 @@
 								class="flex flex-row items-center gap-2 dropdown-item"
 								:to="item.to"
 								active-class="dropdown-active"
-								@click="closeMenu"
+								@click="collapseMenu = false"
 							>
 								<i :class="item.icon"></i>
 								<span class="mt-1">{{ item.text }}</span>
@@ -98,18 +98,17 @@
 						</div>
 					</li>
 				</ul>
-			</div>
-			<div class="hidden gap-3 md:flex">
 				<router-link
 					v-if="!authStore.isAuthenticated"
 					class="btn"
 					to="/login"
-					@click="closeMenu"
+					@click="collapseMenu = false"
 					>Login</router-link
 				>
 
 				<LanguageSwitch />
 			</div>
+			<!-- <div class="hidden gap-3 md:flex"></div> -->
 		</div>
 		<div
 			v-if="collapseMenu"
@@ -123,14 +122,14 @@
 					<router-link
 						class="flex flex-row items-center gap-2 nav-link"
 						:to="item.to"
-						@click="closeMenu"
+						@click="collapseMenu = false"
 					>
 						<i :class="item.icon"></i>
 						<span class="mt-1">{{ item.text }}</span>
 					</router-link>
 				</li>
 				<li
-					@click="toggleDropdown"
+					@click="dropdownMenu = !dropdownMenu"
 					v-if="authStore.isAuthenticated"
 				>
 					<span
@@ -151,7 +150,7 @@
 							class="flex flex-row items-center gap-2 dropdown-item"
 							:to="item.to"
 							active-class="dropdown-active"
-							@click="closeMenu"
+							@click="collapseMenu = false"
 						>
 							<i :class="item.icon"></i>
 							<span class="mt-1">{{ item.text }}</span>
@@ -163,7 +162,7 @@
 						v-if="!authStore.isAuthenticated"
 						class="btn"
 						to="/login"
-						@click="closeMenu"
+						@click="collapseMenu = false"
 						>Login</router-link
 					>
 					<router-link
@@ -281,22 +280,6 @@
 	const unauthNavigationItems = computed(() => {
 		return navigationItems.value.filter((item) => !item.requireAuth);
 	});
-
-	function toggleMenu() {
-		collapseMenu.value = !collapseMenu.value;
-	}
-
-	function closeMenu() {
-		collapseMenu.value = false;
-	}
-
-	function toggleDropdown() {
-		dropdownMenu.value = !dropdownMenu.value;
-	}
-
-	function closeDropdown() {
-		dropdownMenu.value = false;
-	}
 </script>
 
 <style scoped>
@@ -313,7 +296,7 @@
 	}
 
 	.nav-link {
-		@apply relative text-black hover:scale-110 p-1 rounded transition duration-300 ease-in-out transform;
+		@apply relative text-black hover:text-white p-1 rounded transition duration-300 ease-in-out transform;
 	}
 
 	.dropdown {

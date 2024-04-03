@@ -1,8 +1,8 @@
 <template>
 	<div class="m-3">
-		<h1 class="mb-5 text-3xl font-bold">
+		<!-- <h1 class="mb-5 text-3xl font-bold">
 			{{ selectedSection.title }}
-		</h1>
+		</h1> -->
 		<div
 			v-for="(paragraph, index) in selectedSection.text"
 			:key="index"
@@ -16,9 +16,9 @@
 			</div>
 			<div
 				v-if="paragraph.warning"
-				class="flex items-center gap-3 p-5 font-bold bg-yellow-200 rounded-lg shadow-lg"
+				class="flex items-center gap-3 p-5 font-bold bg-yellow-100 rounded-lg shadow-lg"
 			>
-				<i class="fa-solid fa-triangle-exclamation"></i>
+				<i class="text-yellow-400 fa-solid fa-triangle-exclamation"></i>
 				<span>
 					{{ paragraph.warning }}
 				</span>
@@ -37,5 +37,3 @@
 		},
 	});
 </script>
-
-<style scoped></style>

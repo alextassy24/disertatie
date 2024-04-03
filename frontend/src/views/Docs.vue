@@ -1,6 +1,9 @@
 <template>
 	<div class="mt-28">
-		<Hero :title="translatedValues.title" />
+		<Hero
+			:title="translatedValues.title"
+			:subtitle="subtitle"
+		/>
 		<section class="px-10 py-16 bg-gray-100">
 			<div class="container mx-auto">
 				<div class="flex flex-col items-start gap-10 md:flex-row">
@@ -12,9 +15,9 @@
 							<li
 								v-for="(section, index) in docsSections"
 								:key="index"
-								class="p-2 mb-3 font-bold transition-colors rounded-lg hover:cursor-pointer hover:bg-green-300 hover:text-white"
+								class="p-2 mb-3 font-bold transition-colors rounded-lg select-none hover:cursor-pointer hover:bg-green-300 hover:text-white"
 								:class="{
-									'bg-green-500 text-white font-bold shadow-lg':
+									'bg-green-500 text-white font-bold shadow-lg scale-105':
 										selectedSection.title == section.title,
 								}"
 								@click="selectSection(section)"
@@ -210,6 +213,9 @@
 	]);
 
 	const selectedSection = ref(docsSections.value[0]);
+	const subtitle = computed(() => {
+		return selectedSection.value.title;
+	});
 
 	const selectSection = (section) => {
 		selectedSection.value = section;

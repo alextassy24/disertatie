@@ -7,7 +7,7 @@
 			>
 				{{ title }}
 			</h1>
-			<p class="mb-6 text-center text-md">
+			<p class="mb-3 text-2xl text-center">
 				<i>{{ subtitle }}</i>
 			</p>
 		</div>

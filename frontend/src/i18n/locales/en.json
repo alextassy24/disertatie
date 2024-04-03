@@ -165,6 +165,14 @@
 		"ConfirmPassword": "Confirm Password",
 		"LogInHere": "Already have an account? Log in here!",
 		"Redirect": "You will be redirected soon",
+		"PasswordWarning": {
+			"MustHave": "Password must contain: ",
+			"Length": "at least 6 characters in length!",
+			"UpperCase": "at least one uppercase letter!",
+			"LowerCase": "at least one lowercase letter!",
+			"Number": "at least one digit!",
+			"SpecialChar": "at least one special character!"
+		},
 		"FirstNameError": {
 			"Required": "The First Name is required!",
 			"LettersOnly": "The First Name can contain only letters!"
@@ -193,7 +201,7 @@
 			"Required": "The Password Confirmation is required!",
 			"Match": "The passwords do not match!"
 		},
-		"SuccessMessage": "Registration successful!",
+		"SuccessMessage": "Registration successful! A confirmation email was sent to you!",
 		"ErrorMessage": {
 			"AlreadyExists": "An error has ocurred while trying to create the account!",
 			"EmailError": "An error has ocurred while trying to send the confirmation email!"
@@ -233,7 +241,10 @@
 			"gpsSolder": "GPS Soldering",
 			"gsmTest": "GSM Testing",
 			"gsmSolder": "GSM Soldering",
-			"productPinout": "Product Pinout"
+			"productPinout": "Product Pinout",
+			"testPrototype": "Prototype Testing",
+			"arduinoSolder": "Arduino Board Soldering",
+			"batteryTesting": "Batteries Testing"
 		}
 	},
 	"faq": {

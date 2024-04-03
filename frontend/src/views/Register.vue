@@ -125,6 +125,33 @@
 							class="error-message"
 						/>
 					</div>
+					<div
+						v-if="passwordWarning"
+						class="p-3 mb-3 font-bold text-yellow-500 bg-yellow-100 rounded shadow"
+					>
+						<p class="mb-3">
+							{{ translatedValues.passwordWarning.mustHave }}
+						</p>
+						<ul class="pl-5 list-disc">
+							<li>
+								{{ translatedValues.passwordWarning.length }}
+							</li>
+							<li>
+								{{ translatedValues.passwordWarning.upperCase }}
+							</li>
+							<li>
+								{{ translatedValues.passwordWarning.lowerCase }}
+							</li>
+							<li>
+								{{ translatedValues.passwordWarning.number }}
+							</li>
+							<li>
+								{{
+									translatedValues.passwordWarning.specialChar
+								}}
+							</li>
+						</ul>
+					</div>
 					<div class="flex flex-col mb-5">
 						<label class="form-label">{{
 							translatedValues.password
@@ -135,6 +162,8 @@
 							name="password"
 							class="form-field"
 							v-model="password"
+							@focus="passwordWarning = true"
+							@blur="passwordWarning = false"
 						/>
 						<ErrorMessage
 							name="password"
@@ -199,6 +228,8 @@
 	const { t } = useI18n();
 	const router = useRouter();
 
+	const passwordWarning = ref(false);
+
 	const translatedValues = computed(() => {
 		return {
 			title: t("register.Title"),
@@ -211,6 +242,14 @@
 			btnLoading: t("utils.BtnLoading"),
 			logInHere: t("register.LogInHere"),
 			redirect: t("register.Redirect"),
+			passwordWarning: {
+				mustHave: t("register.PasswordWarning.MustHave"),
+				length: t("register.PasswordWarning.Length"),
+				upperCase: t("register.PasswordWarning.UpperCase"),
+				lowerCase: t("register.PasswordWarning.LowerCase"),
+				number: t("register.PasswordWarning.Number"),
+				specialChar: t("register.PasswordWarning.SpecialChar"),
+			},
 			firstNameError: {
 				required: t("register.FirstNameError.Required"),
 				lettersOnly: t("register.FirstNameError.LettersOnly"),
@@ -349,7 +388,7 @@
 
 					setTimeout(() => {
 						router.push("/login");
-					}, 2000);
+					}, 4000);
 				}
 			})
 			.catch((error) => {

@@ -548,13 +548,13 @@
 	const galleryConfig = computed(() => [
 		{
 			title: t("about.PhotoGallery.gpsSolder"),
-			count: 8,
+			count: 16,
 			prefix: "gpsSolder",
 			toggler: false,
 		},
 		{
 			title: t("about.PhotoGallery.gpsTest"),
-			count: 10,
+			count: 14,
 			prefix: "gpsTest",
 			toggler: false,
 		},
@@ -571,9 +571,21 @@
 			toggler: false,
 		},
 		{
-			title: t("about.PhotoGallery.productPinout"),
-			count: 1,
-			prefix: "productPinout",
+			title: t("about.PhotoGallery.arduinoSolder"),
+			count: 5,
+			prefix: "arduinoSolder",
+			toggler: false,
+		},
+		{
+			title: t("about.PhotoGallery.batteryTesting"),
+			count: 3,
+			prefix: "bateriiTest",
+			toggler: false,
+		},
+		{
+			title: t("about.PhotoGallery.testPrototype"),
+			count: 10,
+			prefix: "TestPrototip",
 			toggler: false,
 		},
 	]);

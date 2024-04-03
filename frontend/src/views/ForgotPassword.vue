@@ -127,7 +127,6 @@
 			.catch((error) => {
 				isLoading.value = false;
 
-				// console.error(error);
 				if (error.response.status == 404) {
 					errorMessage.value = translatedValues.value.notFound;
 				} else if (error.response.status == 400) {

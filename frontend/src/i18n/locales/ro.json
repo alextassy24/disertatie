@@ -169,6 +169,14 @@
 		"PhoneNumber": "Număr de telefon",
 		"Password": "Parolă",
 		"ConfirmPassword": "Confirmarea Parolei",
+		"PasswordWarning": {
+			"MustHave": "Parola trebuie să conțină: ",
+			"Length": "minim 6 caractere lungime!",
+			"UpperCase": "minim o literă mare !",
+			"LowerCase": "minim o literă mică !",
+			"Number": "minim o cifră!",
+			"SpecialChar": "minim un caracter special!"
+		},
 		"LogInHere": "Ai deja un cont? Te poți autentifica aici!",
 		"Redirect": "Veți fi redirecționat în momentele ce urmează",
 		"FirstNameError": {
@@ -199,7 +207,7 @@
 			"Required": "Confirmarea parolei este obligatorie!",
 			"Match": "Parolele nu corespund!"
 		},
-		"SuccessMessage": "Înergistrarea a fost realizată cu succes!",
+		"SuccessMessage": "Înergistrarea a fost realizată cu succes! Un mail de confirmare a email-ului a fost trimis către dumneavoastră",
 		"ErrorMessage": {
 			"AlreadyExists": "A apărut o eroare la crearea contului!",
 			"EmailError": "A apărut o eroare la trimiterea email-ului de confirmare!"
@@ -239,7 +247,10 @@
 			"gpsSolder": "Lipirea GPS-ului",
 			"gsmTest": "Testarea GSM-ului",
 			"gsmSolder": "Lipirea GSM-ului",
-			"productPinout": "Pinout-ul produsului"
+			"productPinout": "Pinout-ul produsului",
+			"testPrototype": "Testare prototip",
+			"arduinoSolder": "Lipirea plăcii Arduino",
+			"batteryTesting": "Testarea bateriilor"
 		}
 	},
 	"faq": {
