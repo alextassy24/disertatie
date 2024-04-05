@@ -71,7 +71,7 @@
 
 <script setup>
 	import axios from "axios";
-	import { ref, watch, computed, onMounted } from "vue";
+	import { ref, computed, onMounted, inject } from "vue";
 	import { useI18n } from "vue-i18n";
 	import { useAuthStore } from "../store/auth";
 	import Hero from "../components/Hero.vue";
@@ -84,8 +84,9 @@
 	const { t } = useI18n();
 	const authStore = useAuthStore();
 	const successMessage = ref("");
-	const modalActive = ref(null);
+	const modalActive = ref(false);
 	const deletedId = ref(null);
+	const emitter = inject("emitter");
 
 	const wearers = ref([]);
 	const page = ref("my-wearers");
@@ -128,6 +129,7 @@
 	const toggleModal = (id) => {
 		deletedId.value = id;
 		modalActive.value = !modalActive.value;
+		emitter.emit("modal-active", modalActive.value);
 	};
 
 	const config = {
