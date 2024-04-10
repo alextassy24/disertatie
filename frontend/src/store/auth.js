@@ -8,6 +8,7 @@ export const useAuthStore = defineStore({
 			isAuthenticated: false,
 			user: null,
 			token: null,
+			cookiePolicy: localStorage.getItem("cookiePolicy") === "true",
 			apiAddress: "https://disertatie-api.azurewebsites.net",
 			// apiAddress: "http://127.0.0.1:5088",
 		};
@@ -18,6 +19,7 @@ export const useAuthStore = defineStore({
 				this.isAuthenticated = true;
 				this.token = localStorage.getItem("token");
 				this.user = localStorage.getItem("user");
+				this.cookiePolicy = localStorage.getItem("cookiePolicy");
 			}
 			if (this.token) {
 				// console.log("token = ",this.token);
@@ -48,6 +50,15 @@ export const useAuthStore = defineStore({
 
 			localStorage.removeItem("token");
 			localStorage.removeItem("user");
+		},
+		initializeCookieState() {
+			if (localStorage.getItem("cookiePolicy")) {
+				this.cookiePolicy = localStorage.getItem("cookiePolicy");
+			}
+		},
+		setCookiePolicy() {
+			this.cookiePolicy = true;
+			localStorage.setItem("cookiePolicy", this.cookiePolicy);
 		},
 	},
 });

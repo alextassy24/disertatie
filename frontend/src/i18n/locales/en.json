@@ -387,6 +387,10 @@
 			}
 		}
 	},
+	"cookie": {
+		"Title": "Cookie Policy",
+		"Text": "This website uses cookies to ensure you get the best experience on our website. If you agree to the use of cookies, please press the button."
+	},
 	"footer": {
 		"PaperTitle": "Paper title",
 		"Title": "Device for monitoring and locating people with special needs"

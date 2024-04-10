@@ -393,6 +393,10 @@
 			}
 		}
 	},
+	"cookie": {
+		"Title": "Politica Cookie",
+		"Text": "Acest site folosește cookies pentru a asigura cea mai bună experiență de utilizare. Dacă sunteți de accord cu utilizarea cookie-urilor vă rugăm apăsați butonul alăturat."
+	},
 	"footer": {
 		"PaperTitle": "Titlul lucrării",
 		"Title": "Dispozitiv pentru monitorizarea și localizarea persoanelor cu nevoi speciale"
