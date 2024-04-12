@@ -64,7 +64,7 @@
 		"CaseTitle": "Case",
 		"CaseText": "The case is the physical enclosure that houses the electronic components of the monitoring device. It's designed to be durable and comfortable for the wearer, ensuring the safety of the components.",
 		"CaseUsage": "Protection and comfort for components.",
-		"GSMTitle": "SIM800L GSM/ GPRS Module ",
+		"GSMTitle": "SIM800L 2.0 GSM/ GPRS Module ",
 		"GSMText": "The GSM/ GPRS module enables communication between the device and the app's backend server. It allows for real-time data transmission and remote control features.",
 		"GSMUsage": "Real-time data transmission, remote control.",
 		"GPSTitle": "NEO-6M GPS Module with antenna",

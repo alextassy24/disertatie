@@ -438,11 +438,17 @@
 			price: 25.12,
 			link: "https://www.emag.ro/placa-nano-cu-usb-c-compatibila-cu-arduino-nano-v3-0-albastru-arduino-nano-328-usbc-n/pd/DSVTTMYBM/?ref=fav_pd-title",
 		},
+		// {
+		// 	image: getImageURL("sim800l2", "png"),
+		// 	name: t("home.GSMTitle"),
+		// 	price: 36.32,
+		// 	link: "https://www.emag.ro/modul-gsm-ajmaker-sim800l-microsim-ttl-gprs-3-7-4-2v-25x23-mm-z001836/pd/DD1RLHYBM/?ref=fav_pd-title",
+		// },
 		{
-			image: getImageURL("sim800l2", "png"),
+			image: getImageURL("sim800l2.0", "png"),
 			name: t("home.GSMTitle"),
-			price: 36.32,
-			link: "https://www.emag.ro/modul-gsm-ajmaker-sim800l-microsim-ttl-gprs-3-7-4-2v-25x23-mm-z001836/pd/DD1RLHYBM/?ref=fav_pd-title",
+			price: 60.98,
+			link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-20-cu-antena.html",
 		},
 		{
 			image: getImageURL("neo6m", "png"),

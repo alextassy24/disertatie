@@ -64,7 +64,7 @@
 		"CaseTitle": "Carcasă",
 		"CaseText": "Carcasa este învelișul fizic care adăpostește componentele electronice ale dispozitivului de monitorizare. Este proiectată pentru a fi durabilă și confortabilă pentru purtător, asigurând siguranța componentelor.",
 		"CaseUsage": "Protecție și confort pentru componente.",
-		"GSMTitle": "Modul GSM/GPRS SIM800L",
+		"GSMTitle": "Modul GSM/GPRS SIM800L 2.0",
 		"GSMText": "Modulul GSM/GPRS permite comunicarea între dispozitiv și serverul backend al aplicației. Permite transmiterea datelor în timp real și funcționalități de control la distanță.",
 		"GSMUsage": "Transmiterea datelor în timp real, control la distanță.",
 		"GPSTitle": "Modul GPS NEO-6M cu antena",
