@@ -56,8 +56,8 @@
 		"AzureUsage": "Implementarea și gestionarea frontend-ului și a API-ului în cloud.",
 		"AWS": "AWS este serviciul de cloud computing oferit de Amazon Web Services (AWS), utilizat pentru baza noastră de date.",
 		"AWSUsage": "Găzduirea și gestionarea bazei de date în cloud.",
-		"PhysicalComponentsTitle": "Componentele fizice ale sistmeului",
-		"MicrocontrollerText": "Microcontrollerul sau computerul monocip (SBC) servește ca creierul sistemului de monitorizare. Controlează diversele componente hardware, procesează datele și execută logica software-ului. Alegerea între un microcontroller și un SBC depinde de cerințele computaționale ale sistemului și de factorul de formă.",
+		"PhysicalComponentsTitle": "Componentele fizice",
+		"MicrocontrollerText": "Microcontrollerul sau computerul monocip (SBC) reprezintă creierul sistemului de monitorizare. Controlează diversele componente hardware, procesează datele și execută logica software-ului. Alegerea între un microcontroller și un SBC depinde de cerințele computaționale ale sistemului și de factorul de formă.",
 		"MicrocontrollerUsage": "Controlul sistemului și procesarea datelor.",
 		"ServerText": "Componenta server este coloana vertebrală a sistemului nostru. Gestionează stocarea datelor, comunicarea cu dispozitivul și operațiunile de bază de date. Este utilizată pentru stocarea și recuperarea datelor vitale colectate de dispozitiv de monitorizare.",
 		"ServerUsage": "Stocarea datelor, centru de comunicare.",
@@ -251,6 +251,42 @@
 			"testPrototype": "Testare prototip",
 			"arduinoSolder": "Lipirea plăcii Arduino",
 			"batteryTesting": "Testarea bateriilor"
+		},
+		"DevelopmentPhases": {
+			"Title": "Etapele de dezvoltare ale proiectului ",
+			"Phase1": {
+				"Title": "Etapa 1 - Alegerea componentelor provzorii",
+				"Description": "In urma unei analize de piata si a componentelor folosite in cadrul proiectelor asemanatoare s-a ajuns la urmatoarele componente:",
+				"Paragraphs": {
+					"P1": "Placa Arduino Uno R3;",
+					"P2": "Modul GSM SIM800L;",
+					"P3": "Modul GPS Neo-6M."
+				}
+			},
+			"Phase2": {
+				"Title": "Etapa 2 - Testarea componentelor si a compatibilitatii acestora",
+				"Description": "In cadrul etapei de testare a componentelor s-a ajuns la urmatoarele concluzii:",
+				"Paragraphs": {
+					"P1": "Modulul GSM functioneaza necorespunzator nefiind capabil sa realizeze conexiunea cu reteaua, incercandu-se mai multe modalitati de alimentare cu energie electrica(baterii 3.7V, direct din placa) precum si mai multe modalitati de conectare(breadboard, pini, cabluri), astfel s-a optat pentru inlocuirea acestuia cu unul imbunatatit;",
+					"P2": "Modulul GPS este destul de pretentios la conectarea cu satelitii, uneori fiind nevoie de mai mult timp pentru a se realiza conexiuna, factori precum vremea si imprejurimile afectand enorm procesul de conectare."
+				}
+			},
+			"Phase3": {
+				"Title": "Etapa 3 - Inlocuirea componentelor necorespunzatoare",
+				"Description": "",
+				"Paragraphs": {
+					"P1": "Modulul GSM SIM800L a fost inlocuit cu un modul GSM SIM800L 2.0 ce contine cu o antena mai performanta fata de cea elicoidala a modulului precedent;",
+					"P2": "Placa Arduino UNO R3 a fost inlocuita cu o placa Arduino Nano V3, datorita dimensiunilor reduse."
+				}
+			},
+			"Phase4": {
+				"Title": "Etapa 4 - Testarea componentelor inlocuite",
+				"Description": "",
+				"Paragraphs": {
+					"P1": "Placa Arduino Nano V3 nu reuseste sa transimta destula tensiune pe pinul de 5V, valoarea reala transmisa fiind de aproximativ 3.9V, iar la momnentul conectarii cu modulul GPS, tensiunea de intrare este 2.46V, fiind o valoare insuficienta pentru a face modulul sa functioneze corespunzator;",
+					"P2": "Datorita faptului ca modulul GSM a fost inlocuit iar placa arduino Nano V3 nu furnizeaza suficienta tensiune, este nevoie sa revenim la placa Arduino Uno R3, deoarece stim ca modulul GPS functioneaza cu aceasta placa, iar noul modul GSM are nevoie de o tensiune de 5V pentru a functiona."
+				}
+			}
 		}
 	},
 	"faq": {

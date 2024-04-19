@@ -294,7 +294,7 @@
 			name: t("home.GSMTitle"),
 			text: t("home.GSMText"),
 			usage: t("home.GSMUsage"),
-			link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-cu-antena.html",
+			link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-20-cu-antena.html",
 		},
 		{
 			name: t("home.GPSTitle"),

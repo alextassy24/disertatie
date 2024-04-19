@@ -24,6 +24,39 @@
 				</div>
 			</div>
 		</section>
+		<section class="px-10 py-16 bg-gray-100">
+			<div class="container mx-auto">
+				<h1 class="mb-10 text-4xl font-bold">
+					{{ translatedValues.developmentPhasesTitle }}
+				</h1>
+				<div>
+					<ul class="list-disc">
+						<li
+							class="mb-5"
+							v-for="phase in developmentPhases"
+						>
+							<h2 class="mb-3 text-xl font-semibold">
+								{{ phase.title }}
+							</h2>
+							<div class="text-lg text-justify">
+								<p class="mb-5">{{ phase.description }}</p>
+								<ul
+									class="list-decimal"
+									v-if="phase.paragraphs"
+								>
+									<li
+										class="mx-3 mb-3"
+										v-for="paragraph in phase.paragraphs"
+									>
+										{{ paragraph }}
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
 		<section class="px-10 py-16">
 			<div class="container mx-auto">
 				<h1
@@ -422,6 +455,7 @@
 			photoGalleryTitle: t("about.PhotoGalleryTitle"),
 			show: t("utils.Show"),
 			collapse: t("utils.Collapse"),
+			developmentPhasesTitle: t("about.DevelopmentPhases.Title"),
 		};
 	});
 
@@ -572,7 +606,7 @@
 		},
 		{
 			title: t("about.PhotoGallery.gsmTest"),
-			count: 4,
+			count: 6,
 			prefix: "gsmTest",
 			toggler: false,
 		},
@@ -621,6 +655,42 @@
 		modalImageId.value = index;
 		modalImages.value = images;
 	};
+
+	const developmentPhases = computed(() => [
+		{
+			title: t("about.DevelopmentPhases.Phase1.Title"),
+			description: t("about.DevelopmentPhases.Phase1.Description"),
+			paragraphs: [
+				t("about.DevelopmentPhases.Phase1.Paragraphs.P1"),
+				t("about.DevelopmentPhases.Phase1.Paragraphs.P2"),
+				t("about.DevelopmentPhases.Phase1.Paragraphs.P3"),
+			],
+		},
+		{
+			title: t("about.DevelopmentPhases.Phase2.Title"),
+			description: t("about.DevelopmentPhases.Phase2.Description"),
+			paragraphs: [
+				t("about.DevelopmentPhases.Phase2.Paragraphs.P1"),
+				t("about.DevelopmentPhases.Phase2.Paragraphs.P2"),
+			],
+		},
+		{
+			title: t("about.DevelopmentPhases.Phase3.Title"),
+			description: t("about.DevelopmentPhases.Phase3.Description"),
+			paragraphs: [
+				t("about.DevelopmentPhases.Phase3.Paragraphs.P1"),
+				t("about.DevelopmentPhases.Phase3.Paragraphs.P2"),
+			],
+		},
+		{
+			title: t("about.DevelopmentPhases.Phase4.Title"),
+			description: t("about.DevelopmentPhases.Phase4.Description"),
+			paragraphs: [
+				t("about.DevelopmentPhases.Phase4.Paragraphs.P1"),
+				t("about.DevelopmentPhases.Phase4.Paragraphs.P2"),
+			],
+		},
+	]);
 
 	onMounted(() => {
 		hardwareComponents.value.forEach((component) => {

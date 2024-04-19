@@ -245,6 +245,42 @@
 			"testPrototype": "Prototype Testing",
 			"arduinoSolder": "Arduino Board Soldering",
 			"batteryTesting": "Batteries Testing"
+		},
+		"DevelopmentPhases": {
+			"Title": "Project Development Phases",
+			"Phase1": {
+				"Title": "Phase 1 - Choosing Provisional Components",
+				"Description": "Following a market analysis and the components used in similar projects, the following components were selected:",
+				"Paragraphs": {
+					"P1": "Arduino Uno R3 Board;",
+					"P2": "SIM800L GSM Module;",
+					"P3": "Neo-6M GPS Module."
+				}
+			},
+			"Phase2": {
+				"Title": "Phase 2 - Testing Components and Their Compatibility",
+				"Description": "During the component testing phase, the following conclusions were reached:",
+				"Paragraphs": {
+					"P1": "The GSM module is malfunctioning, unable to establish a connection with the network, despite multiple power supply methods (3.7V batteries, direct from the board) and various connection methods (breadboard, pins, cables). Therefore, it was decided to replace it with an improved one;",
+					"P2": "The GPS module is quite picky when connecting to satellites, sometimes requiring more time to establish a connection. Factors such as weather and surroundings greatly affect the connection process."
+				}
+			},
+			"Phase3": {
+				"Title": "Phase 3 - Replacing Inadequate Components",
+				"Description": "",
+				"Paragraphs": {
+					"P1": "The SIM800L GSM module was replaced with a SIM800L 2.0 GSM module, which comes with a more efficient antenna compared to the helical one of the previous module;",
+					"P2": "The Arduino UNO R3 board was replaced with an Arduino Nano V3 board due to its smaller size."
+				}
+			},
+			"Phase4": {
+				"Title": "Phase 4 - Testing Replaced Components",
+				"Description": "",
+				"Paragraphs": {
+					"P1": "The Arduino Nano V3 board fails to deliver sufficient voltage at the 5V pin, with the actual transmitted value being approximately 3.9V, and at the moment of connection with the GPS module, the input voltage is 2.46V, which is insufficient to operate the module properly;",
+					"P2": "Due to the replacement of the GSM module and the insufficient voltage provided by the Arduino Nano V3 board, it is necessary to revert to the Arduino Uno R3 board, as we know that the GPS module works with this board, and the new GSM module requires a 5V voltage to operate."
+				}
+			}
 		}
 	},
 	"faq": {
