@@ -312,6 +312,7 @@
 		"ModelFailed": "The data entered is incorrect, please try again!"
 	},
 	"profile": {
+		"NoLocations": "",
 		"Title": "Your personal data",
 		"FirstName": "First Name",
 		"LastName": "Last Name",
@@ -351,6 +352,7 @@
 		}
 	},
 	"product": {
+		"DeleteItem": "",
 		"Subtitle": "Device data",
 		"PerPage": "locations per page",
 		"NoProduct": "Device data is not available",

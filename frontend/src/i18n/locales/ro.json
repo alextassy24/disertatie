@@ -318,6 +318,7 @@
 		"ModelFailed": "Datele introduse nu sunt corecte, vă rugăm încercați din nou!"
 	},
 	"profile": {
+		"NoLocations": "",
 		"Title": "Datele tale personale",
 		"FirstName": "Prenume",
 		"LastName": "Nume",
@@ -357,6 +358,7 @@
 		}
 	},
 	"product": {
+		"DeleteItem": "",
 		"Subtitle": "Datele dispozitivului",
 		"Locations": "Locațiile înregistrate",
 		"NoProduct": "Datele dispozitivului nu sunt disponibile",

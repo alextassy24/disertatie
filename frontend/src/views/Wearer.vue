@@ -59,7 +59,7 @@
 </template>
 
 <script setup>
-	import { ref, computed, onMounted, watch } from "vue";
+	import { ref, computed, onMounted } from "vue";
 	import { useRoute } from "vue-router";
 	import { useI18n } from "vue-i18n";
 	import { useAuthStore } from "../store/auth";
@@ -74,6 +74,7 @@
 	const route = useRoute();
 	const authStore = useAuthStore();
 	const id = route.params.id;
+	console.log(id);
 	const wearerData = ref();
 	const productsData = ref();
 	const loading = ref(true);

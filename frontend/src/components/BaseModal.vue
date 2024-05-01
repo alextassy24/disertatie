@@ -18,6 +18,7 @@
 						</div>
 						<slot />
 						<div
+							v-if="showButtons"
 							class="flex items-center justify-center gap-3 mt-5"
 						>
 							<button
@@ -47,6 +48,10 @@
 		modalActive: {
 			type: Boolean,
 			default: false,
+		},
+		showButtons: {
+			typeof: Boolean,
+			default: true,
 		},
 	});
 

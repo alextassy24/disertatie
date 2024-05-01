@@ -6,7 +6,7 @@
 		<div>
 			<label>{{ translatedValues.show }}</label>
 			<select
-				class="px-1 mx-2 bg-gray-200 rounded-lg focus:ring-2 focus:ring-green-500"
+				class="p-1 mx-2 bg-gray-200 rounded-lg focus:ring-2 focus:ring-green-500"
 				v-model="itemsPerPage"
 			>
 				<option value="5">5</option>
@@ -62,12 +62,20 @@
 						class="flex flex-col items-center justify-center gap-3 lg:flex-row"
 					>
 						<router-link
+							v-if="itemPage"
 							:to="`/${itemPage}/${item.id}`"
 							class="btn-primary"
 							tag="button"
 						>
 							<i class="fa-solid fa-eye"></i>
 						</router-link>
+						<button
+							v-else
+							class="btn-primary"
+							@click="action(item.id)"
+						>
+							<i class="fa-solid fa-eye"></i>
+						</button>
 						<button
 							v-if="deleteBtn"
 							class="btn-danger"
@@ -176,7 +184,11 @@
 		},
 		itemPage: {
 			type: String,
-			required: true,
+			required: false,
+		},
+		viewModal: {
+			type: Boolean,
+			required: false,
 		},
 		deleteBtn: {
 			type: Boolean,
