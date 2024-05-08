@@ -69,33 +69,40 @@
 				</h1>
 				<hr />
 				<div
-					class="flex flex-col items-center justify-between mt-5 mb-10 md:flex-row"
+					class="sticky-container"
+					:class="{ 'pt-28': showApproximateTable }"
 				>
-					<h1
-						class="flex flex-col items-center mb-3 text-xl font-bold md:justify-between md:flex-row md:mb-0"
+					<div
+						class="flex flex-col items-center justify-between mt-5 mb-10 md:flex-row"
 					>
-						<span class="mb-3 md:mb-0 me-0 md:me-3">
-							{{ translatedValues.currentCost }}
-						</span>
-						<span>{{ approximateCost }} RON</span>
-					</h1>
-					<button
-						class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center mb-5"
-						@click="showApproximateTable = !showApproximateTable"
-					>
-						<i
-							class="fa-solid"
-							:class="{
-								'fa-chevron-up': showApproximateTable,
-								'fa-chevron-down': !showApproximateTable,
-							}"
-						></i>
-						<span>{{
-							showApproximateTable
-								? translatedValues.collapse
-								: translatedValues.show
-						}}</span>
-					</button>
+						<h1
+							class="flex flex-col items-center mb-3 text-xl font-bold md:justify-between md:flex-row md:mb-0"
+						>
+							<span class="mb-3 md:mb-0 me-0 md:me-3">
+								{{ translatedValues.currentCost }}
+							</span>
+							<span>{{ approximateCost }} RON</span>
+						</h1>
+						<button
+							class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center mb-5"
+							@click="
+								showApproximateTable = !showApproximateTable
+							"
+						>
+							<i
+								class="fa-solid"
+								:class="{
+									'fa-chevron-up': showApproximateTable,
+									'fa-chevron-down': !showApproximateTable,
+								}"
+							></i>
+							<span>{{
+								showApproximateTable
+									? translatedValues.collapse
+									: translatedValues.show
+							}}</span>
+						</button>
+					</div>
 				</div>
 				<Transition name="fade">
 					<div
@@ -161,7 +168,7 @@
 						</div>
 						<div
 							v-if="isSmallScreen"
-							class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2"
+							class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2 scrollable-content"
 						>
 							<div
 								v-for="(component, index) in hardwareComponents"
@@ -206,34 +213,42 @@
 						</div>
 					</div>
 				</Transition>
+
 				<div
-					class="flex flex-col items-center justify-between mt-5 mb-10 md:flex-row"
+					class="sticky-container"
+					:class="{ 'pt-28': showDevelopmentTable }"
 				>
-					<h1
-						class="flex flex-col items-center mb-3 text-xl font-bold md:justify-between md:flex-row md:mb-0"
+					<div
+						class="flex flex-col items-center justify-between mt-5 mb-10 md:flex-row"
 					>
-						<span class="mb-3 md:mb-0 me-0 md:me-3">
-							{{ translatedValues.developmentCost }}
-						</span>
-						<span>{{ developmentCost }} RON</span>
-					</h1>
-					<button
-						class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center mb-5"
-						@click="showDevelopmentTable = !showDevelopmentTable"
-					>
-						<i
-							class="fa-solid"
-							:class="{
-								'fa-chevron-up': showDevelopmentTable,
-								'fa-chevron-down': !showDevelopmentTable,
-							}"
-						></i>
-						<span>{{
-							showDevelopmentTable
-								? translatedValues.collapse
-								: translatedValues.show
-						}}</span>
-					</button>
+						<h1
+							class="flex flex-col items-center mb-3 text-xl font-bold md:justify-between md:flex-row md:mb-0"
+						>
+							<span class="mb-3 md:mb-0 me-0 md:me-3">
+								{{ translatedValues.developmentCost }}
+							</span>
+							<span>{{ developmentCost }} RON</span>
+						</h1>
+						<button
+							class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center mb-5"
+							@click="
+								showDevelopmentTable = !showDevelopmentTable
+							"
+						>
+							<i
+								class="fa-solid"
+								:class="{
+									'fa-chevron-up': showDevelopmentTable,
+									'fa-chevron-down': !showDevelopmentTable,
+								}"
+							></i>
+							<span>{{
+								showDevelopmentTable
+									? translatedValues.collapse
+									: translatedValues.show
+							}}</span>
+						</button>
+					</div>
 				</div>
 				<Transition name="fade">
 					<div
@@ -299,7 +314,7 @@
 						</div>
 						<div
 							v-if="isSmallScreen"
-							class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2"
+							class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2 scrollable-content"
 						>
 							<div
 								v-for="(
@@ -405,7 +420,7 @@
 							</h2>
 							<p>Gabriela Bucur</p>
 							<p>Andrei-Nicolae Drîmbă</p>
-							<p>Ing. Tănase Alexandru</p>
+							<p>Ing. Alexandru Tănase</p>
 						</div>
 					</div>
 				</div>
@@ -415,7 +430,7 @@
 </template>
 
 <script setup>
-	import { ref, computed, onMounted, onUnmounted, inject } from "vue";
+	import { ref, computed, onMounted, onUnmounted, inject, watch } from "vue";
 	import { useI18n } from "vue-i18n";
 	import { defineAsyncComponent } from "vue";
 	import Hero from "../components/Hero.vue";
@@ -623,8 +638,14 @@
 			toggler: false,
 		},
 		{
+			title: t("about.PhotoGallery.prototype"),
+			count: 11,
+			prefix: "Prototip",
+			toggler: false,
+		},
+		{
 			title: t("about.PhotoGallery.testPrototype"),
-			count: 10,
+			count: 12,
 			prefix: "TestPrototip",
 			toggler: false,
 		},
@@ -649,6 +670,20 @@
 		modalActive.value = !modalActive.value;
 		emitter.emit("modal-active", modalActive.value);
 	};
+
+	watch(modalActive, (newValue) => {
+		if (newValue) {
+			window.addEventListener("keydown", handleKeydown);
+		} else {
+			window.removeEventListener("keydown", handleKeydown);
+		}
+	});
+
+	function handleKeydown(event) {
+		if (event.key === "Escape") {
+			toggleModal();
+		}
+	}
 
 	const choosePhoto = (photo, index, images) => {
 		modalImage.value = photo;
@@ -692,21 +727,6 @@
 		},
 	]);
 
-	onMounted(() => {
-		hardwareComponents.value.forEach((component) => {
-			approximateCost.value += component.price;
-		});
-		developmentComponents.value.forEach((component) => {
-			developmentCost.value += component.price;
-		});
-		approximateCost.value = parseFloat(approximateCost.value.toFixed(2));
-		developmentCost.value = parseFloat(developmentCost.value.toFixed(2));
-
-		totalCost.value = (
-			approximateCost.value + developmentCost.value
-		).toFixed(2);
-	});
-
 	const getImageURL = (name, extension) => {
 		return new URL(`../assets/${name}.${extension}`, import.meta.url).href;
 	};
@@ -740,11 +760,25 @@
 	const isSmallScreen = computed(() => screenWidth.value < breakpoints.md);
 
 	onMounted(() => {
+		hardwareComponents.value.forEach((component) => {
+			approximateCost.value += component.price;
+		});
+		developmentComponents.value.forEach((component) => {
+			developmentCost.value += component.price;
+		});
+		approximateCost.value = parseFloat(approximateCost.value.toFixed(2));
+		developmentCost.value = parseFloat(developmentCost.value.toFixed(2));
+
+		totalCost.value = (
+			approximateCost.value + developmentCost.value
+		).toFixed(2);
+
 		window.addEventListener("resize", checkScreenSize);
 	});
 
 	onUnmounted(() => {
 		window.removeEventListener("resize", checkScreenSize);
+		window.removeEventListener("keydown", handleKeydown);
 	});
 </script>
 
@@ -759,5 +793,24 @@
 	.fade-enter,
 	.fade-leave-to {
 		opacity: 0;
+	}
+	.sticky-container {
+		position: sticky;
+		top: 0; /* Adjust this if there is a navbar or another header */
+		z-index: 10; /* Keep on top of other content */
+		width: 100%; /* Full width */
+		background-color: white; /* Match background or adjust as necessary */
+	}
+
+	/* Reduce margin and padding around elements if necessary */
+	.sticky-container h1,
+	.sticky-container button {
+		margin-bottom: 0.5rem; /* Remove bottom margin */
+		padding: 0.5rem 0; /* Minimal padding to maintain layout */
+	}
+
+	.scrollable-content {
+		overflow-y: auto;
+		max-height: 77vh;
 	}
 </style>

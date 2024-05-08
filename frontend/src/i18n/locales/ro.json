@@ -249,6 +249,7 @@
 			"gsmSolder": "Lipirea GSM-ului",
 			"productPinout": "Pinout-ul produsului",
 			"testPrototype": "Testare prototip",
+			"prototype": "Prototip",
 			"arduinoSolder": "Lipirea plăcii Arduino",
 			"batteryTesting": "Testarea bateriilor"
 		},

@@ -74,7 +74,7 @@
 	const route = useRoute();
 	const authStore = useAuthStore();
 	const id = route.params.id;
-	console.log(id);
+	// console.log(id);
 	const wearerData = ref();
 	const productsData = ref();
 	const loading = ref(true);

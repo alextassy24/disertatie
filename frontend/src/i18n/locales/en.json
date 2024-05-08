@@ -243,6 +243,7 @@
 			"gsmSolder": "GSM Soldering",
 			"productPinout": "Product Pinout",
 			"testPrototype": "Prototype Testing",
+			"prototype": "Prototype",
 			"arduinoSolder": "Arduino Board Soldering",
 			"batteryTesting": "Batteries Testing"
 		},

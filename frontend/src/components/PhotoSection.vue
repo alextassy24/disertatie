@@ -1,34 +1,37 @@
 <template>
-	<div
-		class="flex flex-col items-center justify-between md:flex-row"
-		:class="{ 'mb-5': toggler, 'mb-2': !toggler }"
-	>
-		<h2 class="mb-5 text-2xl font-bold text-green-500 md:mb-0">
-			{{ index }}. {{ title }}
-		</h2>
-		<button
-			class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center"
-			@click="toggler = !toggler"
+	<div class="sticky-container">
+		<div
+			class="flex flex-col items-center justify-between md:flex-row"
+			:class="{ 'mb-5': toggler, 'mb-2': !toggler }"
 		>
-			<i
-				class="fa-solid"
-				:class="{
-					'fa-chevron-up': toggler,
-					'fa-chevron-down': !toggler,
-				}"
-			></i>
-			<span>
-				{{
-					toggler ? translatedValues.collapse : translatedValues.show
-				}}
-			</span>
-		</button>
+			<h2 class="mb-5 text-2xl font-bold text-green-500 md:mb-0">
+				{{ index }}. {{ title }}
+			</h2>
+			<button
+				class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center"
+				@click="toggler = !toggler"
+			>
+				<i
+					class="fa-solid"
+					:class="{
+						'fa-chevron-up': toggler,
+						'fa-chevron-down': !toggler,
+					}"
+				></i>
+				<span>
+					{{
+						toggler
+							? translatedValues.collapse
+							: translatedValues.show
+					}}
+				</span>
+			</button>
+		</div>
 	</div>
-
 	<Transition name="fade">
 		<div
 			v-if="toggler"
-			class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+			class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 scrollable-content"
 		>
 			<img
 				v-for="(photo, photoIndex) in images"
@@ -72,6 +75,19 @@
 </script>
 
 <style scoped>
+	.sticky-container {
+		position: sticky;
+		top: 0;
+		background-color: inherit;
+		z-index: 10;
+		width: 100%;
+	}
+
+	.scrollable-content {
+		overflow-y: auto;
+		max-height: 70vh;
+	}
+
 	.fade-enter-active,
 	.fade-leave-active {
 		transition: opacity 0.3s;

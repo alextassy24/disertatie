@@ -75,7 +75,7 @@
 						<div
 							v-if="dropdownMenu"
 							@pointerleave="dropdownMenu = false"
-							class="dropdown"
+							class="dropdown animate__animated animate__fadeInDown"
 						>
 							<router-link
 								v-for="item in authNavigationItems"
@@ -108,11 +108,10 @@
 
 				<LanguageSwitch />
 			</div>
-			<!-- <div class="hidden gap-3 md:flex"></div> -->
 		</div>
 		<div
 			v-if="collapseMenu"
-			class="block mt-5 md:hidden"
+			class="block mt-5 md:hidden animate__animated animate__fadeInDown"
 		>
 			<ul class="flex flex-col gap-5">
 				<li
@@ -143,7 +142,7 @@
 					</span>
 					<div
 						v-if="dropdownMenu"
-						class="p-2 mt-3 space-y-2 bg-white border rounded-lg shadow-lg top-full"
+						class="p-2 mt-3 space-y-2 bg-white border rounded-lg shadow-lg top-full animate__animated animate__fadeInDown"
 					>
 						<router-link
 							v-for="item in authNavigationItems"
