@@ -68,10 +68,7 @@
 					<span>{{ totalCost }} RON</span>
 				</h1>
 				<hr />
-				<div
-					class="sticky-container"
-					:class="{ 'pt-28': showApproximateTable }"
-				>
+				<div class="sticky-container">
 					<div
 						class="flex flex-col items-center justify-between mt-5 mb-10 md:flex-row"
 					>
@@ -214,10 +211,7 @@
 					</div>
 				</Transition>
 
-				<div
-					class="sticky-container"
-					:class="{ 'pt-28': showDevelopmentTable }"
-				>
+				<div class="sticky-container">
 					<div
 						class="flex flex-col items-center justify-between mt-5 mb-10 md:flex-row"
 					>
@@ -482,10 +476,10 @@
 
 	const hardwareComponents = computed(() => [
 		{
-			image: getImageURL("arduinoNano", "png"),
-			name: "Arduino Nano V3",
-			price: 25.12,
-			link: "https://www.emag.ro/placa-nano-cu-usb-c-compatibila-cu-arduino-nano-v3-0-albastru-arduino-nano-328-usbc-n/pd/DSVTTMYBM/?ref=fav_pd-title",
+			image: getImageURL("arduino", "png"),
+			name: "Arduino UNO R3",
+			price: 52.96,
+			link: "https://cleste.ro/arduino-uno-r3-atmega328p.html",
 		},
 		// {
 		// 	image: getImageURL("sim800l2", "png"),
@@ -517,6 +511,13 @@
 			price: 53,
 			link: "",
 		},
+
+		{
+			image: getImageURL("vodafone", "png"),
+			name: "Vodafone SIM 7€",
+			price: 44,
+			link: "",
+		},
 		{
 			image: getImageURL("suportBaterie", "png"),
 			name: t("about.BatterySupport"),
@@ -533,10 +534,10 @@
 
 	const developmentComponents = computed(() => [
 		{
-			image: getImageURL("arduino", "png"),
-			name: "Arduino UNO R3",
-			price: 52.96,
-			link: "https://cleste.ro/arduino-uno-r3-atmega328p.html",
+			image: getImageURL("arduinoNano", "png"),
+			name: "Arduino Nano V3",
+			price: 25.12,
+			link: "https://www.emag.ro/placa-nano-cu-usb-c-compatibila-cu-arduino-nano-v3-0-albastru-arduino-nano-328-usbc-n/pd/DSVTTMYBM/?ref=fav_pd-title",
 		},
 		{
 			image: getImageURL("sim800l", "png"),
@@ -794,21 +795,6 @@
 	.fade-leave-to {
 		opacity: 0;
 	}
-	.sticky-container {
-		position: sticky;
-		top: 0; /* Adjust this if there is a navbar or another header */
-		z-index: 10; /* Keep on top of other content */
-		width: 100%; /* Full width */
-		background-color: white; /* Match background or adjust as necessary */
-	}
-
-	/* Reduce margin and padding around elements if necessary */
-	.sticky-container h1,
-	.sticky-container button {
-		margin-bottom: 0.5rem; /* Remove bottom margin */
-		padding: 0.5rem 0; /* Minimal padding to maintain layout */
-	}
-
 	.scrollable-content {
 		overflow-y: auto;
 		max-height: 77vh;

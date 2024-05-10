@@ -34,16 +34,33 @@
 						/>
 					</div>
 					<div class="flex flex-col mb-5">
-						<label class="form-label">{{
-							translatedValues.password
-						}}</label>
-						<Field
-							id="password"
-							type="password"
-							name="password"
-							class="form-field"
-							v-model="password"
-						/>
+						<label
+							for="password"
+							class="form-label"
+							>{{ translatedValues.password }}</label
+						>
+						<div class="relative">
+							<Field
+								id="password"
+								:type="showPassword ? 'text' : 'password'"
+								name="password"
+								class="form-field"
+								v-model="password"
+							/>
+							<button
+								type="button"
+								class="absolute inset-y-0 right-0 flex items-center px-3"
+								@click="togglePasswordVisibility"
+							>
+								<i
+									:class="
+										showPassword
+											? 'fa fa-eye-slash'
+											: 'fa fa-eye'
+									"
+								></i>
+							</button>
+						</div>
 						<ErrorMessage
 							name="password"
 							class="error-message"
@@ -181,6 +198,7 @@
 
 	const email = ref("");
 	const password = ref("");
+	const showPassword = ref(false);
 	const successMessage = ref("");
 	const errorMessage = ref("");
 	const isLoading = ref(false);
@@ -216,6 +234,10 @@
 	function clearErrors() {
 		errorMessage.value = "";
 		successMessage.value = "";
+	}
+
+	function togglePasswordVisibility() {
+		showPassword.value = !showPassword.value;
 	}
 
 	function onSubmit() {
@@ -259,3 +281,25 @@
 			});
 	}
 </script>
+
+<style scoped>
+	.form-field {
+		width: 100%;
+		padding-right: 40px;
+	}
+	.relative {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+
+	.absolute {
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+</style>
