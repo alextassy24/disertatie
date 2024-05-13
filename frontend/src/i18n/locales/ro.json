@@ -243,10 +243,10 @@
 		"BreadboardCon": "Conectori pentru Breadboard",
 		"PhotoGalleryTitle": "Galerie foto",
 		"PhotoGallery": {
-			"gpsTest": "Testarea GPS-ului",
-			"gpsSolder": "Lipirea GPS-ului",
-			"gsmTest": "Testarea GSM-ului",
-			"gsmSolder": "Lipirea GSM-ului",
+			"gpsTest": "Testarea modulului GPS",
+			"gpsSolder": "Lipirea modulului GPS",
+			"gsmTest": "Testarea modulului GSM",
+			"gsmSolder": "Lipirea modulului GSM",
 			"productPinout": "Pinout-ul produsului",
 			"testPrototype": "Testare prototip",
 			"prototype": "Prototip",
@@ -453,6 +453,7 @@
 		"GoBack": "Înapoi",
 		"Show": "Arată",
 		"Collapse": "Ascunde",
-		"PageNotFound": "Pagina nu a fost găsită"
+		"PageNotFound": "Pagina nu a fost găsită",
+		"Photos": "poze"
 	}
 }

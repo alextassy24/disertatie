@@ -237,10 +237,10 @@
 		"BreadboardCon": "Breadboard connectors",
 		"PhotoGalleryTitle": "Photo Gallery",
 		"PhotoGallery": {
-			"gpsTest": "GPS Testing",
-			"gpsSolder": "GPS Soldering",
-			"gsmTest": "GSM Testing",
-			"gsmSolder": "GSM Soldering",
+			"gpsTest": "GPS Module Testing",
+			"gpsSolder": "GPS Module Soldering",
+			"gsmTest": "GSM Module Testing",
+			"gsmSolder": "GSM Module Soldering",
 			"productPinout": "Product Pinout",
 			"testPrototype": "Prototype Testing",
 			"prototype": "Prototype",
@@ -447,6 +447,7 @@
 		"GoBack": "Go back",
 		"Show": "Show",
 		"Collapse": "Collapse",
-		"PageNotFound": "Page not found"
+		"PageNotFound": "Page not found",
+		"Photos": "photos"
 	}
 }

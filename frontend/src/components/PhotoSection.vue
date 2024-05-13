@@ -5,7 +5,8 @@
 			:class="{ 'mb-5': toggler, 'mb-2': !toggler }"
 		>
 			<h2 class="mb-5 text-2xl font-bold text-green-500 md:mb-0">
-				{{ index }}. {{ title }}
+				{{ index }}. {{ title }} - {{ images.length }}
+				{{ translatedValues.photos }}
 			</h2>
 			<button
 				class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center"
@@ -31,7 +32,7 @@
 	<Transition name="fade">
 		<div
 			v-if="toggler"
-			class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 scrollable-content"
+			class="grid grid-cols-1 gap-8 img-container md:grid-cols-2 lg:grid-cols-4 scrollable-content"
 		>
 			<img
 				v-for="(photo, photoIndex) in images"
@@ -70,6 +71,7 @@
 		return {
 			show: t("utils.Show"),
 			collapse: t("utils.Collapse"),
+			photos: t("utils.Photos"),
 		};
 	});
 </script>

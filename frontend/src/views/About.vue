@@ -670,6 +670,28 @@
 	const toggleModal = () => {
 		modalActive.value = !modalActive.value;
 		emitter.emit("modal-active", modalActive.value);
+		if (modalActive.value == false) {
+			modalImageId.value = null;
+			modalImage.value = null;
+		}
+	};
+
+	const nextImage = () => {
+		if (modalImageId.value + 1 < modalImages.value.length - 1) {
+			modalImageId.value += 1;
+		} else {
+			modalImageId.value = modalImages.value.length - 1;
+		}
+		modalImage.value = modalImages.value[modalImageId.value].image;
+	};
+
+	const prevImage = () => {
+		if (modalImageId.value - 1 > 0) {
+			modalImageId.value -= 1;
+		} else {
+			modalImageId.value = 0;
+		}
+		modalImage.value = modalImages.value[modalImageId.value].image;
 	};
 
 	watch(modalActive, (newValue) => {
@@ -683,6 +705,10 @@
 	function handleKeydown(event) {
 		if (event.key === "Escape") {
 			toggleModal();
+		} else if (event.key === "ArrowRight") {
+			nextImage();
+		} else if (event.key === "ArrowLeft") {
+			prevImage();
 		}
 	}
 
