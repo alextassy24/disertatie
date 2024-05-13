@@ -84,3 +84,11 @@ tbody tr td:nth-child(even) {
 .subtitle {
 	@apply my-5 text-2xl font-semibold ms-1;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	transition: background-color 5000s ease-in-out 0s; /* Transition the color over a long duration */
+	-webkit-text-fill-color: #000 !important; /* Override the text color */
+	-webkit-box-shadow: 0 0 0px 1000px #f3f4f6 inset; /* Try to force the background color */
+}

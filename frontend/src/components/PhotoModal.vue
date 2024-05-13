@@ -74,21 +74,10 @@
 							v-if="isSmallScreen"
 							class="flex flex-col items-center justify-center gap-3"
 						>
-							<div
-								class="image-container"
-								@mousemove="handleMouseMove"
-								@mouseleave="resetPosition"
-							>
-								<img
-									:src="photoAddress"
-									@click="toggleZoom"
-									class="w-4/5 mx-auto zoom-image rounded-xl"
-									:class="{
-										'cursor-zoom-out': isZoomed,
-										'cursor-zoom-in': !isZoomed,
-									}"
-								/>
-							</div>
+							<img
+								:src="photoAddress"
+								class="w-5/6 mx-auto rounded-xl"
+							/>
 							<div class="flex items-center gap-10">
 								<button
 									class="btn-primary"

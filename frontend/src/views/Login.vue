@@ -21,25 +21,34 @@
 				>
 					<div class="flex flex-col mb-5">
 						<label class="form-label">Email</label>
-						<Field
-							id="email"
-							type="email"
-							name="email"
-							class="form-field"
-							v-model="email"
-						/>
+						<div class="input-wrapper">
+							<span class="input-icon">
+								<i class="fa-regular fa-user"></i>
+							</span>
+							<Field
+								id="email"
+								type="email"
+								name="email"
+								class="form-field"
+								v-model="email"
+							/>
+						</div>
 						<ErrorMessage
 							name="email"
 							class="error-message"
 						/>
 					</div>
+
 					<div class="flex flex-col mb-5">
 						<label
 							for="password"
 							class="form-label"
 							>{{ translatedValues.password }}</label
 						>
-						<div class="relative">
+						<div class="relative input-wrapper">
+							<span class="input-icon">
+								<i class="fa-solid fa-lock"></i>
+							</span>
 							<Field
 								id="password"
 								:type="showPassword ? 'text' : 'password'"
@@ -66,6 +75,7 @@
 							class="error-message"
 						/>
 					</div>
+
 					<div class="flex justify-center mb-3">
 						<button
 							type="submit"
@@ -82,7 +92,7 @@
 				</Form>
 				<div
 					v-if="!successMessage"
-					class="flex flex-col items-center gap-2"
+					class="flex flex-col items-start gap-2"
 				>
 					<router-link
 						class="login-link"
@@ -283,19 +293,44 @@
 </script>
 
 <style scoped>
-	.form-field {
-		width: 100%;
-		padding-right: 40px;
-	}
-	.relative {
-		position: relative;
+	.input-wrapper {
 		display: flex;
 		align-items: center;
+		background-color: #f3f4f6; /* Light gray background */
+		border-radius: 0.375rem; /* 6px */
+		position: relative;
+		border: 2px solid transparent; /* For focus effect */
+		transition: all 0.3s ease-in-out;
+	}
+
+	.input-wrapper:hover,
+	.input-wrapper:focus-within {
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Hover shadow */
+		border-color: #10b981; /* Focus border color - Tailwind Green 400 */
+	}
+
+	.input-icon {
+		padding: 12px;
+		background: black;
+		color: white;
+		border-radius: 0.375rem 0 0 0.375rem; /* Rounded left corners */
+	}
+
+	.form-field {
+		flex-grow: 1;
+		border: none;
+		outline: none;
+		padding: 8px 12px;
+		border-radius: 0 0.375rem 0.375rem 0; /* Rounded right corners */
+	}
+
+	.form-field:focus {
+		box-shadow: none; /* Remove default focus styles */
 	}
 
 	.absolute {
 		position: absolute;
-		right: 10px;
+		right: 0;
 		top: 50%;
 		transform: translateY(-50%);
 		background: none;
