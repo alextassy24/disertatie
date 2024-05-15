@@ -7,7 +7,7 @@
 		<section class="container w-full px-10 py-16 mx-auto md:w-3/4">
 			<BackButton />
 			<div
-				class="flex flex-col items-center justify-center w-full py-10 mx-auto md:w-3/4 lg:w-2/4 xl:w-1/4"
+				class="flex flex-col items-center justify-center w-full py-10 mx-auto md:w-3/4 lg:w-2/4 xl:w-2/5bun"
 				:class="
 					!successMessage
 						? 'bg-gray-200 rounded-xl shadow-lg'

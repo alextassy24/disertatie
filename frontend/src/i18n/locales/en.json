@@ -235,6 +235,7 @@
 		"BatteriesSupport": "3.7V Batteries Support",
 		"AABatteries": "AA Batteries",
 		"BreadboardCon": "Breadboard connectors",
+		"A9G": "Development board A9G",
 		"PhotoGalleryTitle": "Photo Gallery",
 		"PhotoGallery": {
 			"gpsTest": "GPS Module Testing",

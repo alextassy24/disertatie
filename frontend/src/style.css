@@ -84,6 +84,7 @@ tbody tr td:nth-child(even) {
 .subtitle {
 	@apply my-5 text-2xl font-semibold ms-1;
 }
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

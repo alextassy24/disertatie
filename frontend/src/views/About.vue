@@ -250,6 +250,34 @@
 						class="px-2 py-10 bg-green-400 shadow-lg md:px-0 rounded-2xl"
 					>
 						<div
+							class="flex items-center justify-end gap-3 m-5 mx-10"
+						>
+							<div
+								class="flex items-center gap-3 p-3 bg-gray-200 rounded shadow"
+							>
+								<label
+									class="font-bold"
+									for="sortDevelopmentTable"
+									>Sort</label
+								>
+								<select name="sorting">
+									<option value="ascending">ascending</option>
+									<option value="descending">
+										descending
+									</option>
+								</select>
+								<span class="font-bold">by</span>
+								<select
+									name="sortDevelopmentTable"
+									@ohange="sortDevelopmentTable"
+								>
+									<option value="name">name</option>
+									<option value="price">price</option>
+								</select>
+							</div>
+						</div>
+
+						<div
 							v-if="isMediumScreenOrAbove"
 							class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
 						>
@@ -476,28 +504,16 @@
 
 	const hardwareComponents = computed(() => [
 		{
-			image: getImageURL("arduino", "png"),
-			name: "Arduino UNO R3",
-			price: 52.96,
-			link: "https://cleste.ro/arduino-uno-r3-atmega328p.html",
-		},
-		// {
-		// 	image: getImageURL("sim800l2", "png"),
-		// 	name: t("home.GSMTitle"),
-		// 	price: 36.32,
-		// 	link: "https://www.emag.ro/modul-gsm-ajmaker-sim800l-microsim-ttl-gprs-3-7-4-2v-25x23-mm-z001836/pd/DD1RLHYBM/?ref=fav_pd-title",
-		// },
-		{
-			image: getImageURL("sim800l2.0", "png"),
-			name: t("home.GSMTitle"),
-			price: 60.98,
-			link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-20-cu-antena.html",
+			image: getImageURL("attiny85", "png"),
+			name: "Arduino ATTiny85",
+			price: 28.13,
+			link: "https://www.sigmanortec.ro/Placa-dezvoltare-ATTINY85-p126029357?fast_search=fs",
 		},
 		{
-			image: getImageURL("neo6m", "png"),
-			name: t("home.GPSTitle"),
-			price: 62.06,
-			link: "https://cleste.ro/modul-gps-ublox-neo-6m-cu-antena.html",
+			image: getImageURL("a9g", "png"),
+			name: t("about.A9G"),
+			price: 114.59,
+			link: "https://www.sigmanortec.ro/placa-dezvoltare-a9g-gsm-gprs-gps?fast_search=fs",
 		},
 		{
 			image: getImageURL("baterii", "png"),
@@ -505,13 +521,6 @@
 			price: 38.99,
 			link: "https://www.emag.ro/set-4-acumulatori-rakieta-18650-3-7v-12000mah-li-ion-auriu-st-rk18650g/pd/DV5XB8MBM/?utm_medium=ios&utm_source=mobile%20app&utm_campaign=share%20product",
 		},
-		{
-			image: getImageURL("vodafone", "png"),
-			name: "Vodafone SIM 8€",
-			price: 53,
-			link: "",
-		},
-
 		{
 			image: getImageURL("vodafone", "png"),
 			name: "Vodafone SIM 7€",
@@ -534,6 +543,24 @@
 
 	const developmentComponents = computed(() => [
 		{
+			image: getImageURL("arduino", "png"),
+			name: "Arduino UNO R3",
+			price: 52.96,
+			link: "https://cleste.ro/arduino-uno-r3-atmega328p.html",
+		},
+		{
+			image: getImageURL("sim800l2.0", "png"),
+			name: t("home.GSMTitle"),
+			price: 60.98,
+			link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-20-cu-antena.html",
+		},
+		{
+			image: getImageURL("neo6m", "png"),
+			name: t("home.GPSTitle"),
+			price: 62.06,
+			link: "https://cleste.ro/modul-gps-ublox-neo-6m-cu-antena.html",
+		},
+		{
 			image: getImageURL("arduinoNano", "png"),
 			name: "Arduino Nano V3",
 			price: 25.12,
@@ -544,6 +571,12 @@
 			name: t("home.GSMTitle"),
 			price: 57.46,
 			link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-cu-antena.html",
+		},
+		{
+			image: getImageURL("vodafone", "png"),
+			name: "Vodafone SIM 8€",
+			price: 53,
+			link: "",
 		},
 		{
 			image: getImageURL("bateriiAA", "png"),
@@ -622,7 +655,7 @@
 		},
 		{
 			title: t("about.PhotoGallery.gsmTest"),
-			count: 6,
+			count: 10,
 			prefix: "gsmTest",
 			toggler: false,
 		},
@@ -702,7 +735,7 @@
 		}
 	});
 
-	function handleKeydown(event) {
+	const handleKeydown = (event) => {
 		if (event.key === "Escape") {
 			toggleModal();
 		} else if (event.key === "ArrowRight") {
@@ -710,7 +743,7 @@
 		} else if (event.key === "ArrowLeft") {
 			prevImage();
 		}
-	}
+	};
 
 	const choosePhoto = (photo, index, images) => {
 		modalImage.value = photo;
@@ -785,6 +818,17 @@
 		() => screenWidth.value >= breakpoints.md
 	);
 	const isSmallScreen = computed(() => screenWidth.value < breakpoints.md);
+
+	const approximateTableToggle = ref(false);
+	const developmentTableToggle = ref(false);
+
+	const sortTable = (array, toggle) => {
+		if (toggle) {
+			array = array.sort();
+		} else {
+			array = array.sort();
+		}
+	};
 
 	onMounted(() => {
 		hardwareComponents.value.forEach((component) => {
