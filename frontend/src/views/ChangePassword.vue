@@ -126,6 +126,7 @@
 
 	const router = useRouter();
 	const authStore = useAuthStore();
+	const apiAddress = authStore.apiAddress;
 	const { t } = useI18n();
 
 	const translatedValues = computed(() => {

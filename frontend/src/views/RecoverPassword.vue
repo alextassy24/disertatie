@@ -191,7 +191,7 @@
 	const checkToken = async () => {
 		await axios
 			.get(
-				`${userStore.apiAddress}/api/account/check-token?token=${token}`
+				`${authStore.apiAddress}/api/account/check-token?token=${token}`
 			)
 			.then((response) => {
 				// console.log(response);
