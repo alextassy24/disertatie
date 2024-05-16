@@ -107,12 +107,60 @@
 						class="px-2 py-10 bg-green-400 shadow-lg md:px-0 rounded-2xl"
 					>
 						<div
+							class="flex justify-center w-5/6 gap-3 mx-auto md:justify-end"
+						>
+							<div
+								class="flex flex-col items-center gap-3 p-3 my-3 bg-gray-200 rounded shadow md md:flex-row"
+							>
+								<div class="flex items-center gap-3">
+									<span class="font-bold">{{
+										translatedValues.sort
+									}}</span>
+									<select
+										name="sorting"
+										@change="
+											updateApproximateSortDirection(
+												$event
+											)
+										"
+									>
+										<option value="ascending">
+											{{ translatedValues.ascending }}
+										</option>
+										<option value="descending">
+											{{ translatedValues.descending }}
+										</option>
+									</select>
+								</div>
+								<div class="flex items-center gap-3">
+									<span class="font-bold">{{
+										translatedValues.by
+									}}</span>
+									<select
+										name="sortDevelopmentTable"
+										@change="
+											updateApprxoimateSortBy($event)
+										"
+									>
+										<option value="name">
+											{{ translatedValues.name }}
+										</option>
+										<option value="price">
+											{{ translatedValues.price }}
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div
 							v-if="isMediumScreenOrAbove"
-							class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
+							class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl scrollable-content-table"
 						>
 							<table class="min-w-full divide-y divide-gray-200">
 								<thead>
-									<tr class="text-white bg-black">
+									<tr
+										class="text-white bg-black sticky-header"
+									>
 										<th>Nr.Crt.</th>
 										<th>{{ translatedValues.itemImg }}</th>
 										<th>{{ translatedValues.itemName }}</th>
@@ -126,7 +174,7 @@
 									<tr
 										v-for="(
 											component, index
-										) in hardwareComponents"
+										) in sortedApproximateTable"
 										:key="index"
 										class="text-center"
 									>
@@ -168,7 +216,9 @@
 							class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2 scrollable-content"
 						>
 							<div
-								v-for="(component, index) in hardwareComponents"
+								v-for="(
+									component, index
+								) in sortedApproximateTable"
 								:key="index"
 								class="flex justify-start p-5 text-justify bg-white rounded-lg shadow-xl card-hover"
 							>
@@ -250,40 +300,61 @@
 						class="px-2 py-10 bg-green-400 shadow-lg md:px-0 rounded-2xl"
 					>
 						<div
-							class="flex items-center justify-end gap-3 m-5 mx-10"
+							class="flex justify-center w-5/6 gap-3 mx-auto md:justify-end"
 						>
 							<div
-								class="flex items-center gap-3 p-3 bg-gray-200 rounded shadow"
+								class="flex flex-col items-center gap-3 p-3 my-3 bg-gray-200 rounded shadow md md:flex-row"
 							>
-								<label
-									class="font-bold"
-									for="sortDevelopmentTable"
-									>Sort</label
-								>
-								<select name="sorting">
-									<option value="ascending">ascending</option>
-									<option value="descending">
-										descending
-									</option>
-								</select>
-								<span class="font-bold">by</span>
-								<select
-									name="sortDevelopmentTable"
-									@ohange="sortDevelopmentTable"
-								>
-									<option value="name">name</option>
-									<option value="price">price</option>
-								</select>
+								<div class="flex items-center gap-3">
+									<span class="font-bold">{{
+										translatedValues.sort
+									}}</span>
+									<select
+										name="sorting"
+										@change="
+											updateDevelopmentSortDirection(
+												$event
+											)
+										"
+									>
+										<option value="ascending">
+											{{ translatedValues.ascending }}
+										</option>
+										<option value="descending">
+											{{ translatedValues.descending }}
+										</option>
+									</select>
+								</div>
+								<div class="flex items-center gap-3">
+									<span class="font-bold">{{
+										translatedValues.by
+									}}</span>
+									<select
+										name="sortDevelopmentTable"
+										@change="
+											updateDevelopmentSortBy($event)
+										"
+									>
+										<option value="name">
+											{{ translatedValues.name }}
+										</option>
+										<option value="price">
+											{{ translatedValues.price }}
+										</option>
+									</select>
+								</div>
 							</div>
 						</div>
 
 						<div
 							v-if="isMediumScreenOrAbove"
-							class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
+							class="w-5/6 mx-auto mb-10 overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl scrollable-content-table"
 						>
 							<table class="min-w-full divide-y divide-gray-200">
 								<thead>
-									<tr class="text-white bg-black">
+									<tr
+										class="text-white bg-black sticky-header"
+									>
 										<th>Nr.Crt.</th>
 										<th>{{ translatedValues.itemImg }}</th>
 										<th>{{ translatedValues.itemName }}</th>
@@ -297,7 +368,7 @@
 									<tr
 										v-for="(
 											component, index
-										) in developmentComponents"
+										) in sortedDevelopmentTable"
 										:key="index"
 										class="text-center"
 									>
@@ -341,7 +412,7 @@
 							<div
 								v-for="(
 									component, index
-								) in developmentComponents"
+								) in sortedDevelopmentTable"
 								:key="index"
 								class="flex justify-start p-5 text-justify bg-white rounded-lg shadow-xl card-hover"
 							>
@@ -455,6 +526,8 @@
 	import { ref, computed, onMounted, onUnmounted, inject, watch } from "vue";
 	import { useI18n } from "vue-i18n";
 	import { defineAsyncComponent } from "vue";
+	import { useSortedArray } from "../utils/sorting.js";
+
 	import Hero from "../components/Hero.vue";
 	import PhotoSection from "../components/PhotoSection.vue";
 
@@ -493,6 +566,12 @@
 			show: t("utils.Show"),
 			collapse: t("utils.Collapse"),
 			developmentPhasesTitle: t("about.DevelopmentPhases.Title"),
+			sort: t("utils.Sort"),
+			by: t("utils.By"),
+			ascending: t("utils.Ascending"),
+			descending: t("utils.Descending"),
+			name: t("utils.Name"),
+			price: t("utils.Price"),
 		};
 	});
 
@@ -745,12 +824,6 @@
 		}
 	};
 
-	const choosePhoto = (photo, index, images) => {
-		modalImage.value = photo;
-		modalImageId.value = index;
-		modalImages.value = images;
-	};
-
 	const developmentPhases = computed(() => [
 		{
 			title: t("about.DevelopmentPhases.Phase1.Title"),
@@ -798,6 +871,12 @@
 		).href;
 	};
 
+	const choosePhoto = (photo, index, images) => {
+		modalImage.value = photo;
+		modalImageId.value = index;
+		modalImages.value = images;
+	};
+
 	const gpsPhoto = getImageURL("team", "png");
 	const projectPhoto = getImageURL("gps", "jpeg");
 
@@ -819,31 +898,54 @@
 	);
 	const isSmallScreen = computed(() => screenWidth.value < breakpoints.md);
 
-	const approximateTableToggle = ref(false);
-	const developmentTableToggle = ref(false);
+	const developmentSortBy = ref("name"); // 'name' or 'price'
+	const developmentSortDirection = ref("ascending"); // 'ascending' or 'descending'
+	const approximateSortBy = ref("name"); // 'name' or 'price'
+	const approximateSortDirection = ref("ascending"); // 'ascending' or 'descending'
 
-	const sortTable = (array, toggle) => {
-		if (toggle) {
-			array = array.sort();
-		} else {
-			array = array.sort();
-		}
+	const sortedDevelopmentTable = useSortedArray(
+		developmentComponents.value,
+		developmentSortBy,
+		developmentSortDirection
+	);
+
+	const sortedApproximateTable = useSortedArray(
+		hardwareComponents.value,
+		approximateSortBy,
+		approximateSortDirection
+	);
+
+	const updateDevelopmentSortDirection = (event) => {
+		developmentSortDirection.value = event.target.value;
+	};
+
+	const updateDevelopmentSortBy = (event) => {
+		developmentSortBy.value = event.target.value;
+	};
+
+	const updateApproximateSortDirection = (event) => {
+		approximateSortDirection.value = event.target.value;
+	};
+
+	const updateApprxoimateSortBy = (event) => {
+		approximateSortBy.value = event.target.value;
+	};
+
+	const calculateCosts = () => {
+		approximateCost.value = hardwareComponents.value
+			.reduce((sum, component) => sum + component.price, 0)
+			.toFixed(2);
+		developmentCost.value = developmentComponents.value
+			.reduce((sum, component) => sum + component.price, 0)
+			.toFixed(2);
+		totalCost.value = (
+			parseFloat(approximateCost.value) +
+			parseFloat(developmentCost.value)
+		).toFixed(2);
 	};
 
 	onMounted(() => {
-		hardwareComponents.value.forEach((component) => {
-			approximateCost.value += component.price;
-		});
-		developmentComponents.value.forEach((component) => {
-			developmentCost.value += component.price;
-		});
-		approximateCost.value = parseFloat(approximateCost.value.toFixed(2));
-		developmentCost.value = parseFloat(developmentCost.value.toFixed(2));
-
-		totalCost.value = (
-			approximateCost.value + developmentCost.value
-		).toFixed(2);
-
+		calculateCosts();
 		window.addEventListener("resize", checkScreenSize);
 	});
 
@@ -868,5 +970,19 @@
 	.scrollable-content {
 		overflow-y: auto;
 		max-height: 77vh;
+	}
+	.scrollable-content-table {
+		overflow-y: auto;
+		max-height: 74vh;
+	}
+	.sticky-header th {
+		position: sticky;
+		top: 0; /* Stick to the top */
+		z-index: 10; /* Ensure it stays above the table content */
+		background-color: black; /* Ensure background color remains consistent */
+		padding: 0.5rem 0;
+	}
+	select {
+		@apply bg-transparent border-none w-full text-gray-700 py-1 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white hover:cursor-pointer;
 	}
 </style>

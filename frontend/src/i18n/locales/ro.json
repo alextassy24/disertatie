@@ -455,6 +455,12 @@
 		"Show": "Arată",
 		"Collapse": "Ascunde",
 		"PageNotFound": "Pagina nu a fost găsită",
-		"Photos": "poze"
+		"Photos": "poze",
+		"Sort": "Sortează",
+		"Ascending": "crescător",
+		"Descending": "descrescător",
+		"By": "după",
+		"Name": "nume",
+		"Price": "preț"
 	}
 }

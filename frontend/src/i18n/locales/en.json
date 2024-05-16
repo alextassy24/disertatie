@@ -449,6 +449,12 @@
 		"Show": "Show",
 		"Collapse": "Collapse",
 		"PageNotFound": "Page not found",
-		"Photos": "photos"
+		"Photos": "photos",
+		"Sort": "Sort",
+		"Ascending": "ascending",
+		"Descending": "descending",
+		"By": "by",
+		"Name": "name",
+		"Price": "price"
 	}
 }
