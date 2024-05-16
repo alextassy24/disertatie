@@ -5,7 +5,7 @@
 	>
 		<div
 			v-if="shouldShowBanner"
-			class="fixed bottom-0 left-0 w-full p-5 text-white bg-green-500 border-t-4 border-black shadow"
+			class="fixed bottom-0 left-0 z-50 w-full p-5 text-white bg-green-500 border-t-4 border-black shadow"
 		>
 			<div class="container mx-auto">
 				<div
