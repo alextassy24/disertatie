@@ -487,7 +487,7 @@
 			>
 			</PhotoModal>
 		</section>
-		<section class="px-10 py-16 bg-gray-100">
+		<!-- <section class="px-10 py-16 bg-gray-100">
 			<div class="container">
 				<div class="grid grid-cols-1 md:grid-cols-2">
 					<div class="order-1">
@@ -518,7 +518,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 	</div>
 </template>
 

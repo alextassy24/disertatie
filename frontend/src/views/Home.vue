@@ -80,6 +80,8 @@
 							<li>Entity Framework</li>
 							<li>SignalR</li>
 							<li>PostgreSQL</li>
+							<li>Microsoft Azure</li>
+							<li>Amazon Web Services</li>
 						</ul>
 					</div>
 				</div>
