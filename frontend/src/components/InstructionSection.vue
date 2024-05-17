@@ -1,8 +1,5 @@
 <template>
 	<div class="m-3">
-		<!-- <h1 class="mb-5 text-3xl font-bold">
-			{{ selectedSection.title }}
-		</h1> -->
 		<div
 			v-for="(paragraph, index) in selectedSection.text"
 			:key="index"

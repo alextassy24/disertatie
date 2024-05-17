@@ -66,7 +66,7 @@
 </template>
 
 <script setup>
-	import { computed, ref, onMounted, onUnmounted } from "vue";
+	import { computed, ref, onMounted, onUnmounted, watch } from "vue";
 	import { useI18n } from "vue-i18n";
 	import Hero from "../components/Hero.vue";
 	import InstructionSection from "../components/InstructionSection.vue";
@@ -84,7 +84,6 @@
 		{
 			title: t("docs.Register.Title"),
 			text: [
-				// { subtitle: t("docs.Register."), context: t("docs.Register.") },
 				{
 					context: t("docs.Register.Context.RequiredData"),
 				},
@@ -213,15 +212,26 @@
 	]);
 
 	const selectedSection = ref(docsSections.value[0]);
-	const subtitle = computed(() => {
-		return selectedSection.value.title;
-	});
+
+	const subtitle = ref(selectedSection.value.title);
+	// const subtitle = computed(() => {
+	// 	return selectedSection.value.title;
+	// });
 
 	const selectSection = (section) => {
 		selectedSection.value = section;
+		subtitle.value = section.title;
 		menuToggler.value = false;
-		window.scrollTo(0, 0);
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
 	};
+
+	watch(docsSections, (newValue) => {
+		selectedSection.value = newValue[0];
+		subtitle.value = selectedSection.value.title;
+	});
 
 	const screenWidth = ref(window.innerWidth);
 	const breakpoints = {
