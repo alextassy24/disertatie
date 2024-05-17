@@ -288,9 +288,9 @@
 	"faq": {
 		"Title": "Frequently asked questions",
 		"Q1": "What are the key features of the monitoring device device?",
-		"A1": "The monitoring device device offers various features: Real-time health monitoring, including heart rate, blood pressure, and activity tracking. Emergency SOS function for immediate assistance. Sleep tracking and analysis for better sleep management. Waterproof and durable design for everyday use. Long battery life to ensure continuous monitoring without frequent charging.",
+		"A1": "The monitoring device device offers various features: Real-time location monitoring. Emergency SOS function for immediate assistance. Waterproof and durable design for everyday use. Long battery life to ensure continuous monitoring without frequent charging.",
 		"Q2": "What functionalities does the web app platform provide for users of the monitoring device device?",
-		"A2": "The web app platform acts as a comprehensive dashboard for users: Displays detailed health metrics recorded by the device in an easily accessible format. Allows users to set health goals and track progress over time. Provides personalized insights and recommendations based on the gathered data. Enables data sharing with healthcare professionals or family members for remote monitoring and support.",
+		"A2": "The web app platform offers the following functionalities for users of the monitoring device: allows users to create and manage their accounts, users can register persons and associated devices, allows viewing the latest locations of each device, provides real-time location viewing on an interactive map, displays the current battery level of the devices, allows exporting location data in CSV format.",
 		"Q3": "How is the privacy and security of user data ensured on the web app platform?",
 		"A3": "The web app platform prioritizes user data privacy and security: Implements end-to-end encryption to safeguard sensitive health information. Adheres to strict industry standards and regulations (such as HIPAA or GDPR) for data protection. Requires secure authentication methods (like two-factor authentication) to access user accounts. Regularly undergoes security audits and updates to address potential vulnerabilities and ensure robust protection against unauthorized access or data breaches."
 	},
