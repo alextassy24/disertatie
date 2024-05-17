@@ -345,7 +345,7 @@
 	},
 	"resend-email-confirmation": {
 		"Title": "Retrimite email-ul de confirmare a contului",
-		"Succes": "Email-ul de confirmare a fost trimis cu succes!",
+		"Success": "Email-ul de confirmare a fost trimis cu succes!",
 		"NotFound": "Adresa de email nu a putut fi găsită!",
 		"AlreadySent": "Un email a fost deja trimis! Trebuie să aștepați 2 minute!"
 	},

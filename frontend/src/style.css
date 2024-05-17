@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 .error-message {
-	@apply p-1 mt-2 font-bold text-red-500 whitespace-pre-line bg-red-200 rounded-lg;
+	@apply p-1 mt-2 font-bold text-red-500 bg-red-200 rounded-lg;
+	width: 100%; /* Ensure the error message takes the full width */
+	overflow-wrap: break-word; /* Allow long words to break and wrap */
 }
 
 .form-label {
@@ -12,10 +14,18 @@
 
 .form-field {
 	@apply p-2 px-5 transition duration-300 ease-in-out bg-gray-100 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-400 hover:shadow focus:shadow-lg;
+	width: 100%; /* Ensure the form field takes the full width */
 }
 
 .form-field-error {
 	@apply p-2 px-5 transition duration-300 ease-in-out bg-gray-100 rounded cursor-pointer focus:outline-none ring-red-300 focus:ring-2 focus:ring-red-500 hover:shadow focus:shadow-lg;
+	width: 100%; /* Ensure the form field takes the full width */
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%; /* Ensure the container takes the full width */
 }
 
 .btn {
