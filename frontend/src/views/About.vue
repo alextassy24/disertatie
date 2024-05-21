@@ -1,7 +1,10 @@
 <template>
 	<div class="mt-28">
 		<Hero :title="translatedValues.title" />
+		<SideBar :items="sideBarItems" />
+
 		<section
+			ref="firstSection"
 			class="px-10 py-16 bg-gradient-to-r from-green-500 to-green-300"
 		>
 			<div class="container mx-auto">
@@ -24,7 +27,10 @@
 				</div>
 			</div>
 		</section>
-		<section class="px-10 py-16 bg-gray-100">
+		<section
+			ref="secondSection"
+			class="px-10 py-16 bg-gray-100"
+		>
 			<div class="container mx-auto">
 				<h1 class="mb-10 text-4xl font-bold">
 					{{ translatedValues.developmentPhasesTitle }}
@@ -57,7 +63,10 @@
 				</div>
 			</div>
 		</section>
-		<section class="px-10 py-16">
+		<section
+			ref="thirdSection"
+			class="px-10 py-16"
+		>
 			<div class="container mx-auto">
 				<h1
 					class="flex flex-col items-center mb-5 text-3xl font-bold sm:text-4xl sm:flex-row sm:justify-between"
@@ -456,7 +465,10 @@
 				</Transition>
 			</div>
 		</section>
-		<section class="px-10 py-16 bg-gradient-to-r from-green-300 to-black">
+		<section
+			ref="fourthSection"
+			class="px-10 py-16 bg-gradient-to-r from-green-300 to-black"
+		>
 			<div class="container mx-auto">
 				<h1 class="mb-5 text-4xl font-bold text-white">
 					{{ translatedValues.photoGalleryTitle }}
@@ -523,17 +535,32 @@
 </template>
 
 <script setup>
-	import { ref, computed, onMounted, onUnmounted, inject, watch } from "vue";
+	import {
+		ref,
+		computed,
+		onMounted,
+		onUnmounted,
+		inject,
+		watch,
+		watchEffect,
+	} from "vue";
 	import { useI18n } from "vue-i18n";
 	import { defineAsyncComponent } from "vue";
 	import { useSortedArray } from "../utils/sorting.js";
-
+	import { useScreenSize } from "../utils/useScreenSize";
 	import Hero from "../components/Hero.vue";
 	import PhotoSection from "../components/PhotoSection.vue";
+	import SideBar from "../components/SideBar.vue";
 
+	const { isMediumScreenOrAbove, isSmallScreen } = useScreenSize();
 	const PhotoModal = defineAsyncComponent(() =>
 		import("../components/PhotoModal.vue")
 	);
+
+	const firstSection = ref(null);
+	const secondSection = ref(null);
+	const thirdSection = ref(null);
+	const fourthSection = ref(null);
 
 	const emitter = inject("emitter");
 
@@ -573,6 +600,41 @@
 			name: t("utils.Name"),
 			price: t("utils.Price"),
 		};
+	});
+
+	const sideBarItems = computed(() => [
+		{
+			name: translatedValues.value.aboutProject,
+			icon: "fa-solid fa-house-flag",
+			section: firstSection,
+			active: false,
+		},
+		{
+			name: translatedValues.value.developmentPhasesTitle,
+			icon: "fa-solid fa-book",
+			section: secondSection,
+			active: false,
+		},
+		{
+			name: translatedValues.value.projectCost,
+			icon: "fa-solid fa-coins",
+			section: thirdSection,
+			active: false,
+		},
+		{
+			name: translatedValues.value.photoGalleryTitle,
+			icon: "fa-solid fa-images",
+			section: fourthSection,
+			active: false,
+		},
+	]);
+
+	watchEffect(() => {
+		sideBarItems.value.forEach((item) => {
+			if (item.section.value) {
+				item.section = item.section;
+			}
+		});
 	});
 
 	const approximateCost = ref(0);
@@ -880,24 +942,6 @@
 	const gpsPhoto = getImageURL("team", "png");
 	const projectPhoto = getImageURL("gps", "jpeg");
 
-	const screenWidth = ref(window.innerWidth);
-	const breakpoints = {
-		sm: 640,
-		md: 768,
-		lg: 1024,
-		xl: 1280,
-		xxl: 1536,
-	};
-
-	const checkScreenSize = () => {
-		screenWidth.value = window.innerWidth;
-	};
-
-	const isMediumScreenOrAbove = computed(
-		() => screenWidth.value >= breakpoints.md
-	);
-	const isSmallScreen = computed(() => screenWidth.value < breakpoints.md);
-
 	const developmentSortBy = ref("name"); // 'name' or 'price'
 	const developmentSortDirection = ref("ascending"); // 'ascending' or 'descending'
 	const approximateSortBy = ref("name"); // 'name' or 'price'
@@ -946,11 +990,9 @@
 
 	onMounted(() => {
 		calculateCosts();
-		window.addEventListener("resize", checkScreenSize);
 	});
 
 	onUnmounted(() => {
-		window.removeEventListener("resize", checkScreenSize);
 		window.removeEventListener("keydown", handleKeydown);
 	});
 </script>

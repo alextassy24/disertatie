@@ -5,9 +5,12 @@
 			:title="translatedValues.title"
 			:subtitle="translatedValues.subtitle"
 		/>
-
+		<SideBar :items="sideBarItems" />
 		<!-- Mission section -->
-		<section class="container px-10 py-16 mx-auto bg-white">
+		<section
+			ref="firstSection"
+			class="container px-10 py-16 mx-auto bg-white"
+		>
 			<div class="container z-10 mx-auto text-justify">
 				<h2
 					class="mb-10 text-3xl font-semibold text-center md:text-start"
@@ -51,6 +54,7 @@
 
 		<!-- Technology Section -->
 		<section
+			ref="secondSection"
 			class="px-10 py-16 bg-gradient-to-r from-green-500 to-green-300"
 		>
 			<div class="container mx-auto text-center">
@@ -89,7 +93,10 @@
 		</section>
 
 		<!-- Web app components section -->
-		<section class="px-10 py-16 mx-auto bg-white">
+		<section
+			ref="thirdSection"
+			class="px-10 py-16 mx-auto bg-white"
+		>
 			<div class="container mx-auto text-center">
 				<h2 class="mb-10 text-3xl font-semibold">
 					{{ translatedValues.appComponentsTitle }}
@@ -132,6 +139,7 @@
 		<!-- Key components section -->
 
 		<section
+			ref="fourthSection"
 			class="px-10 py-16 bg-gradient-to-r from-green-500 to-green-300"
 		>
 			<div class="container mx-auto text-center">
@@ -154,12 +162,18 @@
 </template>
 
 <script setup>
-	import { ref, computed } from "vue";
+	import { ref, computed, watchEffect } from "vue";
+	import { useI18n } from "vue-i18n";
 	import ComponentCard from "../components/ComponentCard.vue";
 	import Hero from "../components/Hero.vue";
+	import SideBar from "../components/SideBar.vue";
 
-	import { useI18n } from "vue-i18n";
 	const { t } = useI18n();
+
+	const firstSection = ref(null);
+	const secondSection = ref(null);
+	const thirdSection = ref(null);
+	const fourthSection = ref(null);
 
 	const translatedValues = computed(() => {
 		return {
@@ -177,6 +191,41 @@
 			appComponentsTitle: t("home.AppComponentsTitle"),
 			physicalComponentsTitle: t("home.PhysicalComponentsTitle"),
 		};
+	});
+
+	const sideBarItems = computed(() => [
+		{
+			name: translatedValues.value.missionTitle,
+			icon: "fa-solid fa-house-flag",
+			section: firstSection,
+			active: false,
+		},
+		{
+			name: translatedValues.value.technologyTitle,
+			icon: "fa-solid fa-cube",
+			section: secondSection,
+			active: false,
+		},
+		{
+			name: translatedValues.value.appComponentsTitle,
+			icon: "fa-solid fa-cubes",
+			section: thirdSection,
+			active: false,
+		},
+		{
+			name: translatedValues.value.physicalComponentsTitle,
+			icon: "fa-solid fa-microchip",
+			section: fourthSection,
+			active: false,
+		},
+	]);
+
+	watchEffect(() => {
+		sideBarItems.value.forEach((item) => {
+			if (item.section.value) {
+				item.section = item.section;
+			}
+		});
 	});
 
 	const switchComponents = ref(false);
