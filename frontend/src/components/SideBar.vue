@@ -1,7 +1,6 @@
 <template>
 	<div
-		class="fixed z-20 p-1 my-5 bg-green-400 rounded shadow-xl md:p-1 lg:p-2"
-		:class="{ 'left-0': isLargeScreenOrAbove, 'right-0': isSmallScreen }"
+		class="fixed left-0 z-20 p-1 my-5 bg-green-400 rounded shadow-xl md:p-1 lg:p-2"
 	>
 		<ul class="flex flex-col items-start gap-3">
 			<li
@@ -20,7 +19,6 @@
 
 <script setup>
 	import Tooltip from "./Tooltip.vue";
-	import { useScreenSize } from "../utils/useScreenSize";
 	import { ref, onMounted, watch } from "vue";
 
 	const props = defineProps({
@@ -41,8 +39,6 @@
 			});
 		}
 	};
-
-	const { isLargeScreenOrAbove, isSmallScreen } = useScreenSize();
 
 	// const activeSection = ref(null);
 
