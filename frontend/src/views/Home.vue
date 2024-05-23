@@ -12,9 +12,7 @@
 			class="container px-10 py-16 mx-auto bg-white"
 		>
 			<div class="container z-10 mx-auto text-justify">
-				<h2
-					class="mb-10 text-3xl font-semibold text-center md:text-start"
-				>
+				<h2 class="mb-10 text-3xl font-semibold text-center md:text-start">
 					{{ translatedValues.missionTitle }}
 				</h2>
 				<div
@@ -30,9 +28,7 @@
 						{{ translatedValues.missionBtn }}
 					</router-link>
 				</div>
-				<h2
-					class="mb-10 text-3xl font-semibold text-center md:text-start"
-				>
+				<h2 class="mb-10 text-3xl font-semibold text-center md:text-start">
 					{{ translatedValues.instructionsTitle }}
 				</h2>
 				<div
@@ -146,9 +142,7 @@
 				<h2 class="mb-10 text-3xl font-bold text-white">
 					{{ translatedValues.physicalComponentsTitle }}
 				</h2>
-				<div
-					class="grid grid-cols-1 gap-4 text-left md:grid-cols-2 lg:grid-cols-3"
-				>
+				<div class="grid grid-cols-1 gap-4 text-left md:grid-cols-2">
 					<div
 						v-for="component in keyComponents"
 						class="p-6 text-justify bg-white rounded-lg shadow-xl card-hover"
@@ -326,10 +320,10 @@
 
 	const keyComponents = computed(() => [
 		{
-			name: "Arduino Nano V3",
+			name: t("home.MicrocontrolerTitle"),
 			text: t("home.MicrocontrollerText"),
 			usage: t("home.MicrocontrollerUsage"),
-			link: "https://cleste.ro/arduino-uno-r3-atmega328p.html",
+			link: "https://www.sigmanortec.ro/placa-dezvoltare-a9g-gsm-gprs-gps?gad_source=1&gclid=Cj0KCQjw0ruyBhDuARIsANSZ3wpzs1cdpPQCAGoJcTMuBkvK6m3y9paIZZDId9dAF1JMnQYq5jInq1waAveCEALw_wcB",
 		},
 		{
 			name: "Server(API + DB)",
@@ -341,18 +335,18 @@
 			text: t("home.CaseText"),
 			usage: t("home.CaseUsage"),
 		},
-		{
-			name: t("home.GSMTitle"),
-			text: t("home.GSMText"),
-			usage: t("home.GSMUsage"),
-			link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-20-cu-antena.html",
-		},
-		{
-			name: t("home.GPSTitle"),
-			text: t("home.GPSText"),
-			usage: t("home.GPSUsage"),
-			link: "https://cleste.ro/modul-gps-ublox-neo-6m-cu-antena.html",
-		},
+		// {
+		// 	name: t("home.GSMTitle"),
+		// 	text: t("home.GSMText"),
+		// 	usage: t("home.GSMUsage"),
+		// 	link: "https://cleste.ro/modul-gprs-gsm-quad-band-sim800l-20-cu-antena.html",
+		// },
+		// {
+		// 	name: t("home.GPSTitle"),
+		// 	text: t("home.GPSText"),
+		// 	usage: t("home.GPSUsage"),
+		// 	link: "https://cleste.ro/modul-gps-ublox-neo-6m-cu-antena.html",
+		// },
 		{
 			name: t("home.BatteryTitle"),
 			text: t("home.BatteryText"),

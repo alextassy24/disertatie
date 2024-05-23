@@ -57,7 +57,8 @@
 		"AWS": "AWS este serviciul de cloud computing oferit de Amazon Web Services (AWS), utilizat pentru baza noastră de date.",
 		"AWSUsage": "Găzduirea și gestionarea bazei de date în cloud.",
 		"PhysicalComponentsTitle": "Componentele fizice",
-		"MicrocontrollerText": "Microcontrollerul sau computerul monocip (SBC) reprezintă creierul sistemului de monitorizare. Controlează diversele componente hardware, procesează datele și execută logica software-ului. Alegerea între un microcontroller și un SBC depinde de cerințele computaționale ale sistemului și de factorul de formă.",
+		"MicrocontrolerTitle": "Placă de dezvoltare A9G",
+		"MicrocontrollerText": "Microcontrollerul sau computerul monocip (SBC) reprezintă creierul sistemului de monitorizare. Controlează moulele GSM/ GPRS si GPS incorporate, procesează datele și execută logica software-ului. Alegerea între un microcontroller și un SBC depinde de cerințele computaționale ale sistemului și de factorul de formă.",
 		"MicrocontrollerUsage": "Controlul sistemului și procesarea datelor.",
 		"ServerText": "Componenta server este coloana vertebrală a sistemului nostru. Gestionează stocarea datelor, comunicarea cu dispozitivul și operațiunile de bază de date. Este utilizată pentru stocarea și recuperarea datelor vitale colectate de dispozitiv de monitorizare.",
 		"ServerUsage": "Stocarea datelor, centru de comunicare.",
@@ -287,6 +288,15 @@
 				"Paragraphs": {
 					"P1": "Placa Arduino Nano V3 nu reuseste sa transimta destula tensiune pe pinul de 5V, valoarea reala transmisa fiind de aproximativ 3.9V, iar la momnentul conectarii cu modulul GPS, tensiunea de intrare este 2.46V, fiind o valoare insuficienta pentru a face modulul sa functioneze corespunzator;",
 					"P2": "Datorita faptului ca modulul GSM a fost inlocuit iar placa arduino Nano V3 nu furnizeaza suficienta tensiune, este nevoie sa revenim la placa Arduino Uno R3, deoarece stim ca modulul GPS functioneaza cu aceasta placa, iar noul modul GSM are nevoie de o tensiune de 5V pentru a functiona."
+				}
+			},
+			"Phase5":{
+				"Title": "Etapa 5 - Optimizarea ansamblului",
+				"Description": "În urma rezultatelor obținute în etapele anterioare și a problemelor apărute pe parcurs, s-a decis reorganizarea ansamblului astfel:",
+				"Paragraphs": {
+					"P1": "Au fost înlocuite modulele GPS și GSM cu o placă de dezvoltare A9G, din cauza mai multor cauze precum: dimensiuni mari, posibila defectare a modulelor(modulul GPS nu mai recepționează semnal, sau chip-ul integrat a fost ars, modulul GSM nu funcționa corespunzător cu comenzile HTTP).",
+					"P2": "Plăcile Arduino Uno R3 și Arduino Nano V3 au fost înlocuite cu o placă Arduino ATTiny85 de dimensiuni reduse.",
+					"P3": "Placa Arduino ATTiny85 va fi în cele din urmă scoasă din ansamblu, deoarece placa de dezvoltare A9G are capabilități de programare prin MicroPython, aceasta funcționând în mod normal cu comenzi AT, astfel din cele trei componente inițiale vom rămâne doar cu una."
 				}
 			}
 		}

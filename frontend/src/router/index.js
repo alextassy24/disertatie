@@ -18,6 +18,7 @@ import MyWearers from "../views/MyWearers.vue";
 import Wearer from "../views/Wearer.vue";
 import NotFound from "../views/NotFound.vue";
 import Docs from "../views/Docs.vue";
+import Admin from "../views/Admin.vue";
 
 const routes = [
 	{
@@ -169,6 +170,14 @@ const routes = [
 		component: ResendEmailConfirmation,
 		meta: {
 			title: "Resend Email Confirmation",
+		},
+	},
+	{
+		path: "/admin",
+		name: "admin",
+		component: Admin,
+		meta: {
+			title: "Admin",
 		},
 	},
 	{

@@ -97,9 +97,7 @@
 				:class="currentPage == 1 ? 'btn-disabled' : 'pagination-btn'"
 			>
 				<i class="fa-solid fa-backward-fast"></i>
-				<span class="hidden lg:block">{{
-					translatedValues.firstBtn
-				}}</span>
+				<span class="hidden lg:block">{{ translatedValues.firstBtn }}</span>
 			</button>
 			<button
 				class="flex items-center gap-1"
@@ -108,9 +106,7 @@
 				:class="currentPage == 1 ? 'btn-disabled' : 'pagination-btn'"
 			>
 				<i class="fa-solid fa-backward-step"></i>
-				<span class="hidden lg:block">{{
-					translatedValues.previousBtn
-				}}</span>
+				<span class="hidden lg:block">{{ translatedValues.previousBtn }}</span>
 			</button>
 		</div>
 		<div class="hidden lg:inline-block">
@@ -121,31 +117,19 @@
 			<button
 				class="flex items-center gap-1"
 				@click="goToPage(currentPage + 1)"
-				:class="
-					currentPage == totalPages
-						? 'btn-disabled'
-						: 'pagination-btn'
-				"
+				:class="currentPage == totalPages ? 'btn-disabled' : 'pagination-btn'"
 				:disabled="currentPage == totalPages"
 			>
-				<span class="hidden lg:block">{{
-					translatedValues.nextBtn
-				}}</span>
+				<span class="hidden lg:block">{{ translatedValues.nextBtn }}</span>
 				<i class="fa-solid fa-forward-step"></i>
 			</button>
 			<button
 				class="flex items-center gap-1"
 				@click="goToPage(totalPages)"
 				:disabled="currentPage == totalPages"
-				:class="
-					currentPage == totalPages
-						? 'btn-disabled'
-						: 'pagination-btn'
-				"
+				:class="currentPage == totalPages ? 'btn-disabled' : 'pagination-btn'"
 			>
-				<span class="hidden lg:block">{{
-					translatedValues.lastBtn
-				}}</span>
+				<span class="hidden lg:block">{{ translatedValues.lastBtn }}</span>
 				<i class="fa-solid fa-forward-fast"></i>
 			</button>
 		</div>
@@ -172,7 +156,7 @@
 		},
 		page: {
 			type: String,
-			required: true,
+			required: false,
 		},
 		action: {
 			type: Function,
@@ -218,7 +202,7 @@
 
 	const translatedValues = computed(() => {
 		return {
-			deleteItem: t(`${props.page}.DeleteItem`),
+			deleteItem: props.page ? t(`${props.page}.DeleteItem`) : null,
 			tablePage: t("view-data.TablePage"),
 			tableOf: t("view-data.TableOf"),
 			firstBtn: t("view-data.FirstBtn"),
@@ -226,7 +210,7 @@
 			nextBtn: t("view-data.NextBtn"),
 			lastBtn: t("view-data.LastBtn"),
 			show: t("view-data.Show"),
-			perPage: t(`${props.page}.PerPage`),
+			perPage: props.page ? t(`${props.page}.PerPage`) : null,
 			add: t("utils.Add"),
 		};
 	});

@@ -48,9 +48,7 @@
 									:center="showLocation"
 									:zoom="10"
 								>
-									<Marker
-										:options="{ position: showLocation }"
-									/>
+									<Marker :options="{ position: showLocation }" />
 								</GoogleMap>
 							</BaseModal>
 						</div>
@@ -140,12 +138,7 @@
 			showLocation.lat = 0;
 			showLocation.lng = 0;
 		}
-		console.log(
-			"Latitude:",
-			showLocation.lat,
-			"Longitude:",
-			showLocation.lng
-		);
+		console.log("Latitude:", showLocation.lat, "Longitude:", showLocation.lng);
 	};
 
 	const getProductData = async () => {
@@ -161,7 +154,7 @@
 					if (response.status === 200) {
 						product.value = response.data.product;
 						locations.value = response.data.locations;
-						console.log(locations.value);
+						// console.log(locations.value);
 					}
 				});
 		}

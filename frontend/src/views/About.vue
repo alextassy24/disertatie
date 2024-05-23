@@ -644,12 +644,7 @@
 	const showDevelopmentTable = ref(false);
 
 	const hardwareComponents = computed(() => [
-		{
-			image: getImageURL("attiny85", "png"),
-			name: "Arduino ATTiny85",
-			price: 28.13,
-			link: "https://www.sigmanortec.ro/Placa-dezvoltare-ATTINY85-p126029357?fast_search=fs",
-		},
+		
 		{
 			image: getImageURL("a9g", "png"),
 			name: t("about.A9G"),
@@ -657,32 +652,20 @@
 			link: "https://www.sigmanortec.ro/placa-dezvoltare-a9g-gsm-gprs-gps?fast_search=fs",
 		},
 		{
-			image: getImageURL("baterii", "png"),
-			name: t("home.BatteryTitle"),
-			price: 38.99,
-			link: "https://www.emag.ro/set-4-acumulatori-rakieta-18650-3-7v-12000mah-li-ion-auriu-st-rk18650g/pd/DV5XB8MBM/?utm_medium=ios&utm_source=mobile%20app&utm_campaign=share%20product",
-		},
-		{
 			image: getImageURL("vodafone", "png"),
 			name: "Vodafone SIM 7€",
 			price: 44,
 			link: "",
 		},
-		{
-			image: getImageURL("suportBaterie", "png"),
-			name: t("about.BatterySupport"),
-			price: 4.17,
-			link: "https://cleste.ro/suport-baterii-18650-1-slot.html",
-		},
-		{
-			image: getImageURL("suportBaterii", "png"),
-			name: t("about.BatteriesSupport"),
-			price: 12,
-			link: "https://www.emag.ro/suport-acumulator-3-7v-18650-x-2-sloturi-s18650-2/pd/DRC49WBBM/?ref=fav_pd-title",
-		},
 	]);
 
 	const developmentComponents = computed(() => [
+		{
+			image: getImageURL("attiny85", "png"),
+			name: "Arduino ATTiny85",
+			price: 28.13,
+			link: "https://www.sigmanortec.ro/Placa-dezvoltare-ATTINY85-p126029357?fast_search=fs",
+		},
 		{
 			image: getImageURL("arduino", "png"),
 			name: "Arduino UNO R3",
@@ -724,6 +707,24 @@
 			name: t("about.AABatteries"),
 			price: 19.99,
 			link: "",
+		},
+		{
+			image: getImageURL("baterii", "png"),
+			name: t("home.BatteryTitle"),
+			price: 38.99,
+			link: "https://www.emag.ro/set-4-acumulatori-rakieta-18650-3-7v-12000mah-li-ion-auriu-st-rk18650g/pd/DV5XB8MBM/?utm_medium=ios&utm_source=mobile%20app&utm_campaign=share%20product",
+		},
+		{
+			image: getImageURL("suportBaterie", "png"),
+			name: t("about.BatterySupport"),
+			price: 4.17,
+			link: "https://cleste.ro/suport-baterii-18650-1-slot.html",
+		},
+		{
+			image: getImageURL("suportBaterii", "png"),
+			name: t("about.BatteriesSupport"),
+			price: 12,
+			link: "https://www.emag.ro/suport-acumulator-3-7v-18650-x-2-sloturi-s18650-2/pd/DRC49WBBM/?ref=fav_pd-title",
 		},
 		{
 			image: getImageURL("butonLed", "png"),
@@ -920,6 +921,15 @@
 				t("about.DevelopmentPhases.Phase4.Paragraphs.P2"),
 			],
 		},
+		{
+			title: t("about.DevelopmentPhases.Phase5.Title"),
+			description: t("about.DevelopmentPhases.Phase5.Description"),
+			paragraphs: [
+				t("about.DevelopmentPhases.Phase5.Paragraphs.P1"),
+				t("about.DevelopmentPhases.Phase5.Paragraphs.P2"),
+				t("about.DevelopmentPhases.Phase5.Paragraphs.P3"),
+			],
+		}
 	]);
 
 	const getImageURL = (name, extension) => {

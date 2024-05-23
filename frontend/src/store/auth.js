@@ -6,6 +6,7 @@ export const useAuthStore = defineStore({
 	state: () => {
 		return {
 			isAuthenticated: false,
+			isAdmin: false,
 			user: null,
 			token: null,
 			cookiePolicy: localStorage.getItem("cookiePolicy") === "true",

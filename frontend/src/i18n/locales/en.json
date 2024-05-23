@@ -57,7 +57,8 @@
 		"AWS": "AWS is Amazon Web Services' cloud computing service, used for our database.",
 		"AWSUsage": "Host and manage the database in the cloud.",
 		"PhysicalComponentsTitle": "Physical Components",
-		"MicrocontrollerText": "The microcontroller or single-board computer (SBC) serves as the brain of the monitoring device system. It controls the various hardware components, processes data, and executes the software logic. The choice between a microcontroller and an SBC depends on the system's computational requirements and form factor.",
+		"MicrocontrolerTitle": "Development board A9G",
+		"MicrocontrollerText": "The microcontroller or single-board computer (SBC) serves as the brain of the monitoring device system. It controls the integrated GSM/GPRS and GPS modules, processes data, and executes the software logic. The choice between a microcontroller and an SBC depends on the system's computational requirements and form factor.",
 		"MicrocontrollerUsage": "System control and data processing.",
 		"ServerText": "The server component is the backbone of our system. It handles data storage, communication with the device, and database operations. It's used for storing and retrieving vital data collected by the monitoring device.",
 		"ServerUsage": "Data storage, communication hub.",
@@ -282,7 +283,16 @@
 					"P1": "The Arduino Nano V3 board fails to deliver sufficient voltage at the 5V pin, with the actual transmitted value being approximately 3.9V, and at the moment of connection with the GPS module, the input voltage is 2.46V, which is insufficient to operate the module properly;",
 					"P2": "Due to the replacement of the GSM module and the insufficient voltage provided by the Arduino Nano V3 board, it is necessary to revert to the Arduino Uno R3 board, as we know that the GPS module works with this board, and the new GSM module requires a 5V voltage to operate."
 				}
-			}
+			},
+			"Phase5": {
+				"Title": "Phase 5 - Optimizing the Assembly",
+				"Description": "Following the results obtained in the previous stages and the problems encountered along the way, it was decided to reorganize the assembly as follows:",
+				"Paragraphs": {
+				  "P1": "The GPS and GSM modules were replaced with an A9G development board due to several reasons such as: large dimensions, possible malfunction of the modules (the GPS module no longer receives a signal, or the integrated chip was burnt, the GSM module did not function properly with HTTP commands).",
+				  "P2": "The Arduino Uno R3 and Arduino Nano V3 boards were replaced with a smaller Arduino ATTiny85 board.",
+				  "P3": "The Arduino ATTiny85 board will eventually be removed from the assembly, as the A9G development board has programming capabilities through MicroPython, operating normally with AT commands. Thus, from the initial three components, we will only retain one."
+				}
+			  }
 		}
 	},
 	"faq": {
