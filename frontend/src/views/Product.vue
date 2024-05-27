@@ -213,12 +213,12 @@
 	const mapLoading = ref(true);
 
 	const options = {
-		username: process.env.VUE_APP_USERNAME,
-		password: process.env.VUE_APP_PASSWORD,
-		clientId: process.env.VUE_APP_CLIENT_ID,
-		protocol: process.env.VUE_APP_PROTOCOL,
-		hostname: process.env.VUE_APP_HOSTNAME,
-		port: process.env.VUE_APP_PORT,
+		username: import.meta.env.VITE_USERNAME,
+		password: import.meta.env.VITE_PASSWORD,
+		clientId: import.meta.env.VITE_CLIENT_ID,
+		protocol: import.meta.env.VITE_PROTOCOL,
+		hostname: import.meta.env.VITE_HOSTNAME,
+		port: import.meta.env.VITE_PORT,
 	};
 
 	const client = mqtt.connect(options);
