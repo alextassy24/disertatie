@@ -254,7 +254,8 @@
 			"prototype": "Prototip",
 			"arduinoSolder": "Lipirea plăcii Arduino",
 			"batteryTesting": "Testarea bateriilor",
-			"testA9G":"Testarea plăcii A9G"
+			"testA9G": "Testarea plăcii A9G cu MicroPython",
+			"testA9G-AT": "Testarea plăcii A9G cu Comenzi AT"
 		},
 		"DevelopmentPhases": {
 			"Title": "Etapele de dezvoltare ale proiectului ",
@@ -291,7 +292,7 @@
 					"P2": "Datorita faptului ca modulul GSM a fost inlocuit iar placa arduino Nano V3 nu furnizeaza suficienta tensiune, este nevoie sa revenim la placa Arduino Uno R3, deoarece stim ca modulul GPS functioneaza cu aceasta placa, iar noul modul GSM are nevoie de o tensiune de 5V pentru a functiona."
 				}
 			},
-			"Phase5":{
+			"Phase5": {
 				"Title": "Etapa 5 - Optimizarea ansamblului",
 				"Description": "În urma rezultatelor obținute în etapele anterioare și a problemelor apărute pe parcurs, s-a decis reorganizarea ansamblului astfel:",
 				"Paragraphs": {

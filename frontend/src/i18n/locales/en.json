@@ -248,7 +248,8 @@
 			"prototype": "Prototype",
 			"arduinoSolder": "Arduino Board Soldering",
 			"batteryTesting": "Batteries Testing",
-			"testA9G":"A9G Board Testing"
+			"testA9G": "A9G Board Testing with MicroPython",
+			"testA9G-AT": "A9G Board Testing with AT Commands"
 		},
 		"DevelopmentPhases": {
 			"Title": "Project Development Phases",
@@ -289,11 +290,11 @@
 				"Title": "Phase 5 - Optimizing the Assembly",
 				"Description": "Following the results obtained in the previous stages and the problems encountered along the way, it was decided to reorganize the assembly as follows:",
 				"Paragraphs": {
-				  "P1": "The GPS and GSM modules were replaced with an A9G development board due to several reasons such as: large dimensions, possible malfunction of the modules (the GPS module no longer receives a signal, or the integrated chip was burnt, the GSM module did not function properly with HTTP commands).",
-				  "P2": "The Arduino Uno R3 and Arduino Nano V3 boards were replaced with a smaller Arduino ATTiny85 board.",
-				  "P3": "The Arduino ATTiny85 board will eventually be removed from the assembly, as the A9G development board has programming capabilities through MicroPython, operating normally with AT commands. Thus, from the initial three components, we will only retain one."
+					"P1": "The GPS and GSM modules were replaced with an A9G development board due to several reasons such as: large dimensions, possible malfunction of the modules (the GPS module no longer receives a signal, or the integrated chip was burnt, the GSM module did not function properly with HTTP commands).",
+					"P2": "The Arduino Uno R3 and Arduino Nano V3 boards were replaced with a smaller Arduino ATTiny85 board.",
+					"P3": "The Arduino ATTiny85 board will eventually be removed from the assembly, as the A9G development board has programming capabilities through MicroPython, operating normally with AT commands. Thus, from the initial three components, we will only retain one."
 				}
-			  }
+			}
 		}
 	},
 	"faq": {

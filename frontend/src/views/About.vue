@@ -91,7 +91,9 @@
 						</h1>
 						<button
 							class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center mb-5"
-							@click="showApproximateTable = !showApproximateTable"
+							@click="
+								showApproximateTable = !showApproximateTable
+							"
 						>
 							<i
 								class="fa-solid"
@@ -113,15 +115,23 @@
 						v-if="showApproximateTable"
 						class="px-2 py-10 bg-green-400 shadow-lg md:px-0 rounded-2xl"
 					>
-						<div class="flex justify-center w-5/6 gap-3 mx-auto md:justify-end">
+						<div
+							class="flex justify-center w-5/6 gap-3 mx-auto md:justify-end"
+						>
 							<div
 								class="flex flex-col items-center gap-3 p-3 my-3 bg-gray-200 rounded shadow md md:flex-row"
 							>
 								<div class="flex items-center gap-3">
-									<span class="font-bold">{{ translatedValues.sort }}</span>
+									<span class="font-bold">{{
+										translatedValues.sort
+									}}</span>
 									<select
 										name="sorting"
-										@change="updateApproximateSortDirection($event)"
+										@change="
+											updateApproximateSortDirection(
+												$event
+											)
+										"
 									>
 										<option value="ascending">
 											{{ translatedValues.ascending }}
@@ -132,10 +142,14 @@
 									</select>
 								</div>
 								<div class="flex items-center gap-3">
-									<span class="font-bold">{{ translatedValues.by }}</span>
+									<span class="font-bold">{{
+										translatedValues.by
+									}}</span>
 									<select
 										name="sortDevelopmentTable"
-										@change="updateApprxoimateSortBy($event)"
+										@change="
+											updateApprxoimateSortBy($event)
+										"
 									>
 										<option value="name">
 											{{ translatedValues.name }}
@@ -153,17 +167,23 @@
 						>
 							<table class="min-w-full divide-y divide-gray-200">
 								<thead>
-									<tr class="text-white bg-black sticky-header">
+									<tr
+										class="text-white bg-black sticky-header"
+									>
 										<th>Nr.Crt.</th>
 										<th>{{ translatedValues.itemImg }}</th>
 										<th>{{ translatedValues.itemName }}</th>
-										<th>{{ translatedValues.itemCost }}(RON)</th>
+										<th>
+											{{ translatedValues.itemCost }}(RON)
+										</th>
 										<th>Link</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr
-										v-for="(component, index) in sortedApproximateTable"
+										v-for="(
+											component, index
+										) in sortedApproximateTable"
 										:key="index"
 										class="text-center"
 									>
@@ -205,7 +225,9 @@
 							class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2 scrollable-content"
 						>
 							<div
-								v-for="(component, index) in sortedApproximateTable"
+								v-for="(
+									component, index
+								) in sortedApproximateTable"
 								:key="index"
 								class="flex justify-start p-5 text-justify bg-white rounded-lg shadow-xl card-hover"
 							>
@@ -219,7 +241,8 @@
 										{{ component.name }}
 									</h1>
 									<h2 class="mb-10">
-										{{ translatedValues.itemCost }}: {{ component.price }} RON
+										{{ translatedValues.itemCost }}:
+										{{ component.price }} RON
 									</h2>
 									<a
 										v-if="component.link"
@@ -261,7 +284,9 @@
 						</h1>
 						<button
 							class="flex items-center gap-2 font-bold btn-primary w-full md:w-[8rem] justify-center mb-5"
-							@click="showDevelopmentTable = !showDevelopmentTable"
+							@click="
+								showDevelopmentTable = !showDevelopmentTable
+							"
 						>
 							<i
 								class="fa-solid"
@@ -283,15 +308,23 @@
 						v-if="showDevelopmentTable"
 						class="px-2 py-10 bg-green-400 shadow-lg md:px-0 rounded-2xl"
 					>
-						<div class="flex justify-center w-5/6 gap-3 mx-auto md:justify-end">
+						<div
+							class="flex justify-center w-5/6 gap-3 mx-auto md:justify-end"
+						>
 							<div
 								class="flex flex-col items-center gap-3 p-3 my-3 bg-gray-200 rounded shadow md md:flex-row"
 							>
 								<div class="flex items-center gap-3">
-									<span class="font-bold">{{ translatedValues.sort }}</span>
+									<span class="font-bold">{{
+										translatedValues.sort
+									}}</span>
 									<select
 										name="sorting"
-										@change="updateDevelopmentSortDirection($event)"
+										@change="
+											updateDevelopmentSortDirection(
+												$event
+											)
+										"
 									>
 										<option value="ascending">
 											{{ translatedValues.ascending }}
@@ -302,10 +335,14 @@
 									</select>
 								</div>
 								<div class="flex items-center gap-3">
-									<span class="font-bold">{{ translatedValues.by }}</span>
+									<span class="font-bold">{{
+										translatedValues.by
+									}}</span>
 									<select
 										name="sortDevelopmentTable"
-										@change="updateDevelopmentSortBy($event)"
+										@change="
+											updateDevelopmentSortBy($event)
+										"
 									>
 										<option value="name">
 											{{ translatedValues.name }}
@@ -324,17 +361,23 @@
 						>
 							<table class="min-w-full divide-y divide-gray-200">
 								<thead>
-									<tr class="text-white bg-black sticky-header">
+									<tr
+										class="text-white bg-black sticky-header"
+									>
 										<th>Nr.Crt.</th>
 										<th>{{ translatedValues.itemImg }}</th>
 										<th>{{ translatedValues.itemName }}</th>
-										<th>{{ translatedValues.itemCost }}(RON)</th>
+										<th>
+											{{ translatedValues.itemCost }}(RON)
+										</th>
 										<th>Link</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr
-										v-for="(component, index) in sortedDevelopmentTable"
+										v-for="(
+											component, index
+										) in sortedDevelopmentTable"
 										:key="index"
 										class="text-center"
 									>
@@ -376,7 +419,9 @@
 							class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2 scrollable-content"
 						>
 							<div
-								v-for="(component, index) in sortedDevelopmentTable"
+								v-for="(
+									component, index
+								) in sortedDevelopmentTable"
 								:key="index"
 								class="flex justify-start p-5 text-justify bg-white rounded-lg shadow-xl card-hover"
 							>
@@ -390,7 +435,8 @@
 										{{ component.name }}
 									</h1>
 									<h2 class="mb-10">
-										{{ translatedValues.itemCost }}: {{ component.price }} RON
+										{{ translatedValues.itemCost }}:
+										{{ component.price }} RON
 									</h2>
 									<a
 										v-if="component.link"
@@ -802,6 +848,12 @@
 			prefix: "TestA9G",
 			toggler: false,
 		},
+		{
+			title: t("about.PhotoGallery.testA9G-AT"),
+			count: 6,
+			prefix: "TestA9G-AT",
+			toggler: false,
+		},
 	]);
 
 	const photos = computed(() => {
@@ -914,8 +966,10 @@
 	};
 
 	const getProductImageURL = (name, extension) => {
-		return new URL(`../assets/product/${name}.${extension}`, import.meta.url)
-			.href;
+		return new URL(
+			`../assets/product/${name}.${extension}`,
+			import.meta.url
+		).href;
 	};
 
 	const choosePhoto = (photo, index, images) => {
@@ -968,7 +1022,8 @@
 			.reduce((sum, component) => sum + component.price, 0)
 			.toFixed(2);
 		totalCost.value = (
-			parseFloat(approximateCost.value) + parseFloat(developmentCost.value)
+			parseFloat(approximateCost.value) +
+			parseFloat(developmentCost.value)
 		).toFixed(2);
 	};
 
