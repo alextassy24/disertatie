@@ -213,12 +213,12 @@
 	const mapLoading = ref(true);
 
 	const options = {
-		username: "alextassy24",
-		password: "aio_AUdl57xQmghSvJxhm5Dmk34IC8C7",
-		clientId: "web-client",
-		protocol: "wss",
-		hostname: "io.adafruit.com",
-		port: 443,
+		username: process.env.VUE_APP_USERNAME,
+		password: process.env.VUE_APP_PASSWORD,
+		clientId: process.env.VUE_APP_CLIENT_ID,
+		protocol: process.env.VUE_APP_PROTOCOL,
+		hostname: process.env.VUE_APP_HOSTNAME,
+		port: process.env.VUE_APP_PORT,
 	};
 
 	const client = mqtt.connect(options);
