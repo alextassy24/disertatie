@@ -247,7 +247,8 @@
 			"testPrototype": "Prototype Testing",
 			"prototype": "Prototype",
 			"arduinoSolder": "Arduino Board Soldering",
-			"batteryTesting": "Batteries Testing"
+			"batteryTesting": "Batteries Testing",
+			"testA9G":"A9G Board Testing"
 		},
 		"DevelopmentPhases": {
 			"Title": "Project Development Phases",
@@ -373,7 +374,8 @@
 		"Latitude": "Latitude",
 		"Longitude": "Longitude",
 		"Date": "Date",
-		"Time": "Time"
+		"Time": "Time",
+		"LocationLoading": "Loading live location..."
 	},
 	"docs": {
 		"Title": "Application Usage Instructions",

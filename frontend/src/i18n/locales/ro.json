@@ -253,7 +253,8 @@
 			"testPrototype": "Testare prototip",
 			"prototype": "Prototip",
 			"arduinoSolder": "Lipirea plăcii Arduino",
-			"batteryTesting": "Testarea bateriilor"
+			"batteryTesting": "Testarea bateriilor",
+			"testA9G":"Testarea plăcii A9G"
 		},
 		"DevelopmentPhases": {
 			"Title": "Etapele de dezvoltare ale proiectului ",
@@ -379,7 +380,8 @@
 		"Latitude": "Latitudine",
 		"Longitude": "Longitudine",
 		"Date": "Dată",
-		"Time": "Oră"
+		"Time": "Oră",
+		"LocationLoading": "Se încarcă locația..."
 	},
 	"docs": {
 		"Title": "Instrucțiuni de utilizare a aplicației",
