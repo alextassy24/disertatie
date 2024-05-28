@@ -363,7 +363,8 @@
 			"Unauthorized": "You are not authorized to perform this action!",
 			"NotFound": "The wearer's data could not be found!",
 			"ServerError": "Server connection failed!"
-		}
+		},
+		"Tooltip": "Click to see the product page"
 	},
 	"product": {
 		"DeleteItem": "",
@@ -376,7 +377,8 @@
 		"Longitude": "Longitude",
 		"Date": "Date",
 		"Time": "Time",
-		"LocationLoading": "Loading live location..."
+		"LocationLoading": "Loading live location...",
+		"LiveLocation": "Real Time Location"
 	},
 	"docs": {
 		"Title": "Application Usage Instructions",

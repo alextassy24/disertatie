@@ -34,7 +34,17 @@
 										v-for="(product, index) in productsData"
 										:key="index"
 									>
-										{{ product.serialNumber }}
+										<Tooltip
+											:text="translatedValues.tooltip"
+										>
+											<router-link
+												class="transition-colors hover:text-green-500"
+												:to="'/products/' + product.id"
+											>
+												{{ index + 1 }}.
+												{{ product.serialNumber }}
+											</router-link>
+										</Tooltip>
 									</li>
 								</ul>
 							</div>
@@ -69,6 +79,7 @@
 	import BaseModal from "../components/BaseModal.vue";
 	import LoadingWrapper from "../components/LoadingWrapper.vue";
 	import BackButton from "../components/BackButton.vue";
+	import Tooltip from "../components/Tooltip.vue";
 
 	const { t } = useI18n();
 	const route = useRoute();
@@ -100,6 +111,7 @@
 				notFound: t("utils.NotFound"),
 				serverError: t("utils.ServerError"),
 			},
+			tooltip: t("wearer.Tooltip"),
 		};
 	});
 

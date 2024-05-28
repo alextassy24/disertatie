@@ -369,7 +369,8 @@
 			"Unauthorized": "Nu sunteți autorizat pentru a vizita această pagină",
 			"NotFound": "Datele persoanei nu au putut fi găsite",
 			"ServerError": "Conexiunea cu serverul nu a putut fi realizată"
-		}
+		},
+		"Tooltip": "Faceți click pentru a vedea pagina produsului"
 	},
 	"product": {
 		"DeleteItem": "",
@@ -382,7 +383,8 @@
 		"Longitude": "Longitudine",
 		"Date": "Dată",
 		"Time": "Oră",
-		"LocationLoading": "Se încarcă locația..."
+		"LocationLoading": "Se încarcă locația...",
+		"LiveLocation": "Locație în timp real"
 	},
 	"docs": {
 		"Title": "Instrucțiuni de utilizare a aplicației",
