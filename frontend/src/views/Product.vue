@@ -16,15 +16,11 @@
 								<div
 									class="mx-auto mb-10 overflow-hidden bg-white rounded-lg shadow-lg"
 								>
-									<table
-										class="min-w-full divide-y divide-gray-200"
-									>
+									<table class="min-w-full divide-y divide-gray-200">
 										<tbody>
 											<tr>
 												<td>
-													{{
-														translatedValues.serialNumber
-													}}
+													{{ translatedValues.serialNumber }}
 												</td>
 												<td>
 													{{ product.serialNumber }}
@@ -93,9 +89,7 @@
 											class="text-gray-900"
 										></path>
 									</svg>
-									<span>{{
-										translatedValues.locaitonLoading
-									}}</span>
+									<span>{{ translatedValues.locaitonLoading }}</span>
 								</div>
 							</div>
 						</div>
@@ -139,9 +133,7 @@
 								</thead>
 								<tbody>
 									<tr
-										v-for="(
-											location, index
-										) in paginatedItems"
+										v-for="(location, index) in paginatedItems"
 										:key="index"
 									>
 										<td>{{ location.latitude }}</td>
@@ -151,9 +143,7 @@
 										<td>
 											<button
 												class="btn-primary"
-												@click="
-													toggleModal(location.id)
-												"
+												@click="toggleModal(location)"
 											>
 												<i class="fa-solid fa-eye"></i>
 											</button>
@@ -161,22 +151,16 @@
 									</tr>
 								</tbody>
 							</table>
-							<div
-								class="flex items-center justify-between m-3 mt-5"
-							>
+							<div class="flex items-center justify-between m-3 mt-5">
 								<div class="flex gap-3">
 									<button
 										class="flex items-center gap-1"
 										@click="goToPage(1)"
 										:class="
-											currentPage == 1
-												? 'btn-disabled'
-												: 'pagination-btn'
+											currentPage == 1 ? 'btn-disabled' : 'pagination-btn'
 										"
 									>
-										<i
-											class="fa-solid fa-backward-fast"
-										></i>
+										<i class="fa-solid fa-backward-fast"></i>
 										<span class="hidden lg:block">{{
 											translatedValues.firstBtn
 										}}</span>
@@ -186,23 +170,17 @@
 										@click="goToPage(currentPage - 1)"
 										:disabled="currentPage == 1"
 										:class="
-											currentPage == 1
-												? 'btn-disabled'
-												: 'pagination-btn'
+											currentPage == 1 ? 'btn-disabled' : 'pagination-btn'
 										"
 									>
-										<i
-											class="fa-solid fa-backward-step"
-										></i>
+										<i class="fa-solid fa-backward-step"></i>
 										<span class="hidden lg:block">{{
 											translatedValues.previousBtn
 										}}</span>
 									</button>
 								</div>
 								<div class="hidden lg:inline-block">
-									<span>{{
-										translatedValues.tablePage
-									}}</span>
+									<span>{{ translatedValues.tablePage }}</span>
 									{{ currentPage }}
 									{{ translatedValues.tableOf }}
 									{{ totalPages }}
@@ -260,9 +238,7 @@
 									:center="showLocation"
 									:zoom="18"
 								>
-									<Marker
-										:options="{ position: showLocation }"
-									/>
+									<Marker :options="{ position: showLocation }" />
 								</GoogleMap>
 							</BaseModal>
 						</div>
@@ -308,7 +284,7 @@
 	const product = ref();
 	const loading = ref(true);
 	const modalActive = ref(null);
-	const showLocation = reactive({ lat: 0, lng: 0 });
+	const showLocation = ref({ lat: 0, lng: 0 });
 
 	const { isMediumScreenOrAbove, isSmallScreen } = useScreenSize();
 	const translatedValues = computed(() => {
@@ -337,16 +313,14 @@
 		};
 	});
 
-	const toggleModal = (id) => {
+	const toggleModal = (location) => {
 		modalActive.value = !modalActive.value;
-		if (id !== null && locations.value[id]) {
-			showLocation.lat = parseFloat(locations.value[id].latitude);
-			showLocation.lng = parseFloat(locations.value[id].longitude);
-			console.log(showLocation.lat);
-			console.log(showLocation.lng);
+		if (location !== null && locations.value[location.id]) {
+			showLocation.value.lat = parseFloat(location.latitude);
+			showLocation.value.lng = parseFloat(location.longitude);
 		} else {
-			showLocation.lat = 0;
-			showLocation.lng = 0;
+			showLocation.value.lat = 0;
+			showLocation.value.lng = 0;
 		}
 	};
 
@@ -392,7 +366,7 @@
 	const mapLoading = ref(true);
 	const mapKey = ref(0);
 	// if(product.deviceID)
-	if (authStore.isAuthenticated) {
+	if (authStore.isAuthenticated && product.value) {
 		const connection = new signalR.HubConnectionBuilder()
 			.withUrl(`${authStore.apiAddress}/ws/gps-hub`)
 			.build();
@@ -419,9 +393,7 @@
 		connection
 			.start()
 			.then(() => console.log("Connected to SignalR Hub"))
-			.catch((err) =>
-				console.error("Error connecting to SignalR Hub:", err)
-			);
+			.catch((err) => console.error("Error connecting to SignalR Hub:", err));
 	}
 	onMounted(() => {
 		getProductData();
