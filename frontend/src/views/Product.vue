@@ -43,23 +43,26 @@
 								<h2 class="subtitle">
 									{{ translatedValues.liveLocation }}
 								</h2>
-								<GoogleMap
-									v-if="!mapLoading"
-									api-key="AIzaSyC7zv3FXxWveL_O3F2BA4E90m1buO0nH5U"
-									:class="{
-										'map-md': isMediumScreenOrAbove,
-										'map-sm': isSmallScreen,
-									}"
-									:center="showLiveLocation"
-									:zoom="18"
-									:key="mapKey"
-								>
-									<Marker
-										:options="{
-											position: showLiveLocation,
+								<div v-if="!mapLoading">
+									<GoogleMap
+										api-key="AIzaSyC7zv3FXxWveL_O3F2BA4E90m1buO0nH5U"
+										class="flex items-center md:justify-start md:items-start"
+										:class="{
+											'map-md': isMediumScreenOrAbove,
+											'map-sm': isSmallScreen,
 										}"
-									/>
-								</GoogleMap>
+										:center="showLiveLocation"
+										:zoom="18"
+										:key="mapKey"
+									>
+										<Marker
+											:options="{
+												position: showLiveLocation,
+											}"
+										/>
+									</GoogleMap>
+								</div>
+
 								<div
 									v-else
 									class="flex items-center justify-center gap-3 bg-gray-100 rounded shadow"
@@ -102,7 +105,7 @@
 						<h2 class="subtitle">
 							{{ translatedValues.locations }}
 						</h2>
-						<div
+						<!-- <div
 							class="flex items-center gap-3 mx-2 mt-1 mb-4 text-lg"
 							:class="link ? 'justify-between' : 'justify-end'"
 						>
@@ -119,13 +122,12 @@
 								</select>
 								<label>{{ translatedValues.perPage }}</label>
 							</div>
-						</div>
+						</div> -->
 						<div
 							v-if="locations.length > 0"
 							class="overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
 						>
-							<table class="min-w-full divide-y divide-gray-200">
-								<!-- Table headers -->
+							<!--<table class="min-w-full divide-y divide-gray-200">
 								<thead>
 									<tr class="text-white bg-black">
 										<th>{{ translatedValues.latitude }}</th>
@@ -161,7 +163,39 @@
 									</tr>
 								</tbody>
 							</table>
-							<div
+							-->
+							<DataTable
+								:value="locations"
+								:rows="5"
+								:rowsPerPageOptions="[5, 10, 20, 50]"
+								paginator
+								removableSort
+								selectionMode="single"
+								dataKey="id"
+								@rowSelect="onRowSelect"
+							>
+								<Column
+									field="latitude"
+									:header="translatedValues.latitude"
+									sortable
+								></Column>
+								<Column
+									field="longitude"
+									:header="translatedValues.longitude"
+									sortable
+								></Column>
+								<Column
+									field="date"
+									:header="translatedValues.date"
+									sortable
+								></Column>
+								<Column
+									field="time"
+									:header="translatedValues.time"
+									sortable
+								></Column>
+							</DataTable>
+							<!-- <div
 								class="flex items-center justify-between m-3 mt-5"
 							>
 								<div class="flex gap-3">
@@ -239,13 +273,12 @@
 										<i class="fa-solid fa-forward-fast"></i>
 									</button>
 								</div>
-							</div>
-
-							<div class="block text-center lg:hidden">
+							</div> -->
+							<!-- <div class="block text-center lg:hidden">
 								<span>{{ translatedValues.tablePage }}</span>
 								{{ currentPage }}
 								{{ translatedValues.tableOf }} {{ totalPages }}
-							</div>
+							</div> -->
 							<BaseModal
 								:modalActive="modalActive"
 								:show-buttons="false"
@@ -286,7 +319,7 @@
 </template>
 
 <script setup>
-	import { ref, computed, onMounted, reactive } from "vue";
+	import { ref, computed, onMounted, reactive, watch } from "vue";
 	import { useRoute } from "vue-router";
 	import { useI18n } from "vue-i18n";
 	import { useAuthStore } from "../store/auth";
@@ -294,11 +327,12 @@
 	import { GoogleMap, Marker } from "vue3-google-map";
 	import axios from "axios";
 	import AuthenticatedWrapper from "../components/AuthenticatedWrapper.vue";
-	import PaginatedTable from "../components/PaginatedTable.vue";
 	import LoadingWrapper from "../components/LoadingWrapper.vue";
 	import BaseModal from "../components/BaseModal.vue";
 	import BackButton from "../components/BackButton.vue";
 	import * as signalR from "@microsoft/signalr";
+	import DataTable from "primevue/datatable";
+	import Column from "primevue/column";
 
 	const { t } = useI18n();
 	const authStore = useAuthStore();
@@ -308,7 +342,7 @@
 	const product = ref();
 	const loading = ref(true);
 	const modalActive = ref(null);
-	const showLocation = reactive({ lat: 0, lng: 0 });
+	const showLocation = ref({ lat: 0, lng: 0 });
 
 	const { isMediumScreenOrAbove, isSmallScreen } = useScreenSize();
 	const translatedValues = computed(() => {
@@ -337,17 +371,23 @@
 		};
 	});
 
-	const toggleModal = (id) => {
+	const toggleModal = () => {
 		modalActive.value = !modalActive.value;
-		if (id !== null && locations.value[id]) {
-			showLocation.lat = parseFloat(locations.value[id].latitude);
-			showLocation.lng = parseFloat(locations.value[id].longitude);
-			console.log(showLocation.lat);
-			console.log(showLocation.lng);
+	};
+
+	const onRowSelect = (event) => {
+		const location = event.data;
+		if (event.data.latitude != null && event.data.longitude != null) {
+			showLocation.value = {
+				lat: parseFloat(location.latitude),
+				lng: parseFloat(location.longitude),
+			};
 		} else {
-			showLocation.lat = 0;
-			showLocation.lng = 0;
+			showLocation.value.lat = 0;
+			showLocation.value.lng = 0;
 		}
+
+		modalActive.value = !modalActive.value;
 	};
 
 	const getProductData = async () => {
@@ -362,8 +402,12 @@
 					loading.value = false;
 					if (response.status === 200) {
 						product.value = response.data.product;
-						locations.value = response.data.locations;
-						// console.log(locations.value);
+						// locations.value = response.data.locations;
+						locations.value = response.data.locations.sort(
+							(a, b) =>
+								new Date(b.date + " " + b.time) -
+								new Date(a.date + " " + a.time)
+						);
 					}
 				});
 		}
@@ -405,7 +449,7 @@
 				showLiveLocation.value.lat = parseFloat(location.latitude);
 				showLiveLocation.value.lng = parseFloat(location.longitude);
 				mapKey.value++;
-				locations.value.push({
+				locations.value.unshift({
 					latitude: location.latitude,
 					longitude: location.longitude,
 					date: location.date,
@@ -419,9 +463,10 @@
 		connection
 			.start()
 			.then(() => console.log("Connected to SignalR Hub"))
-			.catch((err) =>
-				console.error("Error connecting to SignalR Hub:", err)
-			);
+			.catch((err) => {
+				mapLoading.value = true;
+				console.error("Error connecting to SignalR Hub:", err);
+			});
 	}
 	onMounted(() => {
 		getProductData();
