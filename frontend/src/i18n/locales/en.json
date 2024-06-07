@@ -144,7 +144,7 @@
 		"AddWearers": "Use the following button to add one",
 		"FullName": "Full name",
 		"Age": "Age",
-		"DeleteItem": "Are you sure you want to delete the wearer no.",
+		"DeleteItem": "Are you sure you want to delete the wearer ",
 		"SuccessMessage": "Wearer deleted successfully!",
 		"PerPage": "wearers per page"
 	},
@@ -378,7 +378,8 @@
 		"Date": "Date",
 		"Time": "Time",
 		"LocationLoading": "Loading live location...",
-		"LiveLocation": "Real Time Location"
+		"LiveLocation": "Real Time Location",
+		"LocationReceived": "New location available"
 	},
 	"docs": {
 		"Title": "Application Usage Instructions",

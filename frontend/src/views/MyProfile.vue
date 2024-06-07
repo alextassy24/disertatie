@@ -11,9 +11,7 @@
 							<div
 								class="mx-auto overflow-hidden bg-white rounded-lg shadow-lg"
 							>
-								<table
-									class="min-w-full divide-y divide-gray-200"
-								>
+								<table class="min-w-full divide-y divide-gray-200">
 									<tbody>
 										<tr>
 											<td>
@@ -29,9 +27,7 @@
 										</tr>
 										<tr>
 											<td>
-												{{
-													translatedValues.phoneNumber
-												}}
+												{{ translatedValues.phoneNumber }}
 											</td>
 											<td>{{ userData.phoneNumber }}</td>
 										</tr>
@@ -54,9 +50,7 @@
 									<router-link
 										to="/my-wearers"
 										class="text-green-500 underline"
-										>{{
-											userData.wearers.length
-										}}</router-link
+										>{{ userData.wearers.length }}</router-link
 									>
 								</Tooltip>
 								<span>
@@ -67,7 +61,9 @@
 								v-else
 								class="font-bold text-red-500"
 							>
-								{{ translatedValues.noWearers }}
+								<InlineMessage severity="error">{{
+									translatedValues.noWearers
+								}}</InlineMessage>
 							</div>
 						</div>
 						<div class="mb-8">
@@ -81,15 +77,11 @@
 								<span>
 									{{ translatedValues.you }}
 								</span>
-								<Tooltip
-									:text="translatedValues.tooltipProduct"
-								>
+								<Tooltip :text="translatedValues.tooltipProduct">
 									<router-link
 										to="/my-products"
 										class="text-green-500 underline"
-										>{{
-											userData.products.length
-										}}</router-link
+										>{{ userData.products.length }}</router-link
 									>
 								</Tooltip>
 								<span>
@@ -100,7 +92,9 @@
 								v-else
 								class="font-bold text-red-500"
 							>
-								{{ translatedValues.noProducts }}
+								<InlineMessage severity="error">{{
+									translatedValues.noProducts
+								}}</InlineMessage>
 							</div>
 						</div>
 					</div>
@@ -120,6 +114,7 @@
 	import axios from "axios";
 	import BackButton from "../components/BackButton.vue";
 	import Tooltip from "../components/Tooltip.vue";
+	import InlineMessage from "primevue/inlinemessage";
 
 	const authStore = useAuthStore();
 	const { t } = useI18n();

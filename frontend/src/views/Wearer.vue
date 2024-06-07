@@ -34,9 +34,7 @@
 										v-for="(product, index) in productsData"
 										:key="index"
 									>
-										<Tooltip
-											:text="translatedValues.tooltip"
-										>
+										<Tooltip :text="translatedValues.tooltip">
 											<router-link
 												class="transition-colors hover:text-green-500"
 												:to="'/products/' + product.id"
@@ -157,15 +155,11 @@
 			headers: { Authorization: `Bearer ${authStore.token}` },
 		};
 		await axios
-			.delete(
-				`${authStore.apiAddress}/api/products/${deletedId.value}`,
-				config
-			)
+			.delete(`${authStore.apiAddress}/api/products/${deletedId.value}`, config)
 			.then((response) => {
 				if (response.status === 200) {
 					getData();
-					successMessage.value =
-						translatedValues.value.successMessage;
+					successMessage.value = translatedValues.value.successMessage;
 					setTimeout(() => {
 						fadeIn.value = false; // Remove fadeIn class
 						setTimeout(() => {

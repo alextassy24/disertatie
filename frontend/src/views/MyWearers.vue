@@ -7,25 +7,79 @@
 				<LoadingWrapper :loading="loading">
 					<div
 						v-if="successMessage"
-						class="success-message animate__animated"
 						:class="{
 							animate__fadeIn: fadeIn,
 							animate__fadeOut: fadeOut,
 						}"
 					>
-						<i class="fa-solid fa-circle-check"></i>
-						<span>{{ translatedValues.successMessage }}</span>
+						<!-- <i class="fa-solid fa-circle-check"></i>
+							class="success-message animate__animated"
+						<span></span> -->
+						<InlineMessage severity="success">{{
+							translatedValues.successMessage
+						}}</InlineMessage>
 					</div>
 					<div v-if="wearers.length > 0">
-						<PaginatedTable
-							:headers="headers"
-							:items="wearers"
-							:page="page"
-							:action="toggleModal"
-							:link="link"
-							:item-page="itemPage"
-							:deleteBtn="deleteBtn"
-						/>
+						<div class="flex justify-end">
+							<router-link
+								to="/register-wearer"
+								class="flex items-center gap-2 mb-3 btn"
+							>
+								<i class="fa-solid fa-plus"></i>
+								<span class="hidden lg:inline">{{ translatedValues.add }}</span>
+							</router-link>
+						</div>
+						<div
+							class="overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
+						>
+							<DataTable
+								:value="wearers"
+								dataKey="id"
+								tableStyle="min-width: 50rem"
+								:rows="5"
+								:rowsPerPageOptions="[5, 10, 20, 50]"
+								paginator
+								sortMode="multiple"
+								removableSort
+								stripedRows
+								class="text-center"
+							>
+								<Column
+									sortable
+									field="name"
+									:header="translatedValues.fullName"
+									headerClass="text-white bg-black"
+								></Column>
+								<Column
+									sortable
+									field="age"
+									:header="translatedValues.age"
+									headerClass="text-white bg-black"
+								></Column>
+								<Column
+									header="Actions"
+									headerClass="text-white bg-black"
+								>
+									<template #body="slotProps">
+										<div class="flex gap-2">
+											<router-link
+												:to="`/wearers/${slotProps.data.id}`"
+												class="btn-primary"
+												tag="button"
+											>
+												<i class="fa-solid fa-eye"></i>
+											</router-link>
+											<button
+												class="btn-danger"
+												@click="toggleModal(slotProps.data.id)"
+											>
+												<i class="fa-solid fa-trash-can"></i>
+											</button>
+										</div>
+									</template>
+								</Column>
+							</DataTable>
+						</div>
 						<BaseModal
 							:modalActive="modalActive"
 							@close-modal="toggleModal(null)"
@@ -37,7 +91,7 @@
 							/>
 							<h1 class="text-lg text-black">
 								{{ translatedValues.deleteItem }}
-								{{ deletedId }}?
+								{{ deletedPerson }}
 							</h1>
 						</BaseModal>
 					</div>
@@ -76,24 +130,22 @@
 	import { useAuthStore } from "../store/auth";
 	import Hero from "../components/Hero.vue";
 	import BaseModal from "../components/BaseModal.vue";
-	import PaginatedTable from "../components/PaginatedTable.vue";
 	import AuthenticatedWrapper from "../components/AuthenticatedWrapper.vue";
 	import LoadingWrapper from "../components/LoadingWrapper.vue";
 	import BackButton from "../components/BackButton.vue";
+	import DataTable from "primevue/datatable";
+	import Column from "primevue/column";
 
 	const { t } = useI18n();
 	const authStore = useAuthStore();
 	const successMessage = ref("");
 	const modalActive = ref(false);
 	const deletedId = ref(null);
+	const deletedPerson = ref(null);
 	const emitter = inject("emitter");
 
 	const wearers = ref([]);
-	const page = ref("my-wearers");
-	const link = ref("register-wearer");
-	const itemPage = ref("wearers");
 	const loading = ref(true);
-	const deleteBtn = ref(true);
 
 	const fadeIn = ref(true);
 	const fadeOut = ref(false);
@@ -116,20 +168,18 @@
 			lastBtn: t("view-data.LastBtn"),
 			show: t("view-data.Show"),
 			perPage: t("my-wearers.PerPage"),
+			add: t("utils.Add"),
 		};
 	});
 
-	const headers = ref([
-		"Nr. Crt.",
-		translatedValues.value.fullName,
-		translatedValues.value.age,
-		"",
-	]);
-
-	const toggleModal = (id) => {
-		deletedId.value = id;
+	const toggleModal = (id = null) => {
+		const wearer = wearers.value.find((wearer) => wearer.id === id);
+		if (wearer) {
+			deletedId.value = id;
+			deletedPerson.value = wearer.name;
+			emitter.emit("modal-active", modalActive.value);
+		}
 		modalActive.value = !modalActive.value;
-		emitter.emit("modal-active", modalActive.value);
 	};
 
 	const config = {
@@ -151,15 +201,11 @@
 
 	const submitRequest = async () => {
 		await axios
-			.delete(
-				`${authStore.apiAddress}/api/wearers/${deletedId.value}`,
-				config
-			)
+			.delete(`${authStore.apiAddress}/api/wearers/${deletedId.value}`, config)
 			.then((response) => {
 				if (response.status === 200) {
 					getData();
-					successMessage.value =
-						translatedValues.value.successMessage;
+					successMessage.value = translatedValues.value.successMessage;
 					setTimeout(() => {
 						fadeIn.value = false; // Remove fadeIn class
 						setTimeout(() => {

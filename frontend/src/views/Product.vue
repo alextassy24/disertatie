@@ -5,6 +5,7 @@
 				<BackButton />
 				<LoadingWrapper :loading="loading">
 					<div v-if="product">
+						<Toast />
 						<div
 							class="flex flex-col items-start justify-center gap-3 lg:items-start lg:flex-row"
 						>
@@ -39,23 +40,26 @@
 								<h2 class="subtitle">
 									{{ translatedValues.liveLocation }}
 								</h2>
-								<GoogleMap
-									v-if="!mapLoading"
-									api-key="AIzaSyC7zv3FXxWveL_O3F2BA4E90m1buO0nH5U"
-									:class="{
-										'map-md': isMediumScreenOrAbove,
-										'map-sm': isSmallScreen,
-									}"
-									:center="showLiveLocation"
-									:zoom="18"
-									:key="mapKey"
-								>
-									<Marker
-										:options="{
-											position: showLiveLocation,
+								<div v-if="!mapLoading">
+									<GoogleMap
+										api-key="AIzaSyC7zv3FXxWveL_O3F2BA4E90m1buO0nH5U"
+										class="flex items-center md:justify-start md:items-start"
+										:class="{
+											'map-md': isMediumScreenOrAbove,
+											'map-sm': isSmallScreen,
 										}"
-									/>
-								</GoogleMap>
+										:center="showLiveLocation"
+										:zoom="18"
+										:key="mapKey"
+									>
+										<Marker
+											:options="{
+												position: showLiveLocation,
+											}"
+										/>
+									</GoogleMap>
+								</div>
+
 								<div
 									v-else
 									class="flex items-center justify-center gap-3 bg-gray-100 rounded shadow"
@@ -97,133 +101,47 @@
 							{{ translatedValues.locations }}
 						</h2>
 						<div
-							class="flex items-center gap-3 mx-2 mt-1 mb-4 text-lg"
-							:class="link ? 'justify-between' : 'justify-end'"
-						>
-							<div>
-								<label>{{ translatedValues.show }}</label>
-								<select
-									class="p-1 mx-2 bg-gray-200 rounded-lg focus:ring-2 focus:ring-green-500"
-									v-model="itemsPerPage"
-								>
-									<option value="5">5</option>
-									<option value="10">10</option>
-									<option value="20">20</option>
-									<option value="50">50</option>
-								</select>
-								<label>{{ translatedValues.perPage }}</label>
-							</div>
-						</div>
-						<div
 							v-if="locations.length > 0"
 							class="overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
 						>
-							<table class="min-w-full divide-y divide-gray-200">
-								<!-- Table headers -->
-								<thead>
-									<tr class="text-white bg-black">
-										<th>{{ translatedValues.latitude }}</th>
-										<th>
-											{{ translatedValues.longitude }}
-										</th>
-										<th>{{ translatedValues.date }}</th>
-										<th>{{ translatedValues.time }}</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr
-										v-for="(location, index) in paginatedItems"
-										:key="index"
-									>
-										<td>{{ location.latitude }}</td>
-										<td>{{ location.longitude }}</td>
-										<td>{{ location.date }}</td>
-										<td>{{ location.time }}</td>
-										<td>
-											<button
-												class="btn-primary"
-												@click="toggleModal(location)"
-											>
-												<i class="fa-solid fa-eye"></i>
-											</button>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="flex items-center justify-between m-3 mt-5">
-								<div class="flex gap-3">
-									<button
-										class="flex items-center gap-1"
-										@click="goToPage(1)"
-										:class="
-											currentPage == 1 ? 'btn-disabled' : 'pagination-btn'
-										"
-									>
-										<i class="fa-solid fa-backward-fast"></i>
-										<span class="hidden lg:block">{{
-											translatedValues.firstBtn
-										}}</span>
-									</button>
-									<button
-										class="flex items-center gap-1"
-										@click="goToPage(currentPage - 1)"
-										:disabled="currentPage == 1"
-										:class="
-											currentPage == 1 ? 'btn-disabled' : 'pagination-btn'
-										"
-									>
-										<i class="fa-solid fa-backward-step"></i>
-										<span class="hidden lg:block">{{
-											translatedValues.previousBtn
-										}}</span>
-									</button>
-								</div>
-								<div class="hidden lg:inline-block">
-									<span>{{ translatedValues.tablePage }}</span>
-									{{ currentPage }}
-									{{ translatedValues.tableOf }}
-									{{ totalPages }}
-								</div>
-								<div class="flex gap-3">
-									<button
-										class="flex items-center gap-1"
-										@click="goToPage(currentPage + 1)"
-										:class="
-											currentPage == totalPages
-												? 'btn-disabled'
-												: 'pagination-btn'
-										"
-										:disabled="currentPage == totalPages"
-									>
-										<span class="hidden lg:block">{{
-											translatedValues.nextBtn
-										}}</span>
-										<i class="fa-solid fa-forward-step"></i>
-									</button>
-									<button
-										class="flex items-center gap-1"
-										@click="goToPage(totalPages)"
-										:disabled="currentPage == totalPages"
-										:class="
-											currentPage == totalPages
-												? 'btn-disabled'
-												: 'pagination-btn'
-										"
-									>
-										<span class="hidden lg:block">{{
-											translatedValues.lastBtn
-										}}</span>
-										<i class="fa-solid fa-forward-fast"></i>
-									</button>
-								</div>
-							</div>
-
-							<div class="block text-center lg:hidden">
-								<span>{{ translatedValues.tablePage }}</span>
-								{{ currentPage }}
-								{{ translatedValues.tableOf }} {{ totalPages }}
-							</div>
+							<DataTable
+								:value="locations"
+								:rows="5"
+								:rowsPerPageOptions="[5, 10, 20, 50]"
+								paginator
+								removableSort
+								stripedRows
+								scrollable
+								scrollHeight="350px"
+								selectionMode="single"
+								dataKey="id"
+								@rowSelect="onRowSelect"
+							>
+								<Column
+									headerClass="text-white bg-black"
+									field="latitude"
+									:header="translatedValues.latitude"
+									sortable
+								></Column>
+								<Column
+									headerClass="text-white bg-black"
+									field="longitude"
+									:header="translatedValues.longitude"
+									sortable
+								></Column>
+								<Column
+									headerClass="text-white bg-black"
+									field="date"
+									:header="translatedValues.date"
+									sortable
+								></Column>
+								<Column
+									headerClass="text-white bg-black"
+									field="time"
+									:header="translatedValues.time"
+									sortable
+								></Column>
+							</DataTable>
 							<BaseModal
 								:modalActive="modalActive"
 								:show-buttons="false"
@@ -262,19 +180,22 @@
 </template>
 
 <script setup>
-	import { ref, computed, onMounted, reactive } from "vue";
+	import { ref, computed, onMounted, reactive, watch } from "vue";
 	import { useRoute } from "vue-router";
 	import { useI18n } from "vue-i18n";
 	import { useAuthStore } from "../store/auth";
 	import { useScreenSize } from "../utils/useScreenSize";
+	import { useToast } from "primevue/usetoast";
 	import { GoogleMap, Marker } from "vue3-google-map";
 	import axios from "axios";
 	import AuthenticatedWrapper from "../components/AuthenticatedWrapper.vue";
-	import PaginatedTable from "../components/PaginatedTable.vue";
 	import LoadingWrapper from "../components/LoadingWrapper.vue";
 	import BaseModal from "../components/BaseModal.vue";
 	import BackButton from "../components/BackButton.vue";
 	import * as signalR from "@microsoft/signalr";
+	import DataTable from "primevue/datatable";
+	import Column from "primevue/column";
+	import Toast from "primevue/toast";
 
 	const { t } = useI18n();
 	const authStore = useAuthStore();
@@ -310,18 +231,38 @@
 			nextBtn: t("view-data.NextBtn"),
 			lastBtn: t("view-data.LastBtn"),
 			show: t("view-data.Show"),
+			locationReceived: t("product.LocationReceived"),
 		};
 	});
 
-	const toggleModal = (location) => {
+	const toast = useToast();
+
+	const showSuccess = (location) => {
+		toast.add({
+			severity: "success",
+			summary: translatedValues.value.locationReceived,
+			detail: `Lat: ${location.latitude}, Lng: ${location.longitude}`,
+			life: 3000,
+		});
+	};
+
+	const toggleModal = () => {
 		modalActive.value = !modalActive.value;
-		if (location !== null && locations.value[location.id]) {
-			showLocation.value.lat = parseFloat(location.latitude);
-			showLocation.value.lng = parseFloat(location.longitude);
+	};
+
+	const onRowSelect = (event) => {
+		const location = event.data;
+		if (event.data.latitude != null && event.data.longitude != null) {
+			showLocation.value = {
+				lat: parseFloat(location.latitude),
+				lng: parseFloat(location.longitude),
+			};
 		} else {
 			showLocation.value.lat = 0;
 			showLocation.value.lng = 0;
 		}
+
+		modalActive.value = !modalActive.value;
 	};
 
 	const getProductData = async () => {
@@ -336,29 +277,14 @@
 					loading.value = false;
 					if (response.status === 200) {
 						product.value = response.data.product;
-						locations.value = response.data.locations;
-						// console.log(locations.value);
+						// locations.value = response.data.locations;
+						locations.value = response.data.locations.sort(
+							(a, b) =>
+								new Date(b.date + " " + b.time) -
+								new Date(a.date + " " + a.time)
+						);
 					}
 				});
-		}
-	};
-
-	const currentPage = ref(1);
-	const itemsPerPage = ref(5);
-
-	const paginatedItems = computed(() => {
-		const startIndex = (currentPage.value - 1) * itemsPerPage.value;
-		const endIndex = startIndex + itemsPerPage.value;
-		return locations.value.slice(startIndex, endIndex);
-	});
-
-	const totalPages = computed(() =>
-		Math.ceil(locations.value.length / itemsPerPage.value)
-	);
-
-	const goToPage = (page) => {
-		if (page >= 1 && page <= totalPages.value) {
-			currentPage.value = page;
 		}
 	};
 
@@ -372,28 +298,28 @@
 			.build();
 
 		connection.on("ReceiveLocationUpdate", (location) => {
-			// console.log("New location data received:", location);
-			// console.log(location.productID);
 			if (location.productID === product.value.deviceID) {
 				mapLoading.value = false;
 				showLiveLocation.value.lat = parseFloat(location.latitude);
 				showLiveLocation.value.lng = parseFloat(location.longitude);
 				mapKey.value++;
-				locations.value.push({
+				locations.value.unshift({
 					latitude: location.latitude,
 					longitude: location.longitude,
 					date: location.date,
 					time: location.time,
 				});
-				// console.log(showLiveLocation.value.lat);
-				// console.log(showLiveLocation.value.lng);
+				showSuccess(location);
 			}
 		});
 
 		connection
 			.start()
 			.then(() => console.log("Connected to SignalR Hub"))
-			.catch((err) => console.error("Error connecting to SignalR Hub:", err));
+			.catch((err) => {
+				mapLoading.value = true;
+				console.error("Error connecting to SignalR Hub:", err);
+			});
 	}
 	onMounted(() => {
 		getProductData();

@@ -150,7 +150,7 @@
 		"AddWearers": "Puteți adăuga folosind butonul alăturat",
 		"FullName": "Nume complet",
 		"Age": "Vârstă",
-		"DeleteItem": "Sigur doriți să ștergeți persoana cu nr.",
+		"DeleteItem": "Sigur doriți să ștergeți persoana ",
 		"SuccessMessage": "Persoana a fost ștearsă cu succes!",
 		"PerPage": "persoane per pagină"
 	},
@@ -384,7 +384,8 @@
 		"Date": "Dată",
 		"Time": "Oră",
 		"LocationLoading": "Se încarcă locația...",
-		"LiveLocation": "Locație în timp real"
+		"LiveLocation": "Locație în timp real",
+		"LocationReceived": "Locație nouă disponibilă"
 	},
 	"docs": {
 		"Title": "Instrucțiuni de utilizare a aplicației",

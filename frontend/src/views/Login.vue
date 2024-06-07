@@ -61,13 +61,7 @@
 								class="absolute inset-y-0 right-0 flex items-center px-3"
 								@click="togglePasswordVisibility"
 							>
-								<i
-									:class="
-										showPassword
-											? 'fa fa-eye-slash'
-											: 'fa fa-eye'
-									"
-								></i>
+								<i :class="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
 							</button>
 						</div>
 						<ErrorMessage
@@ -83,9 +77,7 @@
 							:disabled="isLoading"
 						>
 							{{
-								isLoading
-									? translatedValues.btnLoading
-									: translatedValues.btn
+								isLoading ? translatedValues.btnLoading : translatedValues.btn
 							}}
 						</button>
 					</div>
@@ -232,12 +224,9 @@
 				.refine((value) => /[0-9]/.test(value), {
 					message: translatedValues.value.passwordError.number,
 				})
-				.refine(
-					(value) => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(value),
-					{
-						message: translatedValues.value.passwordError.special,
-					}
-				),
+				.refine((value) => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(value), {
+					message: translatedValues.value.passwordError.special,
+				}),
 		})
 	);
 
@@ -271,8 +260,7 @@
 					};
 					authStore.login(user);
 
-					successMessage.value =
-						translatedValues.value.successMessage;
+					successMessage.value = translatedValues.value.successMessage;
 
 					setTimeout(() => {
 						router.push("/");
@@ -282,10 +270,7 @@
 			.catch((error) => {
 				isLoading.value = false;
 				// console.log(error)
-				if (
-					error.response.status === 404 ||
-					error.response.status === 400
-				) {
+				if (error.response.status === 404 || error.response.status === 400) {
 					errorMessage.value = translatedValues.value.modelFailed;
 				}
 			});

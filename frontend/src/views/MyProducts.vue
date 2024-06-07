@@ -16,16 +16,65 @@
 						<i class="fa-solid fa-circle-check"></i>
 						<span>{{ translatedValues.successMessage }}</span>
 					</div>
+
 					<div v-if="products.length > 0">
-						<PaginatedTable
-							:headers="headers"
-							:items="products"
-							:page="page"
-							:action="toggleModal"
-							:link="link"
-							:item-page="itemPage"
-							:deleteBtn="deleteBtn"
-						/>
+						<div class="flex justify-end">
+							<router-link
+								to="/register-product"
+								class="flex items-center gap-2 mb-3 btn"
+							>
+								<i class="fa-solid fa-plus"></i>
+								<span class="hidden lg:inline">{{ translatedValues.add }}</span>
+							</router-link>
+						</div>
+						<div
+							class="overflow-x-scroll shadow lg:overflow-x-hidden rounded-xl"
+						>
+							<DataTable
+								:value="products"
+								dataKey="id"
+								tableStyle="min-width: 50rem"
+								:rows="5"
+								:rowsPerPageOptions="[5, 10, 20, 50]"
+								paginator
+								sortMode="multiple"
+								removableSort
+								stripedRows
+								class="text-center"
+							>
+								<Column
+									field="serialNumber"
+									:header="translatedValues.serialNumber"
+									headerClass="text-white bg-black"
+									sortable
+								></Column>
+								<Column
+									field="deviceID"
+									header="GUID"
+									headerClass="text-white bg-black"
+									sortable
+								></Column>
+								<Column headerClass="text-white bg-black">
+									<template #body="slotProps">
+										<div class="flex gap-2">
+											<router-link
+												:to="`/products/${slotProps.data.id}`"
+												class="btn-primary"
+												tag="button"
+											>
+												<i class="fa-solid fa-eye"></i>
+											</router-link>
+											<button
+												class="btn-danger"
+												@click="toggleModal(slotProps.data.id)"
+											>
+												<i class="fa-solid fa-trash-can"></i>
+											</button>
+										</div>
+									</template>
+								</Column>
+							</DataTable>
+						</div>
 						<BaseModal
 							:modalActive="modalActive"
 							@close-modal="toggleModal(null)"
@@ -75,11 +124,12 @@
 	import { useI18n } from "vue-i18n";
 	import { useAuthStore } from "../store/auth";
 	import Hero from "../components/Hero.vue";
-	import PaginatedTable from "../components/PaginatedTable.vue";
 	import BaseModal from "../components/BaseModal.vue";
 	import LoadingWrapper from "../components/LoadingWrapper.vue";
 	import AuthenticatedWrapper from "../components/AuthenticatedWrapper.vue";
 	import BackButton from "../components/BackButton.vue";
+	import DataTable from "primevue/datatable";
+	import Column from "primevue/column";
 
 	const { t } = useI18n();
 	const authStore = useAuthStore();
@@ -89,13 +139,9 @@
 	const emitter = inject("emitter");
 
 	const products = ref([]);
-	const page = ref("my-products");
-	const link = ref("/register-product");
-	const itemPage = ref("products");
 	const fadeIn = ref(true);
 	const fadeOut = ref(false);
 	const loading = ref(true);
-	const deleteBtn = ref(true);
 
 	const translatedValues = computed(() => {
 		return {
@@ -109,16 +155,6 @@
 			successMessage: t("my-products.SuccessMessage"),
 		};
 	});
-
-	const headers = ref([
-		"Nr. Crt.",
-		translatedValues.value.serialNumber,
-		"GUID",
-		translatedValues.value.wearer,
-		"",
-		"",
-		"",
-	]);
 
 	const toggleModal = (id) => {
 		deletedId.value = id;
@@ -147,16 +183,12 @@
 			headers: { Authorization: `Bearer ${authStore.token}` },
 		};
 		await axios
-			.delete(
-				`${authStore.apiAddress}/api/products/${deletedId.value}`,
-				config
-			)
+			.delete(`${authStore.apiAddress}/api/products/${deletedId.value}`, config)
 			.then((response) => {
 				if (response.status === 200) {
 					getData();
 
-					successMessage.value =
-						translatedValues.value.successMessage;
+					successMessage.value = translatedValues.value.successMessage;
 					setTimeout(() => {
 						fadeIn.value = false; // Remove fadeIn class
 						setTimeout(() => {
