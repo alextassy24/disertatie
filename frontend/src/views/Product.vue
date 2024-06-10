@@ -17,11 +17,15 @@
 								<div
 									class="mx-auto mb-10 overflow-hidden bg-white rounded-lg shadow-lg"
 								>
-									<table class="min-w-full divide-y divide-gray-200">
+									<table
+										class="min-w-full divide-y divide-gray-200"
+									>
 										<tbody>
 											<tr>
 												<td>
-													{{ translatedValues.serialNumber }}
+													{{
+														translatedValues.serialNumber
+													}}
 												</td>
 												<td>
 													{{ product.serialNumber }}
@@ -93,7 +97,9 @@
 											class="text-gray-900"
 										></path>
 									</svg>
-									<span>{{ translatedValues.locaitonLoading }}</span>
+									<span>{{
+										translatedValues.locaitonLoading
+									}}</span>
 								</div>
 							</div>
 						</div>
@@ -156,7 +162,9 @@
 									:center="showLocation"
 									:zoom="18"
 								>
-									<Marker :options="{ position: showLocation }" />
+									<Marker
+										:options="{ position: showLocation }"
+									/>
 								</GoogleMap>
 							</BaseModal>
 						</div>
@@ -292,10 +300,21 @@
 	const mapLoading = ref(true);
 	const mapKey = ref(0);
 	// if(product.deviceID)
-	if (authStore.isAuthenticated && product.value) {
+	console.log(product.value);
+	console.log(authStore.isAuthenticated);
+	if (authStore.isAuthenticated && product) {
+		// console.log("trying websocket connection");
 		const connection = new signalR.HubConnectionBuilder()
 			.withUrl(`${authStore.apiAddress}/ws/gps-hub`)
 			.build();
+
+		connection
+			.start()
+			.then(() => console.log("Connected to SignalR Hub"))
+			.catch((err) => {
+				mapLoading.value = true;
+				console.error("Error connecting to SignalR Hub:", err);
+			});
 
 		connection.on("ReceiveLocationUpdate", (location) => {
 			if (location.productID === product.value.deviceID) {
@@ -310,16 +329,14 @@
 					time: location.time,
 				});
 				showSuccess(location);
+				// console.log(
+				// 	"location received: " +
+				// 		location.latitude +
+				// 		" " +
+				// 		location.longitude
+				// );
 			}
 		});
-
-		connection
-			.start()
-			.then(() => console.log("Connected to SignalR Hub"))
-			.catch((err) => {
-				mapLoading.value = true;
-				console.error("Error connecting to SignalR Hub:", err);
-			});
 	}
 	onMounted(() => {
 		getProductData();
