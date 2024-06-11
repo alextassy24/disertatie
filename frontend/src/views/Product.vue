@@ -17,15 +17,11 @@
 								<div
 									class="mx-auto mb-10 overflow-hidden bg-white rounded-lg shadow-lg"
 								>
-									<table
-										class="min-w-full divide-y divide-gray-200"
-									>
+									<table class="min-w-full mb-5 divide-y divide-gray-200">
 										<tbody>
 											<tr>
 												<td>
-													{{
-														translatedValues.serialNumber
-													}}
+													{{ translatedValues.serialNumber }}
 												</td>
 												<td>
 													{{ product.serialNumber }}
@@ -37,6 +33,34 @@
 											</tr>
 										</tbody>
 									</table>
+								</div>
+								<div class="mt-5">
+									<h2 class="subtitle">{{ translatedValues.deviceStatus }}</h2>
+									<div
+										class="overflow-y-auto h-52"
+										v-if="statusMessages.length > 0"
+									>
+										<div
+											v-for="(statusMessage, index) in statusMessages"
+											:key="index"
+										>
+											<p>
+												{{ statusMessages.length - index }}.
+												{{ statusMessage.time }}
+											</p>
+											<Message
+												:severity="statusMessage.severity"
+												:closable="false"
+												>{{ statusMessage.text }}</Message
+											>
+										</div>
+									</div>
+									<div
+										v-else
+										class="p-3 font-bold text-red-500 bg-red-200 rounded shadow"
+									>
+										{{ translatedValues.noMessages }}
+									</div>
 								</div>
 							</div>
 
@@ -97,9 +121,7 @@
 											class="text-gray-900"
 										></path>
 									</svg>
-									<span>{{
-										translatedValues.locaitonLoading
-									}}</span>
+									<span>{{ translatedValues.locaitonLoading }}</span>
 								</div>
 							</div>
 						</div>
@@ -162,9 +184,7 @@
 									:center="showLocation"
 									:zoom="18"
 								>
-									<Marker
-										:options="{ position: showLocation }"
-									/>
+									<Marker :options="{ position: showLocation }" />
 								</GoogleMap>
 							</BaseModal>
 						</div>
@@ -204,6 +224,20 @@
 	import DataTable from "primevue/datatable";
 	import Column from "primevue/column";
 	import Toast from "primevue/toast";
+	import StatusMessage from "../components/StatusMessage.vue";
+	import Message from "primevue/message";
+
+	const getCurrentTime = () => {
+		const now = new Date();
+		const year = now.getFullYear();
+		const month = String(now.getMonth() + 1).padStart(2, "0");
+		const day = String(now.getDate()).padStart(2, "0");
+		const hours = String(now.getHours()).padStart(2, "0");
+		const minutes = String(now.getMinutes()).padStart(2, "0");
+		const seconds = String(now.getSeconds()).padStart(2, "0");
+
+		return `${day}.${month}.${year} ${hours}:${minutes}:${seconds}`;
+	};
 
 	const { t } = useI18n();
 	const authStore = useAuthStore();
@@ -214,6 +248,7 @@
 	const loading = ref(true);
 	const modalActive = ref(null);
 	const showLocation = ref({ lat: 0, lng: 0 });
+	const statusMessages = ref([]);
 
 	const { isMediumScreenOrAbove, isSmallScreen } = useScreenSize();
 	const translatedValues = computed(() => {
@@ -240,6 +275,12 @@
 			lastBtn: t("view-data.LastBtn"),
 			show: t("view-data.Show"),
 			locationReceived: t("product.LocationReceived"),
+			deviceStatus: t("product.DeviceStatus"),
+			connectedToServer: t("product.MessagesList.ConnectedToServer"),
+			aquiringSignal: t("product.MessagesList.AquiringSignal"),
+			noDataAvailable: t("product.MessagesList.NoDataAvaliable"),
+			dataSent: t("product.MessagesList.DataSent"),
+			noMessages: t("product.NoMessages"),
 		};
 	});
 
@@ -299,9 +340,6 @@
 	const showLiveLocation = ref({ lat: 0, lng: 0 });
 	const mapLoading = ref(true);
 	const mapKey = ref(0);
-	// if(product.deviceID)
-	console.log(product.value);
-	console.log(authStore.isAuthenticated);
 	if (authStore.isAuthenticated && product) {
 		// console.log("trying websocket connection");
 		const connection = new signalR.HubConnectionBuilder()
@@ -329,17 +367,42 @@
 					time: location.time,
 				});
 				showSuccess(location);
-				// console.log(
-				// 	"location received: " +
-				// 		location.latitude +
-				// 		" " +
-				// 		location.longitude
-				// );
 			}
+		});
+
+		connection.on("ReceiveStatusUpdate", (status) => {
+			// console.log(status);
+			const message = {
+				time: getCurrentTime(),
+				text: "",
+				severity: "",
+			};
+
+			switch (status) {
+				case "1":
+					message.text = translatedValues.value.connectedToServer;
+					message.severity = "info";
+					break;
+				case "2":
+					message.text = translatedValues.value.aquiringSignal;
+					message.severity = "warn";
+					break;
+				case "3":
+					message.text = translatedValues.value.noDataAvailable;
+					message.severity = "error";
+					break;
+				case "4":
+					message.text = translatedValues.value.dataSent;
+					message.severity = "success";
+					break;
+			}
+			// console.log(message);
+			statusMessages.value.unshift(message);
 		});
 	}
 	onMounted(() => {
 		getProductData();
+		// setInterval(updateTime, 1000);
 	});
 </script>
 

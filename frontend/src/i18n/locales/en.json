@@ -379,7 +379,15 @@
 		"Time": "Time",
 		"LocationLoading": "Loading live location...",
 		"LiveLocation": "Real Time Location",
-		"LocationReceived": "New location available"
+		"LocationReceived": "New location available",
+		"DeviceStatus": "Device status",
+		"NoMessages": "Status is not available at the moment",
+		"MessagesList": {
+			"ConnectedToServer": "Device is connected to the server.",
+			"AquiringSignal": "Aquiring GPS signal..",
+			"NoDataAvaliable": "GPS Data is not available.",
+			"DataSent": "GPS Data is available."
+		}
 	},
 	"docs": {
 		"Title": "Application Usage Instructions",

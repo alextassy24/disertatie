@@ -385,7 +385,15 @@
 		"Time": "Oră",
 		"LocationLoading": "Se încarcă locația...",
 		"LiveLocation": "Locație în timp real",
-		"LocationReceived": "Locație nouă disponibilă"
+		"LocationReceived": "Locație nouă disponibilă",
+		"DeviceStatus": "Status dispozitiv",
+		"NoMessages": "Momentan statusul nu este disponibil",
+		"MessagesList": {
+			"ConnectedToServer": "Dispozitivul s-a conectat la server.",
+			"AquiringSignal": "Se caută semnalul GPS..",
+			"NoDataAvaliable": "Datele GPS nu sunt valabile.",
+			"DataSent": "Datele GPS au fost transmise"
+		}
 	},
 	"docs": {
 		"Title": "Instrucțiuni de utilizare a aplicației",
