@@ -6,6 +6,7 @@
 		<div class="container flex items-center justify-between mx-auto">
 			<div class="flex items-center gap-1">
 				<router-link
+					@click="collapseMenu = false"
 					to="/"
 					active-class="brand-active"
 					class="navbar-brand"
@@ -29,7 +30,10 @@
 					</span>
 				</router-link>
 			</div>
-			<div class="flex gap-5 md:hidden me-3">
+			<div
+				v-if="isSmallScreen"
+				class="flex gap-5 me-3"
+			>
 				<LanguageSwitch />
 				<button @click="collapseMenu = !collapseMenu">
 					<i
@@ -44,7 +48,10 @@
 					></i>
 				</button>
 			</div>
-			<div class="items-center hidden gap-3 md:flex">
+			<div
+				v-if="isMediumScreenOrAbove"
+				class="flex items-center gap-3"
+			>
 				<ul class="flex gap-4">
 					<li
 						v-for="item in unauthNavigationItems"
@@ -63,9 +70,7 @@
 						@click="dropdownMenu = !dropdownMenu"
 						v-if="authStore.isAuthenticated"
 					>
-						<span
-							class="flex flex-col items-center cursor-pointer nav-link"
-						>
+						<span class="flex flex-col items-center cursor-pointer nav-link">
 							<i class="fa-solid fa-user"></i>
 							<span class="flex flex-row items-center gap-1 mt-1">
 								<span>{{ truncatedEmail }}</span>
@@ -182,8 +187,10 @@
 	import { useI18n } from "vue-i18n";
 	import { useRouter } from "vue-router";
 	import { useAuthStore } from "../store/auth";
+	import { useScreenSize } from "../utils/useScreenSize";
 	import LanguageSwitch from "@/components/LanguageSwitch.vue";
 
+	const { isMediumScreenOrAbove, isSmallScreen } = useScreenSize();
 	const isModalActive = ref(false);
 	const emitter = inject("emitter");
 	emitter.on("modal-active", (value) => {

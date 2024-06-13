@@ -19,7 +19,6 @@
 
 <script setup>
 	import Tooltip from "./Tooltip.vue";
-	import { ref, onMounted, watch } from "vue";
 
 	const props = defineProps({
 		items: {
@@ -31,8 +30,7 @@
 	const navigateToItem = (sectionRef) => {
 		if (sectionRef && sectionRef.value) {
 			const element = sectionRef.value;
-			const top =
-				element.getBoundingClientRect().top + window.scrollY - 100;
+			const top = element.getBoundingClientRect().top + window.scrollY - 100;
 			window.scrollTo({
 				top: top,
 				behavior: "smooth",
