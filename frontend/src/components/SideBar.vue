@@ -37,39 +37,4 @@
 			});
 		}
 	};
-
-	// const activeSection = ref(null);
-
-	// const setActiveSection = (entries) => {
-	// 	entries.forEach((entry) => {
-	// 		if (entry.isIntersecting) {
-	// 			const activeItem = props.items.find(
-	// 				(item) => item.section.value === entry.target
-	// 			);
-	// 			if (activeItem) {
-	// 				activeSection.value = activeItem.name;
-	// 			}
-	// 		}
-	// 	});
-	// };
-
-	// onMounted(() => {
-	// 	const observer = new IntersectionObserver(setActiveSection, {
-	// 		root: null,
-	// 		rootMargin: "-50% 0px -50% 0px",
-	// 		threshold: 0,
-	// 	});
-
-	// 	props.items.forEach((item) => {
-	// 		if (item.section && item.section.value) {
-	// 			observer.observe(item.section.value);
-	// 		}
-	// 	});
-	// });
-
-	// watch(activeSection, (newVal) => {
-	// 	props.items.forEach((item) => {
-	// 		item.active = item.name === newVal;
-	// 	});
-	// });
 </script>
