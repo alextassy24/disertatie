@@ -3,7 +3,6 @@
 		class="relative"
 		@mouseover="show = true"
 		@mouseleave="show = false"
-		@click="hideTooltip"
 	>
 		<slot></slot>
 		<div
@@ -33,8 +32,4 @@
 
 	const show = ref(false);
 	const { isSmallScreen } = useScreenSize();
-
-	const hideTooltip = () => {
-		show.value = false;
-	};
 </script>
