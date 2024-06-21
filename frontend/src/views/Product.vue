@@ -352,7 +352,6 @@
 	const mapLoading = ref(true);
 	const mapKey = ref(0);
 	if (authStore.isAuthenticated && product) {
-		// console.log("trying websocket connection");
 		const connection = new signalR.HubConnectionBuilder()
 			.withUrl(`${authStore.apiAddress}/ws/gps-hub`)
 			.build();
@@ -366,7 +365,8 @@
 			});
 
 		connection.on("ReceiveLocationUpdate", (location) => {
-			if (location.productID === product.value.deviceID) {
+			console.log("Location update received:", location);
+			if (location.guid === product.value.deviceID) {
 				mapLoading.value = false;
 				showLiveLocation.value.lat = parseFloat(location.latitude);
 				showLiveLocation.value.lng = parseFloat(location.longitude);
@@ -382,38 +382,44 @@
 		});
 
 		connection.on("ReceiveStatusUpdate", (status) => {
-			// console.log(status);
-			const message = {
-				time: getCurrentTime(),
-				text: "",
-				severity: "",
-			};
-
-			switch (status) {
-				case "1":
-					message.text = translatedValues.value.connectedToServer;
-					message.severity = "info";
-					break;
-				case "2":
-					message.text = translatedValues.value.aquiringSignal;
-					message.severity = "warn";
-					break;
-				case "3":
-					message.text = translatedValues.value.noDataAvailable;
-					message.severity = "error";
-					break;
-				case "4":
-					message.text = translatedValues.value.dataSent;
-					message.severity = "success";
-					break;
+			// console.log("Status update received:", status);
+			if (status.guid === product.value.deviceID) {
+				// console.log("Status update: GUID IS the same with product");
+				const message = {
+					time: getCurrentTime(),
+					text: "",
+					severity: "",
+				};
+				// console.log(status.status_message);
+				switch (status.status_message) {
+					case "1":
+						message.text = translatedValues.value.connectedToServer;
+						message.severity = "info";
+						break;
+					case "2":
+						message.text = translatedValues.value.aquiringSignal;
+						message.severity = "warn";
+						break;
+					case "3":
+						message.text = translatedValues.value.noDataAvailable;
+						message.severity = "error";
+						break;
+					case "4":
+						message.text = translatedValues.value.dataSent;
+						message.severity = "success";
+						break;
+				}
+				statusMessages.value.unshift(message);
 			}
-			// console.log(message);
-			statusMessages.value.unshift(message);
 		});
 
 		connection.on("ReceiveBatteryUpdate", (status) => {
-			console.log(status);
-			battery.value = status;
+			// console.log("Battery update received:", status);
+			// console.log(status.battery_percentage);
+			if (status.guid === product.value.deviceID) {
+				// console.log("Battery update: GUID IS the same with product");
+				battery.value = status.battery_percentage;
+			}
 		});
 	}
 
