@@ -75,9 +75,7 @@
 								:disabled="isLoading"
 							>
 								{{
-									isLoading
-										? translatedValues.btnLoading
-										: translatedValues.btn
+									isLoading ? translatedValues.btnLoading : translatedValues.btn
 								}}
 							</button>
 						</div>
@@ -186,12 +184,9 @@
 				.refine((value) => /[0-9]/.test(value), {
 					message: translatedValues.value.passwordError.number,
 				})
-				.refine(
-					(value) => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(value),
-					{
-						message: translatedValues.value.passwordError.special,
-					}
-				),
+				.refine((value) => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(value), {
+					message: translatedValues.value.passwordError.special,
+				}),
 			newPassword: z
 				.string()
 				.min(1, translatedValues.value.newPasswordError.required)
@@ -205,12 +200,9 @@
 				.refine((value) => /[0-9]/.test(value), {
 					message: translatedValues.value.passwordError.number,
 				})
-				.refine(
-					(value) => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(value),
-					{
-						message: translatedValues.value.passwordError.special,
-					}
-				),
+				.refine((value) => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(value), {
+					message: translatedValues.value.passwordError.special,
+				}),
 			confirmPassword: z
 				.string()
 				.min(1, translatedValues.value.confirmPasswordError.required)
@@ -236,7 +228,10 @@
 		};
 
 		const config = {
-			headers: { Authorization: `Bearer ${authStore.token}` },
+			headers: {
+				Authorization: `Bearer ${authStore.token}`,
+				"X-CSRF-TOKEN": authStore.csrfToken,
+			},
 		};
 
 		axios
@@ -244,8 +239,7 @@
 			.then((response) => {
 				// console.log(response);
 				if (response.status === 200) {
-					successMessage.value =
-						translatedValues.value.successMessage;
+					successMessage.value = translatedValues.value.successMessage;
 
 					setTimeout(() => {
 						router.push("/");
@@ -261,20 +255,16 @@
 				} else {
 					switch (error.response.data.message) {
 						case 1:
-							errorMessage.value =
-								translatedValues.value.samePasswords;
+							errorMessage.value = translatedValues.value.samePasswords;
 							break;
 						case 2:
-							errorMessage.value =
-								translatedValues.value.failedToChange;
+							errorMessage.value = translatedValues.value.failedToChange;
 							break;
 						case 3:
-							errorMessage.value =
-								translatedValues.value.incorrectPassword;
+							errorMessage.value = translatedValues.value.incorrectPassword;
 							break;
 						case 4:
-							errorMessage.value =
-								translatedValues.value.modelFailed;
+							errorMessage.value = translatedValues.value.modelFailed;
 							break;
 					}
 				}

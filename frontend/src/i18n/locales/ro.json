@@ -393,7 +393,9 @@
 			"AquiringSignal": "Se caută semnalul GPS..",
 			"NoDataAvaliable": "Datele GPS nu sunt valabile.",
 			"DataSent": "Datele GPS au fost transmise"
-		}
+		},
+		"BatteryStatus": "Baterie",
+		"BatteryLoading": "Se încarcă..."
 	},
 	"docs": {
 		"Title": "Instrucțiuni de utilizare a aplicației",

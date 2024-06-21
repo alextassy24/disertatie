@@ -31,6 +31,15 @@
 												<td>GUID</td>
 												<td>{{ product.deviceID }}</td>
 											</tr>
+											<tr>
+												<td>{{ translatedValues.batteryStatus }}</td>
+												<td>
+													{{
+														battery ? battery : translatedValues.batteryLoading
+													}}
+													<span v-if="battery">%</span>
+												</td>
+											</tr>
 										</tbody>
 									</table>
 								</div>
@@ -248,6 +257,7 @@
 	const modalActive = ref(null);
 	const showLocation = ref({ lat: 0, lng: 0 });
 	const statusMessages = ref([]);
+	const battery = ref();
 
 	const { isMediumScreenOrAbove, isSmallScreen } = useScreenSize();
 	const translatedValues = computed(() => {
@@ -280,6 +290,8 @@
 			noDataAvailable: t("product.MessagesList.NoDataAvaliable"),
 			dataSent: t("product.MessagesList.DataSent"),
 			noMessages: t("product.NoMessages"),
+			batteryStatus: t("product.BatteryStatus"),
+			batteryLoading: t("product.BatteryLoading"),
 		};
 	});
 
@@ -398,7 +410,13 @@
 			// console.log(message);
 			statusMessages.value.unshift(message);
 		});
+
+		connection.on("ReceiveBatteryUpdate", (status) => {
+			console.log(status);
+			battery.value = status;
+		});
 	}
+
 	onMounted(() => {
 		getProductData();
 		// setInterval(updateTime, 1000);

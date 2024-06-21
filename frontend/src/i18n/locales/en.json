@@ -387,7 +387,9 @@
 			"AquiringSignal": "Aquiring GPS signal..",
 			"NoDataAvaliable": "GPS Data is not available.",
 			"DataSent": "GPS Data is available."
-		}
+		},
+		"BatteryStatus": "Battery",
+		"BatteryLoading": "Loading..."
 	},
 	"docs": {
 		"Title": "Application Usage Instructions",
