@@ -365,8 +365,9 @@
 			});
 
 		connection.on("ReceiveLocationUpdate", (location) => {
-			console.log("Location update received:", location);
-			if (location.guid === product.value.deviceID) {
+			// console.log("Location update received:", location);
+			if (location.productID === product.value.deviceID) {
+				// console.log("guid is the same");
 				mapLoading.value = false;
 				showLiveLocation.value.lat = parseFloat(location.latitude);
 				showLiveLocation.value.lng = parseFloat(location.longitude);
